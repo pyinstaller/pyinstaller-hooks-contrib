@@ -1,0 +1,28 @@
+*~
+.\#*
+\#*#
+
+*.py[co]
+__pycache__/
+/*.egg
+*.egg-info/
+*.egg-link
+/.eggs/
+/.pytest_cache/
+
+# /
+/build/
+/dist/
+/*.patch
+/MANIFEST
+/README.html
+
+# Temporary files from editor and tools
+*.swp
+.ropeproject
+.idea
+.spyproject
+.DS_store
+*.pdb
+.cache
+*.prof
