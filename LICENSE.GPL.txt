@@ -2,11 +2,14 @@
  The PyInstaller community hooks licensing terms
 ================================================
 
-The PyInstaller community hooks are licensed under the terms of the GNU
+The PyInstaller Community Hooks are licensed under the terms of the GNU
 General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later version.
 
-Please note that this license only applies to files which have the following header:
+This license - and "Community Hooks" - apply to all files in this repository
+that do not specifically state otherwise.
+
+Please add the following header to files which aren't runtime hooks (LICENSE.APL.txt):
 
 # ------------------------------------------------------------------
 # Copyright (c) 2020 PyInstaller Development Team.
