@@ -1,0 +1,21 @@
+============================================
+PyInstaller community hooks: License details
+============================================
+
+This software is made available under the terms of the licenses
+found in LICENSE.APL.txt or LICENSE.GPL.txt Contributions to the community hooks are made
+under the terms of the license that covers that type of hook. (See below)
+
+
+Standard hooks
+--------------
+
+These are all hooks except runtime hooks.
+These files are licensed under the terms found in LICENSE.GPL.txt.
+
+
+Runtime hooks
+-------------
+
+These are runtime hooks, bundled with complete pyinstaller executables.
+These files are licensed under the terms found in LICENSE.APL.txt.
