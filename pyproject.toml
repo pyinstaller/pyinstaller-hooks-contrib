@@ -1,0 +1,32 @@
+[tool.towncrier]
+	filename = "CHANGELOG.rst"
+	directory = "news"
+	template = "news/_template.rst"
+	underlines = "-~^"
+	wrap = true
+	package = "_pyinstaller_hooks_contrib"
+	package_dir = "src"
+	title_format = "{version} ({project_date})"
+
+	[[tool.towncrier.section]]
+		path = ""
+
+	[[tool.towncrier.type]]
+		directory = "new"
+		name = "New hooks"
+		showcontent = true
+
+	[[tool.towncrier.type]]
+		directory = "update"
+		name = "Updated hooks"
+		showcontent = true
+
+	[[tool.towncrier.type]]
+		directory = "process"
+		name = "Project & Process"
+		showcontent = true
+
+	[[tool.towncrier.type]]
+		directory = "tests"
+		name = "Test-suite and Continuous Integration"
+		showcontent = true
