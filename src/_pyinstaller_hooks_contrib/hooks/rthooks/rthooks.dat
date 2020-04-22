@@ -1,0 +1,4 @@
+{
+    'enchant': ['pyi_rth_enchant.py'],
+    'osgeo': ['pyi_rth_osgeo.py']
+}
