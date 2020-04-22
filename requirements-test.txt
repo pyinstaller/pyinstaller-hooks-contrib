@@ -1,0 +1,42 @@
+# PyTest
+pytest >= 2.7.3
+pytest-timeout  # Stop hanging tests
+pytest-xdist  # Distributed testing
+execnet >= 1.5.0  # for pytest-xdist
+pytest-drop-dup-tests  # Don't run tests twice
+
+# The development version of pyinstaller. We need PYI 4.0.x
+https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
+
+
+# ------------------ LIBRARIES ------------------ #
+# TODO: Add most of the libraries we have hooks for, and write tests
+boto==2.49.0
+boto3==1.12.33
+botocore==1.15.33
+h5py==2.10.0
+markdown==3.2.1
+endulum==2.0.5
+phonenumbers==8.12.1
+pinyin==0.4.0
+pycparser==2.20
+pycryptodome==3.9.7
+pycryptodomex==3.9.7
+pyexcelerate==0.8.0
+pylint==2.4.4
+pyusb==1.0.2
+pyzmq==19.0.0
+Unidecode==1.1.1
+zeep==3.4.0
+
+# ------------------- Python Version/Platform (OS) specifics
+# These libraries only support python above 3.5
+openpyxl==3.0.3; python_version > '3.5'
+web3==5.7.0; python_version > '3.5'
+
+# PyEnchant only pre-builds macOS and Windows
+pyenchant==3.0.1; sys_platform == 'darwin' or sys_platform == 'win32'
+
+# uvloop does not currently support Windows.
+uvloop==0.14.0; sys_platform != 'win32'
+
