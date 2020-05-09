@@ -18,11 +18,13 @@ services:
   - xvfb  # We might need to test GUIs https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-services-xvfb.
 
 
-jobs:
-  include:
-    - stage: Test
-      before_install:
-        - pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
-        - pip install -e .
-        - pip install -r requirements-test.txt
-      script: python -m PyInstaller.utils.runtests
+
+install:
+  - pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
+  - pip install -e .
+  - pip install -r requirements-test.txt
+
+script: Test
+  - python -m PyInstaller.utils.runtests
+
+
