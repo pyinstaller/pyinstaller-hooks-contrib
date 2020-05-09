@@ -1,2 +1,2 @@
 # The development version of pyinstaller
-pip @ https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
+https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz

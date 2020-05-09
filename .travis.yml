@@ -23,7 +23,6 @@ jobs:
     - stage: Test
       before_install:
         - pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
-        - pip install -r requirements-test.txt
-      script:
         - pip install -e .
-        - python -m PyInstaller.utils.runtests
+        - pip install -r requirements-test.txt
+      script: python -m PyInstaller.utils.runtests
