@@ -5,8 +5,8 @@ pytest-xdist  # Distributed testing
 execnet >= 1.5.0  # for pytest-xdist
 pytest-drop-dup-tests  # Don't run tests twice
 
-# The development version of pyinstaller. We need PYI 4.0.x
-https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
+# Include the normal requirements
+-r requirements.txt
 
 
 # ------------------ LIBRARIES ------------------ #

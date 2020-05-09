@@ -1,0 +1,29 @@
+language: python
+
+branches:
+  except:
+    - /pyup\/.*/
+
+
+dist: bionic
+
+os: linux
+
+python:
+  - 3.5
+  - 3.6
+  - 3.7
+
+services:
+  - xvfb  # We might need to test GUIs https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-services-xvfb.
+
+
+jobs:
+  include:
+    - stage: Test
+      before_install:
+        - pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
+        - pip install -r requirements-test.txt
+      script:
+        - pip install -e .
+        - python -m PyInstaller.utils.runtests
