@@ -119,8 +119,5 @@ setup(
     },
     cmdclass={
         'bump': BumpVersion
-    },
-    install_requires=[
-        'pip @ https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz'
-    ]
+    }
 )
