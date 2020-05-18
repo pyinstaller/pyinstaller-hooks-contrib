@@ -1,8 +1,8 @@
 ``pyinstaller-hooks-contrib``: The PyInstaller community hooks repository
 =========================================================================
 
-THIS REPO IS IN ALPHA DEVELOPMENT AND NOT READY FOR USE
--------------------------------------------------------
+THIS PACKAGE IS IN BETA
+-----------------------
 
 What happens when (your?) package doesn't work with PyInstaller? Say you have data files that you need at runtime? 
 PyInstaller doesn't bundle those. Your package requires others which PyInstaller can't see? How do you fix that?
@@ -12,8 +12,8 @@ The word "hook" is used for two kinds of files. A runtime hook helps the bootloa
 environment. A package hook (there are several types of those) tells PyInstaller what to include in the final app -
 such as the data files and (hidden) imports mentioned above.
 
-This repository is a collection of hooks for many packages, and allows PyInstaller to work with these packages with no
-extra configuration. 
+This repository is a collection of hooks for many packages, and allows PyInstaller to work with these packages
+seamlessly.
 
 Installation
 ------------
@@ -23,3 +23,20 @@ Installation
 ``pyinstaller-hooks-contrib`` can **not** (yet) be installed with pip::
 
     pip install pyinstaller-hooks-contrib
+
+
+
+I can't see a hook for ``a-package``
+-------------------------------------
+
+Either ``a-package`` works fine without a hook, or no-one has contributed hooks.
+If you'd like to add a hook, or view information about hooks,
+please see `the wiki <https://github.com/pyinstaller/pyinstaller-hooks-contrib/wiki>`_.
+
+
+I want to help!
+---------------
+
+Please start by providing pull requests and helping solve issues.
+If you plan to contribute frequently, send an email to
+``legorooj@protonmail.com`` to let us know.
