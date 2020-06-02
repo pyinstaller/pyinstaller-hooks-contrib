@@ -1,1 +1,1 @@
- Add a hook for ``sklearn``, which has a hidden import.
+Add a hook for ``sklearn``, which needs a dynamic library including.
