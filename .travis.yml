@@ -15,7 +15,7 @@ services:
 jobs:
   fast_finish: true
   include:
-    - &test-stable
+    - &test
       stage: PyInstaller stable release
       python: 3.7
       install:
@@ -31,9 +31,9 @@ jobs:
       script:
         - python -m PyInstaller.utils.run_tests -c pytest.ini
 
-    - <<: *test-stable &test-develop
+    - <<: *test
       stage: PyInstaller development version
-      install:
+      install: &install-develop
         # Upgrade to the latest pip.
         - python -m pip install -U pip setuptools wheel
 
@@ -44,11 +44,16 @@ jobs:
         # Install PyInstaller
         - pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
 
-    - <<: *test-stable
+    - <<: *test
       python: 3.6
-    - <<: *test-stable
-        python: 3.5
-    - <<: *test-develop
-        python: 3.6
-    - <<: *test-develop
-        python: 3.5
+    - <<: *test
+      python: 3.5
+
+    - <<: *test
+      stage: PyInstaller development version
+      python: 3.6
+      install: *install-develop
+    - <<: *test
+      stage: PyInstaller development version
+      python: 3.5
+      install: *install-develop
