@@ -1,0 +1,1 @@
+Add hook for ``jinxed``, which has hidden backends.

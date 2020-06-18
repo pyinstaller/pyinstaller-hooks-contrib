@@ -14,6 +14,17 @@ from PyInstaller.compat import is_darwin
 from PyInstaller.utils.tests import importorskip, xfail, skipif_win
 
 
+@importorskip('jinxed')
+def test_jinxed(pyi_builder):
+    pyi_builder.test_source(
+        '''
+        import jinxed
+        jinxed.setupterm('xterm')
+        assert jinxed._terminal.TERM.terminfo is jinxed.terminfo.xterm
+        '''
+    )
+
+
 @importorskip('tensorflow')
 def test_tensorflow(pyi_builder):
     pyi_builder.test_source(
