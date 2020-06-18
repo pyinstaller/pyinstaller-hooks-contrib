@@ -73,6 +73,7 @@ install:
 
   # Install hooks-contrib
   - pip install -e .
+  - pip install -r requirements-test.txt
 
   # Install PyInstaller
   - pip install %INSTALL_URL%
