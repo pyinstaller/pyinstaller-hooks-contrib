@@ -77,6 +77,8 @@ install:
   # Install PyInstaller
   - pip install %INSTALL_URL%
 
+build: none
+
 test_script:
   - ps: |
       $pyi_version = python -m PyInstaller --version
@@ -97,9 +99,3 @@ on_finish:
   - C:\cygwin\bin\find "%LOCALAPPDATA%\pip" -empty -delete
   # Show size of cache
   - C:\cygwin\bin\du -hs "%LOCALAPPDATA%\pip\Cache"
-  - ps: |
-      (new-object net.webclient).UploadFile(
-        "https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)",
-        (Resolve-Path .\junit-results.xml)
-      )
-      $LastExitCode = 0
