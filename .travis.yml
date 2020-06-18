@@ -28,8 +28,11 @@ jobs:
 
         # Install PyInstaller
         - pip install pyinstaller
-      script:
-        - python -m PyInstaller.utils.run_tests -c pytest.ini
+      script: |
+        PYI_VERSION="$(python -m PyInstaller --version)"
+        if ! [[$PYI_VERSION == *"3.6"*]]; then
+          python -m PyInstaller.utils.run_tests -c pytest.ini
+        fi
 
     - <<: *test
       stage: PyInstaller development version
