@@ -38,5 +38,5 @@ I want to help!
 ---------------
 
 Please start by providing pull requests and helping solve issues.
-If you plan to contribute frequently, send an email to
-``legorooj@protonmail.com`` to let us know.
+If you plan to contribute frequently or are interested in becoming a developer,
+send an email to ``legorooj@protonmail.com`` to let us know.
