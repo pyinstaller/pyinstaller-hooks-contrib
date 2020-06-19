@@ -38,8 +38,8 @@ jobs:
       
       - name: Run tests
         run: |
-          PYI_VERSION="$(python -m PyInstaller --version)"
-          if ! [[$PYI_VERSION == *"3.6"*]]; then
+          pyi_version="$(python -m PyInstaller --version)"
+          if [ "$pyi_version" != *"3.6"* ]; then
             python -m PyInstaller.utils.run_tests -c pytest.ini
           fi
   test-develop:
@@ -68,8 +68,4 @@ jobs:
           pip install https://github.com/pyinstaller/pyinstaller/archive/develop.zip
       
       - name: Run tests
-        run: |
-          PYI_VERSION="$(python -m PyInstaller --version)"
-          if ! [[$PYI_VERSION == *"3.6"*]]; then
-            python -m PyInstaller.utils.run_tests -c pytest.ini
-          fi
+        run: python -m PyInstaller.utils.run_tests -c pytest.ini
