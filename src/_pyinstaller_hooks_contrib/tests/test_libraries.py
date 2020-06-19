@@ -273,3 +273,8 @@ def test_pytest_runner(pyi_builder):
         import sys
         sys.exit(pytest.main(['--help']))
         """)
+
+
+@importorskip('eel')
+def test_eel(pyi_builder):
+    pyi_builder.test_source("import eel")
