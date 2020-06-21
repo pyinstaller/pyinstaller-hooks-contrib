@@ -29,6 +29,7 @@ pyusb==1.0.2
 pyzmq==19.0.0
 Unidecode==1.1.1
 zeep==3.4.0
+sentry-sdk==0.15.1
 
 # ------------------- Python Version/Platform (OS) specifics
 # These libraries only support python above 3.5

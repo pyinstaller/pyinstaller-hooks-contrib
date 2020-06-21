@@ -278,3 +278,12 @@ def test_pytest_runner(pyi_builder):
 @importorskip('eel')
 def test_eel(pyi_builder):
     pyi_builder.test_source("import eel")
+
+
+@importorskip('sentry_sdk')
+def test_sentry(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import sentry_sdk
+        sentry_sdk.init()
+        """)
