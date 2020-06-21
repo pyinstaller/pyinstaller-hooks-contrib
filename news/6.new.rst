@@ -1,1 +1,0 @@
-Add a hook for ``eel``, which needs to pull in ``eel.js`` and an extra library.
