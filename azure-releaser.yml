@@ -28,6 +28,9 @@ steps:
 - script: python -m towncrier --yes
   displayName: "Build changelog"
 
+- script: git tag v$(python setup.py --version)
+  displayName: "Create the release tag"
+
 - script: python setup.py bump --build
   displayName: "Bump the package version"
 
