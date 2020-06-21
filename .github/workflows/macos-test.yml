@@ -12,6 +12,7 @@ on:
 
 jobs:
   test-stable:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: macos-latest
     strategy:
       matrix:
@@ -43,6 +44,7 @@ jobs:
             python -m PyInstaller.utils.run_tests -c pytest.ini
           fi
   test-develop:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: macos-latest
     strategy:
       matrix:
