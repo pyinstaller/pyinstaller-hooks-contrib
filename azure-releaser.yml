@@ -44,9 +44,6 @@ steps:
 
 - script: git commit -m "Bump version"
   displayName: "Commit the git version bump"
- 
-- script: git tag v$(python setup.py --version)
-  displayName: "Create the release tag"
 
 - script: git tag -l
   displayName: "List the tags"
