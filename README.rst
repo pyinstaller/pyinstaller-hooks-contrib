@@ -20,22 +20,20 @@ Installation
 
 ``pyinstaller-hooks-contrib`` is automatically installed when you install PyInstaller.
 
-``pyinstaller-hooks-contrib`` can **not** (yet) be installed with pip::
+``pyinstaller-hooks-contrib`` can **not** (yet) be installed with pip:
 
     pip install pyinstaller-hooks-contrib
 
 
-
 I can't see a hook for ``a-package``
--------------------------------------
+------------------------------------
 
 Either ``a-package`` works fine without a hook, or no-one has contributed hooks.
 If you'd like to add a hook, or view information about hooks,
 please see `the wiki <https://github.com/pyinstaller/pyinstaller-hooks-contrib/wiki>`_.
 
 
-I want to help!
----------------
+## I want to help!
 
 Please start by providing pull requests and helping solve issues.
 If you plan to contribute frequently or are interested in becoming a developer,

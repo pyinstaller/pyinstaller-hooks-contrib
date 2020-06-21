@@ -128,5 +128,6 @@ setup(
     },
     cmdclass={
         'bump': BumpVersion
-    }
+    },
+    long_description_content_type='text/markdown'
 )
