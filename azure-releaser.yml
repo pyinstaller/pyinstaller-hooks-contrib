@@ -33,7 +33,7 @@ steps:
 
 - script: git checkout master
 
-- script: git add my_package/__init__.py && git add CHANGELOG.rst
+- script: git add src && git add CHANGELOG.rst && git status
   displayName: "Add the changes to git"
 
 - script: git config user.email "legorooj@protonmail.com" && git config user.name "legorooj"
