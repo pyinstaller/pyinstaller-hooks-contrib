@@ -11,6 +11,7 @@
 # ------------------------------------------------------------------
 from setuptools import setup, Command
 import os
+import datetime
 
 DIR = os.path.dirname(__file__)
 
@@ -19,7 +20,8 @@ class BumpVersion(Command):
     """Bump the package version in the source files."""
     description = 'Bump the version in all registered files.'
     user_options = [
-        ('major', None, 'Bump the major (leftmost) version number. If specified, the build NO will be set to 0.'),
+        ('major', None,
+         'Bump the major (leftmost) version number. If specified, build/minor version numbers will be set to 0.'),
         ('minor', None, 'Bump the minor (middle) version number. If specified, the build NO will be set to 0.'),
         ('build', None, 'Bump the build (rightmost) version number. (Default)')
     ]
@@ -78,20 +80,27 @@ class BumpVersion(Command):
                         print(ver)
                         
                         # If the tuple isn't valid - not len(3) - then it's not a valid version
-                        if len(ver) != 3:
+                        if len(ver) not in (2, 3):
                             print('Invalid version number. Skipping...')
                             continue
                         
-                        if self.major:
-                            ver[0] += 1
-                            ver[1] = 0
-                            ver[2] = 0
-                            
-                        elif self.minor:
-                            ver[1] += 1
-                            ver[2] = 0
+                        if len(ver) == 3:
+                            if self.major:
+                                ver[0] += 1
+                                ver[1] = 0
+                                ver[2] = 0
+                                
+                            elif self.minor:
+                                ver[1] += 1
+                                ver[2] = 0
+                            else:
+                                ver[2] += 1
                         else:
-                            ver[2] += 1
+                            if datetime.datetime.now().year != ver[0]:
+                                ver[0] = datetime.datetime.now().year
+                                ver[1] = 0
+                            else:
+                                ver[1] += 1
                         
                         ver = '.'.join(str(x) for x in ver)
                         
