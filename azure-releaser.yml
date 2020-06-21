@@ -1,0 +1,52 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- checkout: self
+  # Save the credentials used for repo checkout; we use them to push back into the repo
+  persistCredentials: true
+
+# Use the correct python version
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.7'
+  displayName: 'Use Python 3.7'
+
+- script: python -m pip install towncrier twine wheel
+  displayName: "Install dependencies"
+
+- script: |
+    python setup.py sdist bdist_wheel
+    python -m twine check dist/*
+  displayName: 'Build distribution archives'
+
+  # upload packages to PyPI
+
+- script: python -m towncrier --yes
+  displayName: "Build changelog"
+
+- script: python setup.py bump --build
+  displayName: "Bump the package version"
+
+- script: git checkout master
+
+- script: git add my_package/__init__.py && git add CHANGELOG.rst
+  displayName: "Add the changes to git"
+
+- script: git config user.email "legorooj@protonmail.com" && git config user.name "legorooj"
+  displayName: "Set the git user"
+
+- script: git commit -m "Bump version"
+  displayName: "Commit the git version bump"
+ 
+- script: git tag v$(python setup.py --version)
+  displayName: "Create the release tag"
+
+- script: git tag -l
+  displayName: "List the tags"
+
+- script: git push && git push --tags
+  displayName: "Push the changes into the repo"
