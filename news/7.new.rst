@@ -1,0 +1,1 @@
+Adding a hook for sentry which has hidden imports for its integrations
