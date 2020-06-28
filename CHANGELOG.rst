@@ -9,7 +9,7 @@ New hooks
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/7>`_)
 
 
-2020.4 (2020-06-21)
+2020.3 (2020-06-21)
 -------------------
 
 
