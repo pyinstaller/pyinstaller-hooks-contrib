@@ -23,7 +23,8 @@ steps:
     python -m twine check dist/*
   displayName: 'Build distribution archives'
 
-  # upload packages to PyPI
+- script: twine upload dist/* --disable-progress-bar -u __token__ -p $(twineToken) --non-interactive
+  displayName: 'Upload package to PyPI'
 
 - script: python -m towncrier --yes
   displayName: "Build changelog"
@@ -35,6 +36,7 @@ steps:
   displayName: "Bump the package version"
 
 - script: git checkout master
+  displayName: "Checkout the master branch for the release."
 
 - script: git add src && git add CHANGELOG.rst && git status
   displayName: "Add the changes to git"
