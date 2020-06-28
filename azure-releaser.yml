@@ -44,7 +44,7 @@ steps:
 - script: git config user.email "legorooj@protonmail.com" && git config user.name "legorooj"
   displayName: "Set the git user"
 
-- script: git commit -m "Bump version"
+- script: git commit -m "Bump version and build changelog [skip ci]"
   displayName: "Commit the git version bump"
 
 - script: git tag -l
