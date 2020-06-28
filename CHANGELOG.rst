@@ -1,3 +1,14 @@
+2020.4 (2020-06-28)
+-------------------
+
+
+New hooks
+~~~~~~~~~
+
+* Adding a hook for sentry which has hidden imports for its integrations (`#7
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/7>`_)
+
+
 2020.4 (2020-06-21)
 -------------------
 
