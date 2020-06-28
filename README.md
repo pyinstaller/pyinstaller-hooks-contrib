@@ -1,6 +1,6 @@
 # `pyinstaller-hooks-contrib`: The PyInstaller community hooks repository
 
-#### New PyInstaller team members wanted. Email `legorooj@protonmail.com` if you're interested.
+#### New PyInstaller team members wanted! Email `legorooj@protonmail.com` if you're interested.
 
 What happens when (your?) package doesn't work with PyInstaller? Say you have data files that you need at runtime? 
 PyInstaller doesn't bundle those. Your package requires others which PyInstaller can't see? How do you fix that?
