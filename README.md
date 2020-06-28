@@ -1,8 +1,6 @@
-``pyinstaller-hooks-contrib``: The PyInstaller community hooks repository
-=========================================================================
+# `pyinstaller-hooks-contrib`: The PyInstaller community hooks repository
 
-THIS PACKAGE IS IN BETA
------------------------
+#### New PyInstaller team members wanted. Email `legorooj@protonmail.com` if you're interested.
 
 What happens when (your?) package doesn't work with PyInstaller? Say you have data files that you need at runtime? 
 PyInstaller doesn't bundle those. Your package requires others which PyInstaller can't see? How do you fix that?
@@ -15,26 +13,26 @@ such as the data files and (hidden) imports mentioned above.
 This repository is a collection of hooks for many packages, and allows PyInstaller to work with these packages
 seamlessly.
 
-Installation
-------------
+## Installation
 
-``pyinstaller-hooks-contrib`` is automatically installed when you install PyInstaller.
+`pyinstaller-hooks-contrib` is automatically installed when you install PyInstaller.
 
-``pyinstaller-hooks-contrib`` can **not** (yet) be installed with pip:
+`pyinstaller-hooks-contrib` can be installed with pip, but is automatically installed when you install PyInstaller:
 
-    pip install pyinstaller-hooks-contrib
+```commandline
+pip install -U pyinstaller-hooks-contrib
+```
 
 
-I can't see a hook for ``a-package``
-------------------------------------
+## I can't see a hook for `a-package`
 
-Either ``a-package`` works fine without a hook, or no-one has contributed hooks.
+Either `a-package` works fine without a hook, or no-one has contributed hooks.
 If you'd like to add a hook, or view information about hooks,
-please see `the wiki <https://github.com/pyinstaller/pyinstaller-hooks-contrib/wiki>`_.
+please see [the wiki](https://github.com/pyinstaller/pyinstaller-hooks-contrib/wiki).
 
 
 ## I want to help!
 
 Please start by providing pull requests and helping solve issues.
 If you plan to contribute frequently or are interested in becoming a developer,
-send an email to ``legorooj@protonmail.com`` to let us know.
+send an email to `legorooj@protonmail.com` to let us know.
