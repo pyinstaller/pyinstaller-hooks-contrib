@@ -24,22 +24,6 @@ Tested on versions:
 
 """
 
-from PyInstaller.utils.hooks import exec_statement
+from PyInstaller.utils.hooks import collect_submodules
 
-
-locales = exec_statement(
-"""
-try:
-    from parsedatetime.pdt_locales import locales
-except ImportError:
-    pass
-else:
-    [print(i) for i in locales]
-""")
-
-if len(locales):
-    # Older versions were structured and loaded differently so don't need this
-    # support.
-    hiddenimports = ["parsedatetime.pdt_locales." + i for i in locales.split()]
-    assert len(hiddenimports)
-
+hiddenimports = collect_submodules("parsedatetime.pdt_locales")
