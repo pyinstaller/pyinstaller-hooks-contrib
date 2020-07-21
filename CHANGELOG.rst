@@ -1,3 +1,25 @@
+2020.6 (2020-07-21)
+-------------------
+
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``html-testRunner``, which has a hidden import. (`#8
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/8>`_)
+* Add a hook for ``parsedatetime``, which has hidden imports. (`#11
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/11>`_)
+* Add hook for ``dask``, which includes .yaml data files. (`#12
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/12>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Windows) cv2: bundle the `opencv_videoio_ffmpeg*.dll`, if available. (`#13
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/13>`_)
+
+
 2020.5 (2020-06-28)
 -------------------
 
