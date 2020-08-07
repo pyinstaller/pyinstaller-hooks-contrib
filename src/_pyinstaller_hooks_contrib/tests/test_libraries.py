@@ -34,6 +34,17 @@ def test_tensorflow(pyi_builder):
     )
 
 
+@importorskip('trimesh')
+def test_trimesh(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import trimesh
+        # The import of trimesh will also import a file called units_to_inches.json in resources folder.
+        # It is undetected by pyinstaller.
+        """
+    )
+
+
 @importorskip('boto')
 @xfail(reason='boto does not fully support Python 3')
 def test_boto(pyi_builder):
