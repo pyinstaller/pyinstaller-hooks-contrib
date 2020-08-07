@@ -39,8 +39,6 @@ def test_trimesh(pyi_builder):
     pyi_builder.test_source(
         """
         import trimesh
-        # The import of trimesh will also import a file called units_to_inches.json in resources folder.
-        # It is undetected by pyinstaller.
         """
     )
 
