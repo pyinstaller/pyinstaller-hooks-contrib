@@ -34,6 +34,15 @@ def test_tensorflow(pyi_builder):
     )
 
 
+@importorskip('trimesh')
+def test_trimesh(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import trimesh
+        """
+    )
+
+
 @importorskip('boto')
 @xfail(reason='boto does not fully support Python 3')
 def test_boto(pyi_builder):
