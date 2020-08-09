@@ -1,1 +1,0 @@
-Add hook for ``trimesh`` which requires importing resource files.

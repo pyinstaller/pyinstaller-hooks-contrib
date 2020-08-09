@@ -1,3 +1,31 @@
+2020.7 (2020-08-09)
+-------------------
+
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``gmplot``, which has some data files. (`#21
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/21>`_)
+* Add a hook for ``tinycss2``, which is missing data files. (`#16
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/16>`_)
+* Add a hook for ``workflow``, which is missing version information contained
+  in metadata. (`#17
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/17>`_)
+* Add hook for ``AnyIO`` which dynamically imports its backend modules. (`#22
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/22>`_)
+* Add hook for ``APScheduler`` which requires entry points and dynamic imports.
+  (`#23 <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/23>`_)
+* Add hook for ``trimesh`` which requires importing resource files. (`#25
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/25>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Rewrite the hooks for PyPubSub and ``wx.lib.pubsub`` so they work properly.
+
+
 2020.6 (2020-07-21)
 -------------------
 

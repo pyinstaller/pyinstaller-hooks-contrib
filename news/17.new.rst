@@ -1,1 +1,0 @@
-Add a hook for ``workflow``, which is missing version information contained in metadata.

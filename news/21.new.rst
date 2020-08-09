@@ -1,1 +1,0 @@
-Add a hook for ``gmplot``, which has some data files.

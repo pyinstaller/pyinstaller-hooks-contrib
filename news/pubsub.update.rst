@@ -1,1 +1,0 @@
-Rewrite the hooks for PyPubSub and ``wx.lib.pubsub`` so they work properly.
