@@ -296,3 +296,10 @@ def test_sentry(pyi_builder):
         import sentry_sdk
         sentry_sdk.init()
         """)
+
+
+@importorskip('iminuit')
+def test_iminuit(pyi_builder):
+    pyi_builder.test_source("""
+        from iminuit import Minuit
+        """)
