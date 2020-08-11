@@ -18,7 +18,6 @@ New hooks
   (`#23 <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/23>`_)
 * Add hook for ``trimesh`` which requires importing resource files. (`#25
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/25>`_)
-* Add hook for ``iminuit`` which is missing hidden imports.
 
 
 Updated hooks
