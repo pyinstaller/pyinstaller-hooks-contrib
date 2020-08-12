@@ -303,3 +303,10 @@ def test_iminuit(pyi_builder):
     pyi_builder.test_source("""
         from iminuit import Minuit
         """)
+
+
+@importorskip('av')
+def test_av(pyi_builder):
+    pyi_builder.test_source("""
+        import av
+        """)
