@@ -310,3 +310,5 @@ def test_iminuit(pyi_builder):
     pyi_builder.test_source("""
         import av
         """)
+
+        
