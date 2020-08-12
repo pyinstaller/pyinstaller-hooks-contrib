@@ -306,7 +306,7 @@ def test_iminuit(pyi_builder):
 
 
 @importorskip('av')
-def test_iminuit(pyi_builder):
+def test_av(pyi_builder):
     pyi_builder.test_source("""
         import av
         """)
