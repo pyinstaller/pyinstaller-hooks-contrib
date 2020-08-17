@@ -36,6 +36,11 @@ else:  # both linux and darwin
     tgt_proj_data = os.path.join('share', 'proj')
     src_proj_data = os.path.join(root_path, 'share', 'proj')
 
-if os.path.exists(src_proj_data):
-    datas.append((src_proj_data, tgt_proj_data))
+from PyInstaller.compat import is_conda
+if is_conda:
+    if os.path.exists(src_proj_data):
+        datas.append((src_proj_data, tgt_proj_data))
+    else:
+        from PyInstaller.utils.hooks import logger
+        logger.warning("Datas for pyproj not found at:\n{}".format(src_proj_data))
     # A runtime hook defines the path for `PROJ_LIB`
