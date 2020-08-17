@@ -38,4 +38,4 @@ else:  # both linux and darwin
 
 if os.path.exists(src_proj_data):
     datas.append((src_proj_data, tgt_proj_data))
-    # a real-time hook takes case to define the path for `PROJ_LIB`
+    # A runtime hook defines the path for `PROJ_LIB`
