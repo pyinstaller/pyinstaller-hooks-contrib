@@ -1,0 +1,1 @@
+added hook for ``pysnmp_mibs`` which has hidden imports
