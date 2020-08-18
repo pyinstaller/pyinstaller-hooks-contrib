@@ -10,6 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+# pysnmp_mibs provides MIBS files for pysnmp. It contains MIB files 
+# expanded beyond the default in pysnmp.
+
 from PyInstaller.utils.hooks import collect_data_files
 
 datas = collect_data_files('pysnmp_mibs', include_py_files=True)
