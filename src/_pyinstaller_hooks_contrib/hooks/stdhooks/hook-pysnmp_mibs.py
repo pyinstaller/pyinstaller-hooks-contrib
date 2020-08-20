@@ -11,7 +11,7 @@
 # ------------------------------------------------------------------
 
 # pysnmp_mibs provides MIBS files for pysnmp. It contains MIB files
-# expanded beyond the default in pysnmp.
+# '.py' files which are treated as data files and are loaded by [what are they loaded by?]
 
 from PyInstaller.utils.hooks import collect_data_files
 
