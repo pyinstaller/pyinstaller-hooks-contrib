@@ -1,1 +1,1 @@
-added hook for ``pysnmp_mibs`` for hidden data imports
+Add hook for ``pysnmp_mibs`` which contains hidden data imports.
