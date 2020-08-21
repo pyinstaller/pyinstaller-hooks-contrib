@@ -1,4 +1,4 @@
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Copyright (c) 2014-2020, PyInstaller Development Team.
 #
 # Distributed under the terms of the GNU General Public License (version 2
@@ -7,11 +7,9 @@
 # The full license is in the file COPYING.txt, distributed with this software.
 #
 # SPDX-License-Identifier: (GPL-2.0-or-later WITH Bootloader-exception)
-#-----------------------------------------------------------------------------
-
+# -----------------------------------------------------------------------------
 
 import os
-
 
 fnames_to_track = [
     'lextab.py',
@@ -20,10 +18,7 @@ fnames_to_track = [
 
 
 def fnames_found():
-    return [
-        fname for fname in fnames_to_track
-        if os.path.isfile(fname)
-    ]
+    return [fname for fname in fnames_to_track if os.path.isfile(fname)]
 
 
 if __name__ == '__main__':
@@ -57,4 +52,3 @@ if __name__ == '__main__':
             raise SystemExit('FAIL: Files generated but removed.')
 
     # Success.
-

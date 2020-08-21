@@ -1,4 +1,4 @@
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Copyright (c) 2005-2020, PyInstaller Development Team.
 #
 # Distributed under the terms of the GNU General Public License (version 2
@@ -7,14 +7,12 @@
 # The full license is in the file COPYING.txt, distributed with this software.
 #
 # SPDX-License-Identifier: (GPL-2.0-or-later WITH Bootloader-exception)
-#-----------------------------------------------------------------------------
-
+# -----------------------------------------------------------------------------
 
 # Enchant hook test. Tested with PyEnchant 1.6.6.
 
 import sys
 import enchant
-
 
 print(80 * '-')
 print('PYTHONPATH: %s' % sys.path)
@@ -27,20 +25,19 @@ print(80 * '-')
 print('Backends: ' + ', '.join(backends))
 
 # Usually en_US dictionary should be bundled.
-langs = enchant.list_languages()
+languages = enchant.list_languages()
 dicts = [x[0] for x in enchant.list_dicts()]
 if len(dicts) < 1:
     raise SystemExit('No dictionary available')
 print(80 * '-')
-print('Languages: %s' % ', '.join(langs))
+print('Languages: %s' % ', '.join(languages))
 print('Dictionaries: %s' % dicts)
 print(80 * '-')
 
-
 # Try spell checking if English is availale
-l = 'en_US'
-if l in langs:
-    d = enchant.Dict(l)
+language = 'en_US'
+if language in languages:
+    d = enchant.Dict(language)
     print('d.check("hallo") %s' % d.check('hallo'))
     print('d.check("halllo") %s' % d.check('halllo'))
     print('d.suggest("halllo") %s' % d.suggest('halllo'))
