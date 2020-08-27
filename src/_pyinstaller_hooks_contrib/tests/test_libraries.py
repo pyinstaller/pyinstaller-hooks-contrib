@@ -310,3 +310,10 @@ def test_av(pyi_builder):
     pyi_builder.test_source("""
         import av
         """)
+
+
+@importorskip('passlib')
+def test_passlib(pyi_builder):
+    pyi_builder.test_source("""
+        import passlib.apache
+        """)
