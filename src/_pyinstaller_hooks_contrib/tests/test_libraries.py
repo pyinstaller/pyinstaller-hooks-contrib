@@ -317,3 +317,10 @@ def test_passlib(pyi_builder):
     pyi_builder.test_source("""
         import passlib.apache
         """)
+
+
+@importorskip('publicsuffix2')
+def test_publicsuffix2(pyi_builder):
+    pyi_builder.test_source("""
+        import publicsuffix2
+        """)
