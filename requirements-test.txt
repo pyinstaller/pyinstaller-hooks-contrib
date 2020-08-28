@@ -33,6 +33,7 @@ zeep==3.4.0
 sentry-sdk==0.15.1
 av==8.0.2
 passlib==1.7.2
+publicsuffix2==2.20191221
 
 # ------------------- Python Version/Platform (OS) specifics
 # These libraries only support python above 3.5
