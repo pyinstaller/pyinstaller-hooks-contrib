@@ -323,4 +323,5 @@ def test_passlib(pyi_builder):
 def test_publicsuffix2(pyi_builder):
     pyi_builder.test_source("""
         import publicsuffix2
+        publicsuffix2.PublicSuffixList()
         """)
