@@ -325,3 +325,11 @@ def test_publicsuffix2(pyi_builder):
         import publicsuffix2
         publicsuffix2.PublicSuffixList()
         """)
+
+
+@importorskip('pydivert')
+def test_pydivert(pyi_builder):
+    pyi_builder.test_source("""
+        import pydivert
+        pydivert.WinDivert.check_filter("inbound")
+        """)
