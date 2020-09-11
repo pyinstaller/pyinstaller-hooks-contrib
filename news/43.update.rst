@@ -1,0 +1,1 @@
+Fixed accessible_output2, sound_lib and sound_file hooks.
