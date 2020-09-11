@@ -1,1 +1,1 @@
-Updated accessible_output2 hook
+Update accessible_output2 hook
