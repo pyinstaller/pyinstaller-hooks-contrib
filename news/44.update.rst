@@ -1,0 +1,1 @@
+Updated hook for sound_lib, fixing dylib collection on mac.
