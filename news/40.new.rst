@@ -1,1 +1,0 @@
-Add a hook for ``publicsuffix2`` which has some data files.

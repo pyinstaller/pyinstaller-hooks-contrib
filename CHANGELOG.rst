@@ -1,3 +1,31 @@
+2020.8 (2020-09-12)
+-------------------
+
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``iminuit`` which has hidden imports. (`#26
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/26>`_)
+* Add a hook for ``publicsuffix2`` which has some data files. (`#40
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/40>`_)
+* Add a hook for ``pyav(av)`` which has hidden imports. (`#29
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/29>`_)
+* Add a hook for ``pydivert`` which has some data files. (`#41
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/41>`_)
+* Add a hook for ``pyproj`` which has some data files. (`#33
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/33>`_)
+* Add a hook for ``spnego`` which has hidden imports. (`#37
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/37>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Add a missing hidden import for ``passlib``. (`#39
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/39>`_)
+
+
 2020.7 (2020-08-09)
 -------------------
 
