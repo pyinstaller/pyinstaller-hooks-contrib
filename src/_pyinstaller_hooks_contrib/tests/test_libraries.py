@@ -27,12 +27,17 @@ def test_jinxed(pyi_builder):
     )
 
 
-@importorskip('tensorflow')
-def test_tensorflow(pyi_builder):
-    if pyi_builder._mode != 'onedir':
-        pytest.skip('Tensorflow tests support only onedir mode '
-                    'due to potential distribution size.')
+def tensorflow_onedir_only(test):
+    def wrapped(pyi_builder):
+        if pyi_builder._mode != 'onedir':
+            pytest.skip('Tensorflow tests support only onedir mode '
+                        'due to potential distribution size.')
+        test(pyi_builder)
+    return wrapped
 
+@importorskip('tensorflow')
+@tensorflow_onedir_only
+def test_tensorflow(pyi_builder):
     pyi_builder.test_source(
         """
         from tensorflow import *
@@ -40,19 +45,13 @@ def test_tensorflow(pyi_builder):
     )
 
 @importorskip('tensorflow')
+@tensorflow_onedir_only
 def test_tensorflow_layer(pyi_builder):
-    if pyi_builder._mode != 'onedir':
-        pytest.skip('Tensorflow tests support only onedir mode '
-                    'due to potential distribution size.')
-
     pyi_builder.test_script('pyi_lib_tensorflow_layer.py')
 
 @importorskip('tensorflow')
+@tensorflow_onedir_only
 def test_tensorflow_mnist(pyi_builder):
-    if pyi_builder._mode != 'onedir':
-        pytest.skip('Tensorflow tests support only onedir mode '
-                    'due to potential distribution size.')
-
     pyi_builder.test_script('pyi_lib_tensorflow_mnist.py')
 
 
