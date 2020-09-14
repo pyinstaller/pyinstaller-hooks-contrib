@@ -1,1 +1,2 @@
-Rework the `tensorflow` hook to improve compatibility across different `tensorflow` versions.
+Fix the ``tensorflow`` hook to be compatible across ``tensorflow`` versions
+from <1.15.0 up to 2.3.0 (current latest).
