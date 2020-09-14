@@ -44,10 +44,12 @@ def test_tensorflow(pyi_builder):
         """
     )
 
+
 @importorskip('tensorflow')
 @tensorflow_onedir_only
 def test_tensorflow_layer(pyi_builder):
     pyi_builder.test_script('pyi_lib_tensorflow_layer.py')
+
 
 @importorskip('tensorflow')
 @tensorflow_onedir_only

@@ -18,8 +18,8 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 # Display only warnings and errors
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-# Begin test
-import tensorflow as tf
+# Begin test - import tensorflow after environment variables are set
+import tensorflow as tf  # noqa: E402
 
 # Input data: batch of four 28x28x3 images
 input_shape = (4, 28, 28, 3)
@@ -34,4 +34,3 @@ y = tf.keras.layers.Conv2D(
 )(x)
 
 assert y.shape == (4, 26, 26, 2), "Unexpected output shape!"
-

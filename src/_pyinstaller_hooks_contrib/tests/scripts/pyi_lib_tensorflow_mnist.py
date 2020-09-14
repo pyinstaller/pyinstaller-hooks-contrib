@@ -19,8 +19,8 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 # Display only warnings and errors
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-# Begin test
-import tensorflow as tf
+# Begin test - import tensorflow after environment variables are set
+import tensorflow as tf  # noqa: E402
 
 # Load and normalize the dataset
 mnist = tf.keras.datasets.mnist
