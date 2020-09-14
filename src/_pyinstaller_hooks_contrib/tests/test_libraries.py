@@ -39,6 +39,22 @@ def test_tensorflow(pyi_builder):
         """
     )
 
+@importorskip('tensorflow')
+def test_tensorflow_layer(pyi_builder):
+    if pyi_builder._mode != 'onedir':
+        pytest.skip('Tensorflow tests support only onedir mode '
+                    'due to potential distribution size.')
+
+    pyi_builder.test_script('pyi_lib_tensorflow_layer.py')
+
+@importorskip('tensorflow')
+def test_tensorflow_mnist(pyi_builder):
+    if pyi_builder._mode != 'onedir':
+        pytest.skip('Tensorflow tests support only onedir mode '
+                    'due to potential distribution size.')
+
+    pyi_builder.test_script('pyi_lib_tensorflow_mnist.py')
+
 
 @importorskip('trimesh')
 def test_trimesh(pyi_builder):
@@ -338,82 +354,4 @@ def test_pydivert(pyi_builder):
     pyi_builder.test_source("""
         import pydivert
         pydivert.WinDivert.check_filter("inbound")
-        """)
-
-
-@importorskip('tensorflow')
-def test_tensorflow_layer(pyi_builder):
-    if pyi_builder._mode != 'onedir':
-        pytest.skip('Tensorflow tests support only onedir mode '
-                    'due to potential distribution size.')
-
-    pyi_builder.test_source(
-        """
-        import os
-
-        # Force CPU
-        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-
-        # Display only warnings and errors
-        os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
-        # Begin test
-        import tensorflow as tf
-
-        # Input data: batch of four 28x28x3 images
-        input_shape = (4, 28, 28, 3)
-        x = tf.random.normal(input_shape)
-
-        # Convolution with 3x3 kernel, two output filters
-        y = tf.keras.layers.Conv2D(2, (3, 3), activation='relu', input_shape=input_shape[1:])(x)
-
-        assert y.shape == (4, 26, 26, 2), "Unexpected output shape!"
-        """)
-
-@importorskip('tensorflow')
-def test_tensorflow_mnist(pyi_builder):
-    if pyi_builder._mode != 'onedir':
-        pytest.skip('Tensorflow tests support only onedir mode '
-                    'due to potential distribution size.')
-
-    pyi_builder.test_source(
-        """
-        import os
-
-        # Force CPU
-        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-
-        # Display only warnings and errors
-        os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
-        # Begin test
-        import tensorflow as tf
-
-        # Load and normalize the dataset
-        mnist = tf.keras.datasets.mnist
-
-        (x_train, y_train), (x_test, y_test) = mnist.load_data()
-        x_train, x_test = x_train / 255.0, x_test / 255.0
-
-        # Define model...
-        model = tf.keras.models.Sequential([
-            tf.keras.layers.Flatten(input_shape=(28, 28)),
-            tf.keras.layers.Dense(128, activation='relu'),
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.Dense(10)
-        ])
-
-        # ... and loss function
-        loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
-
-        # Train
-        model.compile(optimizer='adam', loss=loss_fn, metrics=['accuracy'])
-        model.fit(x_train, y_train, epochs=1, verbose=1)
-
-        # Evaluate
-        results = model.evaluate(x_test,  y_test, verbose=1)
-
-        # Expected accuracy after a single epoch is around 95%, so use 90%
-        # as a passing bar
-        assert results[1] >= 0.90, "Resulting accuracy on validation set too low!"
         """)
