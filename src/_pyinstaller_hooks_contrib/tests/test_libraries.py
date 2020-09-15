@@ -10,6 +10,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+import pytest
+
 from PyInstaller.compat import is_darwin
 from PyInstaller.utils.tests import importorskip, xfail, skipif_win
 
@@ -25,13 +27,34 @@ def test_jinxed(pyi_builder):
     )
 
 
+def tensorflow_onedir_only(test):
+    def wrapped(pyi_builder):
+        if pyi_builder._mode != 'onedir':
+            pytest.skip('Tensorflow tests support only onedir mode '
+                        'due to potential distribution size.')
+        test(pyi_builder)
+    return wrapped
+
 @importorskip('tensorflow')
+@tensorflow_onedir_only
 def test_tensorflow(pyi_builder):
     pyi_builder.test_source(
         """
         from tensorflow import *
         """
     )
+
+
+@importorskip('tensorflow')
+@tensorflow_onedir_only
+def test_tensorflow_layer(pyi_builder):
+    pyi_builder.test_script('pyi_lib_tensorflow_layer.py')
+
+
+@importorskip('tensorflow')
+@tensorflow_onedir_only
+def test_tensorflow_mnist(pyi_builder):
+    pyi_builder.test_script('pyi_lib_tensorflow_mnist.py')
 
 
 @importorskip('trimesh')
