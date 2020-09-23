@@ -19,12 +19,12 @@ jobs:
         python-version: [3.5, 3.6, 3.7]
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
-      
+
       - name: Install dependencies
         run: |
           # Upgrade to the latest pip.
@@ -32,11 +32,11 @@ jobs:
 
           # Install hooks-contrib
           pip install -e .
-          pip install -r requirements-test.txt
+          pip install -r requirements-test-libraries.txt
 
           # Install PyInstaller
           pip install pyinstaller
-      
+
       - name: Run tests
         run: |
           pyi_version="$(python -m PyInstaller --version)"
@@ -51,12 +51,12 @@ jobs:
         python-version: [3.5, 3.6, 3.7]
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
-      
+
       - name: Install dependencies
         run: |
           # Upgrade to the latest pip.
@@ -64,10 +64,10 @@ jobs:
 
           # Install hooks-contrib
           pip install -e .
-          pip install -r requirements-test.txt
+          pip install -r requirements-test-libraries.txt
 
           # Install PyInstaller
           pip install https://github.com/pyinstaller/pyinstaller/archive/develop.zip
-      
+
       - name: Run tests
         run: python -m PyInstaller.utils.run_tests -c pytest.ini
