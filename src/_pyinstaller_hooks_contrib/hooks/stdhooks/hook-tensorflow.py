@@ -37,16 +37,18 @@ data_excludes = [
 #
 # See pyinstaller/pyinstaller-hooks-contrib#49 for details.
 excluded_submodules = ['tensorflow.python._pywrap_tensorflow_internal']
-submodules_filter = lambda x: x not in excluded_submodules
+
+def _submodules_filter(x):
+    return x not in excluded_submodules
 
 
 if tf_pre_1_15_0:
     # 1.14.x and earlier: collect everything from tensorflow
-    hiddenimports = collect_submodules('tensorflow', filter=submodules_filter)
+    hiddenimports = collect_submodules('tensorflow', filter=_submodules_filter)
     datas = collect_data_files('tensorflow', excludes=data_excludes)
 elif tf_post_1_15_0 and tf_pre_2_2_0:
     # 1.15.x - 2.1.x: collect everything from tensorflow_core
-    hiddenimports = collect_submodules('tensorflow_core', filter=submodules_filter)
+    hiddenimports = collect_submodules('tensorflow_core', filter=_submodules_filter)
     datas = collect_data_files('tensorflow_core', excludes=data_excludes)
 
     # Under 1.15.x, we seem to fail collecting a specific submodule,
@@ -56,7 +58,7 @@ elif tf_post_1_15_0 and tf_pre_2_2_0:
             ['tensorflow_core._api.v1.compat.v2.summary.experimental']
 else:
     # 2.2.0 and newer: collect everything from tensorflow again
-    hiddenimports = collect_submodules('tensorflow', filter=submodules_filter)
+    hiddenimports = collect_submodules('tensorflow', filter=_submodules_filter)
     datas = collect_data_files('tensorflow', excludes=data_excludes)
 
 excludedimports = excluded_submodules
