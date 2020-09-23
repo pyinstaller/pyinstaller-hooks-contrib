@@ -11,12 +11,13 @@ on:
     branches: [ master ]
 
 jobs:
-  test-stable:
+  test:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: macos-latest
     strategy:
       matrix:
         python-version: [3.5, 3.6, 3.7]
+        pyinstaller: [PyInstaller, "https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
     steps:
       - uses: actions/checkout@v2
 
@@ -35,7 +36,7 @@ jobs:
           pip install -r requirements-test-libraries.txt
 
           # Install PyInstaller
-          pip install pyinstaller
+          pip install ${{ matrix.pyinstaller }}
 
       - name: Run tests
         run: |
@@ -43,31 +44,3 @@ jobs:
           if [ "$pyi_version" != *"3.6"* ]; then
             python -m PyInstaller.utils.run_tests -c pytest.ini
           fi
-  test-develop:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        python-version: [3.5, 3.6, 3.7]
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          # Upgrade to the latest pip.
-          python -m pip install -U pip setuptools wheel
-
-          # Install hooks-contrib
-          pip install -e .
-          pip install -r requirements-test-libraries.txt
-
-          # Install PyInstaller
-          pip install https://github.com/pyinstaller/pyinstaller/archive/develop.zip
-
-      - name: Run tests
-        run: python -m PyInstaller.utils.run_tests -c pytest.ini
