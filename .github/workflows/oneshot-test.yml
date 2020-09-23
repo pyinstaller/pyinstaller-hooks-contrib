@@ -1,0 +1,115 @@
+# Workflow to test individual hooks across multiple versions of the
+# library the are written for.
+# This action is not run continuously. You must manually trigger it.
+#
+# This workflow features workflow_dispatch parameters:
+# https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
+# And daisy-chaining the output of one job to dynamically set the matrix of a
+# second job:
+# https://stackoverflow.com/a/62953566/7390688
+---
+
+name: Oneshot test
+
+on:
+  workflow_dispatch:
+    # Input parameters:
+    inputs:
+      package:
+        description: |
+          Package names and versions to test. Jobs are split by comma.
+        required: true
+        default: '"numpy==1.19", "numpy<1.18"'
+      os:
+        description: |
+          OS(s) to run on. Can be any combinations of ubuntu, windows, macos.
+          (Please use macos sparingly.)'
+        required: true
+        default: 'ubuntu'
+      python-version:
+        description: 'Version(s) of Python'
+        required: true
+        default: '3.7,'
+      fail-fast:
+        description: 'Terminate all tests if one fails (true/false).'
+        required: true
+        default: 'false'
+
+jobs:
+  generate-matrix:
+    # Parse inputs into a json containing the matrix that will parametrize the
+    # next "test" step.
+    name: Generate Matrix
+    runs-on: ubuntu-latest
+
+    env:
+      # Copy github.event.inputs into an environment variable INPUTS which can
+      # be easily read in Python.
+      INPUTS: ${{ toJson(github.event.inputs) }}
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      # Actually parse the configuration.
+      - id: set-matrix
+        shell: python
+        run: |
+          import os, json, pprint
+          inputs = json.loads(os.environ["INPUTS"])
+          pprint.pprint(inputs)
+
+          # Split by comma, ignore trailing comma, remove whitespace.
+          parse_list = lambda x: [i.strip() for i in x.strip(", ").split(",")]
+
+          matrix = {
+              "os": [i + "-latest" for i in parse_list(inputs["os"])],
+              "python-version": parse_list(inputs["python-version"]),
+              "requirements": parse_list(inputs["package"]),
+          }
+
+          pprint.pprint(matrix)
+
+          # Outputs are set by printing special ::
+          print("::set-output name=matrix::", json.dumps(matrix), sep="")
+
+
+  test:
+    needs: generate-matrix
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # Use the test matrix generated in the last step.
+      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
+      # Caution: `fail-fast` expects a bool but `inputs.fail-fast` is a string.
+      # There doesn't seem to be a nice function to cast 'true' to true.
+      fail-fast: ${{ github.event.inputs.fail-fast == 'true' }}
+
+    # Finally, the usual: setup Python, install dependencies, test.
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          # Upgrade to the latest pip.
+          python -m pip install -U pip setuptools wheel
+
+          # Install hooks-contrib
+          pip install -e .
+          pip install -r requirements-test.txt
+          pip install ${{ matrix.requirements }}
+
+          # Install PyInstaller
+          pip install https://github.com/pyinstaller/pyinstaller/archive/develop.zip
+
+      - name: Run tests
+        run: python -m PyInstaller.utils.run_tests -c pytest.ini -v
