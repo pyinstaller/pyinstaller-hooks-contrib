@@ -12,4 +12,4 @@
 
 # The following missing module prevents import of skimage.graph
 # with skimage 0.17.x.
-hiddenimports = ['skimage.graph.heap',]
+hiddenimports = ['skimage.graph.heap', ]

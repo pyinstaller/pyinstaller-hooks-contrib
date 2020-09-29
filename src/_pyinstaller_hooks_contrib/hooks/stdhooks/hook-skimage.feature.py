@@ -12,4 +12,4 @@
 
 # The following missing module prevents import of skimage.feature
 # with skimage 0.17.x.
-hiddenimports = ['skimage.feature._orb_descriptor_positions',]
+hiddenimports = ['skimage.feature._orb_descriptor_positions', ]

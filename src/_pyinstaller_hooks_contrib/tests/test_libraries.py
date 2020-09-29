@@ -361,7 +361,7 @@ def test_pydivert(pyi_builder):
 
 @importorskip('skimage')
 @pytest.mark.skipif(not is_module_satisfies('skimage >= 0.16.0'),
-    reason='The test supports only skimage 0.16.0 or newer.')
+                    reason='The test supports only skimage 0.16.0 or newer.')
 @pytest.mark.parametrize('submodule', [
     'color', 'data', 'draw', 'exposure', 'feature', 'filters', 'future',
     'graph', 'io', 'measure', 'metrics', 'morphology', 'registration',
