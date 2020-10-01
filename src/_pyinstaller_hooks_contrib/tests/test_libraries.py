@@ -14,6 +14,7 @@ import pytest
 
 from PyInstaller.compat import is_darwin
 from PyInstaller.utils.tests import importorskip, xfail, skipif_win
+from PyInstaller.utils.hooks import is_module_satisfies
 
 
 @importorskip('jinxed')
@@ -356,3 +357,17 @@ def test_pydivert(pyi_builder):
         import pydivert
         pydivert.WinDivert.check_filter("inbound")
         """)
+
+
+@importorskip('skimage')
+@pytest.mark.skipif(not is_module_satisfies('skimage >= 0.16.0'),
+                    reason='The test supports only skimage 0.16.0 or newer.')
+@pytest.mark.parametrize('submodule', [
+    'color', 'data', 'draw', 'exposure', 'feature', 'filters', 'future',
+    'graph', 'io', 'measure', 'metrics', 'morphology', 'registration',
+    'restoration', 'segmentation', 'transform', 'util', 'viewer'
+])
+def test_skimage(pyi_builder, submodule):
+    pyi_builder.test_source("""
+        import skimage.{0}
+        """.format(submodule))
