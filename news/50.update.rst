@@ -1,1 +1,0 @@
-Fix shared library duplication in ``tensorflow`` v.2.3. Avoid packaging unnecessary data files (e.g., development headers) on all ``tensorflow`` versions.

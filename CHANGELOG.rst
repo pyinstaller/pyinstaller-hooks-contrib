@@ -1,3 +1,30 @@
+2020.9 (2020-10-02)
+-------------------
+
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for `flask_restx <https://flask-restx.readthedocs.io>`_ which
+  contains template data files. (`#48
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/48>`_)
+* Add hooks for ``skimage.feature`` and ``skimage.graph`` to fix issues with
+  missing imports. (`#52
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/52>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix shared library duplication in ``tensorflow`` v.2.3. Avoid packaging
+  unnecessary data files (e.g., development headers) on all ``tensorflow``
+  versions. (`#50
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/50>`_)
+* Fix the ``tensorflow`` hook to be compatible across ``tensorflow`` versions
+  from <1.15.0 up to 2.3.0 (current latest). (`#46
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/46>`_)
+
+
 2020.8 (2020-09-12)
 -------------------
 

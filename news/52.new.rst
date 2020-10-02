@@ -1,1 +1,0 @@
-Add hooks for ``skimage.feature`` and ``skimage.graph`` to fix issues with missing imports.

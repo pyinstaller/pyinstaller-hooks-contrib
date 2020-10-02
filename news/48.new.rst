@@ -1,1 +1,0 @@
-Add a hook for `flask_restx <https://flask-restx.readthedocs.io>`_ which contains template data files.
