@@ -10,8 +10,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-# Tested on Windows 7 64bit with scikit-learn 0.17 and Python 2.7
-hiddenimports = ['sklearn.utils.sparsetools._graph_validation',
-                 'sklearn.utils.sparsetools._graph_tools',
-                 'sklearn.utils.lgamma',
-                 'sklearn.utils.weight_vector']
+# Required by scikit-learn 0.21
+hiddenimports = [
+    'sklearn.utils.lgamma',
+    'sklearn.utils.weight_vector'
+]
