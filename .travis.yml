@@ -17,7 +17,7 @@ jobs:
   include:
     - &test
       stage: PyInstaller stable release
-      python: 3.7
+      python: 3.8
       install:
         # Upgrade to the latest pip.
         - python -m pip install -U pip setuptools wheel
@@ -46,12 +46,18 @@ jobs:
 
         # Install PyInstaller
         - pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
-
+     
+    - <<: *test
+      python: 3.7
     - <<: *test
       python: 3.6
     - <<: *test
       python: 3.5
-
+    
+    - <<: *test
+      stage: PyInstaller development version
+      python: 3.7
+      install: *install-develop
     - <<: *test
       stage: PyInstaller development version
       python: 3.6
