@@ -16,7 +16,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.5, 3.6, 3.7]
+        python-version: [3.5, 3.6, 3.7, 3.8]
         pyinstaller: [PyInstaller, "https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
     steps:
       - uses: actions/checkout@v2
