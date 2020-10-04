@@ -10,8 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-# Tested on Windows 10 1809 64bit with scikit-learn 0.22.1 and Python 3.7
-hiddenimports = ['sklearn.neighbors.typedefs',
-                 'sklearn.utils._cython_blas',
-                 'sklearn.neighbors.quad_tree',
-                 'sklearn.tree._utils']
+from PyInstaller.utils.hooks import is_module_satisfies
+
+# sklearn.cluster in scikit-learn 0.23.x has a hidden import of
+# threadpoolctl
+if is_module_satisfies("sklearn >= 0.23"):
+    hiddenimports = ['threadpoolctl', ]

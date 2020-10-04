@@ -371,3 +371,24 @@ def test_skimage(pyi_builder, submodule):
     pyi_builder.test_source("""
         import skimage.{0}
         """.format(submodule))
+
+
+@importorskip('sklearn')
+@pytest.mark.skipif(not is_module_satisfies('sklearn >= 0.21'),
+                    reason='The test supports only scikit-learn >= 0.21.')
+@pytest.mark.parametrize('submodule', [
+    'calibration', 'cluster', 'covariance', 'cross_decomposition',
+    'datasets', 'decomposition', 'dummy', 'ensemble', 'exceptions',
+    'experimental', 'externals', 'feature_extraction',
+    'feature_selection', 'gaussian_process', 'inspection',
+    'isotonic', 'kernel_approximation', 'kernel_ridge',
+    'linear_model', 'manifold', 'metrics', 'mixture',
+    'model_selection', 'multiclass', 'multioutput',
+    'naive_bayes', 'neighbors', 'neural_network', 'pipeline',
+    'preprocessing', 'random_projection', 'semi_supervised',
+    'svm', 'tree', 'discriminant_analysis', 'impute', 'compose'
+])
+def test_sklearn(pyi_builder, submodule):
+    pyi_builder.test_source("""
+        import sklearn.{0}
+        """.format(submodule))

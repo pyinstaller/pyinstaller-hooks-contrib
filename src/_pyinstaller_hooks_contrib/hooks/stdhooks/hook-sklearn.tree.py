@@ -10,8 +10,4 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-# Required by scikit-learn 0.21
-hiddenimports = [
-    'sklearn.utils.lgamma',
-    'sklearn.utils.weight_vector'
-]
+hiddenimports = ['sklearn.tree._utils', ]
