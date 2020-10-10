@@ -23,10 +23,12 @@ tf_pre_2_2_0 = is_module_satisfies("tensorflow < 2.2.0")
 #  - development headers in include subdirectory
 #  - XLA AOT runtime sources
 #  - libtensorflow_framework shared library (to avoid duplication)
+#  - import library (.lib) files (Windows-only)
 data_excludes = [
     "include",
     "xla_aot_runtime_src",
-    "libtensorflow_framework.*"
+    "libtensorflow_framework.*",
+    "**/*.lib",
 ]
 
 # Under tensorflow 2.3.0 (the most recent version at the time of writing),
