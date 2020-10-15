@@ -37,5 +37,8 @@ uvloop==0.14.0; sys_platform != 'win32'
 # pydivert only runs on Windows
 pydivert==2.1.0; sys_platform == 'win32'
 
+# pywin32-ctypes runs on Windows
+pywin32-ctypes==0.2.0; sys_platform == 'win32'
+
 # Include the requirements for testing
 -r requirements-test.txt

@@ -12,7 +12,7 @@
 
 import pytest
 
-from PyInstaller.compat import is_darwin
+from PyInstaller.compat import is_darwin, is_win
 from PyInstaller.utils.tests import importorskip, xfail, skipif_win
 from PyInstaller.utils.hooks import is_module_satisfies
 
@@ -391,4 +391,13 @@ def test_skimage(pyi_builder, submodule):
 def test_sklearn(pyi_builder, submodule):
     pyi_builder.test_source("""
         import sklearn.{0}
+        """.format(submodule))
+
+
+@importorskip('win32ctypes')
+@pytest.mark.skipif(not is_win, reason='pywin32-ctypes is supported only on Windows')
+@pytest.mark.parametrize('submodule', ['win32api', 'win32cred', 'pywintypes'])
+def test_pywin32ctypes(pyi_builder, submodule):
+    pyi_builder.test_source("""
+        from win32ctypes.pywin32 import {0}
         """.format(submodule))
