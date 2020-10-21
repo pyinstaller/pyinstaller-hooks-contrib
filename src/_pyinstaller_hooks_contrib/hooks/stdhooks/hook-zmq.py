@@ -15,9 +15,10 @@
 Hook for PyZMQ. Cython based Python bindings for messaging library ZeroMQ.
 http://www.zeromq.org/
 """
-from PyInstaller.utils.hooks import collect_submodules
+from PyInstaller.utils.hooks import collect_submodules, collect_data_files
 
 hiddenimports = ['zmq.utils.garbage']
+datas = []
 
 # PyZMQ comes with two backends, cython and cffi. Calling collect_submodules()
 # on zmq.backend seems to trigger attempt at compilation of C extension
@@ -27,5 +28,10 @@ hiddenimports = ['zmq.utils.garbage']
 # backend individually, however, does not seem to cause any problems.
 hiddenimports += ['zmq.backend']
 
+# cython backend
 hiddenimports += collect_submodules('zmq.backend.cython')
+
+# cffi backend: contains extra data that needs to be collected
+# (e.g., _cdefs.h)
 hiddenimports += collect_submodules('zmq.backend.cffi')
+datas += collect_data_files('zmq.backend.cffi', excludes=['**/__pycache__', ])
