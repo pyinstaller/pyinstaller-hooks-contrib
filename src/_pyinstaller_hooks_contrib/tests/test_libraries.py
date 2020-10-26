@@ -801,3 +801,11 @@ def test_branca(pyi_builder):
     pyi_builder.test_source("""
         import branca
         """)
+
+
+@importorskip("folium")
+def test_folium(pyi_builder):
+    pyi_builder.test_source("""
+        import folium
+        m = folium.Map(location=[0, 0], zoom_start=5)
+        """)
