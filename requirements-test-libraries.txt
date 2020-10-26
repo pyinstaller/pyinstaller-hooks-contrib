@@ -3,6 +3,7 @@
 boto==2.49.0
 boto3==1.12.33
 botocore==1.15.33
+branca==0.4.1
 dash==1.19.0
 dash-bootstrap-components==0.12.0
 iminuit==1.4.0
