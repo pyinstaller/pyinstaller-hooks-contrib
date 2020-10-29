@@ -1,1 +1,0 @@
-Change hook for ``tinycss2``, no longer needed after version 1.0.0.

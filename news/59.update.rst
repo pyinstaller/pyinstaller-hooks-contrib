@@ -1,1 +1,0 @@
-Avoid collecting non-functional ``zmq.backend.cffi`` backend in the ``zmq`` hook, and thus also prevent an attempt at compilation of its C extension during module collection. 

@@ -1,3 +1,32 @@
+2020.10 (2020-10-29)
+--------------------
+
+
+New hooks
+~~~~~~~~~
+
+* (Windows) Add a hook for ``win32ctypes.core``. (`#58
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/58>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Windows) Avoid collecting ``tensorflow`` import libraries. (`#55
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/55>`_)
+* Avoid collecting non-functional ``zmq.backend.cffi`` backend in the ``zmq``
+  hook, and thus also prevent an attempt at compilation of its C extension
+  during module collection. (`#59
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/59>`_)
+* Change hook for ``tinycss2``, no longer needed after version 1.0.0. (`#54
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/54>`_)
+* Compatibility fix for ``markdown`` 3.3. (`#56
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/56>`_)
+* Update hooks for ``scikit-learn``. Supported versions are 0.21.x, 0.22.x, and
+  0.23.x. (`#53
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/53>`_)
+
+
 2020.9 (2020-10-02)
 -------------------
 

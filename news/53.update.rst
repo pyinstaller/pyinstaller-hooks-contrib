@@ -1,1 +1,0 @@
-Update hooks for ``scikit-learn``. Supported versions are 0.21.x, 0.22.x, and 0.23.x.
