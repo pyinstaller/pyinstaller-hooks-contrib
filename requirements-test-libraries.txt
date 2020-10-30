@@ -18,7 +18,7 @@ pyusb==1.0.2
 pyzmq==19.0.0
 Unidecode==1.1.1
 zeep==3.4.0
-sentry-sdk==0.15.1
+sentry-sdk==0.19.1
 av==8.0.2
 passlib==1.7.2
 publicsuffix2==2.20191221
