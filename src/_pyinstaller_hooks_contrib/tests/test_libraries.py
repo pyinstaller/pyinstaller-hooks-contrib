@@ -13,7 +13,7 @@
 import pytest
 
 from PyInstaller.compat import is_darwin, is_win
-from PyInstaller.utils.tests import importorskip, xfail, skipif_win
+from PyInstaller.utils.tests import importorskip, xfail
 from PyInstaller.utils.hooks import is_module_satisfies
 
 
@@ -252,7 +252,8 @@ def test_pinyin(pyi_builder):
 
 
 @importorskip('uvloop')
-@skipif_win
+@pytest.mark.darwin
+@pytest.mark.linux
 def test_uvloop(pyi_builder):
     pyi_builder.test_source("import uvloop")
 
