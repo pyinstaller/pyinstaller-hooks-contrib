@@ -1,0 +1,2 @@
+(Windows) Fix the ``win32com`` pre-safe-import hook to avoid printing the
+``ModuleNotFoundError`` when the module is not available.
