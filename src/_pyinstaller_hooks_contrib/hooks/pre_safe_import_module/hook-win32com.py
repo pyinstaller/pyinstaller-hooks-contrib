@@ -22,14 +22,25 @@ module 'win32com.shell' is in reality 'win32comext.shell'.
 
 import os
 
-from PyInstaller.utils.hooks import logger, get_module_file_attribute
+from PyInstaller.utils.hooks import logger, exec_statement
 from PyInstaller.compat import is_win, is_cygwin
 
 
 def pre_safe_import_module(api):
     if not (is_win or is_cygwin):
         return
-    win32com_dir = os.path.dirname(get_module_file_attribute('win32com'))
+    win32com_file = exec_statement(
+        """
+        try:
+            from win32com import __file__
+            print(__file__)
+        except Exception:
+            pass
+        """).strip()
+    if not win32com_file:
+        logger.debug('win32com: module not available')
+        return  # win32com unavailable
+    win32com_dir = os.path.dirname(win32com_file)
     comext_dir = os.path.join(os.path.dirname(win32com_dir), 'win32comext')
     logger.debug('win32com: extending __path__ with dir %r' % comext_dir)
     # Append the __path__ where PyInstaller will look for 'win32com' modules.'
