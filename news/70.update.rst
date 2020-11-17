@@ -1,0 +1,1 @@
+Update ``pyproj`` hook to improve compatibility across different versions of ``pyproj`` (from 2.1.3 to 3.0.0).
