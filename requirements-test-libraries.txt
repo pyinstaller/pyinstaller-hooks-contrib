@@ -14,6 +14,7 @@ pycryptodome==3.9.7
 pycryptodomex==3.9.7
 pyexcelerate==0.8.0
 pylint==2.4.4
+pyproj==3.0.0
 pyusb==1.0.2
 pyzmq==19.0.0
 Unidecode==1.1.1

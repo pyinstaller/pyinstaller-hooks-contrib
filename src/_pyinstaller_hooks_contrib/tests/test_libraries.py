@@ -402,3 +402,23 @@ def test_pywin32ctypes(pyi_builder, submodule):
     pyi_builder.test_source("""
         from win32ctypes.pywin32 import {0}
         """.format(submodule))
+
+
+@importorskip('pyproj')
+@pytest.mark.skipif(not is_module_satisfies('pyproj >= 2.1.3'),
+                    reason='The test supports only pyproj >= 2.1.3.')
+def test_pyproj(pyi_builder):
+    pyi_builder.test_source("""
+        import pyproj
+        tf = pyproj.Transformer.from_crs(
+            7789,
+            8401
+        )
+        result = tf.transform(
+            xx=3496737.2679,
+            yy=743254.4507,
+            zz=5264462.9620,
+            tt=2019.0
+        )
+        print(result)
+        """)
