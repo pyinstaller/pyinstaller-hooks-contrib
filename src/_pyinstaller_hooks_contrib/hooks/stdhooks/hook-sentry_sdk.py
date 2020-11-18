@@ -24,5 +24,4 @@ if hasattr(si, '_AUTO_ENABLING_INTEGRATIONS'):
     def make_integration_name(integration_name: str):
         return ".".join(integration_name.split(".")[:-1])
 
-
     hiddenimports.extend(map(make_integration_name, si._AUTO_ENABLING_INTEGRATIONS))
