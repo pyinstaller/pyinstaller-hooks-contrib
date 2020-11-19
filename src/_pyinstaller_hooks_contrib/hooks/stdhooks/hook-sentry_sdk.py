@@ -27,7 +27,7 @@ import sentry_sdk.integrations as si
 
 integrations = []
 if hasattr(si, '_AUTO_ENABLING_INTEGRATIONS'):
-    # _AUTO_ENABLING_INTEGRATIONS is a list of strings with default enabled integrations 
+    # _AUTO_ENABLING_INTEGRATIONS is a list of strings with default enabled integrations
     # https://github.com/getsentry/sentry-python/blob/c6b6f2086b58ffc674df5c25a600b8a615079fb5/sentry_sdk/integrations/__init__.py#L54-L66
 
     def make_integration_name(integration_name: str):
