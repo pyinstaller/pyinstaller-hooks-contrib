@@ -1,3 +1,1 @@
-Collecting metadata and data files for countryinfo module version 0.1.2
-
-https://pypi.org/project/countryinfo/
+Collect metadata and data files for ``countryinfo`` to support version 0.1.2.
