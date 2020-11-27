@@ -1,0 +1,1 @@
+Add a hook for ``countryinfo``, which has a hidden import.
