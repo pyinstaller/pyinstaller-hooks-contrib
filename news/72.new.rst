@@ -1,0 +1,1 @@
+Add a hook for ``pycountry``, which has a hidden import.
