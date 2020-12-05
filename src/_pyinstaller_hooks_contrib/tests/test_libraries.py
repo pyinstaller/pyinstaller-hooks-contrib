@@ -422,3 +422,10 @@ def test_pyproj(pyi_builder):
         )
         print(result)
         """)
+
+
+@importorskip('pydantic')
+def test_pydantic(pyi_builder):
+    pyi_builder.test_source("""
+        import pydantic
+        """)
