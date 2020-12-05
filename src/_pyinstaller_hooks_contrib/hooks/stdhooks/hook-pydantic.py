@@ -10,24 +10,15 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import exec_statement, collect_submodules
+from PyInstaller.utils.hooks import get_module_attribute, collect_submodules
 
 # By default, pydantic from PyPi comes with all modules compiled as
-# cpython extensions, which seems to  prevent the pyinstaller from
-# automatically picking the submodules
-is_compiled = exec_statement(
-    """
-        import pydantic
-        if pydantic.compiled:
-            print('\\nTrue')
-        else:
-            print('\\nFalse')
-    """
-).split()[-1] == 'True'
-
+# cpython extensions, which seems to prevent pyinstaller from automatically
+# picking up the submodules
+is_compiled = get_module_attribute('pydantic', 'compiled') == 'True'
 if is_compiled:
     # Compiled version; we need to manually collect the submodules from
-    # pyadantic...
+    # pydantic...
     hiddenimports = collect_submodules('pydantic')
     # ... as well as the following modules from the standard library
     hiddenimports += [
