@@ -1,0 +1,2 @@
+Add hook for ``pydantic`` to improve support for its extension-compiled
+distribution (default on PyPi).
