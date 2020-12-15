@@ -1,0 +1,1 @@
+Add hook for ``torchvision.ops`` to ensure that the required extension module (``torchvision._C``) is collected.
