@@ -439,6 +439,7 @@ def torch_onedir_only(test):
         test(pyi_builder)
     return wrapped
 
+
 @importorskip('torchvision')
 @torch_onedir_only
 def test_torchvision_nms(pyi_builder):
