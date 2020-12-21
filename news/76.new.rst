@@ -1,1 +1,0 @@
-Collect metadata and data files for ``countryinfo`` to support version 0.1.2.

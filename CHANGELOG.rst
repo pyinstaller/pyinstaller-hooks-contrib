@@ -1,3 +1,43 @@
+2020.11 (2020-12-21)
+--------------------
+
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``gcloud`` which requires its distribution metadata. (`#68
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/68>`_)
+* Add a hook for prettytable which requires its distribution metadata. (`#77
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/77>`_)
+* Add hook for ``pydantic`` to improve support for its extension-compiled
+  distribution (default on PyPi). (`#78
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/78>`_)
+* Add hook for ``torchvision.ops`` to ensure that the required extension module
+  (``torchvision._C``) is collected. (`#80
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/80>`_)
+* Add hook for afmformats. (`#69
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/69>`_)
+* Add hook for ijson which has dynamically loaded backends. (`#64
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/64>`_)
+* Add hook for lxml which has hidden imports. (`#66
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/66>`_)
+* Collect metadata and data files for ``countryinfo`` to support version 0.1.2.
+  (`#76 <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/76>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Windows) Fix the ``win32com`` pre-safe-import hook to avoid printing the
+  ``ModuleNotFoundError`` when the module is not available. (`#67
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/67>`_)
+* Add default enabled sentry integrations dynamically to hidden imports. (`#71
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/71>`_)
+* Update ``pyproj`` hook to improve compatibility across different versions of
+  ``pyproj`` (from 2.1.3 to 3.0.0). (`#70
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/70>`_)
+
+
 2020.10 (2020-10-29)
 --------------------
 

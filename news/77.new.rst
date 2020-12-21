@@ -1,1 +1,0 @@
-Add a hook for prettytable which requires its distribution metadata.
