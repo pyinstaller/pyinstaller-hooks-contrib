@@ -1,0 +1,1 @@
+Add missing ``dataclasses`` hidden import to ``pydantic`` hook.

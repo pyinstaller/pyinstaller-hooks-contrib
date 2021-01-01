@@ -23,6 +23,7 @@ if is_compiled:
     # ... as well as the following modules from the standard library
     hiddenimports += [
         'colorsys',
+        'dataclasses',
         'decimal',
         'json',
         'ipaddress',
