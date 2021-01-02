@@ -462,3 +462,13 @@ def test_torchvision_nms(pyi_builder):
         # is discarded.
         assert keep == 1
     """)
+
+
+@importorskip('googleapiclient')
+def test_googleapiclient(pyi_builder):
+    pyi_builder.test_source("""
+        from googleapiclient.discovery import build
+        # Actual access to the service requires API key...
+        #service = build('drive', 'v3')
+        #service.close()
+    """)
