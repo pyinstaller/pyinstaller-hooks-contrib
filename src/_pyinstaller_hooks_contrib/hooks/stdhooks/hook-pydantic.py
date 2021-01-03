@@ -11,6 +11,7 @@
 # ------------------------------------------------------------------
 
 from PyInstaller.utils.hooks import get_module_attribute, collect_submodules
+from PyInstaller.utils.hooks import is_module_satisfies
 
 # By default, pydantic from PyPi comes with all modules compiled as
 # cpython extensions, which seems to prevent pyinstaller from automatically
@@ -23,9 +24,13 @@ if is_compiled:
     # ... as well as the following modules from the standard library
     hiddenimports += [
         'colorsys',
+        'dataclasses',
         'decimal',
         'json',
         'ipaddress',
         'pathlib',
         'uuid',
     ]
+    # Older releases (prior 1.4) also import distutils.version
+    if not is_module_satisfies('pydantic >= 1.4'):
+        hiddenimports += ['distutils.version']
