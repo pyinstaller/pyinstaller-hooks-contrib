@@ -43,6 +43,7 @@ Test Suite
 -----------
 
 To run the test suite, install dependencies in root:
+* pip install -r requirements-test.txt
 * pip3 install -e .
 
 Then run the test suite in root:
