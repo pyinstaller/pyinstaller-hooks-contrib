@@ -18,6 +18,7 @@ jobs:
       matrix:
         python-version: [3.6, 3.7, 3.8, 3.9]
         pyinstaller: [PyInstaller, "https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
 
