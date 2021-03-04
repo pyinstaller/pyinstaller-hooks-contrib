@@ -34,3 +34,6 @@ if is_compiled:
     # Older releases (prior 1.4) also import distutils.version
     if not is_module_satisfies('pydantic >= 1.4'):
         hiddenimports += ['distutils.version']
+    # Version 1.8.0 introduced additional dependency on typing_extensions
+    if is_module_satisfies('pydantic >= 1.8'):
+        hiddenimports += ['typing_extensions']
