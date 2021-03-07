@@ -23,11 +23,11 @@ steps:
     python -m twine check dist/*
   displayName: 'Build distribution archives'
 
-- script: twine upload dist/* --disable-progress-bar -u __token__ -p $(twineToken) --non-interactive
-  displayName: 'Upload package to PyPI'
-
 - script: python -m towncrier --yes
   displayName: "Build changelog"
+
+- script: twine upload dist/* --disable-progress-bar -u __token__ -p $(twineToken) --non-interactive
+  displayName: 'Upload package to PyPI'
 
 - script: git tag v$(python setup.py --version)
   displayName: "Create the release tag"
