@@ -3,3 +3,6 @@
 
 schedule: every week
 update: false
+assignees: Legorooj
+
+branch_prefix: pyup/
