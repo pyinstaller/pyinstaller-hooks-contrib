@@ -1,3 +1,34 @@
+2021.1 (2021-03-07)
+-------------------
+
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``googleapiclient.model`` that collects the required
+  metadata from the ``google-api-python-client`` package. (`#82
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/82>`_)
+* Add hook for ``pyqtgraph``. (`#88
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/88>`_)
+* Add hook for ``rpy2``. (`#87
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/87>`_)
+* Added a hook for 'pdfminer.six' library (`#83
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/83>`_)
+* Added a hook for the 'pygraphviz' library (`#86
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/86>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Add missing ``dataclasses`` hidden import to ``pydantic`` hook.
+  Add missing ``distutils.version`` hidden import to ``pydantic`` hook for
+  versions of ``pydantic`` prior to ``1.4``. (`#81
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/81>`_)
+* Update ``pydantic`` hook for compatibility with v.1.8.0 and later. (`#90
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/90>`_)
+
+
 2020.11 (2020-12-21)
 --------------------
 

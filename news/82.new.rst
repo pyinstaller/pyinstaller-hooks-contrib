@@ -1,2 +1,0 @@
-Add a hook for ``googleapiclient.model`` that collects the required
-metadata from the ``google-api-python-client`` package.

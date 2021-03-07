@@ -1,3 +1,0 @@
-Add missing ``dataclasses`` hidden import to ``pydantic`` hook.
-Add missing ``distutils.version`` hidden import to ``pydantic`` hook for
-versions of ``pydantic`` prior to ``1.4``.
