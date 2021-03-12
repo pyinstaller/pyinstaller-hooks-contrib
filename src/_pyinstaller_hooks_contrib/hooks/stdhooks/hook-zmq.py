@@ -15,8 +15,14 @@
 Hook for PyZMQ. Cython based Python bindings for messaging library ZeroMQ.
 http://www.zeromq.org/
 """
+import os
+import glob
 from PyInstaller.utils.hooks import collect_submodules
+from PyInstaller.utils.hooks import is_module_satisfies, get_module_file_attribute
+from PyInstaller.compat import is_win
 
+binaries = []
+datas = []
 hiddenimports = ['zmq.utils.garbage']
 
 # PyZMQ comes with two backends, cython and cffi. Calling collect_submodules()
@@ -40,4 +46,20 @@ if False:
     from PyInstaller.utils.hooks import collect_data_files
 
     hiddenimports += collect_submodules('zmq.backend.cffi')
-    datas = collect_data_files('zmq.backend.cffi', excludes=['**/__pycache__', ])
+    datas += collect_data_files('zmq.backend.cffi', excludes=['**/__pycache__', ])
+
+# Starting with pyzmq 22.0.0, the DLLs in Windows wheel are located in
+# site-packages/pyzmq.libs directory along with a .load_order file. This
+# file is required on python 3.7 and earlier. On later versions of python,
+# the pyzmq.libs is required to exist.
+if is_win and is_module_satisfies('pyzmq >= 22.0.0'):
+    zmq_root = os.path.dirname(get_module_file_attribute('zmq'))
+    libs_dir = os.path.join(zmq_root, os.path.pardir, 'pyzmq.libs')
+    # .load_order file (22.0.3 replaced underscore with dash and added
+    # version suffix on this file, hence the glob)
+    load_order_file = glob.glob(os.path.join(libs_dir, '.load*'))
+    datas += [(filename, 'pyzmq.libs') for filename in load_order_file]
+    # We need to collect DLLs into _MEIPASS, to avoid duplication due to
+    # subsequent binary analysis
+    dll_files = glob.glob(os.path.join(libs_dir, "*.dll"))
+    binaries += [(dll_file, '.') for dll_file in dll_files]
