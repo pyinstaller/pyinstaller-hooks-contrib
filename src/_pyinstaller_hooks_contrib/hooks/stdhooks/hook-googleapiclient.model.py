@@ -11,8 +11,10 @@
 # ------------------------------------------------------------------
 
 from PyInstaller.utils.hooks import copy_metadata
+from PyInstaller.utils.hooks import collect_data_files
 
 # googleapiclient.model queries the library version via
 # pkg_resources.get_distribution("google-api-python-client").version,
 # so we need to collect that package's metadata
 datas = copy_metadata('google_api_python_client')
+datas += collect_data_files('googleapiclient.discovery', excludes=['*.txt', '**/__pycache__'])

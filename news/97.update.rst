@@ -1,0 +1,2 @@
+Add ```googleapiclient.discovery``` json files to work with services
+like Blogger v3 on the ```build()``` method.
