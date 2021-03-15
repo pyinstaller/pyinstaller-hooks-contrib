@@ -1,1 +1,1 @@
-Add a hook for ``statsmodels``, which has several hidden imports.
+Added a hook for ``statsmodels``, which adds ``statsmodels.tsa.statespace`` as a hidden import
