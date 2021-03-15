@@ -398,7 +398,7 @@ def test_sklearn(pyi_builder, submodule):
 @importorskip('statsmodels')
 @pytest.mark.skipif(not is_module_satisfies('statsmodels >= 0.12'),
                     reason='This has only been tested with statsmodels >= 0.12.')
-def test_sklearn(pyi_builder):
+def test_statsmodels(pyi_builder):
     pyi_builder.test_source("""
         import statsmodels.api as sm
         """)
