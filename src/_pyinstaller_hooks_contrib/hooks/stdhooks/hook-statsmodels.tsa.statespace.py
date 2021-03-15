@@ -12,4 +12,5 @@
 
 from PyInstaller.utils.hooks import collect_submodules
 
-hiddenimports = collect_submodules('statsmodels.tsa.statespace')
+hiddenimports = collect_submodules('statsmodels.tsa.statespace._filters') \
+              + collect_submodules('statsmodels.tsa.statespace._smoothers')
