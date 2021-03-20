@@ -88,7 +88,7 @@ def _norm_comma_space(x):
     return re.sub(", *", ", ", x)
 
 
-PYTHONS = ["3.5", "3.6", "3.7", "3.8"]
+PYTHONS = ["3.6", "3.7", "3.8", "3.9"]
 OSs = ["ubuntu", "windows", "macos"]
 
 
