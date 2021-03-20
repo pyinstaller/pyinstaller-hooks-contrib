@@ -106,10 +106,13 @@ OSs = ["ubuntu", "windows", "macos"]
               help="Which fork of pyinstaller-hooks-contrib to use. Defaults to the fork of the authenticated user.")
 @click.option("--branch", default=None,
               help="The branch to test. Defaults to using git to get your currently active branch.")
+@click.option("--commands", multiple=True,
+              help="Additional bash installation commands to run. Ran after setting up Python but before pip-installing"
+                   "dependencies.")
 @click.option("--browser", default=False, is_flag=True,
               help="Open the live build on Github in a browser window.")
 @click.option("--dry-run", is_flag=True, help="Don't launch a build. Just parse and print the parameters.")
-def main(package, py, os, fork, branch, fail_fast, browser, dry_run):
+def main(package, py, os, fork, branch, fail_fast, commands, browser, dry_run):
     """Launch CI testing of a given package against multiple package or Python versions and OSs.
 
     The **package** specifies only those to install. Which tests should be ran is inferred implicitly by
@@ -156,7 +159,8 @@ def main(package, py, os, fork, branch, fail_fast, browser, dry_run):
         "python-version": _norm_comma_space(",".join(py)),
         "package": _norm_comma_space(package),
         "os": _norm_comma_space(",".join(os).lower()),
-        "fail-fast": str(fail_fast).lower()
+        "fail-fast": str(fail_fast).lower(),
+        "commands": "; ".join(commands),
     }
 
     print("Configuration options to be passed to CI:")

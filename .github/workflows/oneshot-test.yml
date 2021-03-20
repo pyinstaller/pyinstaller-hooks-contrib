@@ -34,6 +34,12 @@ on:
         description: 'Terminate all tests if one fails (true/false).'
         required: true
         default: 'false'
+      commands:
+        description: |
+          Additional installation commands to run from terminal.
+          Ran from bash irregardless of OS.
+          Use ';' to separate multiple commands.
+        required: false
 
 jobs:
   generate-matrix:
@@ -97,6 +103,10 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
+
+      - name: Run bash commands
+        if: ${{ github.event.inputs.commands }}
+        run: ${{ github.event.inputs.commands }}
 
       - name: Install dependencies
         run: |
