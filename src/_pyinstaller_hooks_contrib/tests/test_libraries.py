@@ -197,6 +197,14 @@ def test_pyttsx(pyi_builder):
         """)
 
 
+@importorskip('pyttsx3')
+def test_pyttsx3(pyi_builder):
+    pyi_builder.test_source("""
+        import pyttsx3
+        engine = pyttsx3.init()
+    """)
+
+
 @importorskip('pycparser')
 def test_pycparser(pyi_builder):
     pyi_builder.test_script('pyi_lib_pycparser.py')
