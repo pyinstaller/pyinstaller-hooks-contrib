@@ -486,3 +486,15 @@ def test_googleapiclient(pyi_builder):
     pyi_builder.test_source("""
         from googleapiclient.discovery import build
         """)
+
+
+@importorskip('plotly')
+def test_plotly(pyi_builder):
+    pyi_builder.test_source("""
+        import pandas as pd
+        import plotly.express as px
+
+        data = [(1, 1), (2, 1), (3, 5), (4, -3)]
+        df = pd.DataFrame.from_records(data, columns=['col_1', 'col_2'])
+        fig = px.scatter(df, x='col_1', y='col_2')
+        """)
