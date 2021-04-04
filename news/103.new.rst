@@ -1,0 +1,1 @@
+Add hook for ``plotly`` to collect data files and hidden `pandas`, `cmath`, and `plotly.validator` imports
