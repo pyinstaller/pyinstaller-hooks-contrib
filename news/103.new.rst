@@ -1,2 +1,3 @@
 Add hook for ``plotly`` to collect data files and hidden `pandas`, `cmath`, and `plotly.validator` imports
 Add hooks for ``dash`` and related packages to collect data files and hook for meta-data from ``flask-compress``
+Add hook for ``dash_bootstrap_components`` to collect data files
