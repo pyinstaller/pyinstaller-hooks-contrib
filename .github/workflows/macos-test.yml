@@ -34,7 +34,7 @@ jobs:
 
           # Install hooks-contrib
           pip install -e .
-          pip install -r requirements-test-libraries.txt
+          pip install --prefer-binary -r requirements-test-libraries.txt
 
           # Install PyInstaller
           pip install ${{ matrix.pyinstaller }}

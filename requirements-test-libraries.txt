@@ -3,7 +3,6 @@
 boto==2.49.0
 boto3==1.12.33
 botocore==1.15.33
-h5py==2.10.0
 iminuit==1.4.0
 markdown==3.2.1
 pendulum==2.0.5
@@ -19,11 +18,15 @@ pyzmq==19.0.0
 Unidecode==1.1.1
 zeep==3.4.0
 sentry-sdk==0.19.3
-av==8.0.2
+av==8.0.3
 passlib==1.7.2
 publicsuffix2==2.20191221
 
 # ------------------- Python Version/Platform (OS) specifics
+# Prebuilt wheels for Python 3.9 were introduced in h5py > 3
+h5py==2.10.0; python_version < '3.9'
+h5py==3.2.1; python_version >= '3.9'
+
 # These libraries only support python above 3.5
 openpyxl==3.0.3; python_version > '3.5'
 web3==5.7.0; python_version > '3.5'
