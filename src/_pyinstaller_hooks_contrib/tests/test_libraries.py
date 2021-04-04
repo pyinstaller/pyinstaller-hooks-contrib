@@ -498,3 +498,44 @@ def test_plotly(pyi_builder):
         df = pd.DataFrame.from_records(data, columns=['col_1', 'col_2'])
         fig = px.scatter(df, x='col_1', y='col_2')
         """)
+
+
+@pytest.mark.timeout(300)
+@importorskip('dash')
+def test_dash(pyi_builder):
+    pyi_builder.test_source("""
+        import dash
+        import dash_core_components as dcc
+        import dash_html_components as html
+        from dash.dependencies import Input, Output
+
+        app = dash.Dash(__name__)
+        app.layout = html.Div(
+            [
+                dcc.Input(id='input_text', type='text', placeholder='input type text'),
+                html.Div(id='out-all-types'),
+            ]
+        )
+
+        @app.callback(
+            Output('out-all-types', 'children'),
+            [Input('input_text', 'value')],
+        )
+        def cb_render(val):
+            return val
+        """)
+
+
+@importorskip('dash_table')
+def test_dash_table(pyi_builder):
+    pyi_builder.test_source("""
+        import dash
+        import dash_table
+
+        app = dash.Dash(__name__)
+        app.layout = dash_table.DataTable(
+            id='table',
+            columns=[{'name': 'a', 'id': 'a'}, {'name': 'b', 'id': 'b'}],
+            data=[{'a': 1, 'b': 2}, {'a': 3, 'b': 4}],
+        )
+        """)
