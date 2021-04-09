@@ -1,0 +1,1 @@
+Update ``scikit-learn`` hooks for compatibility with 0.24.x series.
