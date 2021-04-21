@@ -500,7 +500,7 @@ def test_plotly(pyi_builder):
         """)
 
 
-@pytest.mark.timeout(300)
+@pytest.mark.timeout(600)
 @importorskip('dash')
 def test_dash(pyi_builder):
     pyi_builder.test_source("""
