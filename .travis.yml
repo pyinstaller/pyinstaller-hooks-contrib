@@ -42,18 +42,18 @@ jobs:
 
         # Install hooks-contrib
         - pip install -e .
-        - pip install -r requirements-test-libraries.txt
+        - pip install --prefer-binary -r requirements-test-libraries.txt
 
         # Install PyInstaller
         - pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
-     
+
     - <<: *test
       python: 3.8
     - <<: *test
       python: 3.7
     - <<: *test
       python: 3.6
-    
+
     - <<: *test
       stage: PyInstaller development version
       python: 3.8
