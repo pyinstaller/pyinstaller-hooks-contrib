@@ -12,7 +12,7 @@
 
 import pytest
 
-from PyInstaller.compat import is_darwin, is_win
+from PyInstaller.compat import is_darwin, is_win, is_linux, is_py39
 from PyInstaller.utils.tests import importorskip, xfail
 from PyInstaller.utils.hooks import is_module_satisfies
 
@@ -346,6 +346,9 @@ def test_av(pyi_builder):
 
 
 @importorskip('passlib')
+@xfail(is_linux and is_py39 and not is_module_satisfies('passlib > 1.7.4'),
+       reason='Passlib does not account for crypt() behavior change that '
+              'was introduced in 3.9.x (python #39289).')
 def test_passlib(pyi_builder):
     pyi_builder.test_source("""
         import passlib.apache
