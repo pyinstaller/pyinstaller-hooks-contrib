@@ -1,0 +1,1 @@
+Update the hook for ``pycountry`` to copy metadata, in addition to collecting data files.
