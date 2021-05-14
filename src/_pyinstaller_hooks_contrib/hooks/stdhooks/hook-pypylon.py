@@ -23,10 +23,14 @@
 import os
 
 from PyInstaller.utils.hooks import collect_all
+from PyInstaller.utils.hooks import collect_data_files
 from PyInstaller.utils.hooks import collect_dynamic_libs
 
 # Collect dynamic libs as data (to prevent pyinstaller from modifying them)
 datas = collect_dynamic_libs('pypylon')
+
+# Collect data files, looking for pypylon/pylonCXP/bin/ProducerCXP.cti, but other files may also be needed
+datas += collect_data_files('pypylon')
 
 # Exclude the C++-extensions from automatic search, add them manually as data files
 # their dependencies were already handled with collect_dynamic_libs
