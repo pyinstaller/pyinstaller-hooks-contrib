@@ -554,3 +554,10 @@ def test_dash_bootstrap_components(pyi_builder):
         app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
         alert = dbc.Alert([html.H4('Well done!', className='alert-heading')])
         """)
+
+
+@importorskip('blspy')
+def test_blspy(pyi_builder):
+    pyi_builder.test_source("""
+        import blspy
+        """)
