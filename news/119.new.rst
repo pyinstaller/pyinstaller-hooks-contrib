@@ -1,0 +1,1 @@
+Add hook for ``blspy`` that collects ``MPIR`` DLLs on Windows.
