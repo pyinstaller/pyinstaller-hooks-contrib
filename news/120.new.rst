@@ -1,0 +1,1 @@
+Add hook for ``flirpy`` that collects data files on Windows.

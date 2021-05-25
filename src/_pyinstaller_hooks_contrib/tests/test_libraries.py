@@ -561,3 +561,12 @@ def test_blspy(pyi_builder):
     pyi_builder.test_source("""
         import blspy
         """)
+
+
+@importorskip('flirpy')
+def test_flirpy(pyi_builder):
+    pyi_builder.test_source("""
+        from flirpy.camera.lepton import Lepton
+
+        print(Lepton.find_video_device())
+        """)
