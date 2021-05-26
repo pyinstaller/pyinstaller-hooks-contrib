@@ -293,6 +293,16 @@ def test_pendulum(pyi_builder):
         """)
 
 
+@importorskip('humanize')
+def test_humanize(pyi_builder):
+    pyi_builder.test_source("""
+        import humanize
+        from datetime import timedelta
+
+        print(humanize.naturaldelta(timedelta(seconds=125)))
+        """)
+
+
 @importorskip('argon2')
 def test_argon2(pyi_builder):
     pyi_builder.test_source("""
