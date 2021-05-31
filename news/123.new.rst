@@ -1,0 +1,1 @@
+Add a hook for ``Azurerm`` which is using pkg_resources internally.
