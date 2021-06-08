@@ -1,0 +1,2 @@
+Remove ``win32ctypes.core`` hook, as an improved copy is provided as part
+of main PyInstaller's hooks collection.
