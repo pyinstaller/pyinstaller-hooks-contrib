@@ -8,6 +8,7 @@ dash-bootstrap-components==0.12.0
 humanize==3.5.0
 iminuit==2.4.0
 markdown==3.2.1
+Office365-REST-Python-Client==2.3.4
 openpyxl==3.0.3
 pendulum==2.0.5
 phonenumbers==8.12.1
