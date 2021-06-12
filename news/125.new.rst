@@ -1,0 +1,1 @@
+Add a hook for ``Office365-REST-Python-Client`` which uses data files in some methods

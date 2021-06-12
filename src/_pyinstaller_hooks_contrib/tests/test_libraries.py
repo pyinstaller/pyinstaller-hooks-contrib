@@ -36,6 +36,7 @@ def tensorflow_onedir_only(test):
         test(pyi_builder)
     return wrapped
 
+
 @importorskip('tensorflow')
 @tensorflow_onedir_only
 def test_tensorflow(pyi_builder):
@@ -579,4 +580,15 @@ def test_flirpy(pyi_builder):
         from flirpy.camera.lepton import Lepton
 
         print(Lepton.find_video_device())
+        """)
+
+
+@importorskip('office365')
+def test_office365(pyi_builder):
+    pyi_builder.test_source("""
+        from office365.runtime.auth.providers.saml_token_provider import SamlTokenProvider
+
+        SamlTokenProvider._prepare_request_from_template('FederatedSAML.xml', {})
+        SamlTokenProvider._prepare_request_from_template('RST2.xml', {})
+        SamlTokenProvider._prepare_request_from_template('SAML.xml', {})
         """)
