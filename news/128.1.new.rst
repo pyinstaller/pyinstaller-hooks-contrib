@@ -1,0 +1,1 @@
+Add a hook for ``spacy`` which contains hidden imports and data files
