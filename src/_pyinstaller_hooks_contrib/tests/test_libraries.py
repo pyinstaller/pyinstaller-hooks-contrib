@@ -592,3 +592,10 @@ def test_office365(pyi_builder):
         SamlTokenProvider._prepare_request_from_template('RST2.xml', {})
         SamlTokenProvider._prepare_request_from_template('SAML.xml', {})
         """)
+
+
+@importorskip('thinc')
+def test_thinc(pyi_builder):
+    pyi_builder.test_source("""
+        from thinc.backends import numpy_ops
+        """)
