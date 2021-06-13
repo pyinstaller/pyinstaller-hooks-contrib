@@ -606,3 +606,10 @@ def test_srsly(pyi_builder):
     pyi_builder.test_source("""
         import srsly
         """)
+
+
+@importorskip('spacy')
+def test_spacy(pyi_builder):
+    pyi_builder.test_source("""
+        import spacy
+        """)

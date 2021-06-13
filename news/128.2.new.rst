@@ -1,0 +1,1 @@
+Add hooks for ``thinc`` and ``thinc.banckends.numpy_ops`` which contain data files and hidden imports
