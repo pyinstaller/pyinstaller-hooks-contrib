@@ -1,5 +1,6 @@
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
+av==8.0.3
 boto==2.49.0
 boto3==1.12.33
 botocore==1.15.33
@@ -10,10 +11,12 @@ iminuit==2.4.0
 markdown==3.2.1
 Office365-REST-Python-Client==2.3.4
 openpyxl==3.0.3
+passlib==1.7.2
 pendulum==2.0.5
 phonenumbers==8.12.1
-plotly==4.14.3
 pinyin==0.4.0
+plotly==4.14.3
+publicsuffix2==2.20191221
 pycparser==2.20
 pycryptodome==3.9.7
 pycryptodomex==3.9.7
@@ -21,13 +24,10 @@ pyexcelerate==0.8.0
 pylint==2.4.4
 pyusb==1.0.2
 pyzmq==22.0.3
-Unidecode==1.1.1
-zeep==3.4.0
 sentry-sdk==0.19.3
-av==8.0.3
-passlib==1.7.2
-publicsuffix2==2.20191221
+Unidecode==1.1.1
 web3==5.7.0
+zeep==3.4.0
 
 # ------------------- Python Version/Platform (OS) specifics
 # Last release with prebuilt wheels for Python 3.6 is 3.1.0
