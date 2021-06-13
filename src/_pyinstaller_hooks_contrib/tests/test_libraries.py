@@ -592,3 +592,13 @@ def test_office365(pyi_builder):
         SamlTokenProvider._prepare_request_from_template('RST2.xml', {})
         SamlTokenProvider._prepare_request_from_template('SAML.xml', {})
         """)
+
+
+@importorskip('statsmodels')
+def test_statsmodels(pyi_builder):
+    pyi_builder.test_source("""
+        import statsmodels.api as sm
+        import numpy as np
+
+        print(sm.add_constant(np.array([1, 2, 3])))
+        """)
