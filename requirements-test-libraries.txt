@@ -25,6 +25,7 @@ pylint==2.4.4
 pyusb==1.0.2
 pyzmq==22.0.3
 sentry-sdk==0.19.3
+srsly==2.4.1
 thinc==8.0.4
 Unidecode==1.1.1
 web3==5.7.0

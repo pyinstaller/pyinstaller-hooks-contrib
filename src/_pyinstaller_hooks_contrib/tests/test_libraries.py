@@ -599,3 +599,10 @@ def test_thinc(pyi_builder):
     pyi_builder.test_source("""
         from thinc.backends import numpy_ops
         """)
+
+
+@importorskip('srsly')
+def test_srsly(pyi_builder):
+    pyi_builder.test_source("""
+        import srsly
+        """)
