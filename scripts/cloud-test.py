@@ -37,7 +37,8 @@ def authenticated_user():
     token = os.environ.get("GITHUB_TOKEN")
 
     if token is None:
-        token = input("Please enter a Github authentication token or your username and password separated by a space.\n"
+        token = input("Please enter a Github Personal Access Token with at least 'repo/public_repo' scope. "
+                      "If you don't have one then create one at https://github.com/settings/tokens.\n"
                       "Alternatively you may set the GITHUB_TOKEN environment variable instead:\n")
 
     user = github.Github(*token.split(maxsplit=1))
