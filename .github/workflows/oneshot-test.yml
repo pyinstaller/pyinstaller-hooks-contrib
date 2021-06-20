@@ -19,7 +19,7 @@ on:
         description: |
           Package names and versions to test. Jobs are split by comma.
         required: true
-        default: '"numpy==1.19", "numpy<1.18"'
+        default: 'numpy==1.19, numpy<1.18'
       os:
         description: |
           OS(s) to run on. Can be any combinations of ubuntu, windows, macos.
@@ -73,11 +73,21 @@ jobs:
           # Split by comma, ignore trailing comma, remove whitespace.
           parse_list = lambda x: [i.strip() for i in x.strip(", ").split(",")]
 
+          # Wrap a word in quotes, escaping any literal quotes already there.
+          quote = lambda x: '"{}"'.format(x.replace('"', r'\"'))
+
           matrix = {
               "os": [i + "-latest" for i in parse_list(inputs["os"])],
               "python-version": parse_list(inputs["python-version"]),
               "requirements": parse_list(inputs["package"]),
           }
+
+          # Wrap each word in " " quotes to force bash to interpret special
+          # characters such as > as literals.
+          matrix["requirements"] = [
+              " ".join(map(quote, i.split(" ")))
+              for i in matrix["requirements"]
+          ]
 
           pprint.pprint(matrix)
 
