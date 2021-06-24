@@ -13,7 +13,6 @@
 from PyInstaller.utils.hooks import collect_data_files, collect_submodules, copy_metadata
 
 hiddenimports = collect_submodules("sunpy", filter=lambda x: "tests" not in x.split("."))
-datas = collect_data_files("sunpy", excludes= ['**/tests/', '**/test/'])
+datas = collect_data_files("sunpy", excludes=['**/tests/', '**/test/'])
 datas += collect_data_files("drms")
 datas += copy_metadata("sunpy")
-
