@@ -1,1 +1,0 @@
-Add hook for ``jsonrpcserver`` to collect missing ``request-schema.json`` data file.

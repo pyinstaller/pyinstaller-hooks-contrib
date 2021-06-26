@@ -1,2 +1,0 @@
-(Windows) Update ``zmq`` hook for compatibility with new shared libraries 
-location in Windows build of ``pyzmq`` 22.0.0 and later.

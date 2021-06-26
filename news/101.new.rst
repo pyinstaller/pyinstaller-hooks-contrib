@@ -1,1 +1,0 @@
-Add hook for ``pyttsx3`` whose drivers are hidden imports.

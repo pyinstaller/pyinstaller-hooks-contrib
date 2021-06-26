@@ -1,3 +1,70 @@
+2021.2 (2021-06-26)
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``Azurerm`` which is using pkg_resources internally. (`#123
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/123>`_)
+* Add a hook for ``Office365-REST-Python-Client`` which uses data files in some
+  methods (`#125
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/125>`_)
+* Add a hook for ``spacy`` which contains hidden imports and data files (`#1
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1>`_)
+* Add a standard hook for PyPylon. (`#114
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/114>`_)
+* Add hook for ``blspy`` that collects ``MPIR`` DLLs on Windows. (`#119
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/119>`_)
+* Add hook for ``flirpy`` that collects data files on Windows. (`#120
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/120>`_)
+* Add hook for ``jsonrpcserver`` to collect missing ``request-schema.json``
+  data file. (`#126
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/126>`_)
+* Add hook for ``plotly`` to collect data files and hidden `pandas`, `cmath`,
+  and `plotly.validator` imports
+
+  Add hooks for ``dash`` and related packages to collect data files and hook
+  for meta-data from ``flask-compress``
+
+  Add hook for ``dash_bootstrap_components`` to collect data files (`#103
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/103>`_)
+* Add hook for ``pyttsx3`` whose drivers are hidden imports. (`#101
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/101>`_)
+* Add hook for ``srsly.msgpack._packer`` which contains a hidden import (`#3
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/3>`_)
+* Add hook for `humanize <https://pypi.org/project/humanize>`__ to include
+  required metadata. (`#122
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/122>`_)
+* Add hooks for ``thinc`` and ``thinc.banckends.numpy_ops`` which contain data
+  files and hidden imports (`#2
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/2>`_)
+* Added a hook for ``statsmodels``, which adds ``statsmodels.tsa.statespace``
+  as a hidden import (`#100
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/100>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Windows) Update ``zmq`` hook for compatibility with new shared libraries
+  location in Windows build of ``pyzmq`` 22.0.0 and later. (`#98
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/98>`_)
+* Add ```googleapiclient.discovery``` json files to work with services
+  like Blogger v3 on the ```build()``` method. (`#97
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/97>`_)
+* Remove ``win32ctypes.core`` hook, as an improved copy is provided as part
+  of main PyInstaller's hooks collection. (`#124
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/124>`_)
+* Update ``scikit-image`` hooks for compatibility with 0.18.x series. (`#107
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/107>`_)
+* Update ``scikit-learn`` hooks for compatibility with 0.24.x series. (`#108
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/108>`_)
+* Update hook for PyPylon to include data files. (`#116
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/116>`_)
+* Update the hook for ``pycountry`` to copy metadata, in addition to collecting
+  data files. (`#113
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/113>`_)
+
+
 2021.1 (2021-03-07)
 -------------------
 
