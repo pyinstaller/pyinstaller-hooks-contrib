@@ -34,15 +34,14 @@ jobs:
       - name: Create Git Tag
         run: git tag v$(python setup.py --version)
 
-      - name: Bump version
-        run: python setup.py bump --build
-
-      - name: Commit changes back into the repository
+      - name: Bump version, and commit changes back into the repository
         run: |
+          VERSION=$(python setup.py --version)
+          python setup.py bump --build
           git config user.email "github-actions@github.com"
           git config user.name "github-actions"
           git add src CHANGELOG.rst
           git status
-          git commit -m "Release v$(python setup.py --version)"
+          git commit -m "Release v$VERSION"
           git push && git push --tags
 
