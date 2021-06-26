@@ -16,3 +16,5 @@ hiddenimports = collect_submodules("sunpy", filter=lambda x: "tests" not in x.sp
 datas = collect_data_files("sunpy", excludes=['**/tests/', '**/test/'])
 datas += collect_data_files("drms")
 datas += copy_metadata("sunpy")
+
+# Note : sunpy > 3.1.0 comes with it's own hook for running tests.
