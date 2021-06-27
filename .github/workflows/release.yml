@@ -44,4 +44,4 @@ jobs:
           git status
           git commit -m "Release v$VERSION"
           git push && git push --tags
-
+          gh release create $VERSION -n "Please see the changelog for more details"
