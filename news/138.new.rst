@@ -1,0 +1,1 @@
+Add a hook for ``shotgun_api3`` to collect data files and hidden imports.
