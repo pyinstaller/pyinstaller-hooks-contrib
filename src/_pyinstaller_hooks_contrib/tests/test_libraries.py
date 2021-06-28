@@ -613,3 +613,10 @@ def test_spacy(pyi_builder):
     pyi_builder.test_source("""
         import spacy
         """)
+
+
+@importorskip('shotgun_api3')
+def test_shotgun_api3(pyi_builder):
+    pyi_builder.test_source("""
+        import shotgun_api3
+        """)

@@ -25,6 +25,8 @@ pylint==2.4.4
 pyusb==1.0.2
 pyzmq==22.0.3
 sentry-sdk==0.19.3
+# shotgun_api3 can only be installed from git
+git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
 spacy==3.0.6
 srsly==2.4.1
 thinc==8.0.4
