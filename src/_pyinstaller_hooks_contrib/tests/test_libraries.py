@@ -620,3 +620,10 @@ def test_shotgun_api3(pyi_builder):
     pyi_builder.test_source("""
         import shotgun_api3
         """)
+
+
+@importorskip('msoffcrypto')
+def test_msoffcrypto(pyi_builder):
+    pyi_builder.test_source("""
+        import msoffcrypto
+        """)
