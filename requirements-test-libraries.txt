@@ -8,7 +8,7 @@ dash==1.19.0
 dash-bootstrap-components==0.12.0
 humanize==3.5.0
 iminuit==2.4.0
-markdown==3.2.1
+markdown==3.3.4
 msoffcrypto-tool==4.12.0
 Office365-REST-Python-Client==2.3.4
 openpyxl==3.0.3
