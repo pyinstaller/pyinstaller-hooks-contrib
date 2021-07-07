@@ -24,7 +24,7 @@ pycryptodomex==3.9.7
 pyexcelerate==0.8.0
 pylint==2.4.4
 pyusb==1.0.2
-pyzmq==22.0.3
+pyzmq==22.1.0
 sentry-sdk==0.19.3
 # shotgun_api3 can only be installed from git
 git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
