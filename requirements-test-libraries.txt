@@ -48,7 +48,7 @@ pandas==1.2.3; python_version >= '3.7'
 pyenchant==3.0.1; sys_platform == 'darwin' or sys_platform == 'win32'
 
 # uvloop does not currently support Windows.
-uvloop==0.14.0; sys_platform != 'win32'
+uvloop==0.15.2; sys_platform != 'win32'
 
 # pydivert only runs on Windows
 pydivert==2.1.0; sys_platform == 'win32'
