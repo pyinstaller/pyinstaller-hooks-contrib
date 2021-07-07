@@ -1,7 +1,7 @@
 # PyTest
 pytest >= 2.7.3
 pytest-timeout  # Stop hanging tests
-pytest-xdist  # Distributed testing
+pytest-xdist==2.3.0  # Distributed testing
 execnet >= 1.5.0  # for pytest-xdist
 pytest-drop-dup-tests  # Don't run tests twice
 psutil
