@@ -1,4 +1,4 @@
 towncrier==21.3.0
-setuptools
+setuptools==57.1.0
 wheel
 twine
