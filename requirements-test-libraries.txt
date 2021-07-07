@@ -38,7 +38,7 @@ zeep==3.4.0
 # ------------------- Python Version/Platform (OS) specifics
 # Last release with prebuilt wheels for Python 3.6 is 3.1.0
 h5py==3.3.0; python_version < '3.7'
-h5py==3.2.1; python_version >= '3.7'
+h5py==3.3.0; python_version >= '3.7'
 
 # Pandas dropped support for Python 3.6 in 1.2 releases
 pandas==1.1.5; python_version < '3.7'
