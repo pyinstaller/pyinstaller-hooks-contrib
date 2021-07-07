@@ -19,7 +19,7 @@ pinyin==0.4.0
 plotly==4.14.3
 publicsuffix2==2.20191221
 pycparser==2.20
-pycryptodome==3.9.7
+pycryptodome==3.10.1
 pycryptodomex==3.9.7
 pyexcelerate==0.8.0
 pylint==2.4.4
