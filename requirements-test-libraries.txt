@@ -22,7 +22,7 @@ pycparser==2.20
 pycryptodome==3.9.7
 pycryptodomex==3.9.7
 pyexcelerate==0.8.0
-pylint==2.4.4
+pylint==2.9.3
 pyusb==1.0.2
 pyzmq==22.0.3
 sentry-sdk==0.19.3
