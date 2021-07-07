@@ -33,7 +33,7 @@ srsly==2.4.1
 thinc==8.0.4
 Unidecode==1.1.1
 web3==5.7.0
-zeep==3.4.0
+zeep==4.0.0
 
 # ------------------- Python Version/Platform (OS) specifics
 # Last release with prebuilt wheels for Python 3.6 is 3.1.0
