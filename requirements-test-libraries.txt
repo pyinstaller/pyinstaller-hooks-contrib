@@ -2,7 +2,7 @@
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==8.0.3
 boto==2.49.0
-boto3==1.12.33
+boto3==1.17.105
 botocore==1.15.33
 dash==1.19.0
 dash-bootstrap-components==0.12.0
