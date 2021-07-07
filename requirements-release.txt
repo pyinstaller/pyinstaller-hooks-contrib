@@ -1,4 +1,4 @@
-towncrier
+towncrier==21.3.0
 setuptools
 wheel
 twine
