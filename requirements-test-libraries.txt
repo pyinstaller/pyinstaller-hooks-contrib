@@ -16,7 +16,7 @@ passlib==1.7.2
 pendulum==2.0.5
 phonenumbers==8.12.1
 pinyin==0.4.0
-plotly==4.14.3
+plotly==5.1.0
 publicsuffix2==2.20191221
 pycparser==2.20
 pycryptodome==3.9.7
