@@ -7,7 +7,7 @@
 # The full license is in the file COPYING.txt, distributed with this software.
 # -----------------------------------------------------------------------------
 
-# Hook for Jedi, a static analysis tool https://pypi.org/project/jedi/
+# Hook for Parso, a static analysis tool https://pypi.org/project/jedi/ (IPython dependency)
 
 from PyInstaller.utils.hooks import collect_data_files
 
