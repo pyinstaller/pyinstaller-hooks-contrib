@@ -383,8 +383,8 @@ def test_pydivert(pyi_builder):
 
 
 @importorskip('skimage')
-@pytest.mark.skipif(not is_module_satisfies('skimage >= 0.16.0'),
-                    reason='The test supports only skimage 0.16.0 or newer.')
+@pytest.mark.skipif(not is_module_satisfies('scikit_image >= 0.16'),
+                    reason='The test supports only scikit-image >= 0.16.')
 @pytest.mark.parametrize('submodule', [
     'color', 'data', 'draw', 'exposure', 'feature', 'filters', 'future',
     'graph', 'io', 'measure', 'metrics', 'morphology', 'registration',
@@ -397,7 +397,7 @@ def test_skimage(pyi_builder, submodule):
 
 
 @importorskip('sklearn')
-@pytest.mark.skipif(not is_module_satisfies('sklearn >= 0.21'),
+@pytest.mark.skipif(not is_module_satisfies('scikit_learn >= 0.21'),
                     reason='The test supports only scikit-learn >= 0.21.')
 @pytest.mark.parametrize('submodule', [
     'calibration', 'cluster', 'covariance', 'cross_decomposition',
