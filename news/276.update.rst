@@ -1,0 +1,3 @@
+Update ``scikit-learn`` and ``scikit-image`` hooks to perform version checks 
+based on distribution name instead of package name, to prevent failures
+when ``sklearn`` dummy distribution is installed.

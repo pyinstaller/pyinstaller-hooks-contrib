@@ -14,7 +14,7 @@ from PyInstaller.utils.hooks import is_module_satisfies
 
 hiddenimports = []
 
-if is_module_satisfies("sklearn >= 0.22"):
+if is_module_satisfies("scikit_learn >= 0.22"):
     # 0.22 and later
     hiddenimports += [
         'sklearn.neighbors._typedefs',
