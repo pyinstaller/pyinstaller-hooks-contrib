@@ -14,5 +14,5 @@ from PyInstaller.utils.hooks import is_module_satisfies
 
 # The following missing module prevents import of skimage.feature
 # with skimage 0.18.x.
-if is_module_satisfies("skimage >= 0.18.0"):
+if is_module_satisfies("scikit_image >= 0.18.0"):
     hiddenimports = ['skimage.filters.rank.core_cy_3d', ]
