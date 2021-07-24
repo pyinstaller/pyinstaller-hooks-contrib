@@ -9,29 +9,6 @@ environment:
   APPVEYOR_SAVE_CACHE_ON_ERROR: true
 
   matrix:
-    - PYTHON: C:\Python39-x64
-      PYTHON_VERSION: "3.9"
-      PYTHON_ARCH: 64
-      INSTALL_URL: pyinstaller  # INSTALL_URL is passed straight to pip with `pip install INSTALL_URL`.
-      USE_DEV: "False"
-
-    - PYTHON: C:\Python38-x64
-      PYTHON_VERSION: "3.8"
-      PYTHON_ARCH: 64
-      INSTALL_URL: pyinstaller  # INSTALL_URL is passed straight to pip with `pip install INSTALL_URL`.
-      USE_DEV: "False"
-
-    - PYTHON: C:\Python37-x64
-      PYTHON_VERSION: "3.7"
-      PYTHON_ARCH: 64
-      INSTALL_URL: pyinstaller  # INSTALL_URL is passed straight to pip with `pip install INSTALL_URL`.
-      USE_DEV: "False"
-
-    - PYTHON: C:\Python36-x64
-      PYTHON_VERSION: "3.6"
-      PYTHON_ARCH: 64
-      INSTALL_URL: pyinstaller
-      USE_DEV: "False"
 
     - PYTHON: C:\Python39-x64
       PYTHON_VERSION: "3.9"

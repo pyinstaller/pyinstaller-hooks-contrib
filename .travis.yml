@@ -15,27 +15,10 @@ services:
 jobs:
   fast_finish: true
   include:
+
     - &test
-      stage: PyInstaller stable release
-      python: 3.9
-      install:
-        # Upgrade to the latest pip.
-        - python -m pip install -U pip setuptools wheel
-
-        # Install hooks-contrib
-        - pip install -e .
-        - pip install -r requirements-test-libraries.txt
-
-        # Install PyInstaller
-        - pip install pyinstaller
-      script: |
-        pyi_version="$(python -m PyInstaller --version)"
-        if [ "$pyi_version" != *"3.6"* ]; then
-          python -m PyInstaller.utils.run_tests -c pytest.ini
-        fi
-
-    - <<: *test
       stage: PyInstaller development version
+      python: 3.9
       install: &install-develop
         # Upgrade to the latest pip.
         - python -m pip install -U pip setuptools wheel
@@ -46,6 +29,9 @@ jobs:
 
         # Install PyInstaller
         - pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz
+
+      script: |
+        python -m PyInstaller.utils.run_tests -c pytest.ini
 
     - <<: *test
       python: 3.8
