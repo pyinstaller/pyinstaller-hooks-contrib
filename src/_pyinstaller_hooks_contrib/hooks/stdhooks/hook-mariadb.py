@@ -11,10 +11,10 @@
 # ------------------------------------------------------------------
 
 
-from PyInstaller.utils.hooks import get_pyextension_imports
+from PyInstaller.compat import is_py38
 
 
 # The MariaDB uses a .pyd file and uses import within its __init__.py
-# I looked for similar hooks and found that pyodbc uses this function
-# for the import.
-hiddenimports = get_pyextension_imports('mariadb')
+# The decimal import seems to be hidden in Python version 3.7 and older
+if not is_py38:
+    hiddenimports = ['decimal']
