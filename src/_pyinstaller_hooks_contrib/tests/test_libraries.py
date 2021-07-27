@@ -627,3 +627,10 @@ def test_msoffcrypto(pyi_builder):
     pyi_builder.test_source("""
         import msoffcrypto
         """)
+
+
+@importorskip('mariadb')
+def test_msoffcrypto(pyi_builder):
+    pyi_builder.test_source("""
+        import mariadb
+        """)
