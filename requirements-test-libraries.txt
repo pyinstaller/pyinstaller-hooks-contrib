@@ -8,7 +8,7 @@ dash==1.19.0
 dash-bootstrap-components==0.12.0
 humanize==3.5.0
 iminuit==2.4.0
-mariadb==1.0.7
+mariadb==1.0.7; sys_platform != "darwin"
 markdown==3.2.1
 msoffcrypto-tool==4.12.0
 Office365-REST-Python-Client==2.3.4
