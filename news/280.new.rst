@@ -1,0 +1,1 @@
+Add a hook for ``dash-uploader`` to collect data files
