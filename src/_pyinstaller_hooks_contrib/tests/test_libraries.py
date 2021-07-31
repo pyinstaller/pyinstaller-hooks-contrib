@@ -641,3 +641,11 @@ def test_dash_uploader(pyi_builder):
     pyi_builder.test_source("""
         import dash_uploader
         """)
+
+
+@importorskip('cloudscraper')
+def test_cloudscraper(pyi_builder):
+    pyi_builder.test_source("""
+        import cloudscraper
+        scraper = cloudscraper.create_scraper()
+        """)
