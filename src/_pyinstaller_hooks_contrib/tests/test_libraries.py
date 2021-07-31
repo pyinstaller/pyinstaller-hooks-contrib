@@ -634,3 +634,10 @@ def test_mariadb(pyi_builder):
     pyi_builder.test_source("""
         import mariadb
         """)
+
+
+@importorskip('dash_uploader')
+def test_dash_uploader(pyi_builder):
+    pyi_builder.test_source("""
+        import dash_uploader
+        """)
