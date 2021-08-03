@@ -1,0 +1,1 @@
+Add a hook for ``aumbry`` to collect data, binaries and hidden imports.
