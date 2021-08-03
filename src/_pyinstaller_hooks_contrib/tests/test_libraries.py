@@ -649,3 +649,11 @@ def test_cloudscraper(pyi_builder):
         import cloudscraper
         scraper = cloudscraper.create_scraper()
         """)
+
+
+@importorskip('mnemonic')
+def test_mnemonic(pyi_builder):
+    pyi_builder.test_source("""
+        import mnemonic
+        mnemonic.Mnemonic("english")
+        """)
