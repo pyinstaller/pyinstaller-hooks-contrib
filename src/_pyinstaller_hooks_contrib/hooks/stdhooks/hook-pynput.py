@@ -11,5 +11,4 @@
 # ------------------------------------------------------------------
 
 from PyInstaller.utils.hooks import collect_submodules
-# Dynamically loaded *backends*
 hiddenimport = collect_submodules("pynput")
