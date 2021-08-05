@@ -657,3 +657,12 @@ def test_mnemonic(pyi_builder):
         import mnemonic
         mnemonic.Mnemonic("english")
         """)
+
+
+@importorskip('pyqt5_plugins')
+def test_pyqt5_plugins(pyi_builder):
+    pyi_builder.test_source("""
+        import PyQt5
+        import PyQt5.QtCore
+        import pyqt5_plugins
+        """)
