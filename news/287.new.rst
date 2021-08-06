@@ -1,0 +1,1 @@
+Add a hook for `pynput` to collect hidden imports.

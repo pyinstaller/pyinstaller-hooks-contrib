@@ -657,3 +657,10 @@ def test_mnemonic(pyi_builder):
         import mnemonic
         mnemonic.Mnemonic("english")
         """)
+
+
+@importorskip('pynput')
+def test_pynput(pyi_builder):
+    pyi_builder.test_source("""
+        import pynput
+        """)
