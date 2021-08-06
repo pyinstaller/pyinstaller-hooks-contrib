@@ -11,4 +11,4 @@
 # ------------------------------------------------------------------
 
 from PyInstaller.utils.hooks import collect_submodules
-hiddenimport = collect_submodules("pynput")
+hiddenimports = collect_submodules("pynput")
