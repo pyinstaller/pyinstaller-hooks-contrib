@@ -1,1 +1,1 @@
-Fix harmless missing modules warnings when using ``sklearn >= 0.22``.
+Fix harmless missing modules warnings when using ``scikit-learn >= 0.22``.
