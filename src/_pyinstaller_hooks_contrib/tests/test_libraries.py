@@ -664,3 +664,10 @@ def test_pynput(pyi_builder):
     pyi_builder.test_source("""
         import pynput
         """)
+
+
+@importorskip('pystray')
+def test_pystray(pyi_builder):
+    pyi_builder.test_source("""
+        import pystray
+        """)
