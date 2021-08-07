@@ -11,4 +11,6 @@
 # ------------------------------------------------------------------
 
 from PyInstaller.utils.hooks import collect_submodules
+# https://github.com/moses-palmer/pystray/tree/feature-explicit-backends
+# if this get merged then we don't need this hook
 hiddenimports = collect_submodules("pystray")
