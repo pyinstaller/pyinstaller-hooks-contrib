@@ -671,3 +671,10 @@ def test_pystray(pyi_builder):
     pyi_builder.test_source("""
         import pystray
         """)
+
+
+@importorskip('rtree')
+def test_rtree(pyi_builder):
+    pyi_builder.test_source("""
+        import rtree
+        """)
