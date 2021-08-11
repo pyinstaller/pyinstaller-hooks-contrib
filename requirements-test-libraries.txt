@@ -31,7 +31,7 @@ pyusb==1.0.2
 pynput==1.7.3
 pystray==0.17.3
 pyzmq==22.0.3
-rtree==0.9.7
+Rtree==0.9.7
 sentry-sdk==0.19.3
 # shotgun_api3 can only be installed from git
 git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
