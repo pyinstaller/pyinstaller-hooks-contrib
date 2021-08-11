@@ -11,10 +11,8 @@
 # ------------------------------------------------------------------
 
 from PyInstaller.compat import is_pure_conda
+from PyInstaller.utils.hooks import collect_dynamic_libs, conda
 
-if is_pure_conda:
-    from PyInstaller.utils.hooks.conda import collect_dynamic_libs
-    binaries = collect_dynamic_libs('rtree', dest='rtree/lib')
-else:
-    from PyInstaller.utils.hooks import collect_dynamic_libs
-    binaries = collect_dynamic_libs('rtree', destdir='rtree/lib')
+binaries = collect_dynamic_libs('rtree', destdir='rtree/lib')
+if not binaries and is_pure_conda:
+    binaries = conda.collect_dynamic_libs('libspatialindex', dest='rtree/lib', dependencies=False)
