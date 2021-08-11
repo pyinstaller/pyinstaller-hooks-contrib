@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.compact import is_pure_conda
+from PyInstaller.compat import is_pure_conda
 
 if is_pure_conda:
     from PyInstaller.utils.hooks.conda import collect_dynamic_libs
