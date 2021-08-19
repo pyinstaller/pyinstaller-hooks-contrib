@@ -13,7 +13,7 @@
 import glob
 import os
 
-from PyInstaller.utils.hooks import collect_dynamic_libs
+from PyInstaller.utils.hooks import collect_dynamic_libs, exec_statement
 from PyInstaller import compat
 
 hiddenimports = ['numpy']
