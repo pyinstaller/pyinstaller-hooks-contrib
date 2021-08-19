@@ -678,3 +678,9 @@ def test_rtree(pyi_builder):
     pyi_builder.test_source("""
         import rtree
         """)
+
+@importorskip('pingouin')
+def test_pingouin(pyi_builder):
+    pyi_builder.test_source("""
+        import pingouin
+        """)
