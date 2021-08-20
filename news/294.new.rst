@@ -1,0 +1,1 @@
+Add a hook for ``timezonefinder`` to collect data files.

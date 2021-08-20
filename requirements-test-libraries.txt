@@ -38,6 +38,7 @@ git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
 spacy==3.0.6
 srsly==2.4.1
 thinc==8.0.4
+timezonefinder==5.2.0
 Unidecode==1.1.1
 web3==5.7.0
 zeep==3.4.0
