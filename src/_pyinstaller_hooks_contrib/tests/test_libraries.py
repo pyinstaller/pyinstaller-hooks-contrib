@@ -685,3 +685,11 @@ def test_pingouin(pyi_builder):
     pyi_builder.test_source("""
         import pingouin
         """)
+
+
+@importorskip('timezonefinder')
+def test_timezonefinder(pyi_builder):
+    pyi_builder.test_source("""
+        from timezonefinder import TimezoneFinder
+        TimezoneFinder()
+        """)
