@@ -19,22 +19,28 @@ but the latter isn't found by PyInstaller.
 
 import ctypes.util
 from PyInstaller.compat import is_win, getsitepackages
-from os.path import join, exists
+from PyInstaller.utils.hooks import is_module_satisfies
+from pathlib import Path
 
 # pythonnet is available for all platforms using .NET and Mono,
 # but tested only on Windows using .NET.
 
 if is_win:
-    pyruntime = 'Python.Runtime'
-    library = ctypes.util.find_library(pyruntime)
-    datas = []
-    if library:
-        datas = [(library, '.')]
-    else:
-    	# find Python.Runtime.dll in pip-installed pythonnet package
-    	for sitepack in getsitepackages():
-    		library = join(sitepack, pyruntime + '.dll')
-    		if exists(library):
-    			datas = [(library, '.')]
-    	if not datas:
-    		raise Exception(pyruntime + ' not found')
+	pyruntime = 'Python.Runtime'
+	library = ctypes.util.find_library(pyruntime)
+	datas = []
+	if library:
+		datas = [(library, '.')]
+	else:
+		# find Python.Runtime.dll in pip-installed pythonnet package
+		if is_module_satisfies('pythonnet < 3.0.0'):
+			pyruntime_path_prefix = ''
+		else:
+			pyruntime_path_prefix = 'pythonnet/runtime/'
+
+		for sitepack in [Path(s).resolve() for s in getsitepackages()]:
+			library = sitepack / f'{pyruntime_path_prefix}{pyruntime}.dll'
+			if library.exists():
+				datas = [(library, f'{pyruntime_path_prefix if not "" else "."}')]
+		if not datas:
+			raise Exception(pyruntime + ' not found')
