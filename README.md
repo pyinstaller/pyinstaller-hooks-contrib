@@ -15,9 +15,7 @@ seamlessly.
 
 ## Installation
 
-`pyinstaller-hooks-contrib` is automatically installed when you install PyInstaller.
-
-`pyinstaller-hooks-contrib` can be installed with pip, but is automatically installed when you install PyInstaller:
+`pyinstaller-hooks-contrib` is automatically installed when you install PyInstaller, or can be installed with pip:
 
 ```commandline
 pip install -U pyinstaller-hooks-contrib
