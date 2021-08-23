@@ -2,66 +2,61 @@
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==8.0.3
 boto==2.49.0
-boto3==1.12.33
-botocore==1.15.33
+boto3==1.18.26
+botocore==1.21.26
 cloudscraper==1.2.58
-dash==1.19.0
-dash-bootstrap-components==0.12.0
+dash==1.21.0
+dash-bootstrap-components==0.13.0
 dash-uploader==0.5.0
-humanize==3.5.0
-iminuit==2.4.0
+h5py==3.3.0; python_version >= '3.7'
+humanize==3.11.0
+iminuit==2.8.2
 langdetect==1.0.9
 mariadb==1.0.7; sys_platform != "darwin"
-markdown==3.2.1
+markdown==3.3.4
 mnemonic==0.20
 msoffcrypto-tool==4.12.0
-Office365-REST-Python-Client==2.3.4
-openpyxl==3.0.3
-passlib==1.7.2
-pendulum==2.0.5
-phonenumbers==8.12.1
+Office365-REST-Python-Client==2.3.6
+openpyxl==3.0.7
+pandas==1.3.2; python_version >= '3.7'
+passlib==1.7.4
+pendulum==2.1.2
+phonenumbers==8.12.30
+pingouin==0.4.0; python_version >= '3.7'
 pinyin==0.4.0
-plotly==4.14.3
+plotly==5.2.1
 publicsuffix2==2.20191221
 pycparser==2.20
-pycryptodome==3.9.7
-pycryptodomex==3.9.7
-pyexcelerate==0.8.0
-pylint==2.4.4
-pyusb==1.0.2
+pycryptodome==3.10.1
+pycryptodomex==3.10.1
+pyexcelerate==0.10.0
+pylint==2.10.2
+pyusb==1.2.1
 pynput==1.7.3
 pystray==0.17.3
-pyzmq==22.0.3
+pyzmq==22.2.1
 PyQt5==5.15.4
 qtmodern==0.2.0
 Rtree==0.9.7
-sentry-sdk==0.19.3
+sentry-sdk==1.3.1
 # shotgun_api3 can only be installed from git
 git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
-spacy==3.0.6
+spacy==3.1.2
 srsly==2.4.1
 swagger-spec-validator==2.7.3
-thinc==8.0.4
+thinc==8.0.8
 timezonefinder==5.2.0
-Unidecode==1.1.1
-web3==5.7.0
-zeep==3.4.0
+Unidecode==1.2.0
+web3==5.23.0
+zeep==4.1.0
 
-# ------------------- Python Version/Platform (OS) specifics
-# Last release with prebuilt wheels for Python 3.6 is 3.1.0
-h5py==3.1.0; python_version < '3.7'
-h5py==3.2.1; python_version >= '3.7'
-pingouin==0.4.0; python_version >= '3.7'
-
-# Pandas dropped support for Python 3.6 in 1.2 releases
-pandas==1.1.5; python_version < '3.7'
-pandas==1.2.3; python_version >= '3.7'
+# ------------------- Platform (OS) specifics
 
 # PyEnchant only pre-builds macOS and Windows
-pyenchant==3.0.1; sys_platform == 'darwin' or sys_platform == 'win32'
+pyenchant==3.2.1; sys_platform == 'darwin' or sys_platform == 'win32'
 
 # uvloop does not currently support Windows.
-uvloop==0.14.0; sys_platform != 'win32'
+uvloop==0.16.0; sys_platform != 'win32' and python_version >= '3.7'
 
 # pydivert only runs on Windows
 pydivert==2.1.0; sys_platform == 'win32'
