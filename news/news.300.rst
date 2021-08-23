@@ -1,1 +1,1 @@
-Add a hook for ``uvicorn``.
+Add a hook for ``uvicorn`` to collect hidden imports..
