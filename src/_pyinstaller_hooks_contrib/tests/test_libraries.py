@@ -693,3 +693,10 @@ def test_timezonefinder(pyi_builder):
         from timezonefinder import TimezoneFinder
         TimezoneFinder()
         """)
+
+
+@importorskip('uvicorn')
+def test_uvicorn(pyi_builder):
+    pyi_builder.test_source("""
+        from uvicorn import lifespan, loops
+        """)
