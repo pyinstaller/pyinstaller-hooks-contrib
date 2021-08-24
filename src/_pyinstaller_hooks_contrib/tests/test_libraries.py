@@ -708,3 +708,12 @@ def test_langdetect(pyi_builder):
         import langdetect
         print(langdetect.detect("this is a test"))
         """)
+
+
+@importorskip("swagger_spec_validator")
+def test_swagger_spec_validator(pyi_builder):
+    pyi_builder.test_source("""
+        from swagger_spec_validator.common import read_resource_file
+        read_resource_file("schemas/v1.2/resourceListing.json")
+        read_resource_file("schemas/v2.0/schema.json")
+        """)
