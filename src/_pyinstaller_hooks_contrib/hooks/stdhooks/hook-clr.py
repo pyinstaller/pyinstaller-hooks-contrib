@@ -18,8 +18,8 @@ but the latter isn't found by PyInstaller.
 
 
 import ctypes.util
-from PyInstaller.compat import is_win, getsitepackages
-from PyInstaller.utils.hooks import is_module_satisfies, logger
+from PyInstaller.compat import is_win
+from PyInstaller.utils.hooks import logger
 from pathlib import Path
 
 try:
@@ -33,7 +33,7 @@ except ImportError:
 if is_win:
     datas = []
 
-    filepaths =  [f for f in files('pythonnet') if 'Python.Runtime.dll' in str(f)]
+    filepaths = [f for f in files('pythonnet') if 'Python.Runtime.dll' in str(f)]
     if len(filepaths) == 1:
         pyruntime_path = filepaths[0]
         datas = [(pyruntime_path.locate(), pyruntime_path.parent.as_posix())]
