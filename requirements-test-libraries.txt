@@ -28,6 +28,8 @@ pycryptodome==3.9.7
 pycryptodomex==3.9.7
 pyexcelerate==0.8.0
 pylint==2.4.4
+# pythonnet 3 is only available from git
+git+https://github.com/pythonnet/pythonnet@master
 pyusb==1.0.2
 pynput==1.7.3
 pystray==0.17.3

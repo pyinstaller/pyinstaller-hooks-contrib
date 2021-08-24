@@ -24,7 +24,7 @@ from PyInstaller.log import logger
 try:
     from importlib.metadata import files
 except ImportError:
-    from import_lib.metadata import files
+    from importlib_metadata import files
 
 # pythonnet is available for all platforms using .NET and Mono,
 # but tested only on Windows using .NET.
