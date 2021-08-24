@@ -19,8 +19,7 @@ but the latter isn't found by PyInstaller.
 
 import ctypes.util
 from PyInstaller.compat import is_win
-from PyInstaller.utils.hooks import logger
-from pathlib import Path
+from PyInstaller.log import logger
 
 try:
     from importlib.metadata import files
