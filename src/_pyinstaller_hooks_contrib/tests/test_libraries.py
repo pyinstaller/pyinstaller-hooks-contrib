@@ -700,3 +700,11 @@ def test_uvicorn(pyi_builder):
     pyi_builder.test_source("""
         from uvicorn import lifespan, loops
         """)
+
+
+@importorskip("langdetect")
+def test_langdetect(pyi_builder):
+    pyi_builder.test_source("""
+        import langdetect
+        print(langdetect.detect("this is a test"))
+        """)
