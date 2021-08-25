@@ -25,6 +25,11 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
+      
+      - name: Set up .NET Core for pythonnet tests
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.x'
 
       - name: Install apt dependencies
         if: startsWith(matrix.os, 'ubuntu')
