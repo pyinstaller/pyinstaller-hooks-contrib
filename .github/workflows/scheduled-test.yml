@@ -53,8 +53,4 @@ jobs:
           pip install ${{ matrix.pyinstaller }}
 
       - name: Run tests
-        run: |
-          pyi_version="$(python -m PyInstaller --version)"
-          if [ "$pyi_version" != *"3.6"* ]; then
-            python -m PyInstaller.utils.run_tests -c pytest.ini
-          fi
+        run: pytest -v
