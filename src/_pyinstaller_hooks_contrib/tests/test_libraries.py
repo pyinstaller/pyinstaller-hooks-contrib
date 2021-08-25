@@ -13,7 +13,7 @@
 import pytest
 
 from PyInstaller.compat import is_darwin, is_win, is_linux, is_py39
-from PyInstaller.utils.tests import importorskip, xfail
+from PyInstaller.utils.tests import importorskip, requires, xfail
 from PyInstaller.utils.hooks import is_module_satisfies
 from pathlib import Path
 
@@ -719,7 +719,7 @@ def test_swagger_spec_validator(pyi_builder):
         """)
 
 
-@importorskip('pythonnet')
+@requires('pythonnet > 3.dev')
 def test_pythonnet(pyi_builder):
     runtime_cfg_path = str((Path(__file__)/'../data/netcore5_runtime_config.json').resolve(strict=True).as_posix())
     pyi_builder.test_source(f"""
