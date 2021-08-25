@@ -721,7 +721,7 @@ def test_swagger_spec_validator(pyi_builder):
 
 @requires('pythonnet < 3.dev')
 def test_pythonnet2(pyi_builder):
-    pyi_builder.test_source(f"""
+    pyi_builder.test_source("""
         import clr
         """)
 
