@@ -67,5 +67,8 @@ pydivert==2.1.0; sys_platform == 'win32'
 # pywin32-ctypes runs on Windows
 pywin32-ctypes==0.2.0; sys_platform == 'win32'
 
+# pythonnet 3 (when released) will be cross platform
+pythonnet==2.5.2; sys_platform == 'win32'
+
 # Include the requirements for testing
 -r requirements-test.txt

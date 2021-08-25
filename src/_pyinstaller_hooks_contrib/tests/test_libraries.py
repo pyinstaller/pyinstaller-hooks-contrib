@@ -13,9 +13,9 @@
 import pytest
 
 from PyInstaller.compat import is_darwin, is_win, is_linux, is_py39
-from PyInstaller.utils.tests import importorskip, xfail
+from PyInstaller.utils.tests import importorskip, requires, xfail
 from PyInstaller.utils.hooks import is_module_satisfies
-
+from pathlib import Path
 
 @importorskip('jinxed')
 def test_jinxed(pyi_builder):
@@ -716,4 +716,25 @@ def test_swagger_spec_validator(pyi_builder):
         from swagger_spec_validator.common import read_resource_file
         read_resource_file("schemas/v1.2/resourceListing.json")
         read_resource_file("schemas/v2.0/schema.json")
+        """)
+
+
+@requires('pythonnet < 3.dev')
+@pytest.mark.skipif(not is_win, reason='pythonnet 2 does not support .Net Core, so its only supported by Windows')
+def test_pythonnet2(pyi_builder):
+    pyi_builder.test_source("""
+        import clr
+        """)
+
+
+@requires('pythonnet >= 3.dev')
+def test_pythonnet3(pyi_builder):
+    runtime_cfg_path = str((Path(__file__)/'../data/netcore5_runtime_config.json').resolve(strict=True).as_posix())
+    pyi_builder.test_source(f"""
+        from pathlib import Path
+        from clr_loader import get_coreclr
+        from pythonnet import set_runtime
+        set_runtime(get_coreclr('{runtime_cfg_path}'))
+
+        import clr
         """)

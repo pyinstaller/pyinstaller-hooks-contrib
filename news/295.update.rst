@@ -1,0 +1,1 @@
+Update ``clr`` hook to set the correct path for pythonnet 3.0
