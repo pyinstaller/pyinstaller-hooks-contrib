@@ -719,8 +719,15 @@ def test_swagger_spec_validator(pyi_builder):
         """)
 
 
-@requires('pythonnet > 3.dev')
-def test_pythonnet(pyi_builder):
+@requires('pythonnet < 3.dev')
+def test_pythonnet2(pyi_builder):
+    pyi_builder.test_source(f"""
+        import clr
+        """)
+
+
+@requires('pythonnet >= 3.dev')
+def test_pythonnet3(pyi_builder):
     runtime_cfg_path = str((Path(__file__)/'../data/netcore5_runtime_config.json').resolve(strict=True).as_posix())
     pyi_builder.test_source(f"""
         from pathlib import Path
