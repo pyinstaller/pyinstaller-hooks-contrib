@@ -382,6 +382,7 @@ def test_pydivert(pyi_builder):
         """)
 
 
+@pytest.mark.slow
 @importorskip('skimage')
 @pytest.mark.skipif(not is_module_satisfies('scikit_image >= 0.16'),
                     reason='The test supports only scikit-image >= 0.16.')
@@ -396,6 +397,7 @@ def test_skimage(pyi_builder, submodule):
         """.format(submodule))
 
 
+@pytest.mark.slow
 @importorskip('sklearn')
 @pytest.mark.skipif(not is_module_satisfies('scikit_learn >= 0.21'),
                     reason='The test supports only scikit-learn >= 0.21.')
