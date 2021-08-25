@@ -720,6 +720,7 @@ def test_swagger_spec_validator(pyi_builder):
 
 
 @requires('pythonnet < 3.dev')
+@pytest.mark.skipif(not is_win, reason='pythonnet 2 does not support .Net Core, so its only supported by Windows')
 def test_pythonnet2(pyi_builder):
     pyi_builder.test_source("""
         import clr

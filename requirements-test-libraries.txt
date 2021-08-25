@@ -28,9 +28,6 @@ pycryptodome==3.9.7
 pycryptodomex==3.9.7
 pyexcelerate==0.8.0
 pylint==2.4.4
-pythonnet==2.5.2
-# pythonnet 3 is only available from git
-git+https://github.com/pythonnet/pythonnet@master
 pyusb==1.0.2
 pynput==1.7.3
 pystray==0.17.3
@@ -69,6 +66,9 @@ pydivert==2.1.0; sys_platform == 'win32'
 
 # pywin32-ctypes runs on Windows
 pywin32-ctypes==0.2.0; sys_platform == 'win32'
+
+# pythonnet 3 (when released) will be cross platform
+pythonnet==2.5.2; sys_platform == 'win32'
 
 # Include the requirements for testing
 -r requirements-test.txt
