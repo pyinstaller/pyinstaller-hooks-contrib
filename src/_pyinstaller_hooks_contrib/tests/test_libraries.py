@@ -738,3 +738,13 @@ def test_pythonnet3(pyi_builder):
 
         import clr
         """)
+
+
+@importorskip("qtmodern")
+@importorskip("PyQt5")
+def test_qtmodern(pyi_builder):
+    pyi_builder.test_source("""
+        import PyQt5
+        import qtmodern.styles
+        import qtmodern.windows
+        """)
