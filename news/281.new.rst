@@ -1,1 +1,0 @@
-Add a hook for `cloudscraper` to collect data files

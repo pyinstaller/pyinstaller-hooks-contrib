@@ -1,1 +1,0 @@
-Add a hook for ``mnemonic`` to collect data files

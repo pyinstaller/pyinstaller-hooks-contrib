@@ -1,3 +1,53 @@
+2021.3 (2021-08-25)
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``dash-uploader`` to collect data files (`#280
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/280>`_)
+* Add a hook for ``langdetect`` to collect data files. (`#285
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/285>`_)
+* Add a hook for ``mariadb`` to collect hidden imports. (`#279
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/279>`_)
+* Add a hook for ``mnemonic`` to collect data files (`#284
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/284>`_)
+* Add a hook for ``msoffcrypto`` to collect metadata. (`#139
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/139>`_)
+* Add a hook for ``pingouin`` to collect data files. (`#292
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/292>`_)
+* Add a hook for ``pystray`` to collect hidden imports. (`#288
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/288>`_)
+* Add a hook for ``rtree`` to collect dynamic libraries. (`#291
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/291>`_)
+* Add a hook for ``shotgun_api3`` to collect data files and hidden imports.
+  (`#138
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/138>`_)
+* Add a hook for ``swagger_spec_validator`` to collect data files. (`#296
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/296>`_)
+* Add a hook for ``timezonefinder`` to collect data files. (`#294
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/294>`_)
+* Add a hook for `cloudscraper` to collect data files (`#281
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/281>`_)
+* Add a hook for `pynput` to collect hidden imports. (`#287
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/287>`_)
+* Added a standard hook for SunPy. (`#134
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/134>`_)
+* Added hook to get data for the parso package (needed for IPython
+  autocomplete) (`#275
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/275>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``clr`` hook to set the correct path for pythonnet 3.0 (`#295
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/295>`_)
+* Update ``scikit-learn`` and ``scikit-image`` hooks to perform version checks
+  based on distribution name instead of package name, to prevent failures
+  when ``sklearn`` dummy distribution is installed. (`#276
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/276>`_)
+
+
 2021.2 (2021-06-26)
 
 New hooks
