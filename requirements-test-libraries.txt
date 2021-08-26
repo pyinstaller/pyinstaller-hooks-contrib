@@ -24,6 +24,7 @@ pendulum==2.1.2
 phonenumbers==8.12.30
 pingouin==0.4.0; python_version >= '3.7'
 pinyin==0.4.0
+platformdirs==2.2.0
 plotly==5.2.1
 publicsuffix2==2.20191221
 pycparser==2.20
