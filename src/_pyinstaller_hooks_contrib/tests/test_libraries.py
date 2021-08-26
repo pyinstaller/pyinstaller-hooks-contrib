@@ -766,3 +766,11 @@ def test_qtmodern(pyi_builder):
         modern_window = qtmodern.windows.ModernWindow(window)
         modern_window.show()
         """)
+
+
+@importorskip("platformdirs")
+def test_platformdirs(pyi_builder):
+    pyi_builder.test_source("""
+        import platformdirs
+        platformdirs.user_data_dir("FooApp", "Mr Foo")
+        """)

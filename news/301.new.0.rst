@@ -1,0 +1,1 @@
+Add hook for ``platformdirs``. This in turn fixes compatibility with ``pylint >= 2.10.2``.
