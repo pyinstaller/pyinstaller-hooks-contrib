@@ -774,3 +774,8 @@ def test_platformdirs(pyi_builder):
         import platformdirs
         platformdirs.user_data_dir("FooApp", "Mr Foo")
         """)
+
+
+@importorskip("websockets")
+def test_websockets(pyi_builder):
+    pyi_builder.test_source("import websockets")

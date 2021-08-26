@@ -49,6 +49,7 @@ thinc==8.0.8
 timezonefinder==5.2.0
 Unidecode==1.2.0
 web3==5.23.0
+websockets==9.1
 zeep==4.1.0
 
 # ------------------- Platform (OS) specifics
