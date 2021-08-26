@@ -753,6 +753,7 @@ if is_win:
 @importorskip("PyQt5")
 def test_qtmodern(pyi_builder):
     pyi_builder.test_source("""
+        import sys
         from PyQt5 import QtWidgets
         import qtmodern.styles
         import qtmodern.windows
