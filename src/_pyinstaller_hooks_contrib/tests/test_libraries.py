@@ -738,3 +738,29 @@ def test_pythonnet3(pyi_builder):
 
         import clr
         """)
+
+
+if is_win:
+    # This is a hack to prevent monkeypatch from interfering with PyQt5's additional PATH entries. See:
+    # https://github.com/pyinstaller/pyinstaller/commit/b66c9021129e9e875ddd138a298ce542483dd6c9
+    try:
+        import PyQt5  # noqa: F401
+    except ImportError:
+        pass
+
+
+@importorskip("qtmodern")
+@importorskip("PyQt5")
+def test_qtmodern(pyi_builder):
+    pyi_builder.test_source("""
+        import sys
+        from PyQt5 import QtWidgets
+        import qtmodern.styles
+        import qtmodern.windows
+
+        app = QtWidgets.QApplication(sys.argv)
+        window = QtWidgets.QWidget()
+        qtmodern.styles.dark(app)
+        modern_window = qtmodern.windows.ModernWindow(window)
+        modern_window.show()
+        """)
