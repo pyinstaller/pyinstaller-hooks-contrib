@@ -25,7 +25,21 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
-      
+
+      - name: Limit dependencies to only new/changed libraries.
+        if: "${{ github.event.pull_request }}"
+        shell: bash
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          set +e
+          diff --changed-group-format='%>' --unchanged-group-format='' \
+            <(git show origin/${{ github.base_ref }}:requirements-test-libraries.txt) \
+            <(git show HEAD:requirements-test-libraries.txt) \
+          > requirements-test-libraries.txt
+          set -e
+          echo '-r requirements-test.txt' >> requirements-test-libraries.txt
+          cat requirements-test-libraries.txt
+
       - name: Set up .NET Core for pythonnet tests
         uses: actions/setup-dotnet@v1
         with:
