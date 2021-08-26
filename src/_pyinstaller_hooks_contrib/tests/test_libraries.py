@@ -505,6 +505,7 @@ def test_googleapiclient(pyi_builder):
 
 
 @importorskip('plotly')
+@importorskip('pandas')
 def test_plotly(pyi_builder):
     pyi_builder.test_source("""
         import pandas as pd
