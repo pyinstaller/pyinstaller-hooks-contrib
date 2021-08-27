@@ -7,7 +7,7 @@
 # The full license is available in LICENSE.GPL.txt, distributed with
 # this software.
 #
-# SPDX-License-Identifier: GPL-2.0-or-later.
+# SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
 
