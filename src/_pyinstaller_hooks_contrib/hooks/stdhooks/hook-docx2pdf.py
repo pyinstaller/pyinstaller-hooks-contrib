@@ -1,6 +1,5 @@
 # ------------------------------------------------------------------
 # Copyright (c) 2020 PyInstaller Development Team.
-#
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
 #
