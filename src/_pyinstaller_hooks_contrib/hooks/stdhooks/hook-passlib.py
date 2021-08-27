@@ -17,4 +17,5 @@
 hiddenimports = [
     "passlib.handlers",
     "passlib.handlers.digests",
+    "configparser",
 ]

@@ -1,15 +1,15 @@
 ==========================================================
-Licensing Terms for he PyInstaller community runtime hooks
+Licensing Terms for PyInstaller community runtime hooks
 ==========================================================
 
 The PyInstaller community **runtime** hooks are licensed under the terms of the
 Apache 2.0 Software License as published by the Apache Software Foundation.
 
 These generally reside in "src/_pyinstaller_hooks_contrib/hooks/rthooks",
-though please note that this license only applies to files which state in in the header, like:
+though please note that this license only applies to files which state so in the header, like:
 
 # ------------------------------------------------------------------
-# Copyright (c) 2020 PyInstaller Development Team.
+# Copyright (c) 2021 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the Apache License 2.0
 #
@@ -23,7 +23,7 @@ though please note that this license only applies to files which state in in the
 Apache License 2.0
 ++++++++++++++++++
 
-   Copyright 2020 PyInstaller Development Team
+   Copyright 2020-2021 PyInstaller Development Team
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

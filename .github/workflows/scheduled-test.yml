@@ -1,0 +1,60 @@
+name: Scheduled CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 18 * * FRI'
+  pull_request:
+
+jobs:
+  test:
+    if: "${{ (!github.event.pull_request) || github.event.pull_request.user.login == 'pyup-bot' }}"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
+        pyinstaller: ["https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
+        os: ["macos-latest", "ubuntu-latest"]
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Set up .NET Core for pythonnet tests
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.x'
+
+      - name: Install apt dependencies
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          # Set up a virtual screen (for GUI libraries and pynput).
+          sudo apt-get install libxcb-xkb-dev xvfb
+          Xvfb :99 & echo "DISPLAY=:99" >> $GITHUB_ENV
+          # Install mariadb dependencies.
+          sudo apt-get install -y libmariadbclient-dev
+
+      - name: Install dependencies
+        run: |
+          # Upgrade to the latest pip.
+          python -m pip install -U pip setuptools wheel
+
+          # Install hooks-contrib
+          pip install -e .
+          pip install --prefer-binary -r requirements-test-libraries.txt
+
+          # Install PyInstaller
+          pip install ${{ matrix.pyinstaller }}
+
+      - name: Run tests
+        run: |
+          pyi_version="$(python -m PyInstaller --version)"
+          if [ "$pyi_version" != *"3.6"* ]; then
+            python -m PyInstaller.utils.run_tests -c pytest.ini
+          fi

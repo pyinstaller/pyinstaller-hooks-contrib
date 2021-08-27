@@ -10,9 +10,12 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.compat import is_darwin
-from PyInstaller.utils.tests import importorskip, xfail, skipif_win
+import pytest
 
+from PyInstaller.compat import is_darwin, is_win, is_linux, is_py39
+from PyInstaller.utils.tests import importorskip, requires, xfail
+from PyInstaller.utils.hooks import is_module_satisfies
+from pathlib import Path
 
 @importorskip('jinxed')
 def test_jinxed(pyi_builder):
@@ -25,11 +28,42 @@ def test_jinxed(pyi_builder):
     )
 
 
+def tensorflow_onedir_only(test):
+    def wrapped(pyi_builder):
+        if pyi_builder._mode != 'onedir':
+            pytest.skip('Tensorflow tests support only onedir mode '
+                        'due to potential distribution size.')
+        test(pyi_builder)
+    return wrapped
+
+
 @importorskip('tensorflow')
+@tensorflow_onedir_only
 def test_tensorflow(pyi_builder):
     pyi_builder.test_source(
         """
         from tensorflow import *
+        """
+    )
+
+
+@importorskip('tensorflow')
+@tensorflow_onedir_only
+def test_tensorflow_layer(pyi_builder):
+    pyi_builder.test_script('pyi_lib_tensorflow_layer.py')
+
+
+@importorskip('tensorflow')
+@tensorflow_onedir_only
+def test_tensorflow_mnist(pyi_builder):
+    pyi_builder.test_script('pyi_lib_tensorflow_mnist.py')
+
+
+@importorskip('trimesh')
+def test_trimesh(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import trimesh
         """
     )
 
@@ -164,6 +198,14 @@ def test_pyttsx(pyi_builder):
         """)
 
 
+@importorskip('pyttsx3')
+def test_pyttsx3(pyi_builder):
+    pyi_builder.test_source("""
+        import pyttsx3
+        engine = pyttsx3.init()
+    """)
+
+
 @importorskip('pycparser')
 def test_pycparser(pyi_builder):
     pyi_builder.test_script('pyi_lib_pycparser.py')
@@ -219,7 +261,8 @@ def test_pinyin(pyi_builder):
 
 
 @importorskip('uvloop')
-@skipif_win
+@pytest.mark.darwin
+@pytest.mark.linux
 def test_uvloop(pyi_builder):
     pyi_builder.test_source("import uvloop")
 
@@ -248,6 +291,16 @@ def test_pendulum(pyi_builder):
         import pendulum
 
         print(pendulum.now().isoformat())
+        """)
+
+
+@importorskip('humanize')
+def test_humanize(pyi_builder):
+    pyi_builder.test_source("""
+        import humanize
+        from datetime import timedelta
+
+        print(humanize.naturaldelta(timedelta(seconds=125)))
         """)
 
 
@@ -286,4 +339,428 @@ def test_sentry(pyi_builder):
         """
         import sentry_sdk
         sentry_sdk.init()
+        """)
+
+
+@importorskip('iminuit')
+def test_iminuit(pyi_builder):
+    pyi_builder.test_source("""
+        from iminuit import Minuit
+        """)
+
+
+@importorskip('av')
+def test_av(pyi_builder):
+    pyi_builder.test_source("""
+        import av
+        """)
+
+
+@importorskip('passlib')
+@xfail(is_linux and is_py39 and not is_module_satisfies('passlib > 1.7.4'),
+       reason='Passlib does not account for crypt() behavior change that '
+              'was introduced in 3.9.x (python #39289).')
+def test_passlib(pyi_builder):
+    pyi_builder.test_source("""
+        import passlib.apache
+        """)
+
+
+@importorskip('publicsuffix2')
+def test_publicsuffix2(pyi_builder):
+    pyi_builder.test_source("""
+        import publicsuffix2
+        publicsuffix2.PublicSuffixList()
+        """)
+
+
+@importorskip('pydivert')
+def test_pydivert(pyi_builder):
+    pyi_builder.test_source("""
+        import pydivert
+        pydivert.WinDivert.check_filter("inbound")
+        """)
+
+
+@importorskip('skimage')
+@pytest.mark.skipif(not is_module_satisfies('scikit_image >= 0.16'),
+                    reason='The test supports only scikit-image >= 0.16.')
+@pytest.mark.parametrize('submodule', [
+    'color', 'data', 'draw', 'exposure', 'feature', 'filters', 'future',
+    'graph', 'io', 'measure', 'metrics', 'morphology', 'registration',
+    'restoration', 'segmentation', 'transform', 'util', 'viewer'
+])
+def test_skimage(pyi_builder, submodule):
+    pyi_builder.test_source("""
+        import skimage.{0}
+        """.format(submodule))
+
+
+@importorskip('sklearn')
+@pytest.mark.skipif(not is_module_satisfies('scikit_learn >= 0.21'),
+                    reason='The test supports only scikit-learn >= 0.21.')
+@pytest.mark.parametrize('submodule', [
+    'calibration', 'cluster', 'covariance', 'cross_decomposition',
+    'datasets', 'decomposition', 'dummy', 'ensemble', 'exceptions',
+    'experimental', 'externals', 'feature_extraction',
+    'feature_selection', 'gaussian_process', 'inspection',
+    'isotonic', 'kernel_approximation', 'kernel_ridge',
+    'linear_model', 'manifold', 'metrics', 'mixture',
+    'model_selection', 'multiclass', 'multioutput',
+    'naive_bayes', 'neighbors', 'neural_network', 'pipeline',
+    'preprocessing', 'random_projection', 'semi_supervised',
+    'svm', 'tree', 'discriminant_analysis', 'impute', 'compose'
+])
+def test_sklearn(pyi_builder, submodule):
+    pyi_builder.test_source("""
+        import sklearn.{0}
+        """.format(submodule))
+
+
+@importorskip('statsmodels')
+@pytest.mark.skipif(not is_module_satisfies('statsmodels >= 0.12'),
+                    reason='This has only been tested with statsmodels >= 0.12.')
+def test_statsmodels(pyi_builder):
+    pyi_builder.test_source("""
+        import statsmodels.api as sm
+        """)
+
+
+@importorskip('win32ctypes')
+@pytest.mark.skipif(not is_win, reason='pywin32-ctypes is supported only on Windows')
+@pytest.mark.parametrize('submodule', ['win32api', 'win32cred', 'pywintypes'])
+def test_pywin32ctypes(pyi_builder, submodule):
+    pyi_builder.test_source("""
+        from win32ctypes.pywin32 import {0}
+        """.format(submodule))
+
+
+@importorskip('pyproj')
+@pytest.mark.skipif(not is_module_satisfies('pyproj >= 2.1.3'),
+                    reason='The test supports only pyproj >= 2.1.3.')
+def test_pyproj(pyi_builder):
+    pyi_builder.test_source("""
+        import pyproj
+        tf = pyproj.Transformer.from_crs(
+            7789,
+            8401
+        )
+        result = tf.transform(
+            xx=3496737.2679,
+            yy=743254.4507,
+            zz=5264462.9620,
+            tt=2019.0
+        )
+        print(result)
+        """)
+
+
+@importorskip('pydantic')
+def test_pydantic(pyi_builder):
+    pyi_builder.test_source("""
+        import pydantic
+        """)
+
+
+def torch_onedir_only(test):
+    def wrapped(pyi_builder):
+        if pyi_builder._mode != 'onedir':
+            pytest.skip('PyTorch tests support only onedir mode '
+                        'due to potential distribution size.')
+        test(pyi_builder)
+    return wrapped
+
+
+@importorskip('torchvision')
+@torch_onedir_only
+def test_torchvision_nms(pyi_builder):
+    pyi_builder.test_source("""
+        import torch
+        import torchvision
+        # boxes: Nx4 tensor (x1, y1, x2, y2)
+        boxes = torch.tensor([
+            [0.0, 0.0, 1.0, 1.0],
+            [0.45, 0.0, 1.0, 1.0],
+        ])
+        # scores: Nx1 tensor
+        scores = torch.tensor([
+            1.0,
+            1.1
+        ])
+        keep = torchvision.ops.nms(boxes, scores, 0.5)
+        # The boxes have IoU of 0.55, and the second one has a slightly
+        # higher score, so we expect it to be kept while the first one
+        # is discarded.
+        assert keep == 1
+    """)
+
+
+@importorskip('googleapiclient')
+def test_googleapiclient(pyi_builder):
+    pyi_builder.test_source("""
+        from googleapiclient.discovery import build
+        """)
+
+
+@importorskip('plotly')
+def test_plotly(pyi_builder):
+    pyi_builder.test_source("""
+        import pandas as pd
+        import plotly.express as px
+
+        data = [(1, 1), (2, 1), (3, 5), (4, -3)]
+        df = pd.DataFrame.from_records(data, columns=['col_1', 'col_2'])
+        fig = px.scatter(df, x='col_1', y='col_2')
+        """)
+
+
+@pytest.mark.timeout(600)
+@importorskip('dash')
+def test_dash(pyi_builder):
+    pyi_builder.test_source("""
+        import dash
+        import dash_core_components as dcc
+        import dash_html_components as html
+        from dash.dependencies import Input, Output
+
+        app = dash.Dash(__name__)
+        app.layout = html.Div(
+            [
+                dcc.Input(id='input_text', type='text', placeholder='input type text'),
+                html.Div(id='out-all-types'),
+            ]
+        )
+
+        @app.callback(
+            Output('out-all-types', 'children'),
+            [Input('input_text', 'value')],
+        )
+        def cb_render(val):
+            return val
+        """)
+
+
+@importorskip('dash_table')
+def test_dash_table(pyi_builder):
+    pyi_builder.test_source("""
+        import dash
+        import dash_table
+
+        app = dash.Dash(__name__)
+        app.layout = dash_table.DataTable(
+            id='table',
+            columns=[{'name': 'a', 'id': 'a'}, {'name': 'b', 'id': 'b'}],
+            data=[{'a': 1, 'b': 2}, {'a': 3, 'b': 4}],
+        )
+        """)
+
+
+@importorskip('dash_bootstrap_components')
+def test_dash_bootstrap_components(pyi_builder):
+    pyi_builder.test_source("""
+        import dash
+        import dash_bootstrap_components as dbc
+        import dash_html_components as html
+
+        app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+        alert = dbc.Alert([html.H4('Well done!', className='alert-heading')])
+        """)
+
+
+@importorskip('blspy')
+def test_blspy(pyi_builder):
+    pyi_builder.test_source("""
+        import blspy
+        """)
+
+
+@importorskip('flirpy')
+def test_flirpy(pyi_builder):
+    pyi_builder.test_source("""
+        from flirpy.camera.lepton import Lepton
+
+        print(Lepton.find_video_device())
+        """)
+
+
+@importorskip('office365')
+def test_office365(pyi_builder):
+    pyi_builder.test_source("""
+        from office365.runtime.auth.providers.saml_token_provider import SamlTokenProvider
+
+        SamlTokenProvider._prepare_request_from_template('FederatedSAML.xml', {})
+        SamlTokenProvider._prepare_request_from_template('RST2.xml', {})
+        SamlTokenProvider._prepare_request_from_template('SAML.xml', {})
+        """)
+
+
+@importorskip('thinc')
+def test_thinc(pyi_builder):
+    pyi_builder.test_source("""
+        from thinc.backends import numpy_ops
+        """)
+
+
+@importorskip('srsly')
+def test_srsly(pyi_builder):
+    pyi_builder.test_source("""
+        import srsly
+        """)
+
+
+@importorskip('spacy')
+def test_spacy(pyi_builder):
+    pyi_builder.test_source("""
+        import spacy
+        """)
+
+
+@importorskip('shotgun_api3')
+def test_shotgun_api3(pyi_builder):
+    pyi_builder.test_source("""
+        import shotgun_api3
+        """)
+
+
+@importorskip('msoffcrypto')
+def test_msoffcrypto(pyi_builder):
+    pyi_builder.test_source("""
+        import msoffcrypto
+        """)
+
+
+@importorskip('mariadb')
+def test_mariadb(pyi_builder):
+    pyi_builder.test_source("""
+        import mariadb
+        """)
+
+
+@importorskip('dash_uploader')
+def test_dash_uploader(pyi_builder):
+    pyi_builder.test_source("""
+        import dash_uploader
+        """)
+
+
+@importorskip('cloudscraper')
+def test_cloudscraper(pyi_builder):
+    pyi_builder.test_source("""
+        import cloudscraper
+        scraper = cloudscraper.create_scraper()
+        """)
+
+
+@importorskip('mnemonic')
+def test_mnemonic(pyi_builder):
+    pyi_builder.test_source("""
+        import mnemonic
+        mnemonic.Mnemonic("english")
+        """)
+
+
+@importorskip('pynput')
+def test_pynput(pyi_builder):
+    pyi_builder.test_source("""
+        import pynput
+        """)
+
+
+@importorskip('pystray')
+def test_pystray(pyi_builder):
+    pyi_builder.test_source("""
+        import pystray
+        """)
+
+
+@importorskip('rtree')
+def test_rtree(pyi_builder):
+    pyi_builder.test_source("""
+        import rtree
+        """)
+
+
+@importorskip('pingouin')
+def test_pingouin(pyi_builder):
+    pyi_builder.test_source("""
+        import pingouin
+        """)
+
+
+@importorskip('timezonefinder')
+def test_timezonefinder(pyi_builder):
+    pyi_builder.test_source("""
+        from timezonefinder import TimezoneFinder
+        TimezoneFinder()
+        """)
+
+
+@importorskip('uvicorn')
+def test_uvicorn(pyi_builder):
+    pyi_builder.test_source("""
+        from uvicorn import lifespan, loops
+        """)
+
+
+@importorskip("langdetect")
+def test_langdetect(pyi_builder):
+    pyi_builder.test_source("""
+        import langdetect
+        print(langdetect.detect("this is a test"))
+        """)
+
+
+@importorskip("swagger_spec_validator")
+def test_swagger_spec_validator(pyi_builder):
+    pyi_builder.test_source("""
+        from swagger_spec_validator.common import read_resource_file
+        read_resource_file("schemas/v1.2/resourceListing.json")
+        read_resource_file("schemas/v2.0/schema.json")
+        """)
+
+
+@requires('pythonnet < 3.dev')
+@pytest.mark.skipif(not is_win, reason='pythonnet 2 does not support .Net Core, so its only supported by Windows')
+def test_pythonnet2(pyi_builder):
+    pyi_builder.test_source("""
+        import clr
+        """)
+
+
+@requires('pythonnet >= 3.dev')
+def test_pythonnet3(pyi_builder):
+    runtime_cfg_path = str((Path(__file__)/'../data/netcore5_runtime_config.json').resolve(strict=True).as_posix())
+    pyi_builder.test_source(f"""
+        from pathlib import Path
+        from clr_loader import get_coreclr
+        from pythonnet import set_runtime
+        set_runtime(get_coreclr('{runtime_cfg_path}'))
+
+        import clr
+        """)
+
+
+if is_win:
+    # This is a hack to prevent monkeypatch from interfering with PyQt5's additional PATH entries. See:
+    # https://github.com/pyinstaller/pyinstaller/commit/b66c9021129e9e875ddd138a298ce542483dd6c9
+    try:
+        import PyQt5  # noqa: F401
+    except ImportError:
+        pass
+
+
+@importorskip("qtmodern")
+@importorskip("PyQt5")
+def test_qtmodern(pyi_builder):
+    pyi_builder.test_source("""
+        import sys
+        from PyQt5 import QtWidgets
+        import qtmodern.styles
+        import qtmodern.windows
+
+        app = QtWidgets.QApplication(sys.argv)
+        window = QtWidgets.QWidget()
+        qtmodern.styles.dark(app)
+        modern_window = qtmodern.windows.ModernWindow(window)
+        modern_window.show()
         """)
