@@ -1,0 +1,1 @@
+Add a hook for ``doc2xpdf`` to collect qss data files.
