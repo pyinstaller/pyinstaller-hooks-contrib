@@ -18,6 +18,3 @@ from PyInstaller.utils.hooks import copy_metadata, collect_data_files
 
 datas = copy_metadata('docx2pdf')
 datas += collect_data_files('docx2pdf')
-
-
-
