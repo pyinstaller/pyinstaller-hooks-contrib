@@ -780,3 +780,10 @@ def test_platformdirs(pyi_builder):
 @importorskip("websockets")
 def test_websockets(pyi_builder):
     pyi_builder.test_source("import websockets")
+
+
+@importorskip("tableauhyperapi")
+def test_tableauhyperapi(pyi_builder):
+    pyi_builder.test_source("""
+        import tableauhyperapi
+        """)
