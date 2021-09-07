@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Copyright (c) 2021 PyInstaller Development Team.
+# Copyright (c) 2020-2021 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
@@ -12,8 +12,9 @@
 
 from PyInstaller.utils.hooks import is_module_satisfies
 
-hiddenimports = ["_mssql"]
+hiddenimports = ["decimal"]
 # In newer versions of pymssql,  the _mssql was under pymssql
 if is_module_satisfies("pymssql > 2.1.5"):
-    hiddenimports = ["pymssql._mssql", "uuid"]
-hiddenimports += ["decimal"]
+    hiddenimports += ["pymssql._mssql", "uuid"]
+else:
+    hiddenimports += ["_mssql"]
