@@ -16,3 +16,4 @@ hiddenimports = ["_mssql"]
 # In newer versions of pymssql,  the _mssql was under pymssql
 if is_module_satisfies("pymssql > 2.1.5"):
     hiddenimports = ["pymssql._mssql", "uuid"]
+hiddenimports += ["decimal"]
