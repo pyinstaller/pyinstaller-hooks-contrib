@@ -787,3 +787,10 @@ def test_tableauhyperapi(pyi_builder):
     pyi_builder.test_source("""
         import tableauhyperapi
         """)
+
+
+@importorskip("pymssql")
+def test_pymssql(pyi_builder):
+    pyi_builder.test_source("""
+        import pymssql
+        """)
