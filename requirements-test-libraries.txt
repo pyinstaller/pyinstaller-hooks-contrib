@@ -4,6 +4,7 @@ av==8.0.3
 boto==2.49.0
 boto3==1.18.36
 botocore==1.21.36
+branca==0.4.2
 cloudscraper==1.2.58
 dash==2.0.0
 dash-bootstrap-components==0.13.0

@@ -794,3 +794,10 @@ def test_pymssql(pyi_builder):
     pyi_builder.test_source("""
         import pymssql
         """)
+
+
+@importorskip("branca")
+def test_branca(pyi_builder):
+    pyi_builder.test_source("""
+        import branca
+        """)
