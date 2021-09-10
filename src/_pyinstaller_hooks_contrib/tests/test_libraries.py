@@ -809,3 +809,11 @@ def test_folium(pyi_builder):
         import folium
         m = folium.Map(location=[0, 0], zoom_start=5)
         """)
+
+
+@importorskip("metpy")
+def test_metpy(pyi_builder):
+    # Import metpy.plots, which triggers search for colortables data.
+    pyi_builder.test_source("""
+        import metpy.plots
+        """)
