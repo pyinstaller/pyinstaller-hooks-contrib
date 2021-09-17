@@ -817,3 +817,10 @@ def test_metpy(pyi_builder):
     pyi_builder.test_source("""
         import metpy.plots
         """)
+
+
+@importorskip("pyvjoy")
+def test_pyvjoy(pyi_builder):
+    pyi_builder.test_source("""
+        import pyvjoy
+        """)
