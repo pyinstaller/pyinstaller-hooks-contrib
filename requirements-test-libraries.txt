@@ -36,6 +36,7 @@ pycryptodomex==3.10.1
 pyexcelerate==0.10.0
 pylint==2.10.2
 pyusb==1.2.1
+pyvjoy==1.0.1
 pynput==1.7.3
 pymssql==2.2.2
 pystray==0.17.3
