@@ -2,7 +2,7 @@
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==8.0.3
 boto==2.49.0
-boto3==1.18.40
+boto3==1.18.44
 botocore==1.21.40
 branca==0.4.2
 cloudscraper==1.2.58
