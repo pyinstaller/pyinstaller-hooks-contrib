@@ -8,7 +8,7 @@ branca==0.4.2
 cloudscraper==1.2.58
 dash==2.0.0
 dash-bootstrap-components==0.13.0
-dash-uploader==0.5.0
+dash-uploader==0.6.0
 folium==0.12.1
 h5py==3.4.0; python_version >= '3.7'
 humanize==3.11.0
