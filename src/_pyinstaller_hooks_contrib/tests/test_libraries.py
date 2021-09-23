@@ -824,3 +824,10 @@ def test_pyvjoy(pyi_builder):
     pyi_builder.test_source("""
         import pyvjoy
         """)
+
+
+@importorskip("adbutils")
+def test_adbutils(pyi_builder):
+    pyi_builder.test_source("""
+        from adbutils._utils import get_adb_exe; get_adb_exe()
+        """)
