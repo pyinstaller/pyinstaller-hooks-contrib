@@ -839,3 +839,10 @@ def test_pymediainfo(pyi_builder):
         from pymediainfo import MediaInfo
         MediaInfo._get_library()  # Trigger search for shared library.
         """)
+
+
+@importorskip("sacremoses")
+def test_sacremoses(pyi_builder):
+    pyi_builder.test_source("""
+        import sacremoses
+        """)
