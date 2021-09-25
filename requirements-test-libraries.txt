@@ -76,5 +76,8 @@ pywin32-ctypes==0.2.0; sys_platform == 'win32'
 # pythonnet 3 (when released) will be cross platform
 pythonnet==2.5.2; sys_platform == 'win32'
 
+# pymediainfo on linux does not bundle mediainfo shared library, and requires system one.
+pymediainfo==5.1.0; sys_platform == 'darwin' or sys_platform == 'win32'
+
 # Include the requirements for testing
 -r requirements-test.txt
