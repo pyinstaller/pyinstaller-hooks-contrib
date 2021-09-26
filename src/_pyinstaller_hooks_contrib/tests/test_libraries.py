@@ -831,3 +831,11 @@ def test_adbutils(pyi_builder):
     pyi_builder.test_source("""
         from adbutils._utils import get_adb_exe; get_adb_exe()
         """)
+
+
+@importorskip("pymediainfo")
+def test_pymediainfo(pyi_builder):
+    pyi_builder.test_source("""
+        from pymediainfo import MediaInfo
+        MediaInfo._get_library()  # Trigger search for shared library.
+        """)
