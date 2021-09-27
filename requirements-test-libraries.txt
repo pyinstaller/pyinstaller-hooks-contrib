@@ -4,7 +4,7 @@ av==8.0.3
 adbutils==0.11.0; sys_platform == 'darwin' or sys_platform == 'win32'
 boto==2.49.0
 boto3==1.18.48
-botocore==1.21.44
+botocore==1.21.48
 branca==0.4.2
 cloudscraper==1.2.58
 dash==2.0.0
