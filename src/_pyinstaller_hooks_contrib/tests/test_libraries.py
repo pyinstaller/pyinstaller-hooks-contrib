@@ -846,3 +846,11 @@ def test_sacremoses(pyi_builder):
     pyi_builder.test_source("""
         import sacremoses
         """)
+
+
+@importorskip("pypeteer")
+def test_pypeteer(pyi_builder):
+    pyi_builder.test_source("""
+        import pypeteer
+        print(pypeteer.version)
+        """)
