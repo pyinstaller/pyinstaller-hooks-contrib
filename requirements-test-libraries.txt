@@ -55,7 +55,7 @@ srsly==2.4.1
 swagger-spec-validator==2.7.3
 thinc==8.0.10
 timezonefinder==5.2.0
-tableauhyperapi==0.0.13394
+tableauhyperapi==0.0.13617
 Unidecode==1.3.2
 web3==5.24.0
 websockets==10.0; python_version >= '3.7'
