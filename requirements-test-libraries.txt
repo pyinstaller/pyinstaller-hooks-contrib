@@ -12,7 +12,7 @@ dash-bootstrap-components==0.13.1
 dash-uploader==0.6.0
 folium==0.12.1
 h5py==3.4.0; python_version >= '3.7'
-humanize==3.11.0
+humanize==3.12.0
 iminuit==2.8.3
 langdetect==1.0.9
 mariadb==1.0.7; sys_platform != "darwin"
