@@ -18,5 +18,5 @@ This hook was tested against APScheduler 3.6.3.
 
 from PyInstaller.utils.hooks import collect_submodules, copy_metadata
 
-datas = copy_metadata('APScheduler')
+datas = copy_metadata('APScheduler', recursive=True)
 hiddenimports = collect_submodules('apscheduler')
