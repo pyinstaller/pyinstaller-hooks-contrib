@@ -10,12 +10,13 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-import pytest
-
-from PyInstaller.compat import is_darwin, is_win, is_linux, is_py39
-from PyInstaller.utils.tests import importorskip, requires, xfail
-from PyInstaller.utils.hooks import is_module_satisfies
 from pathlib import Path
+
+import pytest
+from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
+from PyInstaller.utils.hooks import is_module_satisfies
+from PyInstaller.utils.tests import importorskip, requires, xfail
+
 
 @importorskip('jinxed')
 def test_jinxed(pyi_builder):
@@ -64,6 +65,14 @@ def test_trimesh(pyi_builder):
     pyi_builder.test_source(
         """
         import trimesh
+        """
+    )
+
+@importorskip('apscheduler')
+def test_apscheduler(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import apscheduler
         """
     )
 
