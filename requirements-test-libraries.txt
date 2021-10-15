@@ -41,7 +41,7 @@ pycryptodome==3.11.0
 pycryptodomex==3.11.0
 pyexcelerate==0.10.0
 pylint==2.11.1
-pypeteer==0.2.6
+pyppeteer==0.2.6
 pyusb==1.2.1
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.4
