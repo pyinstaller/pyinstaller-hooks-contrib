@@ -19,7 +19,7 @@ This hook was tested against APScheduler 3.6.3.
 from PyInstaller.utils.hooks import (collect_submodules, copy_metadata,
                                      is_module_satisfies)
 
-if is_module_satifies("apscheduler < 4"):
+if is_module_satisfies("apscheduler < 4"):
     if is_module_satisfies("pyinstaller >= 4.4"):
         datas = copy_metadata('APScheduler', recursive=True)
     else:
