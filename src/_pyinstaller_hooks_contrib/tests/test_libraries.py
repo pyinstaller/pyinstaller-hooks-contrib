@@ -9,10 +9,8 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-from pathlib import Path
-
 import pytest
+from pathlib import Path
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
 from PyInstaller.utils.hooks import is_module_satisfies
 from PyInstaller.utils.tests import importorskip, requires, xfail
@@ -68,13 +66,41 @@ def test_trimesh(pyi_builder):
         """
     )
 
+
 @importorskip('apscheduler')
 def test_apscheduler(pyi_builder):
     pyi_builder.test_source(
         """
         import apscheduler
-        """
+        import asyncio
+        import random
+        import datetime as dt
+        from apscheduler.schedulers.asyncio import AsyncIOScheduler
+        from apscheduler.triggers.interval import IntervalTrigger
+        
+        loop = asyncio.get_event_loop()
+        
+        async def test_function(data=0):
+            print(dt.datetime.now(), random.randint(0, 100))
+        
+        test_scheduler = AsyncIOScheduler()
+        
+        test_scheduler.add_job(
+            test_function,
+            id="TestJob",
+            trigger=IntervalTrigger(
+                seconds=1,
+                start_date=dt.datetime.now(tz=pytz.UTC)
+            )
+        )
+        
+        test_scheduler.start()
+        
+        loop.run_until_complete(asyncio.sleep(5))
+    """
     )
+
+
 
 
 @importorskip('boto')
