@@ -55,6 +55,7 @@ jobs:
       - name: Install apt dependencies
         if: startsWith(matrix.os, 'ubuntu')
         run: |
+          sudo apt-get update
           # Set up a virtual screen (for GUI libraries and pynput).
           sudo apt-get install libxcb-xkb-dev xvfb
           Xvfb :99 & echo "DISPLAY=:99" >> $GITHUB_ENV
