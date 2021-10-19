@@ -78,14 +78,10 @@ def test_apscheduler(pyi_builder):
         import datetime as dt
         from apscheduler.schedulers.asyncio import AsyncIOScheduler
         from apscheduler.triggers.interval import IntervalTrigger
-        
         loop = asyncio.get_event_loop()
-        
         async def test_function(data=0):
             print(dt.datetime.now(), random.randint(0, 100))
-        
         test_scheduler = AsyncIOScheduler()
-        
         test_scheduler.add_job(
             test_function,
             id="TestJob",
@@ -94,9 +90,7 @@ def test_apscheduler(pyi_builder):
                 start_date=dt.datetime.now(tz=pytz.UTC)
             )
         )
-        
         test_scheduler.start()
-        
         loop.run_until_complete(asyncio.sleep(5))
     """
     )
