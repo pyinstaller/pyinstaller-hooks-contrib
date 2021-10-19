@@ -1,5 +1,4 @@
 {
-    'certifi': ['pyi_rth_certifi.py'],
     'enchant': ['pyi_rth_enchant.py'],
     'osgeo': ['pyi_rth_osgeo.py'],
     'traitlets': ['pyi_rth_traitlets.py'],
