@@ -72,6 +72,7 @@ def test_apscheduler(pyi_builder):
     pyi_builder.test_source(
         """
         import apscheduler
+        import pytz
         import asyncio
         import random
         import datetime as dt
