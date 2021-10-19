@@ -144,10 +144,12 @@ def test_pylint(pyi_builder):
 @importorskip('markdown')
 def test_markdown(pyi_builder):
     # Markdown uses __import__ed extensions. Make sure these work by
-    # trying to use the 'toc' extension..
+    # trying to use the 'toc' extension, using both short and long format.
     pyi_builder.test_source(
         """
         import markdown
+        print(markdown.markdown('testing',
+            extensions=['toc']))
         print(markdown.markdown('testing',
             extensions=['markdown.extensions.toc']))
         """)
