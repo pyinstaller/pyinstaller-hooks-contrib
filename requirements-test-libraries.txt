@@ -20,7 +20,7 @@ h5py==3.5.0; python_version >= '3.7'
 humanize==3.12.0
 iminuit==2.8.4
 langdetect==1.0.9
-mariadb==1.0.7; sys_platform != "darwin"
+mariadb==1.0.8; sys_platform != "darwin"
 markdown==3.3.4
 MetPy==1.1.0; python_version >= '3.7'
 mnemonic==0.20
