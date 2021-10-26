@@ -6,6 +6,7 @@ importlib_resources==5.3.0; python_version < '3.9'
 av==8.0.3
 adbutils==0.11.0; sys_platform == 'darwin' or sys_platform == 'win32'
 APScheduler==3.8.0
+backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
 boto3==1.18.63
 botocore==1.21.63

@@ -913,3 +913,25 @@ def test_tzdata(pyi_builder):
 
         print(data)
         """)
+
+
+@importorskip("backports.zoneinfo")
+@pytest.mark.skipif(is_win and not can_import_module('tzdata'),
+                    reason='On Windows, backports.zoneinfo requires tzdata.')
+def test_backports_zoneinfo(pyi_builder):
+    pyi_builder.test_source("""
+        from backports import zoneinfo
+        tz = zoneinfo.ZoneInfo("Europe/Ljubljana")
+        print(tz)
+        """)
+
+
+@importorskip("zoneinfo")
+@pytest.mark.skipif(is_win and not can_import_module('tzdata'),
+                    reason='On Windows, zoneinfo requires tzdata.')
+def test_zoneinfo(pyi_builder):
+    pyi_builder.test_source("""
+        import zoneinfo
+        tz = zoneinfo.ZoneInfo("Europe/Ljubljana")
+        print(tz)
+        """)
