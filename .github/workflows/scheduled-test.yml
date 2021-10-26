@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 18 * * FRI'
+      if: github.repository == 'pyinstaller/pyinstaller-hooks-contrib'
   pull_request:
 
 jobs:
