@@ -12,7 +12,7 @@
 import pytest
 from pathlib import Path
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
-from PyInstaller.utils.hooks import is_module_satisfies
+from PyInstaller.utils.hooks import is_module_satisfies, can_import_module
 from PyInstaller.utils.tests import importorskip, requires, xfail
 
 
@@ -885,4 +885,31 @@ def test_pypeteer(pyi_builder):
     pyi_builder.test_source("""
         import pypeteer
         print(pypeteer.version)
+        """)
+
+
+@importorskip("tzdata")
+@pytest.mark.skipif(not is_py39 and not can_import_module('importlib_resources'),
+                    reason='importlib_resources is required on python < 3.9.')
+def test_tzdata(pyi_builder):
+    pyi_builder.test_source("""
+        import tzdata.zoneinfo  # hiddenimport
+
+        try:
+            import importlib.resources as importlib_resources
+        except ImportError:
+            import importlib_resources
+
+        # This emulates time-zone data retrieval from tzdata, as peformed by
+        # zoneinfo / backports.zoneinfo
+        zone_name = "Europe/Ljubljana"
+
+        components = zone_name.split("/")
+        package_name = ".".join(["tzdata.zoneinfo"] + components[:-1])
+        resource_name = components[-1]
+
+        with importlib_resources.open_binary(package_name, resource_name) as fp:
+            data = fp.read()
+
+        print(data)
         """)
