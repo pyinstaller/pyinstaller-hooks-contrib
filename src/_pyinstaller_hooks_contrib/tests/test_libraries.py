@@ -937,6 +937,16 @@ def test_zoneinfo(pyi_builder):
         """)
 
 
+@importorskip("panel")
+def test_panel(pyi_builder):
+    pyi_builder.test_source("""
+        import panel
+
+        # Load the Ace extension to trigger lazy-loading of model
+        panel.extension("ace")
+        """)
+
+
 @importorskip("pyviz_comms")
 def test_pyviz_comms(pyi_builder):
     pyi_builder.test_source("""
