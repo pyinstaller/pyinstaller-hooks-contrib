@@ -935,3 +935,10 @@ def test_zoneinfo(pyi_builder):
         tz = zoneinfo.ZoneInfo("Europe/Ljubljana")
         print(tz)
         """)
+
+
+@importorskip("pyviz_comms")
+def test_pyviz_comms(pyi_builder):
+    pyi_builder.test_source("""
+        import pyviz_comms
+        """)

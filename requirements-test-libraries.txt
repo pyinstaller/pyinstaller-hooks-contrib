@@ -43,6 +43,7 @@ pyexcelerate==0.10.0
 pylint==2.11.1
 pyppeteer==0.2.6
 pyusb==1.2.1
+pyviz-comms==2.1.0
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.4
 pymssql==2.2.2
