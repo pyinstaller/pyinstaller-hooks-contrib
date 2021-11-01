@@ -9,7 +9,7 @@ APScheduler==3.8.1
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
 boto3==1.19.7
-botocore==1.22.2
+botocore==1.22.7
 branca==0.4.2
 cloudscraper==1.2.58
 dash==2.0.0
