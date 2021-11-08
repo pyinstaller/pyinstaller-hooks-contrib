@@ -11,6 +11,8 @@ boto==2.49.0
 boto3==1.19.7
 botocore==1.22.7
 branca==0.4.2
+cairocffi==1.3.0
+CairoSVG==2.5.2
 cloudscraper==1.2.58
 dash==2.0.0
 dash-bootstrap-components==1.0.0

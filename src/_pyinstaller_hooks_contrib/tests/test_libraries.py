@@ -952,3 +952,17 @@ def test_pyviz_comms(pyi_builder):
     pyi_builder.test_source("""
         import pyviz_comms
         """)
+
+
+@importorskip("cairocffi")
+def test_cairocffi(pyi_builder):
+    pyi_builder.test_source("""
+        import cairocffi
+        """)
+
+
+@importorskip("cairosvg")
+def test_cairosvg(pyi_builder):
+    pyi_builder.test_source("""
+        import cairosvg
+        """)
