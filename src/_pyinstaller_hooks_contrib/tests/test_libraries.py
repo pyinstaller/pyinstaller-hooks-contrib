@@ -952,3 +952,21 @@ def test_pyviz_comms(pyi_builder):
     pyi_builder.test_source("""
         import pyviz_comms
         """)
+
+
+@importorskip("pyphen")
+def test_pyphen(pyi_builder):
+    pyi_builder.test_source("""
+        import pyphen
+        """)
+
+
+@importorskip("pandas")
+@importorskip("plotly")
+@importorskip("kaleido")
+def test_kaleido(pyi_builder):
+    pyi_builder.test_source("""
+        import plotly.express as px
+        fig = px.scatter(px.data.iris(), x="sepal_length", y="sepal_width", color="species")
+        fig.write_image("figure.png", engine="kaleido")
+        """)
