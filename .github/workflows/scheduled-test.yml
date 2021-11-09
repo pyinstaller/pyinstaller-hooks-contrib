@@ -68,6 +68,8 @@ jobs:
             libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev \
             libxcb-shape0-dev libxcb-xkb-dev libopengl0 libegl1 \
             libpulse0 libpulse-mainloop-glib0
+          # Install cairo dependencies.
+          sudo apt-get install -y libcairo2
 
       - name: Install dependencies
         run: |
