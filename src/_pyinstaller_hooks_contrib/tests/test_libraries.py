@@ -970,3 +970,10 @@ def test_kaleido(pyi_builder):
         fig = px.scatter(px.data.iris(), x="sepal_length", y="sepal_width", color="species")
         fig.write_image("figure.png", engine="kaleido")
         """)
+
+
+@importorskip("ffpyplayer")
+def test_ffpyplayer(pyi_builder):
+    pyi_builder.test_source("""
+        import ffpyplayer.player
+        """)
