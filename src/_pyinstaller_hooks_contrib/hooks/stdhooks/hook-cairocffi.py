@@ -9,9 +9,8 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-import ctypes
+import ctypes.util
 import os
-from ctypes.util import find_library
 
 from PyInstaller.depend.utils import _resolveCtypesImports
 from PyInstaller.utils.hooks import collect_data_files, logger
