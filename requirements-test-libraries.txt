@@ -64,7 +64,7 @@ git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
 spacy==3.2.0
 srsly==2.4.2
 swagger-spec-validator==2.7.4
-thinc==8.0.12
+thinc==8.0.13
 timezonefinder==5.2.0
 tableauhyperapi==0.0.13617
 tzdata==2021.5
