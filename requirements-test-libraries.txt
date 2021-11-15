@@ -27,7 +27,7 @@ markdown==3.3.4
 MetPy==1.1.0; python_version >= '3.7'
 mnemonic==0.20
 msoffcrypto-tool==4.12.0
-Office365-REST-Python-Client==2.3.8
+Office365-REST-Python-Client==2.3.9
 openpyxl==3.0.9
 pandas==1.3.4; python_version >= '3.7'
 panel==0.12.4
