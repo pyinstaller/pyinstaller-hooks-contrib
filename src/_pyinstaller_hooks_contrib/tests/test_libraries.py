@@ -984,3 +984,10 @@ def test_cairosvg(pyi_builder):
     pyi_builder.test_source("""
         import cairosvg
         """)
+
+
+@importorskip("ffpyplayer")
+def test_ffpyplayer(pyi_builder):
+    pyi_builder.test_source("""
+        import ffpyplayer.player
+        """)
