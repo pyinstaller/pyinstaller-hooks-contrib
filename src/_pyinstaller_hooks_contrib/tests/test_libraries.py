@@ -1156,3 +1156,10 @@ def test_soundfile(pyi_builder):
     pyi_builder.test_source("""
         import soundfile
     """)
+
+
+@importorskip("weasyprint")
+def test_weasyprint(pyi_builder):
+    pyi_builder.test_source("""
+        import weasyprint
+        """)
