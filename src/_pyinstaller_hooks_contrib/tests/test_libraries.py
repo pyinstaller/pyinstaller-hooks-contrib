@@ -33,6 +33,7 @@ def tensorflow_onedir_only(test):
             pytest.skip('Tensorflow tests support only onedir mode '
                         'due to potential distribution size.')
         test(pyi_builder)
+
     return wrapped
 
 
@@ -94,8 +95,6 @@ def test_apscheduler(pyi_builder):
         loop.run_until_complete(asyncio.sleep(5))
     """
     )
-
-
 
 
 @importorskip('boto')
@@ -502,6 +501,7 @@ def torch_onedir_only(test):
             pytest.skip('PyTorch tests support only onedir mode '
                         'due to potential distribution size.')
         test(pyi_builder)
+
     return wrapped
 
 
@@ -764,7 +764,7 @@ def test_pythonnet2(pyi_builder):
 
 @requires('pythonnet >= 3.dev')
 def test_pythonnet3(pyi_builder):
-    runtime_cfg_path = str((Path(__file__)/'../data/netcore5_runtime_config.json').resolve(strict=True).as_posix())
+    runtime_cfg_path = str((Path(__file__) / '../data/netcore5_runtime_config.json').resolve(strict=True).as_posix())
     pyi_builder.test_source(f"""
         from pathlib import Path
         from clr_loader import get_coreclr
@@ -972,6 +972,8 @@ def test_kaleido(pyi_builder):
         """)
 
 
+@pytest.mark.skipif(is_win,
+                    reason='On Windows, Cairo dependencies cannot be installed using Chocolatey.')
 @importorskip("cairocffi")
 def test_cairocffi(pyi_builder):
     pyi_builder.test_source("""
@@ -979,6 +981,8 @@ def test_cairocffi(pyi_builder):
         """)
 
 
+@pytest.mark.skipif(is_win,
+                    reason='On Windows, Cairo dependencies cannot be installed using Chocolatey.')
 @importorskip("cairosvg")
 def test_cairosvg(pyi_builder):
     pyi_builder.test_source("""

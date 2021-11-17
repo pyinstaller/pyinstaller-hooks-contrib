@@ -71,6 +71,12 @@ jobs:
           # Install cairo dependencies.
           sudo apt-get install -y libcairo2
 
+      - name: Install brew dependencies
+        if: startsWith(matrix.os, 'macos')
+        run: |
+          # Install cairo dependencies.
+          brew install cairo
+
       - name: Install dependencies
         run: |
           # Upgrade to the latest pip.
