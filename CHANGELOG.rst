@@ -346,6 +346,9 @@ Updated hooks
   based on distribution name instead of package name, to prevent failures
   when ``sklearn`` dummy distribution is installed. (`#276
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/276>`_)
+* Fix harmless missing modules warnings when using ``scikit-learn >= 0.22``
+  (`#276
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/277>`_).
 
 
 2021.2 (2021-06-26)
