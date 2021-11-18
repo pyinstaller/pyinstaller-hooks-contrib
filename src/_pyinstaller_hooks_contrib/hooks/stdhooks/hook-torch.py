@@ -10,6 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import get_package_paths
+from PyInstaller.utils.hooks import copy_metadata, get_package_paths
 
-datas = [(get_package_paths('torch')[1],"torch"),]
+datas = copy_metadata("torch") + [(get_package_paths('torch')[1],"torch")]
