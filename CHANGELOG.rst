@@ -26,6 +26,8 @@ New hooks
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/296>`_)
 * Add a hook for ``timezonefinder`` to collect data files. (`#294
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/294>`_)
+* Add a hook for ``uvicorn`` to collect data files. (`#300
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/300>`_)
 * Add a hook for `cloudscraper` to collect data files (`#281
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/281>`_)
 * Add a hook for `pynput` to collect hidden imports. (`#287
