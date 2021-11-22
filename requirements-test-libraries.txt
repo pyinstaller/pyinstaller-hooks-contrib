@@ -25,7 +25,7 @@ iminuit==2.8.4
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.0.8; sys_platform != "darwin"
-markdown==3.3.4
+markdown==3.3.6
 MetPy==1.1.0; python_version >= '3.7'
 mnemonic==0.20
 msoffcrypto-tool==4.12.0
