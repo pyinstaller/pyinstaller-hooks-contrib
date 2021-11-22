@@ -51,7 +51,7 @@ pyppeteer==0.2.6
 pyusb==1.2.1
 pyviz-comms==2.1.0
 pyvjoy==1.0.1; sys_platform == 'win32'
-pynput==1.7.4
+pynput==1.7.5
 pymssql==2.2.2
 pystray==0.17.3
 pytz==2021.3
