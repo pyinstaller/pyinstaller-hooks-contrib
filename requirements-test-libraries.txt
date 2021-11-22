@@ -22,7 +22,7 @@ ffpyplayer==4.3.2; python_version < '3.10' # doesn't have py310 wheels
 h5py==3.6.0; python_version >= '3.7'
 humanize==3.12.0
 iminuit==2.8.4
-kaleido==0.2.1
+kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.0.8; sys_platform != "darwin"
 markdown==3.3.4
