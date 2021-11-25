@@ -995,3 +995,21 @@ def test_ffpyplayer(pyi_builder):
     pyi_builder.test_source("""
         import ffpyplayer.player
         """)
+
+
+@importorskip("twisted")
+def test_twisted_default_reactor(pyi_builder):
+    pyi_builder.test_source("""
+        from twisted.internet import reactor
+        assert callable(reactor.listenTCP)
+        """)
+
+
+@importorskip("twisted")
+def test_twisted_custom_reactor(pyi_builder):
+    pyi_builder.test_source("""
+        from twisted.internet import asyncioreactor
+        asyncioreactor.install()
+        from twisted.internet import reactor
+        assert callable(reactor.listenTCP)
+        """)
