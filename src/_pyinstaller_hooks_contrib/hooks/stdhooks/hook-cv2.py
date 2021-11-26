@@ -13,7 +13,7 @@
 import glob
 import os
 
-from PyInstaller.utils.hooks import collect_dynamic_libs, PY_DYLIB_PATTERNS
+from PyInstaller.utils.hooks import collect_dynamic_libs, collect_data_files
 from PyInstaller import compat
 
 hiddenimports = ['numpy']
@@ -21,8 +21,6 @@ hiddenimports = ['numpy']
 # On Windows, make sure that opencv_videoio_ffmpeg*.dll is bundled
 binaries = []
 if compat.is_win:
-    # Need to include extra config files and modules
-    PY_DYLIB_PATTERNS.append('*.py')
     # If conda is active, look for the DLL in its library path
     if compat.is_conda:
         libdir = os.path.join(compat.base_prefix, 'Library', 'bin')
@@ -33,5 +31,5 @@ if compat.is_win:
     # Include any DLLs from site-packages/cv2 (opencv_videoio_ffmpeg*.dll
     # can be found there in the PyPI version)
     binaries += collect_dynamic_libs('cv2')
-    # Remove added pattern (*.py)
-    PY_DYLIB_PATTERNS.pop()
+    # Need to include extra config files and modules
+    extra_data = collect_data_files('cv2', include_py_files=True, includes=['**\*.py'])
