@@ -1,0 +1,1 @@
+Update ``cv2`` hook to collect extra config files and modules using ``*.py`` pattern.
