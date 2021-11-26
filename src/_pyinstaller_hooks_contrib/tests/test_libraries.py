@@ -995,3 +995,10 @@ def test_ffpyplayer(pyi_builder):
     pyi_builder.test_source("""
         import ffpyplayer.player
         """)
+
+
+@importorskip("cv2")
+def test_cv2(pyi_builder):
+    pyi_builder.test_source("""
+        import cv2
+        """)

@@ -1,1 +1,2 @@
-Update ``cv2`` hook to collect extra config files and modules using ``*.py`` pattern.
+Update ``cv2`` hook to collect extra config files and modules for compatibility with OpenCV 4.5.4.58.
+
