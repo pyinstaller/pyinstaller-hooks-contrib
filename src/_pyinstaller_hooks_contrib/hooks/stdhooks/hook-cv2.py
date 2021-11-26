@@ -32,5 +32,5 @@ if compat.is_win:
     # can be found there in the PyPI version)
     binaries += collect_dynamic_libs('cv2')
 
-# OpenCV loader from 4.5.4.58 requires extra config files and modules
+# OpenCV loader from 4.5.4.60 requires extra config files and modules
 datas = collect_data_files('cv2', include_py_files=True, includes=['**/*.py'])
