@@ -31,5 +31,6 @@ if compat.is_win:
     # Include any DLLs from site-packages/cv2 (opencv_videoio_ffmpeg*.dll
     # can be found there in the PyPI version)
     binaries += collect_dynamic_libs('cv2')
-    # Need to include extra config files and modules
-    extra_data = collect_data_files('cv2', include_py_files=True, includes=['**\*.py'])
+
+# OpenCV loader from 4.5.4.58 requires extra config files and modules
+datas = collect_data_files('cv2', include_py_files=True, includes=['**/*.py'])
