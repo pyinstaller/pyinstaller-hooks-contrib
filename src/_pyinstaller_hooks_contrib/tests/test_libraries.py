@@ -997,6 +997,13 @@ def test_ffpyplayer(pyi_builder):
         """)
 
 
+@importorskip("cv2")
+def test_cv2(pyi_builder):
+    pyi_builder.test_source("""
+        import cv2
+        """)
+
+
 @importorskip("twisted")
 def test_twisted_default_reactor(pyi_builder):
     pyi_builder.test_source("""
