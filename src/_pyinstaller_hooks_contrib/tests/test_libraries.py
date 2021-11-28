@@ -1002,3 +1002,25 @@ def test_cv2(pyi_builder):
     pyi_builder.test_source("""
         import cv2
         """)
+
+
+@importorskip("twisted")
+def test_twisted_default_reactor(pyi_builder):
+    pyi_builder.test_source("""
+        from twisted.internet import reactor
+        assert callable(reactor.listenTCP)
+        """)
+
+
+@importorskip("twisted")
+def test_twisted_custom_reactor(pyi_builder):
+    pyi_builder.test_source("""
+        import sys
+        if sys.platform.startswith("win") and sys.version_info >= (3,7):
+            import asyncio
+            asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+        from twisted.internet import asyncioreactor
+        asyncioreactor.install()
+        from twisted.internet import reactor
+        assert callable(reactor.listenTCP)
+        """)
