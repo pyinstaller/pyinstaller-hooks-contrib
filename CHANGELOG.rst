@@ -1,3 +1,76 @@
+2021.4 (2021-11-29)
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``adbutils`` to collect dynamic libraries. (`#323
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/323>`_)
+* Add a hook for ``branca`` to collect data files. (`#318
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/318>`_)
+* Add a hook for ``dash`` to collect data files required by the new ``dash``
+  v2.0. (`#314
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/314>`_)
+* Add a hook for ``doc2xpdf`` to collect qss data files. (`#310
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/310>`_)
+* Add a hook for ``ffpyplayer``. (`#348
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/348>`_)
+* Add a hook for ``pyppeteer``. (`#329
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/329>`_)
+* Add a hook for ``pyvjoy`` to collect dynamic libraries. (`#321
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/321>`_)
+* Add a hook for ``qtmodern`` to collect qss data files. (`#305
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/305>`_)
+* Add a hook for ``tableauhyperapi`` to collect dynamic libraries. (`#316
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/316>`_)
+* Add a hook for ``websockets`` which lazily loads its submodules. (`#301
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/301>`_)
+* Add hook for ``folium``. (`#62
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/62>`_)
+* Add hook for ``metpy``. (`#60
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/60>`_)
+* Add hook for ``panel``. (`#338
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/338>`_)
+* Add hook for ``platformdirs``. This in turn fixes compatibility with ``pylint
+  >= 2.10.2``. (`#301
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/301>`_)
+* Add hook for ``pymediainfo``. (`#324
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/324>`_)
+* Add hook for ``pyviz_comms``. (`#338
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/338>`_)
+* Add hook for ``sacremoses``. (`#325
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/325>`_)
+* Add hook for ``tzdata``. (`#339
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/339>`_)
+* Add hooks for ``cairocffi`` and ``CairoSVG``. (`#347
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/347>`_)
+* Add hooks for ``pyphen`` and ``kaleido``. (`#345
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/345>`_)
+* Add hooks for ``zoneinfo`` and ``backports.zoneinfo``. (`#339
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/339>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Removed the ``certifi`` run-time hook because it was not required for
+  ``certifi`` to function in a frozen application. It was sometimes setting the
+  ``SSL_CERT_FILE`` environment variable which causes applications to behave
+  differently when frozen. In particular the
+  ``SSLContext.set_default_verify_paths()`` method loads the certificates from
+  ``certifi`` when the ``SSL_CERT_FILE`` environment variable is set. (`#335
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/335>`_)
+* Update ``cv2`` hook to collect extra config files and modules for
+  compatibility with OpenCV 4.5.4.60. (`#354
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/354>`_)
+* Update ``markdown`` hook to include package metadata, enabling the use of
+  short names for built-in extensions, such as ``extra`` or ``toc``. (`#336
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/336>`_)
+* Update hiddenimports for ``APScheduler > 3.8.0``. (`#333
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/333>`_)
+* Update hiddenimports for ``pymssql > 2.1.5``. (`#315
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/315>`_)
+
+
 2021.3 (2021-08-25)
 
 New hooks

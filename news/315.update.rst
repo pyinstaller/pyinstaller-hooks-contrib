@@ -1,1 +1,0 @@
-Update hiddenimports for ``pymssql > 2.1.5``.

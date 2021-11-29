@@ -1,1 +1,0 @@
-Update ``markdown`` hook to include package metadata, enabling the use of short names for built-in extensions, such as ``extra`` or ``toc``.
