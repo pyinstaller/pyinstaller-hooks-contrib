@@ -45,3 +45,5 @@ jobs:
           git commit -m "Release v$VERSION"
           git push && git push --tags
           gh release create $VERSION -n "Please see the [changelog](https://www.github.com/pyinstaller/pyinstaller-hooks-contrib/tree/master/CHANGELOG.rst) for more details"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
