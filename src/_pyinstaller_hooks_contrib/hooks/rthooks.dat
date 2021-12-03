@@ -4,5 +4,6 @@
     'traitlets': ['pyi_rth_traitlets.py'],
     'usb': ['pyi_rth_usb.py'],
     'nltk': ['pyi_rth_nltk.py'],
-    'pyproj': ['pyi_rth_pyproj.py']
+    'pyproj': ['pyi_rth_pyproj.py'],
+    'pygraphviz': ['pyi_rth_pygraphviz.py'],
 }

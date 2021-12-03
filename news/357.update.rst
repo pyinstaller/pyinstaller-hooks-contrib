@@ -1,0 +1,3 @@
+Add a runtime hook for ``pygraphviz`` that modifies the search behavior
+for ``graphviz`` programs, in order to ensure that the collected programs
+in ``sys._MEIPASS`` are found and used.
