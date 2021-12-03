@@ -1024,3 +1024,19 @@ def test_twisted_custom_reactor(pyi_builder):
         from twisted.internet import reactor
         assert callable(reactor.listenTCP)
         """)
+
+
+@importorskip("pygraphviz")
+def test_pygraphviz_bundled_programs(pyi_builder):
+    # Test that the frozen application is using collected graphviz executables instead of system-installed ones.
+    pyi_builder.test_source("""
+        import sys
+        import os
+        import pygraphviz
+
+        bundle_dir = os.path.normpath(sys._MEIPASS)
+        dot_path = os.path.normpath(pygraphviz.AGraph()._get_prog('dot'))
+
+        assert os.path.commonprefix([dot_path, bundle_dir]) == bundle_dir, \
+            f"Invalid program path: {dot_path}!"
+        """)
