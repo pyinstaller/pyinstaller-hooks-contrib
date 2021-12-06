@@ -53,7 +53,7 @@ pyviz-comms==2.1.0
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.5
 pymssql==2.2.2
-pystray==0.17.3
+pystray==0.19.1
 pytz==2021.3
 pyzmq==22.3.0
 PyQt5==5.15.6
