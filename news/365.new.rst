@@ -1,1 +1,1 @@
-Add a hook for 'mimesis', which has a data files.
+Add a hook for ``mimesis``, which has a data files.
