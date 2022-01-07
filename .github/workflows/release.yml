@@ -15,6 +15,9 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Log into the gh CLI
+        run: echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+
       - name: Install Dependencies
         run: python -m pip install -U towncrier twine wheel
 
