@@ -1,3 +1,21 @@
+2021.5 (2022-01-07)
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``mimesis``, which has a data files. (`#365
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/365>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Add a runtime hook for ``pygraphviz`` that modifies the search behavior
+  for ``graphviz`` programs, in order to ensure that the collected programs
+  in ``sys._MEIPASS`` are found and used. (`#357
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/357>`_)
+
+
 2021.4 (2021-11-29)
 
 New hooks
