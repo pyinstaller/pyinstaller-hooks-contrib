@@ -1048,3 +1048,11 @@ def test_pypsexec(pyi_builder):
         from pypsexec.paexec import paexec_out_stream
         next(paexec_out_stream())
         """)
+
+
+@importorskip("mimesis")
+def test_mimesis(pyi_builder):
+    pyi_builder.test_source("""
+        from mimesis import Address
+        Address().address()
+        """)

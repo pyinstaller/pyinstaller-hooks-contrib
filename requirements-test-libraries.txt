@@ -76,6 +76,7 @@ web3==5.25.0
 websockets==10.1; python_version >= '3.7'
 zeep==4.1.0
 pypsexec==0.3.0
+mimesis==5.2.1 ; python_version >= '3.8'
 
 # ------------------- Platform (OS) specifics
 
