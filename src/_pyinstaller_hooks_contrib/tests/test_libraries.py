@@ -1040,3 +1040,11 @@ def test_pygraphviz_bundled_programs(pyi_builder):
         assert os.path.commonprefix([dot_path, bundle_dir]) == bundle_dir, \
             f"Invalid program path: {dot_path}!"
         """)
+
+
+@importorskip("pypsexec")
+def test_pypsexec(pyi_builder):
+    pyi_builder.test_source("""
+        from pypsexec.paexec import paexec_out_stream
+        next(paexec_out_stream())
+        """)
