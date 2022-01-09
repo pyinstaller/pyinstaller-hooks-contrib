@@ -10,6 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+# The bundled paexec.exe file needs to be collected (as data file; on any platform)
+# because it is deployed to the remote side during execution.
+
 from PyInstaller.utils.hooks import collect_data_files
 
 datas = collect_data_files('pypsexec')
