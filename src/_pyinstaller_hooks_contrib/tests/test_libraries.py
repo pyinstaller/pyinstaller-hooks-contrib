@@ -1051,7 +1051,7 @@ def test_pypsexec(pyi_builder):
 
 
 @importorskip("mimesis")
-def test_pypsexec(pyi_builder):
+def test_mimesis(pyi_builder):
     pyi_builder.test_source("""
         from mimesis import Address
         Address().address()
