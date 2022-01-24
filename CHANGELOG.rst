@@ -1,3 +1,27 @@
+2022.0 (2022-01-24)
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``pypsexec``, which has a data files. (`#366
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/366>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``tensorflow``  hook to add support for ``tensorflow`` 2.6.x and
+  later. (`#371
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/371>`_)
+
+
+Test-suite and Continuous Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Add a test for ``mimesis`` hook. (`#367
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/367>`_)
+
+
 2021.5 (2022-01-07)
 
 New hooks

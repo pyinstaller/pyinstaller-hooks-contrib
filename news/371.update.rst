@@ -1,1 +1,0 @@
-Update ``tensorflow``  hook to add support for ``tensorflow`` 2.6.x and later.
