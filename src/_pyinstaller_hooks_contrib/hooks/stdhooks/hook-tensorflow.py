@@ -67,4 +67,9 @@ else:
                                        filter=_submodules_filter)
     datas = collect_data_files('tensorflow', excludes=data_excludes)
 
+    # From 2.6.0 on, we also need to explicitly collect keras (due to
+    # lazy mapping of tensorflow.keras.xyz -> keras.xyz)
+    if is_module_satisfies("tensorflow >= 2.6.0"):
+        hiddenimports += collect_submodules('keras')
+
 excludedimports = excluded_submodules
