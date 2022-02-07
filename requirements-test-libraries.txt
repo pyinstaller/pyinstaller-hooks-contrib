@@ -69,7 +69,7 @@ swagger-spec-validator==2.7.4
 tableauhyperapi==0.0.14265
 thinc==8.0.13
 timezonefinder==5.2.0
-Twisted==21.7.0
+Twisted==22.1.0
 tzdata==2021.5
 Unidecode==1.3.2
 web3==5.26.0
