@@ -18,6 +18,6 @@ from PyInstaller.utils.hooks import copy_metadata, is_module_satisfies
 
 
 if is_module_satisfies("pyinstaller >= 4.4"):
-    datas = copy_metadata("azurem", recursive=True)
+    datas = copy_metadata("azurerm", recursive=True)
 else:
-    datas = copy_metadata("azurem")
+    datas = copy_metadata("azurerm")
