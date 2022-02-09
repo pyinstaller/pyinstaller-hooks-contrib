@@ -1,0 +1,1 @@
+Fix hook for ``azurerm`` when ``pyinstaller >= 4.4"``.
