@@ -1057,6 +1057,7 @@ def test_mimesis(pyi_builder):
         Address().address()
         """)
 
+
 @importorskip('orjson')
 def test_orjson(pyi_builder):
     pyi_builder.test_source("""
