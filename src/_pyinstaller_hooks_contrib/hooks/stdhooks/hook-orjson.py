@@ -10,13 +10,12 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-# forced import of these modules happens on first orjson import
-# and orjson is a compiled extension module
+# Forced import of these modules happens on first orjson import
+# and orjson is a compiled extension module.
 hiddenimports = [
     'uuid',
     'zoneinfo',
     'enum',
     'json',
     'dataclasses',
-    'numpy',
 ]
