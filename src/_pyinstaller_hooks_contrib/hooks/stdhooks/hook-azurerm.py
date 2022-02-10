@@ -14,6 +14,9 @@
 # This hook will collect the module metadata.
 # Tested with Azurerm 0.10.0
 
-from PyInstaller.utils.hooks import copy_metadata
+from PyInstaller.utils.hooks import copy_metadata, is_module_satisfies
 
-datas = copy_metadata("azurerm")
+if is_module_satisfies("pyinstaller >= 4.4"):
+    datas = copy_metadata("azurerm", recursive=True)
+else:
+    datas = copy_metadata("azurerm")
