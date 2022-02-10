@@ -1,3 +1,15 @@
+
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``py`` which has dynamically loaded vendored submodules.
+  This fixes compatibility with ``pytest >= 7.0.0``. (`#376
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/376>`_)
+* Added a hook for ``orjson``, which has hidden imports. (`#378
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/378>`_)
+
+
 2022.0 (2022-01-24)
 
 New hooks

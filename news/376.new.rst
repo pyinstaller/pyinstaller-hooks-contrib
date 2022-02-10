@@ -1,2 +1,0 @@
-Add a hook for ``py`` which has dynamically loaded vendored submodules.
-This fixes compatibility with ``pytest >= 7.0.0``.
