@@ -1056,3 +1056,10 @@ def test_mimesis(pyi_builder):
         from mimesis import Address
         Address().address()
         """)
+
+
+@importorskip('orjson')
+def test_orjson(pyi_builder):
+    pyi_builder.test_source("""
+        import orjson
+        """)

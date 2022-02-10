@@ -1,0 +1,1 @@
+Added a hook for ``orjson``, which has hidden imports.
