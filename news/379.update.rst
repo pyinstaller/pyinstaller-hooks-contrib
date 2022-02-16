@@ -1,0 +1,1 @@
+Fix hook for astropy when astropy >= 5.0.
