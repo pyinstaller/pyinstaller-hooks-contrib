@@ -27,7 +27,7 @@ humanize==4.0.0
 iminuit==2.9.0
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
-mariadb==1.0.9; sys_platform != "darwin"
+mariadb==1.0.10; sys_platform != "darwin"
 markdown==3.3.6
 MetPy==1.1.0; python_version >= '3.7'
 mnemonic==0.20
