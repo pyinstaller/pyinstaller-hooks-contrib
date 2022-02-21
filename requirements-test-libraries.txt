@@ -76,7 +76,7 @@ thinc==8.0.13
 timezonefinder==5.2.0
 Twisted==22.1.0
 tzdata==2021.5
-Unidecode==1.3.2
+Unidecode==1.3.3
 web3==5.28.0
 websockets==10.1; python_version >= '3.7'
 zeep==4.1.0
