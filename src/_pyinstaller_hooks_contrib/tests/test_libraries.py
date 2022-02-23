@@ -1063,3 +1063,10 @@ def test_orjson(pyi_builder):
     pyi_builder.test_source("""
         import orjson
         """)
+
+
+@importorskip('altair')
+def test_altair(pyi_builder):
+    pyi_builder.test_source("""
+        import altair
+        """)
