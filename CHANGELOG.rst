@@ -1,4 +1,4 @@
-2022.0 (2022-01-24)
+2022.2 (2022-02-15)
 -------------------
 
 Updated hooks
@@ -7,8 +7,11 @@ Updated hooks
 * Fix hook for ``azurerm`` when ``pyinstaller >= 4.4"``. (`#283
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/283>`_)
 * Fix hook for astropy when astropy >= 5.0. (`#381
-  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/381>`_)
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/381>`_
 
+
+2022.1 (2022-02-10)
+-------------------
 
 New hooks
 ~~~~~~~~~
