@@ -80,6 +80,7 @@ zeep==4.1.0
 pypsexec==0.3.0
 mimesis==5.3.0; python_version >= '3.8'
 orjson==3.6.7
+altair==4.2.0; python_version >= '3.7'
 
 
 # ------------------- Platform (OS) specifics
