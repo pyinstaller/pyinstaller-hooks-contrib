@@ -1070,3 +1070,10 @@ def test_altair(pyi_builder):
     pyi_builder.test_source("""
         import altair
         """)
+
+
+@importorskip('fabric')
+def test_fabric(pyi_builder):
+    pyi_builder.test_source("""
+        import fabric
+        """)
