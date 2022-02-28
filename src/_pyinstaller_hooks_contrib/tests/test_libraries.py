@@ -1070,3 +1070,10 @@ def test_altair(pyi_builder):
     pyi_builder.test_source("""
         import altair
         """)
+
+
+@importorskip('cassandra')
+def test_cassandra(pyi_builder):
+    pyi_builder.test_source("""
+        import cassandra
+        """)
