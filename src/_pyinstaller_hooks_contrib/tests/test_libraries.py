@@ -1077,3 +1077,10 @@ def test_cassandra(pyi_builder):
     pyi_builder.test_source("""
         import cassandra
         """)
+
+
+@importorskip('gitlab')
+def test_gitlab(pyi_builder):
+    pyi_builder.test_source("""
+        import gitlab
+        """)
