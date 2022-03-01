@@ -1072,6 +1072,13 @@ def test_altair(pyi_builder):
         """)
 
 
+@importorskip('fabric')
+def test_fabric(pyi_builder):
+    pyi_builder.test_source("""
+        import fabric
+        """)
+
+
 @importorskip('cassandra')
 def test_cassandra(pyi_builder):
     pyi_builder.test_source("""
