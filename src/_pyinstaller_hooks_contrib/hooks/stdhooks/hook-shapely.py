@@ -24,7 +24,10 @@ pkg_base, pkg_dir = get_package_paths('shapely')
 
 
 binaries = []
+datas = []
 if compat.is_win:
+    geos_c_dll_found = False
+
     # Search conda directory if conda is active, then search standard
     # directory. This is the same order of precidence used in shapely.
     standard_path = os.path.join(pkg_dir, 'DLLs')
@@ -38,12 +41,36 @@ if compat.is_win:
         dll_path = find_library('geos_c')
     finally:
         os.environ['PATH'] = original_path
-    if dll_path is None:
+    if dll_path is not None:
+        binaries += [(dll_path, '.')]
+        geos_c_dll_found = True
+
+    # Starting with shapely 1.8.1, the DLLs shipped with PyPI wheels are stored in
+    # site-packages/Shapely.libs instead of sub-directory in site-packages/shapely.
+    if is_module_satisfies("shapely >= 1.8.1"):
+        lib_dir = os.path.join(pkg_base, "Shapely.libs")
+        if os.path.isdir(lib_dir):
+            # We collect DLLs as data files instead of binaries to suppress binary
+            # analysis, which would result in duplicates (because it collects a copy
+            # into the top-level directory instead of preserving the original layout).
+            # In addition to DLls, this also collects .load-order* file (required on
+            # python < 3.8), and ensures that Shapely.libs directory exists (required
+            # on python >= 3.8 due to os.add_dll_directory call).
+            datas += [
+                (os.path.join(lib_dir, lib_file), 'Shapely.libs')
+                for lib_file in os.listdir(lib_dir)
+            ]
+
+            geos_c_dll_found |= any([
+                os.path.basename(lib_file).startswith("geos_c")
+                for lib_file, _ in datas
+            ])
+
+    if not geos_c_dll_found:
         raise SystemExit(
-            "Error: geos_c.dll not found, required by hook-shapely.py.\n"
-            "Please check your installation or provide a pull request to "
-            "PyInstaller to update hook-shapely.py.")
-    binaries += [(dll_path, '.')]
+                "Error: geos_c.dll not found, required by hook-shapely.py.\n"
+                "Please check your installation or provide a pull request to "
+                "PyInstaller to update hook-shapely.py.")
 elif compat.is_linux:
     lib_dir = os.path.join(pkg_dir, '.libs')
     dest_dir = os.path.join('shapely', '.libs')
