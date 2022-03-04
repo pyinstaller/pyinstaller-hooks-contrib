@@ -1091,3 +1091,12 @@ def test_gitlab(pyi_builder):
     pyi_builder.test_source("""
         import gitlab
         """)
+
+
+@importorskip('shapely')
+def test_shapely(pyi_builder):
+    pyi_builder.test_source("""
+        from shapely.geometry import Point
+        patch = Point(0.0, 0.0).buffer(10.0)
+        print(patch.area)
+        """)
