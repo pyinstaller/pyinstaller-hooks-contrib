@@ -71,17 +71,17 @@ if compat.is_win:
                 "Error: geos_c.dll not found, required by hook-shapely.py.\n"
                 "Please check your installation or provide a pull request to "
                 "PyInstaller to update hook-shapely.py.")
-elif compat.is_linux:
-    lib_dir = os.path.join(pkg_dir, '.libs')
-    dest_dir = os.path.join('shapely', '.libs')
-
+elif compat.is_linux and is_module_satisfies('shapely < 1.7'):
     # This duplicates the libgeos*.so* files in the build.  PyInstaller will
     # copy them into the root of the build by default, but shapely cannot load
     # them from there in linux IF shapely was installed via a whl file. The
-    # whl bundles its' own libgeos with a different name, something like
+    # whl bundles its own libgeos with a different name, something like
     # libgeos_c-*.so.* but shapely tries to load libgeos_c.so if there isn't a
-    # ./libs directory under its' package. There is a proposed fix for this in
-    # shapely but it has not been accepted it:
-    # https://github.com/Toblerity/Shapely/pull/485
-    if is_module_satisfies('shapely <= 1.6'):
-        binaries += [(os.path.join(lib_dir, f), dest_dir) for f in os.listdir(lib_dir)]
+    # ./libs directory under its package.
+    #
+    # The fix for this (https://github.com/Toblerity/Shapely/pull/485) has
+    # been available in shapely since version 1.7.
+    lib_dir = os.path.join(pkg_dir, '.libs')
+    dest_dir = os.path.join('shapely', '.libs')
+
+    binaries += [(os.path.join(lib_dir, f), dest_dir) for f in os.listdir(lib_dir)]
