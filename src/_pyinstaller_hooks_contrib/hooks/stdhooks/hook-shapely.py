@@ -85,3 +85,17 @@ elif compat.is_linux and is_module_satisfies('shapely < 1.7'):
     dest_dir = os.path.join('shapely', '.libs')
 
     binaries += [(os.path.join(lib_dir, f), dest_dir) for f in os.listdir(lib_dir)]
+elif compat.is_darwin and is_module_satisfies('shapely >= 1.8.1'):
+    # In shapely 1.8.1, the libgeos_c library bundled in macOS PyPI wheels is not
+    # called libgeos.1.dylib anymore, but rather has a fullly-versioned name
+    # (e.g., libgeos_c.1.16.0.dylib).
+    # Shapely fails to find such a library unless it is located in the .dylibs
+    # directory. So we need to ensure that the libraries are collected into
+    # .dylibs directory; however, this will result in duplication due to binary
+    # analysis of the python extensions that are linked against these libraries
+    # as well (as that will copy the libraries to top-level directory).
+    lib_dir = os.path.join(pkg_dir, '.dylibs')
+    dest_dir = os.path.join('shapely', '.dylibs')
+
+    if os.path.isdir(lib_dir):
+        binaries += [(os.path.join(lib_dir, f), dest_dir) for f in os.listdir(lib_dir)]
