@@ -16,6 +16,6 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 
 datas = collect_data_files('imageio', subdir="resources")
 
-# imageio plugins are imported lazily since version 0.11.0.
+# imageio plugins are imported lazily since ImageIO version 2.11.0.
 # They are very light-weight, so we can safely include all of them.
 hiddenimports = collect_submodules('imageio.plugins')
