@@ -1,0 +1,83 @@
+name: PyUp CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  test:
+    if: "${{ (!github.event.pull_request) || github.event.pull_request.user.login == 'pyup-bot' }}"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9, '3.10']
+        pyinstaller: ["https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
+        os: ["macos-latest", "ubuntu-latest", "windows-latest"]
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Limit dependencies to only new/changed libraries.
+        if: "${{ github.event.pull_request }}"
+        shell: bash
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          set +e
+          diff --changed-group-format='%>' --unchanged-group-format='' \
+            <(git show origin/${{ github.base_ref }}:requirements-test-libraries.txt) \
+            <(git show HEAD:requirements-test-libraries.txt) \
+          > requirements-test-libraries.txt
+          set -e
+          echo '-r requirements-test.txt' >> requirements-test-libraries.txt
+          cat requirements-test-libraries.txt
+
+      - name: Set up .NET Core for pythonnet tests
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.x'
+
+      - name: Install apt dependencies
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          sudo apt-get update
+          # Set up a virtual screen (for GUI libraries and pynput).
+          sudo apt-get install libxcb-xkb-dev xvfb
+          Xvfb :99 & echo "DISPLAY=:99" >> $GITHUB_ENV
+          # Install mariadb dependencies.
+          sudo apt-get install -y libmariadbclient-dev
+          # Install PyQt5 (qtmodern) dependencies.
+          sudo apt-get install -y libxcb-keysyms1 libxcb-render-util0 \
+            libxkbcommon-x11-0 libxcb-icccm4 libxcb1 openssl \
+            libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev \
+            libxcb-shape0-dev libxcb-xkb-dev libopengl0 libegl1 \
+            libpulse0 libpulse-mainloop-glib0
+          # Install cairo dependencies.
+          sudo apt-get install -y libcairo2
+
+      - name: Install brew dependencies
+        if: startsWith(matrix.os, 'macos')
+        run: |
+          # Install cairo dependencies.
+          brew install cairo
+
+      - name: Install dependencies
+        run: |
+          # Upgrade to the latest pip.
+          python -m pip install -U pip setuptools wheel
+
+          # Install hooks-contrib
+          pip install -e .
+          pip install --prefer-binary -r requirements-test-libraries.txt
+
+          # Install PyInstaller
+          pip install ${{ matrix.pyinstaller }}
+
+      - name: Run tests
+        run: pytest -v

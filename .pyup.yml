@@ -1,0 +1,7 @@
+# Run PyUp once a week.
+schedule: "every week"
+
+# Only touch the test libraries requirements file.
+search: False
+requirements:
+  - requirements-test-libraries.txt

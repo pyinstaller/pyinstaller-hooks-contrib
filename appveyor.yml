@@ -9,43 +9,28 @@ environment:
   APPVEYOR_SAVE_CACHE_ON_ERROR: true
 
   matrix:
-    - PYTHON: C:\Python38
+
+    - PYTHON: C:\Python39-x64
+      PYTHON_VERSION: "3.9"
+      PYTHON_ARCH: 64
+      INSTALL_URL: "https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz"
+      USE_DEV: "True"
+
+    - PYTHON: C:\Python38-x64
       PYTHON_VERSION: "3.8"
-      INSTALL_URL: pyinstaller  # INSTALL_URL is passed straight to pip with `pip install INSTALL_URL`.
-      USE_DEV: "False"
-    
-    - PYTHON: C:\Python37
+      PYTHON_ARCH: 64
+      INSTALL_URL: "https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz"
+      USE_DEV: "True"
+
+    - PYTHON: C:\Python37-x64
       PYTHON_VERSION: "3.7"
-      INSTALL_URL: pyinstaller  # INSTALL_URL is passed straight to pip with `pip install INSTALL_URL`.
-      USE_DEV: "False"
+      PYTHON_ARCH: 64
+      INSTALL_URL: "https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz"
+      USE_DEV: "True"
 
-    - PYTHON: C:\Python36
+    - PYTHON: C:\Python36-x64
       PYTHON_VERSION: "3.6"
-      INSTALL_URL: pyinstaller
-      USE_DEV: "False"
-
-    - PYTHON: C:\Python35
-      PYTHON_VERSION: "3.5"
-      INSTALL_URL: pyinstaller
-      USE_DEV: "False"
-    
-    - PYTHON: C:\Python38
-      PYTHON_VERSION: "3.8"
-      INSTALL_URL: "https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz"
-      USE_DEV: "True"
-      
-    - PYTHON: C:\Python37
-      PYTHON_VERSION: "3.7"
-      INSTALL_URL: "https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz"
-      USE_DEV: "True"
-
-    - PYTHON: C:\Python36
-      PYTHON_VERSION: "3.6"
-      INSTALL_URL: "https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz"
-      USE_DEV: "True"
-
-    - PYTHON: C:\Python35
-      PYTHON_VERSION: "3.5"
+      PYTHON_ARCH: 64
       INSTALL_URL: "https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz"
       USE_DEV: "True"
 
@@ -83,7 +68,7 @@ install:
 
   # Install hooks-contrib
   - pip install -e .
-  - pip install -r requirements-test-libraries.txt
+  - pip install --prefer-binary -r requirements-test-libraries.txt
 
   # Install PyInstaller
   - pip install %INSTALL_URL%

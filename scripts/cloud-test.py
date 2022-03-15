@@ -37,7 +37,8 @@ def authenticated_user():
     token = os.environ.get("GITHUB_TOKEN")
 
     if token is None:
-        token = input("Please enter a Github authentication token or your username and password separated by a space.\n"
+        token = input("Please enter a Github Personal Access Token with at least 'repo/public_repo' scope. "
+                      "If you don't have one then create one at https://github.com/settings/tokens.\n"
                       "Alternatively you may set the GITHUB_TOKEN environment variable instead:\n")
 
     user = github.Github(*token.split(maxsplit=1))
@@ -88,7 +89,7 @@ def _norm_comma_space(x):
     return re.sub(", *", ", ", x)
 
 
-PYTHONS = ["3.5", "3.6", "3.7", "3.8"]
+PYTHONS = ["3.7", "3.8", "3.9", "3.10"]
 OSs = ["ubuntu", "windows", "macos"]
 
 
@@ -106,10 +107,13 @@ OSs = ["ubuntu", "windows", "macos"]
               help="Which fork of pyinstaller-hooks-contrib to use. Defaults to the fork of the authenticated user.")
 @click.option("--branch", default=None,
               help="The branch to test. Defaults to using git to get your currently active branch.")
+@click.option("--commands", multiple=True,
+              help="Additional bash installation commands to run. Ran after setting up Python but before pip-installing"
+                   "dependencies.")
 @click.option("--browser", default=False, is_flag=True,
               help="Open the live build on Github in a browser window.")
 @click.option("--dry-run", is_flag=True, help="Don't launch a build. Just parse and print the parameters.")
-def main(package, py, os, fork, branch, fail_fast, browser, dry_run):
+def main(package, py, os, fork, branch, fail_fast, commands, browser, dry_run):
     """Launch CI testing of a given package against multiple package or Python versions and OSs.
 
     The **package** specifies only those to install. Which tests should be ran is inferred implicitly by
@@ -156,7 +160,8 @@ def main(package, py, os, fork, branch, fail_fast, browser, dry_run):
         "python-version": _norm_comma_space(",".join(py)),
         "package": _norm_comma_space(package),
         "os": _norm_comma_space(",".join(os).lower()),
-        "fail-fast": str(fail_fast).lower()
+        "fail-fast": str(fail_fast).lower(),
+        "commands": "; ".join(commands),
     }
 
     print("Configuration options to be passed to CI:")

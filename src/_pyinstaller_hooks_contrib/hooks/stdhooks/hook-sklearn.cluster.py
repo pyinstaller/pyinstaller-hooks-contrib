@@ -14,5 +14,5 @@ from PyInstaller.utils.hooks import is_module_satisfies
 
 # sklearn.cluster in scikit-learn 0.23.x has a hidden import of
 # threadpoolctl
-if is_module_satisfies("sklearn >= 0.23"):
+if is_module_satisfies("scikit_learn >= 0.23"):
     hiddenimports = ['threadpoolctl', ]

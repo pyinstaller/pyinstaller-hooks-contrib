@@ -12,7 +12,7 @@
 
 import os
 import sys
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies
 from PyInstaller.compat import is_win
 
 
@@ -20,6 +20,18 @@ hiddenimports = [
     "pyproj.datadir"
 ]
 
+# Versions prior to 2.3.0 also require pyproj._datadir
+if not is_module_satisfies("pyproj >= 2.3.0"):
+    hiddenimports += ["pyproj._datadir"]
+
+# Starting with version 3.0.0, pyproj._compat is needed
+if is_module_satisfies("pyproj >= 3.0.0"):
+    hiddenimports += ["pyproj._compat"]
+    # Linux and macOS also require distutils.
+    if not is_win:
+        hiddenimports += ["distutils.util"]
+
+# Data collection
 datas = collect_data_files('pyproj')
 
 if hasattr(sys, 'real_prefix'):  # check if in a virtual environment

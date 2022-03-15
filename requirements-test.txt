@@ -1,3 +1,5 @@
+# pyup: ignore file
+
 # PyTest
 pytest >= 2.7.3
 pytest-timeout  # Stop hanging tests
