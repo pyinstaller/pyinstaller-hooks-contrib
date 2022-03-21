@@ -39,7 +39,7 @@ pandas==1.4.1; python_version >= '3.8'
 panel==0.12.6; python_version >= '3.7'
 passlib==1.7.4
 pendulum==2.1.2
-phonenumbers==8.12.44
+phonenumbers==8.12.45
 pingouin==0.5.1; python_version >= '3.7'
 pinyin==0.4.0
 platformdirs==2.5.1
