@@ -3,7 +3,7 @@ importlib_resources==5.4.0; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==8.1.0
+av==9.0.1
 adbutils==0.13.1; sys_platform == 'darwin' or sys_platform == 'win32'
 APScheduler==3.9.1
 backports.zoneinfo==0.2.1; python_version < '3.9'
