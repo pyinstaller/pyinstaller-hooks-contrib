@@ -1,3 +1,32 @@
+
+2022.3 (2022-03-24)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``altair``, which has data files. (`#387
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/387>`_)
+* Add a hook for ``cassandra``, which has Cython files. (`#391
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/391>`_)
+* Add a hook for ``fabric``, which has data files. (`#390
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/390>`_)
+* Add a hook for ``gitlab``, which has data files. (`#392
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/392>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``shapely`` hooks with compatibility fixes for version 1.8.1,
+  where PyPI wheels have changed the shipped ``libgeos_c`` shared library
+  location and/or name. (`#394
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/394>`_)
+* Update `imageio` hooks to include the lazily-loaded `plugins` submodule.
+  (`#396
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/396>`_)
+
+
 2022.2 (2022-02-15)
 -------------------
 

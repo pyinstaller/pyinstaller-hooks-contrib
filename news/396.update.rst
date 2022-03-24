@@ -1,1 +1,0 @@
-Update `imageio` hooks to include the lazily-loaded `plugins` submodule.

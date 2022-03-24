@@ -1,3 +1,0 @@
-Update ``shapely`` hooks with compatibility fixes for version 1.8.1,
-where PyPI wheels have changed the shipped ``libgeos_c`` shared library
-location and/or name.
