@@ -1,15 +1,15 @@
 # Backport of importlib.resources for python 3.8 and earlier.
-importlib_resources==5.4.0; python_version < '3.9'
+importlib_resources==5.6.0; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==9.0.1
+av==9.1.0
 adbutils==0.13.1; sys_platform == 'darwin' or sys_platform == 'win32'
 APScheduler==3.9.1
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
-boto3==1.21.22
-botocore==1.24.22
+boto3==1.21.27
+botocore==1.24.27
 branca==0.4.2
 cairocffi==1.3.0
 CairoSVG==2.5.2
@@ -18,13 +18,13 @@ cloudscraper==1.2.60
 dash==2.3.0
 dash-bootstrap-components==1.0.3
 dash-uploader==0.6.0
-fabric==2.6.0
+fabric==2.7.0
 folium==0.12.1.post1
-ffpyplayer==4.3.3; python_version < '3.10' # doesn't have py310 wheels
-python-gitlab==3.2.0
+ffpyplayer==4.3.4; python_version < '3.10' # doesn't have py310 wheels
+python-gitlab==3.3.0
 h5py==3.6.0; python_version >= '3.7'
 humanize==4.0.0
-iminuit==2.10.0
+iminuit==2.11.2
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.0.10; sys_platform != "darwin"
@@ -36,7 +36,7 @@ msoffcrypto-tool==5.0.0
 Office365-REST-Python-Client==2.3.11
 openpyxl==3.0.9
 pandas==1.4.1; python_version >= '3.8'
-panel==0.12.6; python_version >= '3.7'
+panel==0.12.7; python_version >= '3.7'
 passlib==1.7.4
 pendulum==2.1.2
 phonenumbers==8.12.45
@@ -49,7 +49,7 @@ pycparser==2.21
 pycryptodome==3.14.1
 pycryptodomex==3.14.1
 pyexcelerate==0.10.0
-pylint==2.12.2
+pylint==2.13.2
 pyphen==0.12.0
 pyppeteer==1.0.2
 pyusb==1.2.1
@@ -72,7 +72,7 @@ git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
 spacy==3.2.3
 srsly==2.4.2
 swagger-spec-validator==2.7.4
-tableauhyperapi==0.0.14401
+tableauhyperapi==0.0.14567
 thinc==8.0.15
 timezonefinder==5.2.0
 Twisted==22.2.0
