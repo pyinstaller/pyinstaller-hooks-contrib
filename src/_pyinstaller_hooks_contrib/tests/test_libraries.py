@@ -39,6 +39,15 @@ def test_jinxed(pyi_builder):
     )
 
 
+@importorskip("geopandas")
+def test_geopandas(test):
+    test.test_source(
+        '''
+        import geopandas
+        '''
+    )
+
+
 def tensorflow_onedir_only(test):
     def wrapped(pyi_builder):
         if pyi_builder._mode != 'onedir':
