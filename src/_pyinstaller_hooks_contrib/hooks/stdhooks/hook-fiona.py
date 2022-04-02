@@ -12,6 +12,6 @@
 
 hiddenimports = [
     "fiona._shim",
-    "fiona.json",
     "fiona.schema",
+    "json",
 ]
