@@ -124,6 +124,7 @@ jobs:
         run: ${{ github.event.inputs.commands }}
 
       - name: Install dependencies
+        shell: bash
         run: |
           # Upgrade to the latest pip.
           python -m pip install -U pip setuptools wheel
