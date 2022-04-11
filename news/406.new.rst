@@ -1,0 +1,3 @@
+Add a hook for ``clr_loader`` (used by upcoming ``pythonnet`` 3.x) that
+collects the DLLs required by the default runtime (.NET Framework) loader
+on Windows.
