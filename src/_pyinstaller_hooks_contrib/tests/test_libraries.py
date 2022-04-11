@@ -16,6 +16,7 @@ from PyInstaller.utils.hooks import is_module_satisfies, can_import_module
 from PyInstaller.utils.tests import importorskip, requires, xfail
 
 
+@importorskip('fiona')
 def test_fiona(pyi_builder):
     pyi_builder.test_source(
         '''
