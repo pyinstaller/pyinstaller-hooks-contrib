@@ -88,7 +88,7 @@ orjson==3.6.7
 altair==4.2.0; python_version >= '3.7'
 # For some reason, shapely provides only arm64 py310 macOS wheel.
 shapely==1.8.1post1; sys_platform != 'darwin' or python_version < '3.10'
-
+lark==1.1.2
 
 # ------------------- Platform (OS) specifics
 
