@@ -90,6 +90,7 @@ altair==4.2.0; python_version >= '3.7'
 shapely==1.8.1post1; sys_platform != 'darwin' or python_version < '3.10'
 lark==1.1.2
 
+
 # ------------------- Platform (OS) specifics
 
 # PyEnchant only pre-builds macOS and Windows
