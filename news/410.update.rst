@@ -1,0 +1,1 @@
+Update the weasyprint hook to include GTK+ dlls on windows
