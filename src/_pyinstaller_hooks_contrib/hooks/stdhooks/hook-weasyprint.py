@@ -11,8 +11,23 @@
 # ------------------------------------------------------------------
 
 # Hook for weasyprint: https://pypi.python.org/pypi/WeasyPrint
-# Tested on version weasyprint 0.24 using Windows 7 and python 2.7
+# Tested on version weasyprint 0.24 using Windows 10 and python 3.9
+
+import os
 
 from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.compat import is_win
 
-datas = collect_data_files('weasyprint')
+datas, binaries = [], []
+datas += collect_data_files('weasyprint')
+
+# the dll_directories code is equivalent to the one in weasyprint/text/ffi.py
+if is_win:
+    dll_directories = os.getenv(
+        'WEASYPRINT_DLL_DIRECTORIES',
+        'C:\\Program Files\\GTK3-Runtime Win64\\bin').split(';')
+    
+    for dll_directory in dll_directories:
+        binaries += [(os.path.join(dll_directory, '*.dll', '.')]
+        if os.path.isdir(os.path.join(os.path.dirname(dll_directory), 'etc')):
+            datas += [(os.path.join(os.path.dirname(dll_directory), 'etc'), 'etc')]
