@@ -26,8 +26,9 @@ if is_win:
     dll_directories = os.getenv(
         'WEASYPRINT_DLL_DIRECTORIES',
         'C:\\Program Files\\GTK3-Runtime Win64\\bin').split(';')
-    
+
     for dll_directory in dll_directories:
-        binaries += [(os.path.join(dll_directory, '*.dll', '.')]
+        if os.path.isdir(dll_directory):
+            binaries.append((os.path.join(dll_directory, '*.dll'), '.'))
         if os.path.isdir(os.path.join(os.path.dirname(dll_directory), 'etc')):
-            datas += [(os.path.join(os.path.dirname(dll_directory), 'etc'), 'etc')]
+            datas.append((os.path.join(os.path.dirname(dll_directory), 'etc'), 'etc'))
