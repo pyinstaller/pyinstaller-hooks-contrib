@@ -1108,3 +1108,14 @@ def test_shapely(pyi_builder):
         patch = Point(0.0, 0.0).buffer(10.0)
         print(patch.area)
         """)
+
+
+@importorskip('lark')
+def test_lark(pyi_builder):
+    pyi_builder.test_source("""
+        import lark
+        parser = lark.Lark('''
+            value: "true"
+            %import common.SIGNED_NUMBER''',
+            start='value')
+    """)
