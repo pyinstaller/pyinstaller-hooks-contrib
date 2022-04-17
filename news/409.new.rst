@@ -1,1 +1,0 @@
-Add a hook for ``lark`` (used by ``commentjson`` and others) that loads the needed grammar files.

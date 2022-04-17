@@ -1,2 +1,0 @@
-Update the ``av`` hook for compatibility with the new DLL directory layout used by
-Windows PyPI wheels from version 9.1.1 on.

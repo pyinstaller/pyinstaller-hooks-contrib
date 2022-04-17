@@ -1,4 +1,30 @@
 
+2022.4 (2022-04-17)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``clr_loader`` (used by upcoming ``pythonnet`` 3.x) that
+  collects the DLLs required by the default runtime (.NET Framework) loader
+  on Windows. (`#406
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/406>`_)
+* Add a hook for ``lark`` (used by ``commentjson`` and others) that loads the
+  needed grammar files. (`#409
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/409>`_)
+* Add fiona hidden imports for ``fiona==1.8.21``. (`#399
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/399>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update the ``av`` hook for compatibility with the new DLL directory layout
+  used by
+  Windows PyPI wheels from version 9.1.1 on. (`#408
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/408>`_)
+
+
 2022.3 (2022-03-24)
 --------------------
 
