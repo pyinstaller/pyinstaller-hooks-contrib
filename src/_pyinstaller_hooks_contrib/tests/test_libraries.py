@@ -1119,3 +1119,10 @@ def test_lark(pyi_builder):
             %import common.SIGNED_NUMBER''',
             start='value')
     """)
+
+
+@importorskip('stdnum')
+def test_stdnum_iban(pyi_builder):
+    pyi_builder.test_source("""
+        import stdnum.iban
+    """)
