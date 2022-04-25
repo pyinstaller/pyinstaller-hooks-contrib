@@ -44,7 +44,7 @@ phonenumbers==8.12.47
 pingouin==0.5.1; python_version >= '3.7'
 pinyin==0.4.0
 platformdirs==2.5.2
-plotly==5.6.0
+plotly==5.7.0
 publicsuffix2==2.20191221
 pycparser==2.21
 pycryptodome==3.14.1
