@@ -1,10 +1,12 @@
-name: PyUp CI
+name: Pull Request CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   workflow_dispatch:
   pull_request:
+    paths:
+      - requirements-test-libraries.txt
 
 jobs:
   test:
