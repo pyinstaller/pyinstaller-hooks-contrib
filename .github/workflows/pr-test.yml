@@ -10,7 +10,6 @@ on:
 
 jobs:
   test:
-    if: "${{ (!github.event.pull_request) || github.event.pull_request.user.login == 'pyup-bot' }}"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
