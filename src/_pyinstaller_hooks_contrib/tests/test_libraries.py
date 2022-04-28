@@ -1126,3 +1126,10 @@ def test_stdnum_iban(pyi_builder):
     pyi_builder.test_source("""
         import stdnum.iban
     """)
+
+
+@importorskip('numcodecs')
+def test_numcodecs(pyi_builder):
+    pyi_builder.test_source("""
+        from numcodecs import Blosc
+    """)
