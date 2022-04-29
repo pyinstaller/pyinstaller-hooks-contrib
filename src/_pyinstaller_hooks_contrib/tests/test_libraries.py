@@ -1131,5 +1131,8 @@ def test_stdnum_iban(pyi_builder):
 @importorskip('numcodecs')
 def test_numcodecs(pyi_builder):
     pyi_builder.test_source("""
+        # numcodecs uses multiprocessing
+        import multiprocessing
+        multiprocessing.freeze_support()
         from numcodecs import Blosc
     """)
