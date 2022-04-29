@@ -1,0 +1,1 @@
+Add a hook for ``numcodecs``, which has a hidden import.
