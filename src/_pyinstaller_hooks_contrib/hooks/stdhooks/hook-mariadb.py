@@ -10,11 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
-from PyInstaller.compat import is_py38
-
-
-# The MariaDB uses a .pyd file and uses import within its __init__.py
-# The decimal import seems to be hidden in Python version 3.7 and older
-if not is_py38:
-    hiddenimports = ['decimal']
+# The MariaDB uses a .pyd file that imports ``decimal`` module within its
+# module initialization function. On recent python versions (> 3.8), the decimal
+# module seems to be picked up nevertheless (presumably due to import in some
+# other module), but it is better not to rely on that, and ensure it is always
+# collected as a hidden import.
+hiddenimports = ['decimal']
