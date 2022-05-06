@@ -16,19 +16,19 @@ CairoSVG==2.5.2
 cassandra-driver==3.25.0
 cloudscraper==1.2.60
 dash==2.3.1
-dash-bootstrap-components==1.0.3
+dash-bootstrap-components==1.1.0
 dash-uploader==0.6.0
 fabric==2.7.0
 fiona==1.8.21; sys_platform != 'win32'
 folium==0.12.1.post1
-ffpyplayer==4.3.4; python_version < '3.10' # doesn't have py310 wheels
+ffpyplayer==4.3.5; python_version < '3.10' # doesn't have py310 wheels
 python-gitlab==3.3.0
 h5py==3.6.0; python_version >= '3.7'
 humanize==4.0.0
 iminuit==2.11.2
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
-mariadb==1.0.10; sys_platform != "darwin"
+mariadb==1.0.11; sys_platform != "darwin"
 markdown==3.3.6
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0; python_version >= '3.7'
@@ -37,14 +37,14 @@ msoffcrypto-tool==5.0.0
 numcodecs==0.9.1; python_version < '3.10' # doesn't have python 3.10 wheels yet
 Office365-REST-Python-Client==2.3.11
 openpyxl==3.0.9
-pandas==1.4.1; python_version >= '3.8'
-panel==0.12.7; python_version >= '3.7'
+pandas==1.4.2; python_version >= '3.8'
+panel==0.13.0; python_version >= '3.7'
 passlib==1.7.4
 pendulum==2.1.2
-phonenumbers==8.12.45
+phonenumbers==8.12.47
 pingouin==0.5.1; python_version >= '3.7'
 pinyin==0.4.0
-platformdirs==2.5.1
+platformdirs==2.5.2
 plotly==5.6.0
 publicsuffix2==2.20191221
 pycparser==2.21
