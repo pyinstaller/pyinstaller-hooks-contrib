@@ -868,9 +868,15 @@ def test_pyvjoy(pyi_builder):
 
 @importorskip("adbutils")
 def test_adbutils(pyi_builder):
-    pyi_builder.test_source("""
-        from adbutils._utils import get_adb_exe; get_adb_exe()
-        """)
+    # adbutils 0.15.0 renamed adbutils._utils.get_adb_exe() to adb_path()
+    if is_module_satisfies("adbutils >= 0.15.0"):
+        pyi_builder.test_source("""
+            from adbutils._utils import adb_path; adb_path()
+            """)
+    else:
+        pyi_builder.test_source("""
+            from adbutils._utils import get_adb_exe; get_adb_exe()
+            """)
 
 
 @importorskip("pymediainfo")
