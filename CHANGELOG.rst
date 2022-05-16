@@ -1,4 +1,27 @@
 
+2022.5 (2022-05-16)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``numcodecs``, which has a hidden import. (`#420
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/420>`_)
+* Add hook for ``grpc`` roots.pem file which is used by grpc. (`#419
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/419>`_)
+* Add hook for ``python-stdnum``. (`#412
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/412>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``mariadb`` hook to always include the ``decimal`` module as a
+  hidden import, instead of implicitly relying on it being picked up due
+  to import in some other, unrelated module. (`#426
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/426>`_)
+
+
 2022.4 (2022-04-17)
 --------------------
 

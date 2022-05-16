@@ -1,3 +1,0 @@
-Update ``mariadb`` hook to always include the ``decimal`` module as a
-hidden import, instead of implicitly relying on it being picked up due
-to import in some other, unrelated module.
