@@ -1142,3 +1142,17 @@ def test_numcodecs(pyi_builder):
         multiprocessing.freeze_support()
         from numcodecs import Blosc
     """)
+
+
+@importorskip('sounddevice')
+def test_sounddevice(pyi_builder):
+    pyi_builder.test_source("""
+        import sounddevice
+    """)
+
+
+@importorskip('soundfile')
+def test_soundfile(pyi_builder):
+    pyi_builder.test_source("""
+        import soundfile
+    """)
