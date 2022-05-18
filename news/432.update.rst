@@ -1,0 +1,2 @@
+Update ``sounddevice`` and ``soundfile`` hooks for PyInstaller 5.1
+compatibility.
