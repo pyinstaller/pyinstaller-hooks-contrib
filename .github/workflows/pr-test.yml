@@ -1,30 +1,21 @@
-name: Scheduled CI
+name: Pull Request CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 18 * * FRI'
-      if: github.repository == 'pyinstaller/pyinstaller-hooks-contrib'
   pull_request:
+    paths:
+      - requirements-test-libraries.txt
 
 jobs:
   test:
-    if: "${{ (!github.event.pull_request) || github.event.pull_request.user.login == 'pyup-bot' }}"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: [3.7, 3.8, 3.9, '3.10']
         pyinstaller: ["https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
         os: ["macos-latest", "ubuntu-latest", "windows-latest"]
-        exclude:
-          - os: macos-latest
-            python-version: 3.6
-        include:
-          - os: macos-10.15
-            python-version: 3.6
-            pyinstaller: "https://github.com/pyinstaller/pyinstaller/archive/develop.zip"
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
@@ -78,6 +69,7 @@ jobs:
           brew install cairo
 
       - name: Install dependencies
+        shell: bash
         run: |
           # Upgrade to the latest pip.
           python -m pip install -U pip setuptools wheel

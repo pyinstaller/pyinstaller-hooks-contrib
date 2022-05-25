@@ -16,6 +16,14 @@ from PyInstaller.utils.hooks import is_module_satisfies, can_import_module
 from PyInstaller.utils.tests import importorskip, requires, xfail
 
 
+@importorskip('fiona')
+def test_fiona(pyi_builder):
+    pyi_builder.test_source(
+        '''
+        import fiona
+        '''
+    )
+
 @importorskip('jinxed')
 def test_jinxed(pyi_builder):
     pyi_builder.test_source(
@@ -860,9 +868,15 @@ def test_pyvjoy(pyi_builder):
 
 @importorskip("adbutils")
 def test_adbutils(pyi_builder):
-    pyi_builder.test_source("""
-        from adbutils._utils import get_adb_exe; get_adb_exe()
-        """)
+    # adbutils 0.15.0 renamed adbutils._utils.get_adb_exe() to adb_path()
+    if is_module_satisfies("adbutils >= 0.15.0"):
+        pyi_builder.test_source("""
+            from adbutils._utils import adb_path; adb_path()
+            """)
+    else:
+        pyi_builder.test_source("""
+            from adbutils._utils import get_adb_exe; get_adb_exe()
+            """)
 
 
 @importorskip("pymediainfo")
@@ -995,3 +1009,150 @@ def test_ffpyplayer(pyi_builder):
     pyi_builder.test_source("""
         import ffpyplayer.player
         """)
+
+
+@importorskip("cv2")
+def test_cv2(pyi_builder):
+    pyi_builder.test_source("""
+        import cv2
+        """)
+
+
+@importorskip("twisted")
+def test_twisted_default_reactor(pyi_builder):
+    pyi_builder.test_source("""
+        from twisted.internet import reactor
+        assert callable(reactor.listenTCP)
+        """)
+
+
+@importorskip("twisted")
+def test_twisted_custom_reactor(pyi_builder):
+    pyi_builder.test_source("""
+        import sys
+        if sys.platform.startswith("win") and sys.version_info >= (3,7):
+            import asyncio
+            asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+        from twisted.internet import asyncioreactor
+        asyncioreactor.install()
+        from twisted.internet import reactor
+        assert callable(reactor.listenTCP)
+        """)
+
+
+@importorskip("pygraphviz")
+def test_pygraphviz_bundled_programs(pyi_builder):
+    # Test that the frozen application is using collected graphviz executables instead of system-installed ones.
+    pyi_builder.test_source("""
+        import sys
+        import os
+        import pygraphviz
+
+        bundle_dir = os.path.normpath(sys._MEIPASS)
+        dot_path = os.path.normpath(pygraphviz.AGraph()._get_prog('dot'))
+
+        assert os.path.commonprefix([dot_path, bundle_dir]) == bundle_dir, \
+            f"Invalid program path: {dot_path}!"
+        """)
+
+
+@importorskip("pypsexec")
+def test_pypsexec(pyi_builder):
+    pyi_builder.test_source("""
+        from pypsexec.paexec import paexec_out_stream
+        next(paexec_out_stream())
+        """)
+
+
+@importorskip("mimesis")
+def test_mimesis(pyi_builder):
+    pyi_builder.test_source("""
+        from mimesis import Address
+        Address().address()
+        """)
+
+
+@importorskip('orjson')
+def test_orjson(pyi_builder):
+    pyi_builder.test_source("""
+        import orjson
+        """)
+
+
+@importorskip('altair')
+def test_altair(pyi_builder):
+    pyi_builder.test_source("""
+        import altair
+        """)
+
+
+@importorskip('fabric')
+def test_fabric(pyi_builder):
+    pyi_builder.test_source("""
+        import fabric
+        """)
+
+
+@importorskip('cassandra')
+def test_cassandra(pyi_builder):
+    pyi_builder.test_source("""
+        import cassandra
+        """)
+
+
+@importorskip('gitlab')
+def test_gitlab(pyi_builder):
+    pyi_builder.test_source("""
+        import gitlab
+        """)
+
+
+@importorskip('shapely')
+def test_shapely(pyi_builder):
+    pyi_builder.test_source("""
+        from shapely.geometry import Point
+        patch = Point(0.0, 0.0).buffer(10.0)
+        print(patch.area)
+        """)
+
+
+@importorskip('lark')
+def test_lark(pyi_builder):
+    pyi_builder.test_source("""
+        import lark
+        parser = lark.Lark('''
+            value: "true"
+            %import common.SIGNED_NUMBER''',
+            start='value')
+    """)
+
+
+@importorskip('stdnum')
+def test_stdnum_iban(pyi_builder):
+    pyi_builder.test_source("""
+        import stdnum.iban
+    """)
+
+
+@importorskip('numcodecs')
+def test_numcodecs(pyi_builder):
+    pyi_builder.test_source("""
+        # numcodecs uses multiprocessing
+        import multiprocessing
+        multiprocessing.freeze_support()
+        from numcodecs import Blosc
+    """)
+
+
+@importorskip('sounddevice')
+def test_sounddevice(pyi_builder):
+    pyi_builder.test_source("""
+        import sounddevice
+    """)
+
+
+@importorskip('soundfile')
+def test_soundfile(pyi_builder):
+    pyi_builder.test_source("""
+        import soundfile
+    """)

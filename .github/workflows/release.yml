@@ -15,6 +15,9 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Log into the gh CLI
+        run: echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+
       - name: Install Dependencies
         run: python -m pip install -U towncrier twine wheel
 
@@ -45,3 +48,5 @@ jobs:
           git commit -m "Release v$VERSION"
           git push && git push --tags
           gh release create $VERSION -n "Please see the [changelog](https://www.github.com/pyinstaller/pyinstaller-hooks-contrib/tree/master/CHANGELOG.rst) for more details"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

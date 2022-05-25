@@ -1,4 +1,226 @@
+
+2022.5 (2022-05-16)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``numcodecs``, which has a hidden import. (`#420
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/420>`_)
+* Add hook for ``grpc`` roots.pem file which is used by grpc. (`#419
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/419>`_)
+* Add hook for ``python-stdnum``. (`#412
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/412>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``mariadb`` hook to always include the ``decimal`` module as a
+  hidden import, instead of implicitly relying on it being picked up due
+  to import in some other, unrelated module. (`#426
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/426>`_)
+
+
+2022.4 (2022-04-17)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``clr_loader`` (used by upcoming ``pythonnet`` 3.x) that
+  collects the DLLs required by the default runtime (.NET Framework) loader
+  on Windows. (`#406
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/406>`_)
+* Add a hook for ``lark`` (used by ``commentjson`` and others) that loads the
+  needed grammar files. (`#409
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/409>`_)
+* Add fiona hidden imports for ``fiona==1.8.21``. (`#399
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/399>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update the ``av`` hook for compatibility with the new DLL directory layout
+  used by
+  Windows PyPI wheels from version 9.1.1 on. (`#408
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/408>`_)
+
+
+2022.3 (2022-03-24)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``altair``, which has data files. (`#387
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/387>`_)
+* Add a hook for ``cassandra``, which has Cython files. (`#391
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/391>`_)
+* Add a hook for ``fabric``, which has data files. (`#390
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/390>`_)
+* Add a hook for ``gitlab``, which has data files. (`#392
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/392>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``shapely`` hooks with compatibility fixes for version 1.8.1,
+  where PyPI wheels have changed the shipped ``libgeos_c`` shared library
+  location and/or name. (`#394
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/394>`_)
+* Update `imageio` hooks to include the lazily-loaded `plugins` submodule.
+  (`#396
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/396>`_)
+
+
+2022.2 (2022-02-15)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix hook for ``azurerm`` when ``pyinstaller >= 4.4"``. (`#283
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/283>`_)
+* Fix hook for astropy when astropy >= 5.0. (`#381
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/381>`_)
+
+
+2022.1 (2022-02-10)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``py`` which has dynamically loaded vendored submodules.
+  This fixes compatibility with ``pytest >= 7.0.0``. (`#376
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/376>`_)
+* Added a hook for ``orjson``, which has hidden imports. (`#378
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/378>`_)
+
+
+2022.0 (2022-01-24)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``pypsexec``, which has a data files. (`#366
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/366>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``tensorflow``  hook to add support for ``tensorflow`` 2.6.x and
+  later. (`#371
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/371>`_)
+
+
+Test-suite and Continuous Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Add a test for ``mimesis`` hook. (`#367
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/367>`_)
+
+
+2021.5 (2022-01-07)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``mimesis``, which has a data files. (`#365
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/365>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Add a runtime hook for ``pygraphviz`` that modifies the search behavior
+  for ``graphviz`` programs, in order to ensure that the collected programs
+  in ``sys._MEIPASS`` are found and used. (`#357
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/357>`_)
+
+
+2021.4 (2021-11-29)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``adbutils`` to collect dynamic libraries. (`#323
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/323>`_)
+* Add a hook for ``branca`` to collect data files. (`#318
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/318>`_)
+* Add a hook for ``dash`` to collect data files required by the new ``dash``
+  v2.0. (`#314
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/314>`_)
+* Add a hook for ``doc2xpdf`` to collect qss data files. (`#310
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/310>`_)
+* Add a hook for ``ffpyplayer``. (`#348
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/348>`_)
+* Add a hook for ``pyppeteer``. (`#329
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/329>`_)
+* Add a hook for ``pyvjoy`` to collect dynamic libraries. (`#321
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/321>`_)
+* Add a hook for ``qtmodern`` to collect qss data files. (`#305
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/305>`_)
+* Add a hook for ``tableauhyperapi`` to collect dynamic libraries. (`#316
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/316>`_)
+* Add a hook for ``websockets`` which lazily loads its submodules. (`#301
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/301>`_)
+* Add hook for ``folium``. (`#62
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/62>`_)
+* Add hook for ``metpy``. (`#60
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/60>`_)
+* Add hook for ``panel``. (`#338
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/338>`_)
+* Add hook for ``platformdirs``. This in turn fixes compatibility with ``pylint
+  >= 2.10.2``. (`#301
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/301>`_)
+* Add hook for ``pymediainfo``. (`#324
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/324>`_)
+* Add hook for ``pyviz_comms``. (`#338
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/338>`_)
+* Add hook for ``sacremoses``. (`#325
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/325>`_)
+* Add hook for ``tzdata``. (`#339
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/339>`_)
+* Add hooks for ``cairocffi`` and ``CairoSVG``. (`#347
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/347>`_)
+* Add hooks for ``pyphen`` and ``kaleido``. (`#345
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/345>`_)
+* Add hooks for ``zoneinfo`` and ``backports.zoneinfo``. (`#339
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/339>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Removed the ``certifi`` run-time hook because it was not required for
+  ``certifi`` to function in a frozen application. It was sometimes setting the
+  ``SSL_CERT_FILE`` environment variable which causes applications to behave
+  differently when frozen. In particular the
+  ``SSLContext.set_default_verify_paths()`` method loads the certificates from
+  ``certifi`` when the ``SSL_CERT_FILE`` environment variable is set. (`#335
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/335>`_)
+* Update ``cv2`` hook to collect extra config files and modules for
+  compatibility with OpenCV 4.5.4.60. (`#354
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/354>`_)
+* Update ``markdown`` hook to include package metadata, enabling the use of
+  short names for built-in extensions, such as ``extra`` or ``toc``. (`#336
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/336>`_)
+* Update hiddenimports for ``APScheduler > 3.8.0``. (`#333
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/333>`_)
+* Update hiddenimports for ``pymssql > 2.1.5``. (`#315
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/315>`_)
+
+
 2021.3 (2021-08-25)
+-------------------
 
 New hooks
 ~~~~~~~~~
@@ -26,6 +248,8 @@ New hooks
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/296>`_)
 * Add a hook for ``timezonefinder`` to collect data files. (`#294
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/294>`_)
+* Add a hook for ``uvicorn`` to collect data files. (`#300
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/300>`_)
 * Add a hook for `cloudscraper` to collect data files (`#281
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/281>`_)
 * Add a hook for `pynput` to collect hidden imports. (`#287
@@ -49,6 +273,7 @@ Updated hooks
 
 
 2021.2 (2021-06-26)
+-------------------
 
 New hooks
 ~~~~~~~~~

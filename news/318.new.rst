@@ -1,1 +1,0 @@
-Add a hook for ``branca`` to collect data files.

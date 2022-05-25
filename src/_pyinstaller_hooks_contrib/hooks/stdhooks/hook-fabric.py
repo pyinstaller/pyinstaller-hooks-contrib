@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Copyright (c) 2020 PyInstaller Development Team.
+# Copyright (c) 2022 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
@@ -9,7 +9,14 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
+#
+# Fabric is a high level Python (2.7, 3.4+) library designed to execute shell commands remotely over SSH,
+# yielding useful Python objects in return
+#
+# https://docs.fabfile.org/en/latest
+#
+# Tested with fabric 2.6.0
 
-__version__ = '2022.6'
-__maintainer__ = 'Legorooj, bwoodsend'
-__uri__ = 'https://github.com/pyinstaller/pyinstaller-hooks-contrib'
+from PyInstaller.utils.hooks import collect_data_files
+
+datas = collect_data_files('fabric')

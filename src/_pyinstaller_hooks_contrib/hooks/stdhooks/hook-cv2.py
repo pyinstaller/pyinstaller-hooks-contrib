@@ -13,10 +13,10 @@
 import glob
 import os
 
-from PyInstaller.utils.hooks import collect_dynamic_libs
+from PyInstaller.utils.hooks import collect_dynamic_libs, collect_data_files
 from PyInstaller import compat
 
-hiddenimports = ['numpy'] 
+hiddenimports = ['numpy']
 
 # On Windows, make sure that opencv_videoio_ffmpeg*.dll is bundled
 binaries = []
@@ -31,3 +31,6 @@ if compat.is_win:
     # Include any DLLs from site-packages/cv2 (opencv_videoio_ffmpeg*.dll
     # can be found there in the PyPI version)
     binaries += collect_dynamic_libs('cv2')
+
+# OpenCV loader from 4.5.4.60 requires extra config files and modules
+datas = collect_data_files('cv2', include_py_files=True, includes=['**/*.py'])

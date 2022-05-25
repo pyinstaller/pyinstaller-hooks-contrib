@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Copyright (c) 2020 PyInstaller Development Team.
+# Copyright (c) 2022 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
@@ -10,6 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-__version__ = '2022.6'
-__maintainer__ = 'Legorooj, bwoodsend'
-__uri__ = 'https://github.com/pyinstaller/pyinstaller-hooks-contrib'
+# Collect data files that are required by some of the stdnum's sub-modules
+from PyInstaller.utils.hooks import collect_data_files
+datas = collect_data_files("stdnum")

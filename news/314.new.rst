@@ -1,1 +1,0 @@
-Add a hook for ``dash`` to collect data files required by the new ``dash`` v2.0.

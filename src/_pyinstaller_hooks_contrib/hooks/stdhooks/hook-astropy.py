@@ -10,7 +10,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import collect_data_files, collect_submodules
+from PyInstaller.utils.hooks import collect_data_files, collect_submodules, \
+    copy_metadata, is_module_satisfies
 
 # Astropy includes a number of non-Python files that need to be present
 # at runtime, so we include these explicitly here.
@@ -30,6 +31,11 @@ for path, target in collect_data_files('astropy', include_py_files=True):
         ply_files.append((path, target))
 
 datas += ply_files
+
+# Astropy version >= 5.0 queries metadata to get version information.
+if is_module_satisfies('astropy >= 5.0'):
+    datas += copy_metadata('astropy')
+    datas += copy_metadata('numpy')
 
 # In the Cython code, Astropy imports numpy.lib.recfunctions which isn't
 # automatically discovered by pyinstaller, so we add this as a hidden import.
