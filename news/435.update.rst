@@ -1,0 +1,2 @@
+Fix the filter function used with ``collect_submodules`` in the ``pylint``
+hook to properly exclude ``pylint.testutils``.
