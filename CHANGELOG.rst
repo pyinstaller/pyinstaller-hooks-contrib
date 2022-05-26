@@ -1,4 +1,18 @@
 
+2022.6 (2022-05-26)
+--------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix the filter function used with ``collect_submodules`` in the ``pylint``
+  hook to properly exclude ``pylint.testutils``. (`#435
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/435>`_)
+* Update ``sounddevice`` and ``soundfile`` hooks for PyInstaller 5.1
+  compatibility. (`#432
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/432>`_)
+
+
 2022.5 (2022-05-16)
 --------------------
 
