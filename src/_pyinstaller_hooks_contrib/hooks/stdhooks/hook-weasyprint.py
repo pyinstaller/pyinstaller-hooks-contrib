@@ -11,7 +11,8 @@
 # ------------------------------------------------------------------
 
 # Hook for weasyprint: https://pypi.python.org/pypi/WeasyPrint
-# Tested on version weasyprint 53.4 using Windows 10 and python 3.8
+# Tested on version weasyprint 54.0 using Windows 10 and python 3.8
+# Note that weasyprint < 54.0 does not work on python 3.8 due to https://github.com/Kozea/WeasyPrint/issues/1435
 # For weasyprint < 53.0 the required libs are
 # libs = [
 #     'gobject-2.0', 'libgobject-2.0-0', 'libgobject-2.0.so.0', 'libgobject-2.0.dylib',
@@ -23,7 +24,6 @@
 
 import ctypes.util
 import os
-from pathlib import Path
 
 from PyInstaller.depend.utils import _resolveCtypesImports
 from PyInstaller.utils.hooks import collect_data_files, logger
@@ -56,6 +56,3 @@ except Exception as e:
 
 if not binaries:
     logger.warning("Depending libraries not found - weasyprint will likely fail to work!")
-
-# fontconfig_path = Path(ctypes.util.find_library('libfontconfig-1'))
-# datas += [(str(fontconfig_path.parent.parent / 'etc/fonts'), 'etc/fonts')]
