@@ -13,7 +13,7 @@
 # Hook for the pypemicro module: https://github.com/nxpmicro/pypemicro
 
 import os
-from PyInstaller.utils.hooks import remove_prefix, get_package_paths, is_module_satisfies
+from PyInstaller.utils.hooks import get_package_paths, is_module_satisfies
 from PyInstaller.log import logger
 from PyInstaller.compat import is_darwin
 
@@ -31,13 +31,13 @@ if is_module_satisfies('pyinstaller >= 5.0'):
     for lib in get_safe_libs():
         source_path = lib['path']
         source_name = lib['name']
-        dest = os.path.relpath(source_path, os.path.dirname(pkg_base))
+        dest = os.path.relpath(source_path, pkg_base)
         binaries.append((os.path.join(source_path, source_name), dest))
         if is_darwin:
             libusb = os.path.join(source_path, 'libusb.dylib')
             if os.path.exists(libusb):
                 binaries.append((libusb, dest))
             else:
-                logger.warning(f"libusb.dylib was not found for Mac OS, ignored")
+                logger.warning("libusb.dylib was not found for Mac OS, ignored")
 else:
     logger.warning("hook-pypemicro requires pyinstaller >= 5.0")
