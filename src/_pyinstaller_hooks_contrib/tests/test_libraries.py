@@ -1159,7 +1159,7 @@ def test_soundfile(pyi_builder):
 
 
 @pytest.mark.skipif(is_win,
-                    reason='On Windows, Cairo dependencies cannot be installed using Chocolatey.')
+                    reason='On Windows, Weasyprint dependencies cannot be installed using Chocolatey.')
 @importorskip("weasyprint")
 def test_weasyprint(pyi_builder):
     pyi_builder.test_source("""

@@ -24,20 +24,25 @@
 
 import ctypes.util
 import os
+from pathlib import Path
 
 from PyInstaller.depend.utils import _resolveCtypesImports
 from PyInstaller.utils.hooks import collect_data_files, logger
 
 datas = collect_data_files('weasyprint')
-
 binaries = []
+fontconfig_config_dir_found = False
 
-# NOTE: Update this if weasyprint requires more libraries
+# On Windows, a GTK3-installation provides fontconfig and the corresponding fontconfig conf files. We have to add these
+# for weasyprint to correctly use fonts.
+# NOTE: Update these lists if weasyprint requires more libraries
+fontconfig_libs = [
+    'fontconfig-1', 'fontconfig', 'libfontconfig', 'libfontconfig-1.dll', 'libfontconfig.so.1', 'libfontconfig-1.dylib'
+]
 libs = [
     'gobject-2.0-0', 'gobject-2.0', 'libgobject-2.0-0', 'libgobject-2.0.so.0', 'libgobject-2.0.dylib',
     'pango-1.0-0', 'pango-1.0', 'libpango-1.0-0', 'libpango-1.0.so.0', 'libpango-1.0.dylib',
     'harfbuzz', 'harfbuzz-0.0', 'libharfbuzz-0', 'libharfbuzz.so.0', 'libharfbuzz.so.0', 'libharfbuzz.0.dylib',
-    'fontconfig-1', 'fontconfig', 'libfontconfig', 'libfontconfig-1.dll', 'libfontconfig.so.1', 'libfontconfig-1.dylib',
     'pangoft2-1.0-0', 'pangoft2-1.0', 'libpangoft2-1.0-0', 'libpangoft2-1.0.so.0', 'libpangoft2-1.0.dylib'
 ]
 
@@ -47,6 +52,14 @@ try:
         libname = ctypes.util.find_library(lib)
         if libname is not None:
             lib_basenames += [os.path.basename(libname)]
+    for lib in fontconfig_libs:
+        libname = ctypes.util.find_library(lib)
+        if libname is not None:
+            lib_basenames += [os.path.basename(libname)]
+            fontconfig_config_dir = Path(libname).parent.parent / 'etc/fonts'
+            if fontconfig_config_dir.exists() and fontconfig_config_dir.is_dir():
+                datas += [(str(fontconfig_config_dir), 'etc/fonts')]
+                fontconfig_config_dir_found = True
     if lib_basenames:
         resolved_libs = _resolveCtypesImports(lib_basenames)
         for resolved_lib in resolved_libs:
@@ -56,3 +69,8 @@ except Exception as e:
 
 if not binaries:
     logger.warning("Depending libraries not found - weasyprint will likely fail to work!")
+
+if not fontconfig_config_dir_found:
+    logger.warning(
+        "Fontconfig configuration files not found - weasyprint will likely throw warnings and use default fonts!"
+    )
