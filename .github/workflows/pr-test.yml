@@ -67,6 +67,8 @@ jobs:
         run: |
           # Install cairo dependencies.
           brew install cairo
+          # Install pango dependencies (weasyprint hook).
+          brew install pango
 
       - name: Install dependencies
         shell: bash
