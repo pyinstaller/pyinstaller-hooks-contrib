@@ -1144,6 +1144,14 @@ def test_numcodecs(pyi_builder):
     """)
 
 
+@importorskip('pypemicro')
+def test_pypemicro(pyi_builder):
+    pyi_builder.test_source("""
+        from pypemicro import PyPemicro
+        assert PyPemicro.get_pemicro_lib()
+    """)
+
+
 @importorskip('sounddevice')
 def test_sounddevice(pyi_builder):
     pyi_builder.test_source("""
@@ -1155,4 +1163,11 @@ def test_sounddevice(pyi_builder):
 def test_soundfile(pyi_builder):
     pyi_builder.test_source("""
         import soundfile
+    """)
+
+
+@importorskip('yt_dlp')
+def test_yt_dlp(pyi_builder):
+    pyi_builder.test_source("""
+        import yt_dlp
     """)
