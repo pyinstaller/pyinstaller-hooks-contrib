@@ -1171,3 +1171,12 @@ def test_yt_dlp(pyi_builder):
     pyi_builder.test_source("""
         import yt_dlp
     """)
+
+
+@pytest.mark.skipif(is_win,
+                    reason='On Windows, Weasyprint dependencies cannot be installed using Chocolatey.')
+@importorskip("weasyprint")
+def test_weasyprint(pyi_builder):
+    pyi_builder.test_source("""
+        import weasyprint
+        """)
