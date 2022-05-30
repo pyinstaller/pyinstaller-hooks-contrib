@@ -26,6 +26,7 @@ import ctypes.util
 import os
 from pathlib import Path
 
+from PyInstaller.compat import is_win
 from PyInstaller.depend.utils import _resolveCtypesImports
 from PyInstaller.utils.hooks import collect_data_files, logger
 
@@ -56,21 +57,29 @@ try:
         libname = ctypes.util.find_library(lib)
         if libname is not None:
             lib_basenames += [os.path.basename(libname)]
-            fontconfig_config_dir = Path(libname).parent.parent / 'etc/fonts'
-            if fontconfig_config_dir.exists() and fontconfig_config_dir.is_dir():
-                datas += [(str(fontconfig_config_dir), 'etc/fonts')]
-                fontconfig_config_dir_found = True
+            # Try to load fontconfig config files on Windows from a GTK-installation
+            if is_win:
+                fontconfig_config_dir = Path(libname).parent.parent / 'etc/fonts'
+                if fontconfig_config_dir.exists() and fontconfig_config_dir.is_dir():
+                    datas += [(str(fontconfig_config_dir), 'etc/fonts')]
+                    fontconfig_config_dir_found = True
     if lib_basenames:
         resolved_libs = _resolveCtypesImports(lib_basenames)
         for resolved_lib in resolved_libs:
             binaries.append((resolved_lib[1], '.'))
+    # Try to load fontconfig config files on other OS
+    fontconfig_config_dir = Path('/etc/fonts')
+    if fontconfig_config_dir.exists() and fontconfig_config_dir.is_dir():
+        datas += [(str(fontconfig_config_dir), 'etc/fonts')]
+        fontconfig_config_dir_found = True
+
 except Exception as e:
-    logger.warning("Error while trying to find system-installed depending libraries: %s", e)
+    logger.warning('Error while trying to find system-installed depending libraries: %s', e)
 
 if not binaries:
-    logger.warning("Depending libraries not found - weasyprint will likely fail to work!")
+    logger.warning('Depending libraries not found - weasyprint will likely fail to work!')
 
 if not fontconfig_config_dir_found:
     logger.warning(
-        "Fontconfig configuration files not found - weasyprint will likely throw warnings and use default fonts!"
+        'Fontconfig configuration files not found - weasyprint will likely throw warnings and use default fonts!'
     )
