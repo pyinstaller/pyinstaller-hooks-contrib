@@ -52,6 +52,7 @@ pycryptodome==3.14.1
 pycryptodomex==3.14.1
 pyexcelerate==0.10.0
 pylint==2.13.9
+pypemicro==0.1.9
 pyphen==0.12.0
 pyppeteer==1.0.2
 pyusb==1.2.1
@@ -96,6 +97,7 @@ python-stdnum==1.17
 # and libsndfile, respectively.
 sounddevice==0.4.4; sys_platform != 'linux'
 soundfile==0.10.3.post1; sys_platform != 'linux'
+yt-dlp==2022.5.18
 
 # ------------------- Platform (OS) specifics
 

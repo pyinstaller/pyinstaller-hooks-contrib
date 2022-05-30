@@ -60,7 +60,15 @@ datas = (
          collect_data_files('pylint.reporters', True)
          )
 
-# Add imports from dynamically loaded modules excluding tests and testutils
-hiddenimports = collect_submodules('pylint',
-                                   lambda name: (not is_module_or_submodule(name, 'pylint.test')) and
-                                   (not name == 'testutils'))
+
+# Add imports from dynamically loaded modules, excluding pylint.test
+# subpackage (pylint <= 2.3) and pylint.testutils submodule (pylint < 2.7)
+# or subpackage (pylint >= 2.7)
+def _filter_func(name):
+    return (
+        not is_module_or_submodule(name, 'pylint.test') and
+        not is_module_or_submodule(name, 'pylint.testutils')
+    )
+
+
+hiddenimports = collect_submodules('pylint', _filter_func)
