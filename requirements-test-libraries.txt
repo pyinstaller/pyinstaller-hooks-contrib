@@ -35,7 +35,7 @@ markdown==3.3.7
 mnemonic==0.20
 msoffcrypto-tool==5.0.0
 numcodecs==0.9.1; python_version < '3.10' # doesn't have python 3.10 wheels yet
-Office365-REST-Python-Client==2.3.11
+Office365-REST-Python-Client==2.3.12
 openpyxl==3.0.10
 pandas==1.4.2; python_version >= '3.8'
 panel==0.13.0; python_version >= '3.7'
