@@ -62,7 +62,7 @@ pynput==1.7.6
 pymssql==2.2.5
 pystray==0.19.3
 pytz==2022.1
-pyzmq==23.0.0
+pyzmq==23.1.0
 PyQt5==5.15.6
 qtmodern==0.2.0
 Rtree==1.0.0
