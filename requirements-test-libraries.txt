@@ -76,7 +76,7 @@ spacy==3.3.0
 srsly==2.4.3
 swagger-spec-validator==2.7.4
 tableauhyperapi==0.0.14946
-thinc==8.0.16
+thinc==8.0.17
 timezonefinder==6.0.0
 Twisted==22.4.0
 tzdata==2022.1
