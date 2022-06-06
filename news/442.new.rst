@@ -1,0 +1,1 @@
+Add a hook for ``limits``, which has a data files to collect.
