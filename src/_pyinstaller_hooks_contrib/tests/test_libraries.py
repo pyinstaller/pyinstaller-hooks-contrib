@@ -1173,6 +1173,13 @@ def test_yt_dlp(pyi_builder):
     """)
 
 
+@importorskip('limits')
+def test_limits(pyi_builder):
+    pyi_builder.test_source("""
+        import limits
+    """)
+
+
 @pytest.mark.skipif(is_win,
                     reason='On Windows, Weasyprint dependencies cannot be installed using Chocolatey.')
 @importorskip("weasyprint")
