@@ -1,1 +1,0 @@
-Add hook for ``yt_dlp`` to handle indirect import in ``yt-dlp v2022.05.18``.

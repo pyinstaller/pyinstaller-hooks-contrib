@@ -1,4 +1,26 @@
 
+2022.7 (2022-06-07)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``limits``, which has a data files to collect. (`#442
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/442>`_)
+* Add hook for ``yt_dlp`` to handle indirect import in ``yt-dlp v2022.05.18``.
+  (`#438
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/438>`_)
+* Add libraries for ``pypemicro==0.1.9`` (`#417
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/417>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``weasyprint`` hook with required binaries. (`#439
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/439>`_)
+
+
 2022.6 (2022-05-26)
 --------------------
 
