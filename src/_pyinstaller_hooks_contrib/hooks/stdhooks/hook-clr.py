@@ -12,7 +12,7 @@
 
 
 """
-pythonnet requires both clr.pyd and Python.Runtime.dll, 
+pythonnet requires both clr.pyd and Python.Runtime.dll,
 but the latter isn't found by PyInstaller.
 """
 
@@ -43,3 +43,7 @@ if len(datas) == 0:
 
 if not datas:
     raise Exception('Python.Runtime.dll not found')
+
+
+# These modules are imported inside Python.Runtime.dll
+hiddenimports = ["platform", "warnings"]
