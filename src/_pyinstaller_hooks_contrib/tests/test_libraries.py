@@ -1187,3 +1187,12 @@ def test_weasyprint(pyi_builder):
     pyi_builder.test_source("""
         import weasyprint
         """)
+
+
+@importorskip("great_expectations")
+def test_great_expectations(pyi_builder):
+    # Reproduce the error from pyinstaller/pyinstaller-hooks-contrib#445
+    pyi_builder.test_source("""
+        from great_expectations.render.view import view
+        v = view.DefaultJinjaView()
+        """)

@@ -99,6 +99,8 @@ sounddevice==0.4.4; sys_platform != 'linux'
 soundfile==0.10.3.post1; sys_platform != 'linux'
 yt-dlp==2022.5.18
 limits==2.6.3
+great-expectations==0.15.9
+
 # ------------------- Platform (OS) specifics
 
 # PyEnchant only pre-builds macOS and Windows
