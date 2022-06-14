@@ -55,6 +55,20 @@ def test_tensorflow(pyi_builder):
     )
 
 
+# Test if tensorflow.keras imports properly result in tensorflow being collected.
+# See https://github.com/pyinstaller/pyinstaller/discussions/6890
+@importorskip('tensorflow')
+@tensorflow_onedir_only
+def test_tensorflow_keras_import(pyi_builder):
+    pyi_builder.test_source(
+        """
+        from tensorflow.keras.models import Sequential
+        from tensorflow.keras.layers import Dense, LSTM, Dropout
+        from tensorflow.keras.optimizers import Adam
+        """
+    )
+
+
 @importorskip('tensorflow')
 @tensorflow_onedir_only
 def test_tensorflow_layer(pyi_builder):
