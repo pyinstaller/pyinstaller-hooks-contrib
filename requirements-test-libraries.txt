@@ -122,5 +122,7 @@ pythonnet==2.5.2; sys_platform == 'win32' and python_version <= '3.8'
 # pymediainfo on linux does not bundle mediainfo shared library, and requires system one.
 pymediainfo==5.1.0; sys_platform == 'darwin' or sys_platform == 'win32'
 
+pyshark==0.4.5; python_version >= '3.6'
+
 # Include the requirements for testing
 -r requirements-test.txt

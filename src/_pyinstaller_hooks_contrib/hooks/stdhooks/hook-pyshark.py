@@ -19,7 +19,3 @@ from PyInstaller.utils.hooks import collect_data_files
 hiddenimports = ['pyshark', 'py._path.local', 'py._vendored_packages.iniconfig', 'pyshark.config']
 
 datas = collect_data_files('pyshark')
-
-
-
-
