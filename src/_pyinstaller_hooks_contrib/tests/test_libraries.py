@@ -1222,4 +1222,3 @@ def test_pyshark(pyi_builder):
         #print(data)
         """
     )
-    
