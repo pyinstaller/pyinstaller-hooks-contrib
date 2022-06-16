@@ -1210,3 +1210,15 @@ def test_great_expectations(pyi_builder):
         from great_expectations.render.view import view
         v = view.DefaultJinjaView()
         """)
+
+
+@importorskip('pyshark')
+def test_pyshark(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import pyshark
+        #capture = pyshark.FileCapture('/tmp/networkpackages.cap')
+        #data = [print x for x in capture]
+        #print(data)
+        """
+    )

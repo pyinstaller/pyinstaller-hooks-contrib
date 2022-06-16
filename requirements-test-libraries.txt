@@ -101,6 +101,7 @@ yt-dlp==2022.5.18
 limits==2.6.3
 great-expectations==0.15.9
 tensorflow==2.9.1
+pyshark==0.4.5
 
 # ------------------- Platform (OS) specifics
 
