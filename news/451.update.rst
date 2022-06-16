@@ -1,2 +1,0 @@
-Fix ``tensorflow`` not being collected at all when using ``tensorflow``
-2.8.0 or newer and importing only from the ``tensorflow.keras`` subpackage.
