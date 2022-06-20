@@ -63,7 +63,7 @@ pymssql==2.2.5
 pystray==0.19.3
 pytz==2022.1
 pyzmq==23.2.0
-PyQt5==5.15.6
+PyQt5==5.15.7
 qtmodern==0.2.0
 Rtree==1.0.0
 sacremoses==0.0.53
