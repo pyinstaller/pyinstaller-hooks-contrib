@@ -1,5 +1,5 @@
 # Backport of importlib.resources for python 3.8 and earlier.
-importlib_resources==5.7.1; python_version < '3.9'
+importlib_resources==5.8.0; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
@@ -8,14 +8,14 @@ adbutils==1.0.0; sys_platform == 'darwin' or sys_platform == 'win32'
 APScheduler==3.9.1
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
-boto3==1.24.7
-botocore==1.27.7
+boto3==1.24.12
+botocore==1.27.12
 branca==0.5.0
 cairocffi==1.3.0
 CairoSVG==2.5.2
 cassandra-driver==3.25.0
 cloudscraper==1.2.60
-dash==2.5.0
+dash==2.5.1
 dash-bootstrap-components==1.1.0
 dash-uploader==0.6.0
 fabric==2.7.0
@@ -24,7 +24,7 @@ folium==0.12.1.post1
 ffpyplayer==4.3.5; python_version < '3.10' # doesn't have py310 wheels
 python-gitlab==3.5.0
 h5py==3.7.0; python_version >= '3.7'
-humanize==4.1.0
+humanize==4.2.0
 iminuit==2.11.2
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
@@ -51,7 +51,7 @@ pycparser==2.21
 pycryptodome==3.14.1
 pycryptodomex==3.14.1
 pyexcelerate==0.10.0
-pylint==2.14.1
+pylint==2.14.3
 pypemicro==0.1.9
 pyphen==0.12.0
 pyppeteer==1.0.2
@@ -62,8 +62,8 @@ pynput==1.7.6
 pymssql==2.2.5
 pystray==0.19.3
 pytz==2022.1
-pyzmq==23.1.0
-PyQt5==5.15.6
+pyzmq==23.2.0
+PyQt5==5.15.7
 qtmodern==0.2.0
 Rtree==1.0.0
 sacremoses==0.0.53
@@ -99,9 +99,9 @@ sounddevice==0.4.4; sys_platform != 'linux'
 soundfile==0.10.3.post1; sys_platform != 'linux'
 yt-dlp==2022.5.18
 limits==2.6.3
-great-expectations==0.15.9
+great-expectations==0.15.10
 tensorflow==2.9.1
-pyshark==0.4.5
+pyshark==0.4.6
 
 # ------------------- Platform (OS) specifics
 
