@@ -1,0 +1,2 @@
+(Linux) Ensure that OpenCV hook collects Qt plugins and font files that
+are bundled with linux versions of ``opencv-python`` PyPI wheels.
