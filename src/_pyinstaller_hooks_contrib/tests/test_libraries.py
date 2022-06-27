@@ -1032,6 +1032,19 @@ def test_cv2(pyi_builder):
         """)
 
 
+# Requires OpenCV with enabled HighGUI
+@importorskip("cv2")
+def test_cv2_highgui(pyi_builder):
+    pyi_builder.test_source("""
+        import cv2
+        import numpy as np
+
+        img = np.zeros((64, 64), dtype='uint8')
+        cv2.imshow("Test", img)
+        cv2.waitKey(1000)  # Wait a second
+        """)
+
+
 @importorskip("twisted")
 def test_twisted_default_reactor(pyi_builder):
     pyi_builder.test_source("""
