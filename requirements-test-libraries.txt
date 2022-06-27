@@ -86,7 +86,7 @@ web3==6.0.0b3
 websockets==10.3; python_version >= '3.7'
 zeep==4.1.0
 pypsexec==0.3.0
-mimesis==5.4.0; python_version >= '3.8'
+mimesis==5.5.0; python_version >= '3.8'
 orjson==3.7.2
 altair==4.2.0; python_version >= '3.7'
 # For some reason, shapely provides only arm64 py310 macOS wheel.
