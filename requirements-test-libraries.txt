@@ -25,7 +25,7 @@ ffpyplayer==4.3.5; python_version < '3.10' # doesn't have py310 wheels
 python-gitlab==3.5.0
 h5py==3.7.0; python_version >= '3.7'
 humanize==4.2.1
-iminuit==2.11.2
+iminuit==2.12.0
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.0.11; sys_platform != "darwin"
