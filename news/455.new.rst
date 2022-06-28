@@ -1,0 +1,2 @@
+Add hook for ``pandas_flavor`` to handle hidden imports in version 0.3.0
+of the package.
