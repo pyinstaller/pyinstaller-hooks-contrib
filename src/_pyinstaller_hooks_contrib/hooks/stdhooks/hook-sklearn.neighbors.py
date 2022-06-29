@@ -30,3 +30,7 @@ else:
 # The following hidden import must be added here
 # (as opposed to sklearn.tree)
 hiddenimports += ['sklearn.tree._criterion']
+
+# Additional hidden imports introduced in v1.0.0
+if is_module_satisfies("scikit_learn >= 1.0.0"):
+    hiddenimports += ["sklearn.neighbors._partition_nodes"]
