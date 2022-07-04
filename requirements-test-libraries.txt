@@ -99,7 +99,7 @@ sounddevice==0.4.4; sys_platform != 'linux'
 soundfile==0.10.3.post1; sys_platform != 'linux'
 yt-dlp==2022.6.29
 limits==2.6.3
-great-expectations==0.15.11
+great-expectations==0.15.12
 tensorflow==2.9.1
 pyshark==0.4.6
 # We do not support loader in newer OpenCV versions yet...
