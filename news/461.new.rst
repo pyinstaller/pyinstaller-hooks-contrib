@@ -1,1 +1,1 @@
-Add hook for `hdf5plugin`.
+Add hook for ``hdf5plugin``.
