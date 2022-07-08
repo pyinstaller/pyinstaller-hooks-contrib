@@ -1,4 +1,0 @@
-Update ``clr`` (``pythonnet-2.5.x``) hook to ensure ``platform`` and
-``warnings`` modules are collected via hidden imports. Starting with
-PyInstaller 5.1, these may not be collected as part of optional imports
-of other modules, so they need to be explicitly collected by this hook.

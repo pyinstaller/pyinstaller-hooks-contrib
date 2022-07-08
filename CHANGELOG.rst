@@ -1,4 +1,44 @@
 
+2022.8 (2022-07-08)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``great_expectations``. (`#445
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/445>`_)
+* Add hook for ``hdf5plugin``. (`#461
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/461>`_)
+* Add hook for ``pandas_flavor`` to handle hidden imports in version 0.3.0
+  of the package. (`#455
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/455>`_)
+* Add hook for ``pyshark``. (`#449
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/449>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Linux) Ensure that OpenCV hook collects Qt plugins and font files that
+  are bundled with linux versions of ``opencv-python`` PyPI wheels. (`#453
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/453>`_)
+* Fix ``tensorflow`` not being collected at all when using ``tensorflow``
+  2.8.0 or newer and importing only from the ``tensorflow.keras`` subpackage.
+  (`#451
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/451>`_)
+* Update ``clr`` (``pythonnet-2.5.x``) hook to ensure ``platform`` and
+  ``warnings`` modules are collected via hidden imports. Starting with
+  PyInstaller 5.1, these may not be collected as part of optional imports
+  of other modules, so they need to be explicitly collected by this hook.
+  (`#444
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/444>`_)
+* Update ``mariadb`` hook for compatibility with 1.1.x series. (`#463
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/463>`_)
+* Update ``scikit-learn`` hooks for compatibility with 1.0.x and 1.1.x series.
+  (`#456
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/456>`_)
+
+
 2022.7 (2022-06-07)
 --------------------
 
