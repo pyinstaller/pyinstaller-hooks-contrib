@@ -1,0 +1,1 @@
+Update ``mariadb`` hook for compatibility with 1.1.x series.
