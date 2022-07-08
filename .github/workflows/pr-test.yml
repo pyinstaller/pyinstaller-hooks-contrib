@@ -44,6 +44,20 @@ jobs:
         with:
           dotnet-version: '5.x'
 
+      # Install MariaDB Connector/C from official MariaDB Community Server
+      # repository. The version shipped with ubuntu-20.04 is too old for
+      # the "mariadb" python package.
+      - name: Install MariaDB Connector/C
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          sudo apt-get update
+          sudo apt-get install wget curl
+          wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+          echo "d4e4635eeb79b0e96483bd70703209c63da55a236eadd7397f769ee434d92ca8  mariadb_repo_setup" | sha256sum -c -
+          chmod +x mariadb_repo_setup
+          sudo ./mariadb_repo_setup --mariadb-server-version="mariadb-10.6"
+          sudo apt-get install libmariadb3 libmariadb-dev
+
       - name: Install apt dependencies
         if: startsWith(matrix.os, 'ubuntu')
         run: |
@@ -51,8 +65,6 @@ jobs:
           # Set up a virtual screen (for GUI libraries and pynput).
           sudo apt-get install libxcb-xkb-dev xvfb
           Xvfb :99 & echo "DISPLAY=:99" >> $GITHUB_ENV
-          # Install mariadb dependencies.
-          sudo apt-get install -y libmariadbclient-dev
           # Install PyQt5 (qtmodern) dependencies.
           sudo apt-get install -y libxcb-keysyms1 libxcb-render-util0 \
             libxkbcommon-x11-0 libxcb-icccm4 libxcb1 openssl \
