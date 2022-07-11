@@ -28,8 +28,9 @@ datas = collect_data_files("pyqtgraph",
 # - pyqtgraph.graphicsItems.PlotItem.plotConfigTemplate_pyside2
 # - pyqtgraph.graphicsItems.PlotItem.plotConfigTemplate_pyside6
 #
-# To be future-proof, we include all of them via a filter in
-# collect-submodules.
+# To be future-proof, we collect all modules by
+# using collect-submodules, and filtering the modules
+# which appear to be templates.
 # Tested with pyqtgraph master branch (commit c1900aa).
-hiddenimports = collect_submodules(
-    "pyqtgraph", filter=lambda name: "Template" in name)
+all_imports = collect_submodules("pyqtgraph")
+hiddenimports = [name for name in all_imports if "Template" in name]

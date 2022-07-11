@@ -1235,3 +1235,14 @@ def test_pyshark(pyi_builder):
         #print(data)
         """
     )
+
+
+@importorskip('pyqtgraph')
+def test_pyqtgraph(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import pyqtgraph.graphicsItems.PlotItem
+        import pyqtgraph.graphicsItems.ViewBox.ViewBoxMenu
+        import pyqtgraph.imageview.ImageView
+        """
+    )
