@@ -1,0 +1,1 @@
+Fixed ``pyqtgraph`` hook for PyInstaller 5.2.
