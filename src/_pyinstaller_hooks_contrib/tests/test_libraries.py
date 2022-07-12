@@ -1238,6 +1238,7 @@ def test_pyshark(pyi_builder):
 
 
 @importorskip('pyqtgraph')
+@importorskip('PyQt5')
 def test_pyqtgraph(pyi_builder):
     pyi_builder.test_source(
         """

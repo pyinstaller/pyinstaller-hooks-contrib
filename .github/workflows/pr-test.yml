@@ -37,6 +37,7 @@ jobs:
           > requirements-test-libraries.txt
           set -e
           echo '-r requirements-test.txt' >> requirements-test-libraries.txt
+          if grep -q pyqtgraph requirements-test-libraries.txt ; then echo PyQt5 >> requirements-test-libraries.txt ;fi
           cat requirements-test-libraries.txt
 
       - name: Set up .NET Core for pythonnet tests
