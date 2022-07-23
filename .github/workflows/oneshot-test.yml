@@ -41,6 +41,10 @@ on:
           Use ';' to separate multiple commands.
         required: false
 
+env:
+  # Colored pytest output on CI despite not having a tty
+  FORCE_COLOR: 1
+
 jobs:
   generate-matrix:
     # Parse inputs into a json containing the matrix that will parametrize the
