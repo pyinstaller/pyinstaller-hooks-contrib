@@ -103,8 +103,7 @@ limits==2.7.0
 great-expectations==0.15.13
 tensorflow==2.9.1
 pyshark==0.4.6
-# We do not support loader in newer OpenCV versions yet...
-opencv-python==4.5.5.64  # pyup: ignore
+opencv-python==4.6.0.66
 
 # ------------------- Platform (OS) specifics
 
