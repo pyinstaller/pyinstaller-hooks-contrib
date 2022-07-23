@@ -67,7 +67,7 @@ jobs:
           sudo apt-get install libxcb-xkb-dev xvfb
           Xvfb :99 & echo "DISPLAY=:99" >> $GITHUB_ENV
           # Install PyQt5 (qtmodern) dependencies.
-          sudo apt-get install -y libxcb-keysyms1 libxcb-render-util0 \
+          sudo apt-get install -y libxcb-image0 libxcb-keysyms1 libxcb-render-util0 \
             libxkbcommon-x11-0 libxcb-icccm4 libxcb1 openssl \
             libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev \
             libxcb-shape0-dev libxcb-xkb-dev libopengl0 libegl1 \
