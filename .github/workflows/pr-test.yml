@@ -21,6 +21,11 @@ jobs:
         pyinstaller: ["https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
         os: ["macos-latest", "ubuntu-latest", "windows-latest"]
       fail-fast: false
+
+    env:
+      # Rebuild bootloader when installing PyInstaller from develop branch
+      PYINSTALLER_COMPILE_BOOTLOADER: 1
+
     steps:
       - uses: actions/checkout@v2
 
