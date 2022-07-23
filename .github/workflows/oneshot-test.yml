@@ -109,6 +109,10 @@ jobs:
       # There doesn't seem to be a nice function to cast 'true' to true.
       fail-fast: ${{ github.event.inputs.fail-fast == 'true' }}
 
+    env:
+      # Rebuild bootloader when installing PyInstaller from develop branch
+      PYINSTALLER_COMPILE_BOOTLOADER: 1
+
     # Finally, the usual: setup Python, install dependencies, test.
     steps:
       - uses: actions/checkout@v2
