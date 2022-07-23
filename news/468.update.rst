@@ -1,0 +1,6 @@
+Update ``cv2`` hook to add support for versions that attempt to perform module
+substitution via ``sys.path`` manipulation (== 4.5.4.58, >= 4.6.0.66) when used
+in combination with PyInstaller that supports setting module collection mode
+in hooks (> 5.2). The  contents of the ``cv2`` package are now collected in 
+source form to bypass PYZ archive and avoid compatibility issues with 
+PyInstaller's  ``FrozenImporter``

@@ -36,6 +36,22 @@ if compat.is_win:
 # OpenCV loader from 4.5.4.60 requires extra config files and modules
 datas = collect_data_files('cv2', include_py_files=True, includes=['**/*.py'])
 
+# The OpenCV versions that attempt to perform module substitution via sys.path manipulation (== 4.5.4.58, >= 4.6.0.66)
+# do not directly import the cv2.cv2 extension anymore, so in order to ensure it is collected, we need to add it to
+# hidden imports.
+hiddenimports += ['cv2.cv2']
+
+# Mark the cv2 package to be collected in source form, bypassing PyInstaller's PYZ archive and FrozenImporter. This is
+# necessary because recent versions of cv2 package attempt to perform module substritution via sys.path manipulation,
+# which is incompatible with the way that FrozenImporter works. This requires pyinstaller/pyinstaller#6945, i.e.,
+# PyInstaller > 5.2. On earlier versions, the following statement does nothing, and problematic cv2 versions
+# (== 4.5.4.58, >= 4.6.0.66) will not work.
+#
+# Note that the collect_data_files() above is still necessary, because some of the cv2 loader's config scripts are not
+# valid module names (e.g., config-3.py). So the two collection approaches are complementary, and any overlap in files
+# (e.g., __init__.py) is handled gracefully due to PyInstaller's uniqueness constraints on collected files.
+module_collection_mode = 'py'
+
 # In linux PyPI opencv-python wheels, the cv2 extension is linked against Qt, and the wheel bundles a basic subset of Qt
 # shared libraries, plugins, and font files. This is not the case on other OSes (presumably native UI APIs are used by
 # OpenCV HighGUI module), nor in the headless PyPI wheels (opencv-python-headless).
