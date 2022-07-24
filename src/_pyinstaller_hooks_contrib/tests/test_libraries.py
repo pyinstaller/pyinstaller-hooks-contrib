@@ -9,8 +9,12 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-import pytest
+
+import os
 from pathlib import Path
+
+import pytest
+
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
 from PyInstaller.utils.hooks import is_module_satisfies, can_import_module
 from PyInstaller.utils.tests import importorskip, requires, xfail
@@ -1275,4 +1279,29 @@ def test_pyqtgraph(pyi_builder):
         import pyqtgraph.graphicsItems.ViewBox.ViewBoxMenu
         import pyqtgraph.imageview.ImageView
         """
+    )
+
+
+@importorskip('hydra')
+def test_hydra(pyi_builder, tmpdir):
+    config_file = str((Path(__file__) / '../data/test_hydra/config.yaml').resolve(strict=True).as_posix())
+
+    pyi_builder.test_source(
+        """
+        import os
+
+        import hydra
+        from omegaconf import DictConfig, OmegaConf
+
+        config_path = os.path.join(os.path.dirname(__file__), 'conf')
+
+        @hydra.main(config_path=config_path, config_name="config")
+        def my_app(cfg):
+            assert cfg.test_group.secret_string == 'secret'
+            assert cfg.test_group.secret_number == 123
+
+        if __name__ == "__main__":
+            my_app()
+        """,
+        pyi_args=['--add-data', os.pathsep.join((config_file, 'conf'))]
     )
