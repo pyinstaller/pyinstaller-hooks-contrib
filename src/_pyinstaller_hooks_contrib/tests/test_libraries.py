@@ -1035,6 +1035,35 @@ def test_cv2(pyi_builder):
 # Requires OpenCV with enabled HighGUI
 @importorskip("cv2")
 def test_cv2_highgui(pyi_builder):
+    from PyInstaller import isolated
+
+    @isolated.decorate
+    def _get_cv2_highgui_backend():
+        import re
+        import cv2
+
+        # Find `GUI: <type>` line in OpenCV build information dump. This is available only in recent OpenCV versions;
+        # in earlier versions, we would need to parse all subsequent backend entries, which is out of our scope here.
+        pattern = re.compile(r'$\s*GUI\s*:\s*(?P<gui>\S+)\s*^', re.MULTILINE)
+        info = cv2.getBuildInformation()
+        m = pattern.search(info)
+        if not m:
+            return None
+
+        return m.group('gui')
+
+    has_gui = True
+    backend = _get_cv2_highgui_backend()
+    if backend is None:
+        # We could not determine the backend from OpenCV information; fall back to the dist name
+        if is_module_satisfies('opencv-python-headless'):
+            has_gui = False
+    elif backend == "NONE":
+        has_gui = False
+
+    if not has_gui:
+        pytest.skip("OpenCV has no GUI support.")
+
     pyi_builder.test_source("""
         import cv2
         import numpy as np
