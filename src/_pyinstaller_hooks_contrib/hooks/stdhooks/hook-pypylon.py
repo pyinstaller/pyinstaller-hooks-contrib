@@ -22,7 +22,6 @@
 
 import os
 
-from PyInstaller.utils.hooks import collect_all
 from PyInstaller.utils.hooks import collect_data_files
 from PyInstaller.utils.hooks import collect_dynamic_libs
 
@@ -35,7 +34,7 @@ datas += collect_data_files('pypylon')
 # Exclude the C++-extensions from automatic search, add them manually as data files
 # their dependencies were already handled with collect_dynamic_libs
 excludedimports = ['pypylon._pylon', 'pypylon._genicam']
-for filename, module in collect_all('pypylon')[0]:
+for filename, module in collect_data_files('pypylon', include_py_files=True):
     if (os.path.basename(filename).startswith('_pylon.')
             or os.path.basename(filename).startswith('_genicam.')):
         datas += [(filename, module)]
