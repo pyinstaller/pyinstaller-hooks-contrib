@@ -69,7 +69,7 @@ qtmodern==0.2.0
 Rtree==1.0.0
 sacremoses==0.0.53
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
-scipy==1.8.1; python_version > '3.8'
+scipy==1.9.0; python_version > '3.8'
 sentry-sdk==1.8.0
 # shotgun_api3 can only be installed from git
 git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
