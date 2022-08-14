@@ -10,25 +10,22 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+# pywin32 supports frozen mode; in that mode, it is looking at sys.path for pythoncomXY.dll. However, as of
+# PyInstaller 5.4, we may collect that DLL into its original pywin32_system32 sub-directory as part of the
+# binary dependency analysis (and add it to sys.path by means of a runtime hook).
 
-"""
-pywin32 module supports frozen mode. In frozen mode it is looking
-in sys.path for file pythoncomXX.dll. Include the pythoncomXX.dll
-as a data file. The path to this dll is contained in __file__
-attribute.
-"""
+import pathlib
 
-import os.path
-from PyInstaller.utils.hooks import get_pywin32_module_file_attribute
+from PyInstaller.utils.hooks import is_module_satisfies, get_pywin32_module_file_attribute
 
-_pth = get_pywin32_module_file_attribute('pythoncom')
+dll_filename = get_pywin32_module_file_attribute('pythoncom')
+dst_dir = '.'  # Top-level application directory
 
-# Binaries that should be included with the module 'pythoncom'.
-binaries = [
-    (
-        # Absolute path on hard disk.
-        _pth,
-        # Relative directory path in the ./dist/app_name/ directory.
-        '.',
-    )
-]
+if is_module_satisfies('PyInstaller >= 5.4'):
+    # Try preserving the original pywin32_system directory, if applicable (it is not applicable in Anaconda,
+    # where the DLL is located in Library/bin).
+    dll_path = pathlib.Path(dll_filename)
+    if dll_path.parent.name == 'pywin32_system32':
+        dst_dir = 'pywin32_system32'
+
+binaries = [(dll_filename, dst_dir)]
