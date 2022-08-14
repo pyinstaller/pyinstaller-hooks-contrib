@@ -1305,3 +1305,17 @@ def test_hydra(pyi_builder, tmpdir):
         """,
         pyi_args=['--add-data', os.pathsep.join((config_file, 'conf'))]
     )
+
+
+@importorskip('pywintypes')
+def test_pywintypes(pyi_builder):
+    pyi_builder.test_source("""
+        import pywintypes
+        """)
+
+
+@importorskip('pythoncom')
+def test_pythoncom(pyi_builder):
+    pyi_builder.test_source("""
+        import pythoncom
+        """)
