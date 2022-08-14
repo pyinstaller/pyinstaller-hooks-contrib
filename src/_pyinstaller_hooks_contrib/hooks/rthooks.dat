@@ -6,4 +6,6 @@
     'nltk': ['pyi_rth_nltk.py'],
     'pyproj': ['pyi_rth_pyproj.py'],
     'pygraphviz': ['pyi_rth_pygraphviz.py'],
+    'pythoncom': ['pyi_rth_pythoncom.py'],
+    'pywintypes': ['pyi_rth_pywintypes.py'],
 }
