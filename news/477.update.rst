@@ -1,0 +1,1 @@
+Update ``pyshark`` hook to be compatible with versions ``>=0.5.2``.

@@ -14,8 +14,11 @@
 # Tested with version 0.4.5
 
 
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies
 
 hiddenimports = ['pyshark', 'py._path.local', 'py._vendored_packages.iniconfig', 'pyshark.config']
+
+if is_module_satisfies("pyshark >= 0.5"):
+    hiddenimports += ["py._io.terminalwriter", "py._builtin"]
 
 datas = collect_data_files('pyshark')
