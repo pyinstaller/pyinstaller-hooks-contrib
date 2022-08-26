@@ -1,2 +1,0 @@
-Update ``pywintypes`` and ``pythoncom`` hooks for compatibility with upcoming
-changes in PyInstaller's attempt at preserving DLL parent directory structure.

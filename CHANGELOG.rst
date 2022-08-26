@@ -1,4 +1,40 @@
 
+2022.9 (2022-08-26)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for Hydra config system (``hydra-core``). (`#424
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/424>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fixed ``pyqtgraph`` hook for PyInstaller 5.2. (`#465
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/465>`_)
+* Update ``cv2`` hook to add support for versions that attempt to perform
+  module
+  substitution via ``sys.path`` manipulation (== 4.5.4.58, >= 4.6.0.66) when
+  used
+  in combination with PyInstaller that supports setting module collection mode
+  in hooks (> 5.2). The  contents of the ``cv2`` package are now collected in
+  source form to bypass PYZ archive and avoid compatibility issues with
+  PyInstaller's  ``FrozenImporter`` (`#468
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/468>`_)
+* Update ``pyshark`` hook to be compatible with versions ``>=0.5.2``. (`#477
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/477>`_)
+* Update ``pywintypes`` and ``pythoncom`` hooks for compatibility with upcoming
+  changes in PyInstaller's attempt at preserving DLL parent directory
+  structure. (`#474
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/474>`_)
+* Update ``tensorflow`` hook to opt-out of generating warnings for missing
+  hidden imports, using hook variable introduced in PyInstaller >= 5.2. On
+  earlier releases, this is no-op. (`#458
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/458>`_)
+
+
 2022.8 (2022-07-08)
 --------------------
 

@@ -1,3 +1,0 @@
-Update ``tensorflow`` hook to opt-out of generating warnings for missing
-hidden imports, using hook variable introduced in PyInstaller >= 5.2. On
-earlier releases, this is no-op.
