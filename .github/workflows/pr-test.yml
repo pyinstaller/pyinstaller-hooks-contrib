@@ -61,12 +61,12 @@ jobs:
         if: startsWith(matrix.os, 'ubuntu')
         run: |
           sudo apt-get update
-          sudo apt-get install wget curl
+          sudo apt-get install -y wget apt-transport-https
           wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-          echo "d4e4635eeb79b0e96483bd70703209c63da55a236eadd7397f769ee434d92ca8  mariadb_repo_setup" | sha256sum -c -
+          echo "733cf126b03f73050e242102592658913d10829a5bf056ab77e7f864b3f8de1f  mariadb_repo_setup" | sha256sum -c -
           chmod +x mariadb_repo_setup
-          sudo ./mariadb_repo_setup --mariadb-server-version="mariadb-10.6"
-          sudo apt-get install libmariadb3 libmariadb-dev
+          sudo ./mariadb_repo_setup
+          sudo apt-get install -y libmariadb3 libmariadb-dev
 
       - name: Install apt dependencies
         if: startsWith(matrix.os, 'ubuntu')
