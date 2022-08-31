@@ -40,8 +40,8 @@ def test_jinxed(pyi_builder):
 
 
 @importorskip("geopandas")
-def test_geopandas(test):
-    test.test_source(
+def test_geopandas(pyi_builder):
+    pyi_builder.test_source(
         '''
         import geopandas
         '''
