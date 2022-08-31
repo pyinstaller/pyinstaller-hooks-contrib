@@ -1,3 +1,15 @@
+2022.10 (2022-08-31)
+--------------------
+
+2022.10 (2022-08-31)
+---------------------
+
+New hooks
+~~~~~~~~~
+
+* Add geopandas data files for ``geopandas==0.10.2``. (`#400
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/400>`_)
+
 
 2022.9 (2022-08-26)
 --------------------

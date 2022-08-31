@@ -1,1 +1,0 @@
-Add geopandas data files for ``geopandas==0.10.2``.
