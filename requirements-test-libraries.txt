@@ -106,7 +106,7 @@ tensorflow==2.9.2
 pyshark==0.5.3
 opencv-python==4.6.0.66
 hydra-core==1.2.0
-spinceypy==5.1.1
+spiceypy==5.1.1
 
 # ------------------- Platform (OS) specifics
 
