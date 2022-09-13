@@ -1328,3 +1328,10 @@ def test_pythoncom(pyi_builder):
     pyi_builder.test_source("""
         import pythoncom
         """)
+
+
+@importorskip('spiceypy')
+def test_spiceypy(pyi_builder):
+    pyi_builder.test_source("""
+        import spiceypy
+    """)

@@ -1,0 +1,1 @@
+Add a hook for ``spiceypy``, which has binary files.
