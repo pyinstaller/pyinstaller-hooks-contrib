@@ -114,7 +114,7 @@ spiceypy==5.1.1
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
 
 # uvloop does not currently support Windows.
-uvloop==0.16.0; sys_platform != 'win32' and python_version >= '3.7'
+uvloop==0.17.0; sys_platform != 'win32' and python_version >= '3.7'
 
 # pydivert only runs on Windows
 pydivert==2.1.0; sys_platform == 'win32'
