@@ -21,29 +21,32 @@ import ctypes.util
 from PyInstaller.log import logger
 
 try:
-    from importlib.metadata import files
+    import importlib.metadata as importlib_metadata
 except ImportError:
-    from importlib_metadata import files
+    import importlib_metadata
 
-datas = []
+binaries = []
 
-filepaths = [f for f in files('pythonnet') if 'Python.Runtime.dll' in str(f)]
-if len(filepaths) == 1:
-    pyruntime_path = filepaths[0]
-    datas = [(pyruntime_path.locate(), pyruntime_path.parent.as_posix())]
-elif len(filepaths) > 1:
-    logger.warning('More than one Python.Runtime.dll found in site packages! Cannot resolve.')
+# Try finding Python.Runtime.dll via distribution's file list
+dist_files = importlib_metadata.files('pythonnet')
+if dist_files is not None:
+    runtime_dll_files = [f for f in dist_files if f.match('Python.Runtime.dll')]
+    if len(runtime_dll_files) == 1:
+        runtime_dll_file = runtime_dll_files[0]
+        binaries = [(runtime_dll_file.locate(), runtime_dll_file.parent.as_posix())]
+        logger.debug("hook-clr: Python.Runtime.dll discovered via metadata.")
+    elif len(runtime_dll_files) > 1:
+        logger.warning("hook-clr: multiple instances of Python.Runtime.dll listed in metadata - cannot resolve.")
 
-if len(datas) == 0:
-    # Fallback to legacy way of finding Python.Runtime dependency
-    library = ctypes.util.find_library('Python.Runtime')
-    if library:
-        datas = [(library, '.')]
-        logger.warning('Legacy method of finding Python.Runtime.dll was used!')
+# Fall back to the legacy way
+if not binaries:
+    runtime_dll_file = ctypes.util.find_library('Python.Runtime')
+    if runtime_dll_file:
+        binaries = [(runtime_dll_file, '.')]
+        logger.debug('hook-clr: Python.Runtime.dll discovered via legacy method.')
 
-if not datas:
+if not binaries:
     raise Exception('Python.Runtime.dll not found')
-
 
 # These modules are imported inside Python.Runtime.dll
 hiddenimports = ["platform", "warnings"]
