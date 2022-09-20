@@ -1,0 +1,4 @@
+Extend the ``sounddevice`` and ``soundfile`` hooks to collect 
+system-installed shared libraries in cases when the libraries are
+not bundled with the package (i.e., linux PyPI wheels, Anaconda on
+all OSes).
