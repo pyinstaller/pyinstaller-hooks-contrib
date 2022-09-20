@@ -1,0 +1,5 @@
+Have ``clr`` hook check for availability of the ``pythonnet`` before
+trying to query its metadata. Fixes an ``importlib.metadata.PackageNotFoundError``
+raised by the ``clr`` hook when the hook is triggered by a module or
+a package named ``clr`` other than the ``clr`` extension module from
+``pythonnet``.
