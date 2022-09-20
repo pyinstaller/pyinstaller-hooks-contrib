@@ -1,0 +1,2 @@
+Fix a ``TypeError`` raised by the ``clr`` hook when ``pythonnet`` dist
+lacks the file list metadata.
