@@ -14,7 +14,7 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 
 # include all .ui and image files
 datas = collect_data_files("pyqtgraph",
-                           includes=["**/*.ui", "**/*.png", "**/*.svg"])
+                           includes=["**/*.ui", "**/*.png", "**/*.svg", "**/*.csv"])
 
 # pyqtgraph uses Qt-version-specific templates for the UI elements.
 # There are templates for different versions of PySide and PyQt, e.g.
