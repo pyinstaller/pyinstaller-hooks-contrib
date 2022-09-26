@@ -11,7 +11,7 @@ boto==2.49.0
 boto3==1.24.80
 botocore==1.27.80
 branca==0.5.0
-cairocffi==1.3.0
+cairocffi==1.4.0
 CairoSVG==2.5.2
 cassandra-driver==3.25.0
 cloudscraper==1.2.64
