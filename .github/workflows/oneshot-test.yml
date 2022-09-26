@@ -45,6 +45,7 @@ env:
   # Colored pytest output on CI despite not having a tty
   FORCE_COLOR: 1
 
+permissions: {}
 jobs:
   generate-matrix:
     # Parse inputs into a json containing the matrix that will parametrize the
@@ -100,6 +101,9 @@ jobs:
 
 
   test:
+    permissions:
+      contents: read # to fetch code (actions/checkout)
+
     needs: generate-matrix
     runs-on: ${{ matrix.os }}
     strategy:
