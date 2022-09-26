@@ -1,8 +1,12 @@
 on: workflow_dispatch
 name: Release
 
+permissions: {}
 jobs:
   release:
+    permissions:
+      contents: write
+
     runs-on: ubuntu-latest
 
     if: contains('["Legorooj", "bwoodsend", "rokm"]', github.event.actor)
