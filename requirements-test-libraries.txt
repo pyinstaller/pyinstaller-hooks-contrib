@@ -84,7 +84,7 @@ Twisted==22.8.0
 tzdata==2022.4
 Unidecode==1.3.6
 weasyprint==56.1
-web3==6.0.0b5
+web3==6.0.0b6
 websockets==10.3; python_version >= '3.7'
 zeep==4.1.0
 pypsexec==0.3.0
