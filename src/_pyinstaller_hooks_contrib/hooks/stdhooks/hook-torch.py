@@ -10,6 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import get_package_paths
+from PyInstaller.utils.hooks import collect_dynamic_libs
 
-datas = [(get_package_paths('torch')[1],"torch"),]
+# include versioned .so files as well
+binaries = collect_dynamic_libs('torch', py_dylib_patterns=['*.dll', '*.dylib', 'lib*.so', 'lib*.so.*'])
