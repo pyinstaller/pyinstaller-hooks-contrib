@@ -56,7 +56,7 @@ pylint==2.15.4
 pypemicro==0.1.9
 pyphen==0.13.0
 pyppeteer==1.0.2
-pyqtgraph==0.12.4
+pyqtgraph==0.13.1; python_version > '3.7'
 pyusb==1.2.1
 pyviz-comms==2.2.1
 pyvjoy==1.0.1; sys_platform == 'win32'
