@@ -68,7 +68,7 @@ pytz==2022.4
 pyzmq==24.0.1
 PyQt5==5.15.7
 qtmodern==0.2.0
-Rtree==1.0.0
+Rtree==1.0.1
 sacremoses==0.0.53
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.9.2; python_version > '3.8'
