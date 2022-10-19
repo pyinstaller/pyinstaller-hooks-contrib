@@ -1289,6 +1289,16 @@ def test_pyqtgraph(pyi_builder):
     )
 
 
+@importorskip('pyqtgraph')
+def test_pyqtgraph_colormap(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import pyqtgraph.colormap
+        assert pyqtgraph.colormap.listMaps()
+        """
+    )
+
+
 @importorskip('hydra')
 def test_hydra(pyi_builder, tmpdir):
     config_file = str((Path(__file__) / '../data/test_hydra/config.yaml').resolve(strict=True).as_posix())
