@@ -7,5 +7,6 @@
     'pyproj': ['pyi_rth_pyproj.py'],
     'pygraphviz': ['pyi_rth_pygraphviz.py'],
     'pythoncom': ['pyi_rth_pythoncom.py'],
+    'pyqtgraph': ['pyi_rth_pyqtgraph_multiprocess.py'],
     'pywintypes': ['pyi_rth_pywintypes.py'],
 }

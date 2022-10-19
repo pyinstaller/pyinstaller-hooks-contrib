@@ -1,0 +1,7 @@
+Implement preliminary support for handling subprocesses used by
+``pyqtgraph.multiprocess``, for example in ``pyqtgraph``
+``RemoteGraphicsView`` widget. The user is still required to ensure that
+stdlib's ``multiprocessing.freeze_support`` is called in the entry-point
+script before using ``pyqtgraph``. In addition, with ``onefile`` builds,
+the user must set the ``_MEIPASS2`` environment variable to the value
+of ``sys._MEIPASS`` before using ``pyqtgraph``.
