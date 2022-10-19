@@ -1285,7 +1285,8 @@ def test_pyqtgraph(pyi_builder):
         import pyqtgraph.graphicsItems.PlotItem
         import pyqtgraph.graphicsItems.ViewBox.ViewBoxMenu
         import pyqtgraph.imageview.ImageView
-        """
+        """,
+        pyi_args=['--exclude', 'PySide2', '--exclude', 'PySide6', '--exclude', 'PyQt6']
     )
 
 
@@ -1296,6 +1297,47 @@ def test_pyqtgraph_colormap(pyi_builder):
         import pyqtgraph.colormap
         assert pyqtgraph.colormap.listMaps()
         """
+    )
+
+
+@importorskip('pyqtgraph')
+@importorskip('PyQt5')
+def test_pyqtgraph_remote_graphics_view(pyi_builder):
+    pyi_builder.test_source(
+        """
+        import sys
+        import os
+        import signal
+
+        from PyQt5 import QtCore, QtWidgets
+        import pyqtgraph
+
+        # Multiprocessing is used internally by pyqtgraph.multiprocess
+        import multiprocessing
+        multiprocessing.freeze_support()
+
+        # pyqtgraph.multiprocess also uses a subprocess.Popen() to spawn its
+        # sub-process, so we need to restore _MEIPASS2 to prevent the executable
+        # to unpacking itself again in the subprocess.
+        os.environ['_MEIPASS2'] = sys._MEIPASS
+
+        # Create a window with remote graphics view
+        app = QtWidgets.QApplication(sys.argv)
+        signal.signal(signal.SIGINT, signal.SIG_DFL)
+
+        window = QtWidgets.QWidget()
+        layout = QtWidgets.QVBoxLayout(window)
+        remote_view = pyqtgraph.widgets.RemoteGraphicsView.RemoteGraphicsView()
+        layout.addWidget(remote_view)
+
+        window.show()
+
+        # Quit after a second
+        QtCore.QTimer.singleShot(1000, app.exit)
+
+        sys.exit(app.exec_())
+        """,
+        pyi_args=['--exclude', 'PySide2', '--exclude', 'PySide6', '--exclude', 'PyQt6']
     )
 
 
