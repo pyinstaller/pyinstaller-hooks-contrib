@@ -129,7 +129,7 @@ jobs:
       - name: Set up .NET Core for pythonnet tests
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.x'
+          dotnet-version: '6.x'
 
       - name: Run bash commands
         if: ${{ github.event.inputs.commands }}
