@@ -799,12 +799,10 @@ def test_pythonnet2(pyi_builder):
 
 @requires('pythonnet >= 3.dev')
 def test_pythonnet3(pyi_builder):
-    runtime_cfg_path = str((Path(__file__) / '../data/netcore5_runtime_config.json').resolve(strict=True).as_posix())
     pyi_builder.test_source(f"""
-        from pathlib import Path
         from clr_loader import get_coreclr
         from pythonnet import set_runtime
-        set_runtime(get_coreclr('{runtime_cfg_path}'))
+        set_runtime(get_coreclr())  # Pick up and use any installed .NET runtime.
 
         import clr
         """)

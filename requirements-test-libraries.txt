@@ -63,6 +63,7 @@ pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.6
 pymssql==2.2.5
 pystray==0.19.4
+pythonnet==3.0.0.post1
 pytz==2022.4
 pyzmq==24.0.1
 PyQt5==5.15.7
@@ -121,10 +122,6 @@ pydivert==2.1.0; sys_platform == 'win32'
 
 # pywin32-ctypes runs on Windows
 pywin32-ctypes==0.2.0; sys_platform == 'win32'
-
-# pythonnet 3 (when released) will be cross platform
-# pythonnet 2.5.2 provides wheels only for python <= 3.8
-pythonnet==2.5.2; sys_platform == 'win32' and python_version <= '3.8'
 
 # pymediainfo on linux does not bundle mediainfo shared library, and requires system one.
 pymediainfo==5.1.0; sys_platform == 'darwin' or sys_platform == 'win32'
