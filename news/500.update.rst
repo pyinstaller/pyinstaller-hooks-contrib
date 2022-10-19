@@ -1,0 +1,3 @@
+In ``clr`` hook for ``pythonnet`` collect the ``Python.Runtime.dll`` as
+a data file on non-Windows OSes to prevent errors during binary dependency
+analysis.
