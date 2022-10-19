@@ -33,3 +33,8 @@ datas = collect_data_files('pyqtgraph', excludes=['**/examples/*'])
 # Tested with pyqtgraph master branch (commit c1900aa).
 all_imports = collect_submodules("pyqtgraph")
 hiddenimports = [name for name in all_imports if "Template" in name]
+
+# Collect the pyqtgraph/multiprocess/bootstrap.py as a module; this is required by our pyqtgraph.multiprocess runtime
+# hook to handle the pyqtgraph's multiprocessing implementation. The pyqtgraph.multiprocess seems to be imported
+# automatically on the import of pyqtgraph itself, so there is no point in creating a separate hook for this.
+hiddenimports += ['pyqtgraph.multiprocess.bootstrap']
