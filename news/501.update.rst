@@ -1,2 +1,0 @@
-Have the ``pyqtgraph`` hook collect the colormap files and their
-license files from the package.

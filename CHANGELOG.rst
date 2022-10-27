@@ -1,3 +1,53 @@
+2022.11 (2022-10-27)
+--------------------
+
+2022.11 (2022-10-27)
+---------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``spiceypy``, which has binary files. (`#482
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/482>`_)
+* Added a hook for ``ldfparser``. (`#483
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/483>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Extend the ``sounddevice`` and ``soundfile`` hooks to collect
+  system-installed shared libraries in cases when the libraries are
+  not bundled with the package (i.e., linux PyPI wheels, Anaconda on
+  all OSes). (`#487
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/487>`_)
+* Fix a ``TypeError`` raised by the ``clr`` hook when ``pythonnet`` dist
+  lacks the file list metadata. (`#486
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/486>`_)
+* Have ``clr`` hook check for availability of the ``pythonnet`` before
+  trying to query its metadata. Fixes an
+  ``importlib.metadata.PackageNotFoundError``
+  raised by the ``clr`` hook when the hook is triggered by a module or
+  a package named ``clr`` other than the ``clr`` extension module from
+  ``pythonnet``. (`#486
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/486>`_)
+* Have the ``pyqtgraph`` hook collect the colormap files and their
+  license files from the package. (`#501
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/501>`_)
+* Implement preliminary support for handling subprocesses used by
+  ``pyqtgraph.multiprocess``, for example in ``pyqtgraph``
+  ``RemoteGraphicsView`` widget. The user is still required to ensure that
+  stdlib's ``multiprocessing.freeze_support`` is called in the entry-point
+  script before using ``pyqtgraph``. In addition, with ``onefile`` builds,
+  the user must set the ``_MEIPASS2`` environment variable to the value
+  of ``sys._MEIPASS`` before using ``pyqtgraph``. (`#501
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/501>`_)
+* In ``clr`` hook for ``pythonnet`` collect the ``Python.Runtime.dll`` as
+  a data file on non-Windows OSes to prevent errors during binary dependency
+  analysis. (`#500
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/500>`_)
+
+
 2022.10 (2022-08-31)
 --------------------
 
