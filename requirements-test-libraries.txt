@@ -81,7 +81,7 @@ swagger-spec-validator==3.0.2
 tableauhyperapi==0.0.15735
 thinc==8.1.5
 timezonefinder==6.1.6; python_version > '3.8'
-Twisted==22.8.0
+Twisted==22.10.0
 tzdata==2022.5
 Unidecode==1.3.6
 weasyprint==56.1
