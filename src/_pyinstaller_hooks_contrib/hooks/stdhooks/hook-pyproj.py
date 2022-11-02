@@ -12,7 +12,7 @@
 
 import os
 import sys
-from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies
+from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies, copy_metadata
 from PyInstaller.compat import is_win
 
 
@@ -56,3 +56,8 @@ if is_conda:
         from PyInstaller.utils.hooks import logger
         logger.warning("Datas for pyproj not found at:\n{}".format(src_proj_data))
     # A runtime hook defines the path for `PROJ_LIB`
+
+# With pyproj 3.4.0, we need to collect package's metadata due to `importlib.metadata.version(__package__)` call in
+# `__init__.py`. This change was reverted in subsequent releases of pyproj, so we collect metadata only for 3.4.0.
+if is_module_satisfies("pyproj == 3.4.0"):
+    datas += copy_metadata("pyproj")
