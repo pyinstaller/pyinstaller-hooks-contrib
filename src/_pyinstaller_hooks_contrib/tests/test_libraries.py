@@ -1385,3 +1385,21 @@ def test_spiceypy(pyi_builder):
     pyi_builder.test_source("""
         import spiceypy
     """)
+
+
+@importorskip('discid')
+def test_discid(pyi_builder):
+    pyi_builder.test_source(
+        """
+        # Basic import check
+        import discid
+
+        # Check that shared library is in fact collected into application bundle.
+        # We expect the hook to collect it to top-level directory (sys._MEIPASS).
+        import discid.libdiscid
+        lib_name = discid.libdiscid._LIB_NAME
+
+        lib_file = os.path.join(sys._MEIPASS, lib_name)
+        assert os.path.isfile(lib_file), f"Shared library {lib_name} not collected to _MEIPASS!"
+        """
+    )

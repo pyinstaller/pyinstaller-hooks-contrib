@@ -18,6 +18,9 @@ cloudscraper==1.2.64
 dash==2.6.2
 dash-bootstrap-components==1.2.1
 dash-uploader==0.6.0
+# discid requires libdiscid to be provided by the system.
+# We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
+discid==1.2.0; sys_platform != 'win32'
 fabric==2.7.1
 fiona==1.8.22; sys_platform != 'win32'
 folium==0.13.0

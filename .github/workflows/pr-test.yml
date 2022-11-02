@@ -86,6 +86,8 @@ jobs:
             libpulse0 libpulse-mainloop-glib0
           # Install cairo dependencies.
           sudo apt-get install -y libcairo2
+          # Install libdiscid (dependency of discid python package).
+          sudo apt-get install -y libdiscid0
 
       - name: Install brew dependencies
         if: startsWith(matrix.os, 'macos')
@@ -94,6 +96,8 @@ jobs:
           brew install cairo
           # Install pango dependencies (weasyprint hook).
           brew install pango
+          # Install libdiscid (dependency of discid python package).
+          brew install libdiscid
 
       - name: Install dependencies
         shell: bash
