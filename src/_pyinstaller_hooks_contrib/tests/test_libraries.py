@@ -1403,3 +1403,10 @@ def test_discid(pyi_builder):
         assert os.path.isfile(lib_file), f"Shared library {lib_name} not collected to _MEIPASS!"
         """
     )
+
+
+@importorskip('exchangelib')
+def test_exchangelib(pyi_builder):
+    pyi_builder.test_source("""
+        import exchangelib
+    """)
