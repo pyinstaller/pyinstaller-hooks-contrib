@@ -1,3 +1,18 @@
+2022.12 (2022-11-05)
+--------------------
+
+2022.12 (2022-11-05)
+---------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``discid``. (`#506
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/506>`_)
+* Add hook for ``exchangelib``. (`#508
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/508>`_)
+
+
 2022.11 (2022-10-27)
 --------------------
 
