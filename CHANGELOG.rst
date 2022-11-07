@@ -1,7 +1,4 @@
 2022.12 (2022-11-05)
---------------------
-
-2022.12 (2022-11-05)
 ---------------------
 
 New hooks
@@ -12,9 +9,6 @@ New hooks
 * Add hook for ``exchangelib``. (`#508
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/508>`_)
 
-
-2022.11 (2022-10-27)
---------------------
 
 2022.11 (2022-10-27)
 ---------------------
@@ -62,9 +56,6 @@ Updated hooks
   analysis. (`#500
   <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/500>`_)
 
-
-2022.10 (2022-08-31)
---------------------
 
 2022.10 (2022-08-31)
 ---------------------
