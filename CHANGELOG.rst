@@ -1,3 +1,13 @@
+2022.13 (2022-11-08)
+--------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``pyproj`` hook for compatibility with ``pyproj`` v3.4.0. (`#505
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/505>`_)
+
+
 2022.12 (2022-11-05)
 ---------------------
 

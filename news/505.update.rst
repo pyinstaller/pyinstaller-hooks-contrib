@@ -1,1 +1,0 @@
-Update ``pyproj`` hook for compatibility with ``pyproj`` v3.4.0.
