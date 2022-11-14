@@ -98,7 +98,7 @@ altair==4.2.0; python_version >= '3.7'
 # For some reason, shapely provides only arm64 py310 macOS wheel.
 shapely==1.8.5.post1; sys_platform != 'darwin' or python_version < '3.10'
 lark==1.1.4
-python-stdnum==1.17
+python-stdnum==1.18
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
 sounddevice==0.4.5; sys_platform != 'linux'
