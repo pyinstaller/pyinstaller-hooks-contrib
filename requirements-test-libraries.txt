@@ -14,7 +14,7 @@ branca==0.6.0
 cairocffi==1.4.0
 CairoSVG==2.5.2
 cassandra-driver==3.25.0
-cloudscraper==1.2.64
+cloudscraper==1.2.65
 dash==2.7.0
 dash-bootstrap-components==1.2.1
 dash-uploader==0.6.0
