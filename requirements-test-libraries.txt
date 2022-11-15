@@ -4,17 +4,17 @@ importlib_resources==5.10.0; python_version < '3.9'
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==10.0.0
-adbutils==1.0.9; sys_platform == 'darwin' or sys_platform == 'win32'
-APScheduler==3.9.1
+adbutils==1.0.10; sys_platform == 'darwin' or sys_platform == 'win32'
+APScheduler==3.9.1.post1
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
-boto3==1.26.3
-botocore==1.29.3
-branca==0.5.0
+boto3==1.26.8
+botocore==1.29.8
+branca==0.6.0
 cairocffi==1.4.0
 CairoSVG==2.5.2
 cassandra-driver==3.25.0
-cloudscraper==1.2.64
+cloudscraper==1.2.65
 dash==2.7.0
 dash-bootstrap-components==1.2.1
 dash-uploader==0.6.0
@@ -32,7 +32,7 @@ humanize==4.4.0
 iminuit==2.17.0
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
-mariadb==1.1.5.post1; sys_platform != "darwin"
+mariadb==1.1.5.post2; sys_platform != "darwin"
 markdown==3.4.1
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0; python_version >= '3.7'
@@ -48,7 +48,7 @@ pendulum==2.1.2
 phonenumbers==8.13.0
 pingouin==0.5.2; python_version >= '3.7'
 pinyin==0.4.0
-platformdirs==2.5.3
+platformdirs==2.5.4
 plotly==5.11.0
 publicsuffix2==2.20191221
 pycparser==2.21
@@ -64,7 +64,7 @@ pyusb==1.2.1
 pyviz-comms==2.2.1
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.6
-pymssql==2.2.5
+pymssql==2.2.6
 pystray==0.19.4
 pythonnet==3.0.1
 pytz==2022.6
@@ -75,13 +75,13 @@ Rtree==1.0.1
 sacremoses==0.0.53
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.9.3; python_version > '3.8'
-sentry-sdk==1.10.1
+sentry-sdk==1.11.0
 # shotgun_api3 can only be installed from git
 git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
-spacy==3.4.2
+spacy==3.4.3
 srsly==2.4.5
 swagger-spec-validator==3.0.3
-tableauhyperapi==0.0.15735
+tableauhyperapi==0.0.15888
 thinc==8.1.5
 timezonefinder==6.1.6; python_version > '3.8'
 Twisted==22.10.0
@@ -98,14 +98,14 @@ altair==4.2.0; python_version >= '3.7'
 # For some reason, shapely provides only arm64 py310 macOS wheel.
 shapely==1.8.5.post1; sys_platform != 'darwin' or python_version < '3.10'
 lark==1.1.4
-python-stdnum==1.17
+python-stdnum==1.18
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
 sounddevice==0.4.5; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
-yt-dlp==2022.10.4
+yt-dlp==2022.11.11
 limits==2.7.1
-great-expectations==0.15.31
+great-expectations==0.15.32
 tensorflow==2.10.0
 pyshark==0.5.3
 opencv-python==4.6.0.66
