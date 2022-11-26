@@ -1410,3 +1410,10 @@ def test_exchangelib(pyi_builder):
     pyi_builder.test_source("""
         import exchangelib
     """)
+
+
+@importorskip('cftime')
+def test_cftime(pyi_builder):
+    pyi_builder.test_source("""
+        import cftime
+    """)
