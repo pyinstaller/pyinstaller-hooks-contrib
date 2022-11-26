@@ -1424,3 +1424,10 @@ def test_netcdf4(pyi_builder):
     pyi_builder.test_source("""
         import netCDF4
     """)
+
+
+@importorskip('cf_units')
+def test_cf_units(pyi_builder):
+    pyi_builder.test_source("""
+        import cf_units
+    """)
