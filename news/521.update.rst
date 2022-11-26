@@ -1,0 +1,2 @@
+Update ``netCDF4`` hook for compatibility with v1.4.0 and later, where
+``netcdftime`` has been renamed to ``cftime``.
