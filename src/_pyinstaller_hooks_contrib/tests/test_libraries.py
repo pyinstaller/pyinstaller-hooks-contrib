@@ -16,7 +16,7 @@ from pathlib import Path
 import pytest
 
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
-from PyInstaller.utils.hooks import is_module_satisfies, can_import_module
+from PyInstaller.utils.hooks import is_module_satisfies, can_import_module, get_module_attribute
 from PyInstaller.utils.tests import importorskip, requires, xfail
 
 
@@ -1431,3 +1431,39 @@ def test_cf_units(pyi_builder):
     pyi_builder.test_source("""
         import cf_units
     """)
+
+
+@importorskip('compliance_checker')
+def test_compliance_checker(pyi_builder):
+    # The test file - taken from the package's own test data/examples. Use an .nc file instead of .cdl one, because
+    # loading the latter requires ncgen utility to be available on the system.
+    pkg_path = get_module_attribute('compliance_checker', '__path__')[0]
+    input_file = Path(pkg_path) / 'tests/data/trajectory.nc'
+    assert input_file.is_file(), f"Selected test file, {input_file!s} does not exist! Fix the test!"
+
+    pyi_builder.test_source("""
+        import os
+        import json
+
+        import compliance_checker
+        import compliance_checker.runner
+
+        input_file = sys.argv[1]
+
+        # Load all available checker classes
+        check_suite = compliance_checker.runner.CheckSuite()
+        check_suite.load_all_available_checkers()
+
+        # Run cf and adcc checks
+        return_value, errors = compliance_checker.runner.ComplianceChecker.run_checker(
+            input_file,
+            checker_names=['cf', 'acdd'],
+            verbose=False,
+            criteria='normal',
+            output_filename='-',
+            output_format='json')
+
+        # We do not really care about validation results, just that validation finished without raising any exceptions.
+        print("Return value:", return_value)
+        print("Errors occurred:", errors)
+    """, app_args=[str(input_file)])
