@@ -1417,3 +1417,10 @@ def test_cftime(pyi_builder):
     pyi_builder.test_source("""
         import cftime
     """)
+
+
+@importorskip('netCDF4')
+def test_netcdf4(pyi_builder):
+    pyi_builder.test_source("""
+        import netCDF4
+    """)

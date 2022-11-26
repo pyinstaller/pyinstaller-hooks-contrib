@@ -10,6 +10,13 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+from PyInstaller.utils.hooks import is_module_satisfies
 
 # netCDF4 (tested with v.1.1.9) has some hidden imports
-hiddenimports = ['netCDF4.utils', 'netcdftime']
+hiddenimports = ['netCDF4.utils']
+
+# Around netCDF4 1.4.0, netcdftime changed name to cftime
+if is_module_satisfies("netCDF4 < 1.4.0"):
+    hiddenimports += ['netcdftime']
+else:
+    hiddenimports += ['cftime']
