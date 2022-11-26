@@ -14,10 +14,11 @@ branca==0.6.0
 cairocffi==1.4.0
 CairoSVG==2.5.2
 cassandra-driver==3.25.0
-cf-units==3.1.1
+cf-units==3.1.1; sys_platform != 'win32' and python_version >= '3.8'
 cftime==1.6.2
 cloudscraper==1.2.65
-compliance-checker==5.0.2
+# compliance-checker requires cf-units, so same constraints apply.
+compliance-checker==5.0.2; sys_platform != 'win32' and python_version >= '3.8'
 dash==2.7.0
 dash-bootstrap-components==1.2.1
 dash-uploader==0.6.0
@@ -41,7 +42,7 @@ markdown==3.4.1
 # MetPy==1.2.0; python_version >= '3.7'
 mnemonic==0.20
 msoffcrypto-tool==5.0.0
-netCDF4==1.6.2
+netCDF4==1.6.2; python_version >= '3.8'
 numcodecs==0.10.2; python_version < '3.10' # doesn't have python 3.10 wheels yet
 Office365-REST-Python-Client==2.3.16
 openpyxl==3.0.10
