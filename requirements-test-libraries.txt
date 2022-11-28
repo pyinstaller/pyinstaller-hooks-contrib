@@ -57,7 +57,7 @@ platformdirs==2.5.4
 plotly==5.11.0
 publicsuffix2==2.20191221
 pycparser==2.21
-pycryptodome==3.15.0
+pycryptodome==3.16.0
 pycryptodomex==3.15.0
 pyexcelerate==0.10.0
 pylint==2.15.6
