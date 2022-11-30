@@ -1,14 +1,3 @@
-2022.14 (Unreleased)
---------------------
-
-Updated hooks
-~~~~~~~~~~~~~
-
-* Update ``pydantic`` hook to include ``dotenv`` optional dependency.
-  (`#523
-  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/523>`_)
-
-
 2022.13 (2022-11-08)
 --------------------
 
