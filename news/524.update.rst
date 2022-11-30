@@ -1,3 +1,1 @@
 Update ``pydantic`` hook to include ``dotenv`` optional dependency.
-(`#523
-<https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/523>`_)
