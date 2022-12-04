@@ -1,1 +1,0 @@
-Update ``pydantic`` hook to include ``dotenv`` optional dependency.

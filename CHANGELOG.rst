@@ -1,3 +1,27 @@
+2022.14 (2022-12-04)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``cf_units``. (`#521
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/521>`_)
+* Add hook for ``cftime``. (`#521
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/521>`_)
+* Add hook for ``compliance_checker``. (`#521
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/521>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``netCDF4`` hook for compatibility with v1.4.0 and later, where
+  ``netcdftime`` has been renamed to ``cftime``. (`#521
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/521>`_)
+* Update ``pydantic`` hook to include ``dotenv`` optional dependency. (`#524
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/524>`_)
+
+
 2022.13 (2022-11-08)
 --------------------
 
