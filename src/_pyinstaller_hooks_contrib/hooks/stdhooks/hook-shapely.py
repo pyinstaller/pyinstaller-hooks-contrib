@@ -20,8 +20,13 @@ from PyInstaller import compat
 # Necessary when using the vectorized subpackage
 hiddenimports = ['shapely.prepared']
 
-pkg_base, pkg_dir = get_package_paths('shapely')
+if is_module_satisfies('shapely >= 2.0.0'):
+    # An import made in the `shapely.geometry_helpers` extension; both `shapely.geometry_helpers` and `shapely._geos`
+    # extensions were introduced in v2.0.0.
+    hiddenimports += ['shapely._geos']
 
+
+pkg_base, pkg_dir = get_package_paths('shapely')
 
 binaries = []
 datas = []
