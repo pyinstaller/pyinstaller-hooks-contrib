@@ -108,7 +108,7 @@ python-stdnum==1.18
 sounddevice==0.4.5; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
 yt-dlp==2022.11.11
-limits==2.7.1
+limits==2.7.2
 great-expectations==0.15.36
 tensorflow==2.11.0
 pyshark==0.5.3
