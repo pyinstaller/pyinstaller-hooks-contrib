@@ -1,0 +1,1 @@
+Update ``shapely`` hook for compatibility with ``shapely >= 2.0.0``.

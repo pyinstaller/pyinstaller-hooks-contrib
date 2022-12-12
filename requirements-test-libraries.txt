@@ -100,8 +100,7 @@ pypsexec==0.3.0
 mimesis==6.1.1; python_version >= '3.8'
 orjson==3.8.3
 altair==4.2.0; python_version >= '3.7'
-# For some reason, shapely provides only arm64 py310 macOS wheel.
-shapely==1.8.5.post1; sys_platform != 'darwin' or python_version < '3.10'
+shapely==2.0.0
 lark==1.1.4
 python-stdnum==1.18
 # On linux, sounddevice and soundfile use system-provided libportaudio
