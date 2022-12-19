@@ -43,7 +43,7 @@ markdown==3.4.1
 mnemonic==0.20
 msoffcrypto-tool==5.0.0
 netCDF4==1.6.2; python_version >= '3.8'
-numcodecs==0.10.2; python_version < '3.10' # doesn't have python 3.10 wheels yet
+numcodecs==0.11.0; python_version < '3.10' # doesn't have python 3.10 wheels yet
 Office365-REST-Python-Client==2.3.16
 openpyxl==3.0.10
 pandas==1.5.2; python_version >= '3.8'
