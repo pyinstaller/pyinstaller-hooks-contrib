@@ -4,12 +4,12 @@ importlib_resources==5.10.1; python_version < '3.9'
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==10.0.0
-adbutils==1.2.1; sys_platform == 'darwin' or sys_platform == 'win32'
+adbutils==1.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
 APScheduler==3.9.1.post1
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
-boto3==1.26.27
-botocore==1.29.27
+boto3==1.26.32
+botocore==1.29.32
 branca==0.6.0
 cairocffi==1.4.0
 CairoSVG==2.5.2
@@ -27,13 +27,13 @@ dash-uploader==0.6.0
 discid==1.2.0; sys_platform != 'win32'
 fabric==2.7.1
 fiona==1.8.22; sys_platform != 'win32'
-folium==0.13.0
+folium==0.14.0
 ffpyplayer==4.3.5; python_version < '3.10' # doesn't have py310 wheels
 geopandas==0.12.2; python_version >= '3.8' and sys_platform != 'win32'
 python-gitlab==3.12.0
 h5py==3.7.0; python_version >= '3.7'
 humanize==4.4.0
-iminuit==2.17.0
+iminuit==2.18.0
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.1.5.post3; sys_platform != "darwin"
@@ -43,11 +43,11 @@ markdown==3.4.1
 mnemonic==0.20
 msoffcrypto-tool==5.0.0
 netCDF4==1.6.2; python_version >= '3.8'
-numcodecs==0.10.2; python_version < '3.10' # doesn't have python 3.10 wheels yet
+numcodecs==0.11.0; python_version >= '3.8'
 Office365-REST-Python-Client==2.3.16
 openpyxl==3.0.10
 pandas==1.5.2; python_version >= '3.8'
-panel==0.14.1; python_version >= '3.7'
+panel==0.14.2; python_version >= '3.7'
 passlib==1.7.4
 pendulum==2.1.2
 phonenumbers==8.13.2
@@ -60,7 +60,7 @@ pycparser==2.21
 pycryptodome==3.16.0
 pycryptodomex==3.16.0
 pyexcelerate==0.10.0
-pylint==2.15.8
+pylint==2.15.9
 pypemicro==0.1.9
 pyphen==0.13.2
 pyppeteer==1.0.2
@@ -72,7 +72,7 @@ pynput==1.7.6
 pymssql==2.2.7
 pystray==0.19.4
 pythonnet==3.0.1
-pytz==2022.6
+pytz==2022.7
 pyzmq==24.0.1
 PyQt5==5.15.7
 qtmodern==0.2.0
@@ -80,10 +80,10 @@ Rtree==1.0.1
 sacremoses==0.0.53
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.9.3; python_version > '3.8'
-sentry-sdk==1.11.1
+sentry-sdk==1.12.1
 # shotgun_api3 can only be installed from git
 git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
-spacy==3.4.3
+spacy==3.4.4
 srsly==2.4.5
 swagger-spec-validator==3.0.3
 tableauhyperapi==0.0.16123
@@ -97,7 +97,7 @@ web3==6.0.0b8
 websockets==10.4; python_version >= '3.7'
 zeep==4.2.1
 pypsexec==0.3.0
-mimesis==6.1.1; python_version >= '3.8'
+mimesis==7.0.0; python_version >= '3.8'
 orjson==3.8.3
 altair==4.2.0; python_version >= '3.7'
 shapely==2.0.0
@@ -109,7 +109,7 @@ sounddevice==0.4.5; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
 yt-dlp==2022.11.11
 limits==2.7.2
-great-expectations==0.15.39
+great-expectations==0.15.41
 tensorflow==2.11.0
 pyshark==0.5.3
 opencv-python==4.6.0.66
