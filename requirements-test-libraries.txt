@@ -60,7 +60,7 @@ pycparser==2.21
 pycryptodome==3.16.0
 pycryptodomex==3.16.0
 pyexcelerate==0.10.0
-pylint==2.15.8
+pylint==2.15.9
 pypemicro==0.1.9
 pyphen==0.13.2
 pyppeteer==1.0.2
