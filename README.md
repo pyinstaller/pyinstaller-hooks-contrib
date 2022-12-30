@@ -28,6 +28,12 @@ If you'd like to add a hook, or view information about hooks,
 please see below.
 
 
+## Hook configuration (options)
+
+Hooks that support configuration (options) and their options are documented in
+[Supported hooks and options](hooks-config.rst).
+
+
 ## I want to help!
 
 If you've got a hook you want to share then great!
