@@ -92,7 +92,7 @@ timezonefinder==6.1.9; python_version > '3.8'
 Twisted==22.10.0
 tzdata==2022.7
 Unidecode==1.3.6
-weasyprint==57.1
+weasyprint==57.2
 web3==6.0.0b8
 websockets==10.4; python_version >= '3.7'
 zeep==4.2.1
