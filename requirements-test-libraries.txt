@@ -53,7 +53,7 @@ pendulum==2.1.2
 phonenumbers==8.13.3
 pingouin==0.5.3; python_version >= '3.7'
 pinyin==0.4.0
-platformdirs==2.6.0
+platformdirs==2.6.2
 plotly==5.11.0
 publicsuffix2==2.20191221
 pycparser==2.21
