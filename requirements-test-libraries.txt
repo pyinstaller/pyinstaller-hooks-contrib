@@ -107,7 +107,7 @@ python-stdnum==1.18
 # and libsndfile, respectively.
 sounddevice==0.4.5; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
-yt-dlp==2023.1.2
+yt-dlp==2023.1.6
 limits==2.8.0
 great-expectations==0.15.41
 tensorflow==2.11.0
