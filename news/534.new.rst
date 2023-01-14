@@ -1,0 +1,1 @@
+Add hook for ``charset-normalizer`` to fix ``ModuleNotFoundError: No module named 'charset_normalizer.md__mypyc'``.

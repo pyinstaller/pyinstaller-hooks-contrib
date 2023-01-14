@@ -1426,6 +1426,16 @@ def test_netcdf4(pyi_builder):
     """)
 
 
+@importorskip('charset_normalizer')
+def test_charset_normalizer(pyi_builder):
+    pyi_builder.test_source("""
+        import base64
+        import charset_normalizer
+        message = base64.b64decode(b"yUCEmYWBlIWEQIFAhJmFgZRAloZAgUCUlpmFQKKFlaKJgpOFQJeBg5KBh4U=")
+        print(charset_normalizer.from_bytes(message).best())
+    """)
+
+
 @importorskip('cf_units')
 def test_cf_units(pyi_builder):
     pyi_builder.test_source("""
