@@ -1,5 +1,0 @@
-Add a hook for `easyocr <https://github.com/JaidedAI/EasyOCR>`_,
-which imports recognition backends via ``imporlib.import_module()``
-and has a number of datafiles for different languages.
-
-Users can set which languages to include datafiles for with a hook option.

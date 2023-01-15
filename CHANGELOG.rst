@@ -1,3 +1,36 @@
+2022.15 (2023-01-15)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for `easyocr <https://github.com/JaidedAI/EasyOCR>`_,
+  which imports recognition backends via ``imporlib.import_module()``
+  and has a number of datafiles for different languages.
+
+  Users can set which languages to include datafiles for with a hook option.
+  (`#530
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/530>`_)
+* Add hook for ``charset-normalizer`` to fix ``ModuleNotFoundError: No module
+  named 'charset_normalizer.md__mypyc'``. (`#534
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/534>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``shapely`` hook for compatibility with ``shapely >= 2.0.0``. (`#527
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/527>`_)
+
+
+Project & Process
+~~~~~~~~~~~~~~~~~
+
+* Added `hooks-config.rst` document which documents hook options.
+  It is referred to from README.md. (`#530
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/530>`_)
+
+
 2022.14 (2022-12-04)
 --------------------
 

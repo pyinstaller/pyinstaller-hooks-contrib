@@ -1,2 +1,0 @@
-Added `hooks-config.rst` document which documents hook options.
-It is referred to from README.md.
