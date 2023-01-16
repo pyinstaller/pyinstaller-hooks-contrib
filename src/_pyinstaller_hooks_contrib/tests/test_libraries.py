@@ -1480,7 +1480,7 @@ def test_compliance_checker(pyi_builder):
 
 
 @importorskip('nbt')
-def test_cf_units(pyi_builder):
+def test_nbt(pyi_builder):
     pyi_builder.test_source("""
         import nbt
     """)
