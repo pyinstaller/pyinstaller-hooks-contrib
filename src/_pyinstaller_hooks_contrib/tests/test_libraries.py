@@ -1477,3 +1477,13 @@ def test_compliance_checker(pyi_builder):
         print("Return value:", return_value)
         print("Errors occurred:", errors)
     """, app_args=[str(input_file)])
+
+
+@importorskip('minecraft_launcher_lib')
+def test_minecraft_launcher_lib(pyi_builder):
+    pyi_builder.test_source(
+        '''
+        import minecraft_launcher_lib
+        assert isinstance(minecraft_launcher_lib.utils.get_library_version(), str)
+        '''
+    )
