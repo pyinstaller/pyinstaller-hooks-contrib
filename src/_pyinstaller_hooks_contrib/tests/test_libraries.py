@@ -1479,6 +1479,13 @@ def test_compliance_checker(pyi_builder):
     """, app_args=[str(input_file)])
 
 
+@importorskip('nbt')
+def test_nbt(pyi_builder):
+    pyi_builder.test_source("""
+        import nbt
+    """)
+
+
 @importorskip('minecraft_launcher_lib')
 def test_minecraft_launcher_lib(pyi_builder):
     pyi_builder.test_source(
