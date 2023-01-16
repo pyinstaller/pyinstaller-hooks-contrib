@@ -8,16 +8,16 @@ adbutils==1.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
 APScheduler==3.9.1.post1
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
-boto3==1.26.45
-botocore==1.29.45
+boto3==1.26.50
+botocore==1.29.50
 branca==0.6.0
 cairocffi==1.4.0
-CairoSVG==2.5.2
+CairoSVG==2.6.0
 cassandra-driver==3.25.0
 cf-units==3.1.1; sys_platform != 'win32' and python_version >= '3.8'
 cftime==1.6.2
 charset_normalizer==3.0.1
-cloudscraper==1.2.67
+cloudscraper==1.2.68
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.0.2; sys_platform != 'win32' and python_version >= '3.8'
 dash==2.7.1
@@ -55,7 +55,7 @@ phonenumbers==8.13.4
 pingouin==0.5.3; python_version >= '3.7'
 pinyin==0.4.0
 platformdirs==2.6.2
-plotly==5.11.0
+plotly==5.12.0
 publicsuffix2==2.20191221
 pycparser==2.21
 pycryptodome==3.16.0
@@ -73,22 +73,22 @@ pynput==1.7.6
 pymssql==2.2.7
 pystray==0.19.4
 pythonnet==3.0.1
-pytz==2022.7
-pyzmq==24.0.1
+pytz==2022.7.1
+pyzmq==25.0.0
 PyQt5==5.15.7
 qtmodern==0.2.0
 Rtree==1.0.1
 sacremoses==0.0.53
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.10.0; python_version > '3.8'
-sentry-sdk==1.12.1
+sentry-sdk==1.13.0
 # shotgun_api3 can only be installed from git
 git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
 spacy==3.4.4
 srsly==2.4.5
 swagger-spec-validator==3.0.3
 tableauhyperapi==0.0.16123
-thinc==8.1.6
+thinc==8.1.7
 timezonefinder==6.1.9; python_version > '3.8'
 Twisted==22.10.0
 tzdata==2022.7
@@ -99,7 +99,7 @@ websockets==10.4; python_version >= '3.7'
 zeep==4.2.1
 pypsexec==0.3.0
 mimesis==7.0.0; python_version >= '3.8'
-orjson==3.8.4
+orjson==3.8.5
 altair==4.2.0; python_version >= '3.7'
 shapely==2.0.0
 lark==1.1.5
@@ -109,8 +109,8 @@ python-stdnum==1.18
 sounddevice==0.4.5; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
 yt-dlp==2023.1.6
-limits==3.1.4
-great-expectations==0.15.42
+limits==3.1.6
+great-expectations==0.15.43
 tensorflow==2.11.0
 pyshark==0.5.3
 opencv-python==4.7.0.68
