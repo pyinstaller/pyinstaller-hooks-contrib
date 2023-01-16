@@ -1477,3 +1477,10 @@ def test_compliance_checker(pyi_builder):
         print("Return value:", return_value)
         print("Errors occurred:", errors)
     """, app_args=[str(input_file)])
+
+
+@importorskip('nbt')
+def test_cf_units(pyi_builder):
+    pyi_builder.test_source("""
+        import nbt
+    """)
