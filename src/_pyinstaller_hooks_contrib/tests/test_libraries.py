@@ -1484,3 +1484,13 @@ def test_nbt(pyi_builder):
     pyi_builder.test_source("""
         import nbt
     """)
+
+
+@importorskip('minecraft_launcher_lib')
+def test_minecraft_launcher_lib(pyi_builder):
+    pyi_builder.test_source(
+        '''
+        import minecraft_launcher_lib
+        assert isinstance(minecraft_launcher_lib.utils.get_library_version(), str)
+        '''
+    )
