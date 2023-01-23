@@ -9,7 +9,7 @@ APScheduler==3.9.1.post1
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
 boto3==1.26.54
-botocore==1.29.50
+botocore==1.29.54
 branca==0.6.0
 cairocffi==1.4.0
 CairoSVG==2.6.0
