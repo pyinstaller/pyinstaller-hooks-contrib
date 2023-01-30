@@ -1,0 +1,2 @@
+Have ``fiona`` hook collect the package's data files (e.g., the
+projections database).

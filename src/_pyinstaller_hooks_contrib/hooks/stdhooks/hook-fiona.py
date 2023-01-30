@@ -10,8 +10,14 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+from PyInstaller.utils.hooks import collect_data_files
+
+
 hiddenimports = [
     "fiona._shim",
     "fiona.schema",
     "json",
 ]
+
+# Collect data files that are part of the package (e.g., projections database)
+datas = collect_data_files("fiona")

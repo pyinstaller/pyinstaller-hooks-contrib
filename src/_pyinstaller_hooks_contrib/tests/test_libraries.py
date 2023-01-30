@@ -28,6 +28,38 @@ def test_fiona(pyi_builder):
         '''
     )
 
+
+@importorskip('fiona')
+def test_fiona_transform(pyi_builder):
+    # Test that fiona in frozen application has access to its projections database. If projection data is unavailable,
+    # the transform becomes an identity transform.
+    pyi_builder.test_source(
+        """
+        from fiona.transform import transform_geom
+        from fiona.crs import from_epsg
+
+        eiffel_tower = {
+            'type': 'Point',
+            'coordinates': (2.294694, 48.858093),
+        }
+
+        crs_source = from_epsg(4326)  # WGS84
+        crs_target = from_epsg(25831)  # ETRS89 / UTM zone 31N
+
+        transformed = transform_geom(crs_source, crs_target, eiffel_tower)
+        print(f"Transformed point: {transformed}")
+
+        # Expected coordinates: obtained by manually running this program unfrozen
+        EXPECTED_COORDINATES = (448265.9146792292, 5411920.651338793)
+        EPS = 1e-6
+
+        delta = [abs(value - expected) for value, expected in zip(transformed["coordinates"], EXPECTED_COORDINATES)]
+        print(f"Delta: {delta}")
+        assert all([value < EPS for value in delta]), f"Delta {delta} exceeds threshold!"
+        """
+    )
+
+
 @importorskip('jinxed')
 def test_jinxed(pyi_builder):
     pyi_builder.test_source(
