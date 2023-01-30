@@ -100,7 +100,7 @@ zeep==4.2.1
 pypsexec==0.3.0
 mimesis==7.0.0; python_version >= '3.8'
 orjson==3.8.5
-altair==4.2.0; python_version >= '3.7'
+altair==4.2.2; python_version >= '3.7'
 shapely==2.0.0
 lark==1.1.5
 python-stdnum==1.18
