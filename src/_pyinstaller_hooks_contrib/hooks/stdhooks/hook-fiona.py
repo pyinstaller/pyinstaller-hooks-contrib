@@ -10,14 +10,17 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import collect_data_files
-
+from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies
 
 hiddenimports = [
     "fiona._shim",
     "fiona.schema",
     "json",
 ]
+
+# As of fiona 1.9.0, `fiona.enums` is also a hidden import, made in cythonized `fiona.crs`.
+if is_module_satisfies("fiona >= 1.9.0"):
+    hiddenimports.append("fiona.enums")
 
 # Collect data files that are part of the package (e.g., projections database)
 datas = collect_data_files("fiona")
