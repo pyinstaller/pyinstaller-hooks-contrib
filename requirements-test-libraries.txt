@@ -59,7 +59,7 @@ plotly==5.13.0
 publicsuffix2==2.20191221
 pycparser==2.21
 pycryptodome==3.17
-pycryptodomex==3.16.0
+pycryptodomex==3.17
 pyexcelerate==0.10.0
 pylint==2.15.10
 pypemicro==0.1.9
