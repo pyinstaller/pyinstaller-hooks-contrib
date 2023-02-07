@@ -4,12 +4,12 @@ importlib_resources==5.10.2; python_version < '3.9'
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==10.0.0
-adbutils==1.2.3; sys_platform == 'darwin' or sys_platform == 'win32'
-APScheduler==3.9.1.post1
+adbutils==1.2.7; sys_platform == 'darwin' or sys_platform == 'win32'
+APScheduler==3.10.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
-boto3==1.26.59
-botocore==1.29.59
+boto3==1.26.64
+botocore==1.29.64
 branca==0.6.0
 cairocffi==1.4.0
 CairoSVG==2.6.0
@@ -31,9 +31,9 @@ fiona==1.9.0; sys_platform != 'win32'
 folium==0.14.0
 ffpyplayer==4.3.5; python_version < '3.10' # doesn't have py310 wheels
 geopandas==0.12.2; python_version >= '3.8' and sys_platform != 'win32'
-python-gitlab==3.12.0
+python-gitlab==3.13.0
 h5py==3.8.0; python_version >= '3.7'
-humanize==4.5.0
+humanize==4.6.0
 iminuit==2.18.0
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
@@ -46,9 +46,9 @@ msoffcrypto-tool==5.0.0
 netCDF4==1.6.2; python_version >= '3.8'
 numcodecs==0.11.0; python_version >= '3.8'
 Office365-REST-Python-Client==2.3.16
-openpyxl==3.0.10
+openpyxl==3.1.0
 pandas==1.5.3; python_version >= '3.8'
-panel==0.14.2; python_version >= '3.7'
+panel==0.14.3; python_version >= '3.7'
 passlib==1.7.4
 pendulum==2.1.2
 phonenumbers==8.13.5
@@ -61,7 +61,7 @@ pycparser==2.21
 pycryptodome==3.17
 pycryptodomex==3.17
 pyexcelerate==0.10.0
-pylint==2.15.10
+pylint==2.16.1
 pypemicro==0.1.9
 pyphen==0.13.2
 pyppeteer==1.0.2
@@ -75,7 +75,7 @@ pystray==0.19.4
 pythonnet==3.0.1
 pytz==2022.7.1
 pyzmq==25.0.0
-PyQt5==5.15.8
+PyQt5==5.15.9
 qtmodern==0.2.0
 Rtree==1.0.1
 sacremoses==0.0.53
@@ -110,7 +110,7 @@ sounddevice==0.4.5; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
 yt-dlp==2023.1.6
 limits==3.2.0
-great-expectations==0.15.46
+great-expectations==0.15.47
 tensorflow==2.11.0
 pyshark==0.5.3
 opencv-python==4.7.0.68
