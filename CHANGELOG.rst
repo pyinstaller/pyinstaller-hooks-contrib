@@ -1,3 +1,25 @@
+2023.0 (2023-02-13)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``minecraft-launcher-lib`` (`#536
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/536>`_)
+* Add hook for ``nbt`` (`#537
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/537>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Have ``fiona`` hook collect the package's data files (e.g., the
+  projections database). (`#541
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/541>`_)
+* Update ``fiona`` hook for compatibility with ``fiona`` 1.9.0. (`#541
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/541>`_)
+
+
 2022.15 (2023-01-15)
 --------------------
 
