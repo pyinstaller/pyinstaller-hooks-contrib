@@ -9,4 +9,5 @@
     'pythoncom': ['pyi_rth_pythoncom.py'],
     'pyqtgraph': ['pyi_rth_pyqtgraph_multiprocess.py'],
     'pywintypes': ['pyi_rth_pywintypes.py'],
+    'tensorflow': ['pyi_rth_tensorflow.py'],
 }
