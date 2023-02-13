@@ -110,7 +110,7 @@ sounddevice==0.4.5; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
 yt-dlp==2023.1.6
 limits==3.2.0
-great-expectations==0.15.47
+great-expectations==0.15.48
 tensorflow==2.11.0
 pyshark==0.5.3
 opencv-python==4.7.0.68
