@@ -51,7 +51,7 @@ pandas==1.5.3; python_version >= '3.8'
 panel==0.14.3; python_version >= '3.7'
 passlib==1.7.4
 pendulum==2.1.2
-phonenumbers==8.13.5
+phonenumbers==8.13.6
 pingouin==0.5.3; python_version >= '3.7'
 pinyin==0.4.0
 platformdirs==2.6.2
