@@ -62,7 +62,7 @@ pycryptodome==3.17
 pycryptodomex==3.17
 pyexcelerate==0.10.0
 pylint==2.16.2
-pypemicro==0.1.9
+pypemicro==0.1.10
 pyphen==0.13.2
 pyppeteer==1.0.2
 pyqtgraph==0.13.1; python_version > '3.7'
