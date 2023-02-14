@@ -8,8 +8,8 @@ adbutils==1.2.7; sys_platform == 'darwin' or sys_platform == 'win32'
 APScheduler==3.10.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 boto==2.49.0
-boto3==1.26.64
-botocore==1.29.64
+boto3==1.26.69
+botocore==1.29.69
 branca==0.6.0
 cairocffi==1.4.0
 CairoSVG==2.6.0
@@ -27,14 +27,14 @@ dash-uploader==0.6.0
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
 fabric==3.0.0
-fiona==1.9.0; sys_platform != 'win32'
+fiona==1.9.1; sys_platform != 'win32'
 folium==0.14.0
-ffpyplayer==4.3.5; python_version < '3.10' # doesn't have py310 wheels
+ffpyplayer==4.4.0
 geopandas==0.12.2; python_version >= '3.8' and sys_platform != 'win32'
 python-gitlab==3.13.0
 h5py==3.8.0; python_version >= '3.7'
 humanize==4.6.0
-iminuit==2.18.0
+iminuit==2.19.0; python_version >= '3.8'
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.1.5.post3; sys_platform != "darwin"
@@ -46,23 +46,23 @@ msoffcrypto-tool==5.0.0
 netCDF4==1.6.2; python_version >= '3.8'
 numcodecs==0.11.0; python_version >= '3.8'
 Office365-REST-Python-Client==2.3.16
-openpyxl==3.1.0
+openpyxl==3.1.1
 pandas==1.5.3; python_version >= '3.8'
 panel==0.14.3; python_version >= '3.7'
 passlib==1.7.4
 pendulum==2.1.2
-phonenumbers==8.13.5
+phonenumbers==8.13.6
 pingouin==0.5.3; python_version >= '3.7'
 pinyin==0.4.0
-platformdirs==2.6.2
+platformdirs==3.0.0
 plotly==5.13.0
 publicsuffix2==2.20191221
 pycparser==2.21
 pycryptodome==3.17
 pycryptodomex==3.17
 pyexcelerate==0.10.0
-pylint==2.16.1
-pypemicro==0.1.9
+pylint==2.16.2
+pypemicro==0.1.10
 pyphen==0.13.2
 pyppeteer==1.0.2
 pyqtgraph==0.13.1; python_version > '3.7'
@@ -81,13 +81,13 @@ Rtree==1.0.1
 sacremoses==0.0.53
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.10.0; python_version > '3.8'
-sentry-sdk==1.14.0
+sentry-sdk==1.15.0
 # shotgun_api3 can only be installed from git
 git+https://github.com/shotgunsoftware/python-api.git@v3.2.6
 spacy==3.5.0
 srsly==2.4.5
 swagger-spec-validator==3.0.3
-tableauhyperapi==0.0.16377
+tableauhyperapi==0.0.16491
 thinc==8.1.7
 timezonefinder==6.1.9; python_version > '3.8'
 Twisted==22.10.0
@@ -99,7 +99,7 @@ websockets==10.4; python_version >= '3.7'
 zeep==4.2.1
 pypsexec==0.3.0
 mimesis==7.0.0; python_version >= '3.8'
-orjson==3.8.5
+orjson==3.8.6
 altair==4.2.2; python_version >= '3.7'
 shapely==2.0.1
 lark==1.1.5
@@ -110,7 +110,7 @@ sounddevice==0.4.5; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
 yt-dlp==2023.1.6
 limits==3.2.0
-great-expectations==0.15.47
+great-expectations==0.15.48
 tensorflow==2.11.0
 pyshark==0.5.3
 opencv-python==4.7.0.68
