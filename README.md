@@ -269,7 +269,7 @@ Its fields are as follows:
     * Set to `ubuntu, macos, windows` (order is unimportant) to test all three OSs.
 4.  Which Python version(s) to run on
     * Set to `3.9` to test only Python 3.9,
-    * Set to `3.6, 3.7, 3.8, 3.9` to test all currently supported version of Python.
+    * Set to `3.8, 3.9, 3.10, 3.11` to test all currently supported version of Python.
 5.  The final two options can generally be left alone.
 
 Hit the green **Run workflow** button at the bottom of the dialog, wait a few seconds then refresh the page.
