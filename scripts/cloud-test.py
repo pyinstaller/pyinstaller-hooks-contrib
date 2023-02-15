@@ -103,6 +103,7 @@ OSs = ["ubuntu", "windows", "macos"]
 @click.option("--os", multiple=True, default=["ubuntu"], type=click.Choice(OSs + ["all"], case_sensitive=False),
               help="Which OSs to test on. Use 'all' to specify all three. Defaults to 'ubuntu'.")
 @click.option("--fail-fast", default=False, is_flag=True, help="Cancel all other builds if any one of them fails.")
+@click.option("--pytest-args", default="", help="Additional arguments to be passed to pytest.")
 @click.option("--fork", default=None,
               help="Which fork of pyinstaller-hooks-contrib to use. Defaults to the fork of the authenticated user.")
 @click.option("--branch", default=None,
@@ -113,7 +114,7 @@ OSs = ["ubuntu", "windows", "macos"]
 @click.option("--browser", default=False, is_flag=True,
               help="Open the live build on Github in a browser window.")
 @click.option("--dry-run", is_flag=True, help="Don't launch a build. Just parse and print the parameters.")
-def main(package, py, os, fork, branch, fail_fast, commands, browser, dry_run):
+def main(package, py, os, fork, branch, pytest_args, fail_fast, commands, browser, dry_run):
     """Launch CI testing of a given package against multiple package or Python versions and OSs.
 
     The **package** specifies only those to install. Which tests should be ran is inferred implicitly by
@@ -160,6 +161,7 @@ def main(package, py, os, fork, branch, fail_fast, commands, browser, dry_run):
         "python-version": _norm_comma_space(",".join(py)),
         "package": _norm_comma_space(package),
         "os": _norm_comma_space(",".join(os).lower()),
+        "pytest_args": pytest_args,
         "fail-fast": str(fail_fast).lower(),
         "commands": "; ".join(commands),
     }

@@ -40,6 +40,9 @@ on:
           Ran from bash irregardless of OS.
           Use ';' to separate multiple commands.
         required: false
+      pytest_args:
+        description: |
+          Additional arguments to be passed to pytest.
 
 env:
   # Colored pytest output on CI despite not having a tty
@@ -150,4 +153,4 @@ jobs:
           pip install https://github.com/pyinstaller/pyinstaller/archive/develop.zip
 
       - name: Run tests
-        run: python -m PyInstaller.utils.run_tests -c pytest.ini -v
+        run: pytest -v ${{ inputs.pytest_args }}
