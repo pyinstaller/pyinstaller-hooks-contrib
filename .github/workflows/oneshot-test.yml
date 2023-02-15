@@ -29,7 +29,7 @@ on:
       python-version:
         description: 'Version(s) of Python'
         required: true
-        default: '3.7,'
+        default: '3.11,'
       fail-fast:
         description: 'Terminate all tests if one fails (true/false).'
         required: true
@@ -65,7 +65,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.7
+          python-version: 3.11
 
       # Actually parse the configuration.
       - id: set-matrix

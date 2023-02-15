@@ -89,17 +89,17 @@ def _norm_comma_space(x):
     return re.sub(", *", ", ", x)
 
 
-PYTHONS = ["3.7", "3.8", "3.9", "3.10"]
+PYTHONS = ["3.8", "3.9", "3.10", "3.11"]
 OSs = ["ubuntu", "windows", "macos"]
 
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.argument("package", nargs=-1)
-@click.option("--py", multiple=True, default=["3.7"],
+@click.option("--py", multiple=True, default=["3.11"],
               help="Python version(s) to test on. Separate multiple versions with a comma or use this parameter "
-                   "multiple times to test multiple versions. You may specify micro versions such as 3.7.9 although "
+                   "multiple times to test multiple versions. You may specify micro versions such as 3.10.9 although "
                    "this is discouraged as they are not guaranteed to be available. Use 'all' to select {}. "
-                   "Defaults to '3.7'.".format(PYTHONS))
+                   "Defaults to '3.11'.".format(PYTHONS))
 @click.option("--os", multiple=True, default=["ubuntu"], type=click.Choice(OSs + ["all"], case_sensitive=False),
               help="Which OSs to test on. Use 'all' to specify all three. Defaults to 'ubuntu'.")
 @click.option("--fail-fast", default=False, is_flag=True, help="Cancel all other builds if any one of them fails.")
@@ -119,10 +119,10 @@ def main(package, py, os, fork, branch, fail_fast, commands, browser, dry_run):
     The **package** specifies only those to install. Which tests should be ran is inferred implicitly by
     ``@pytest.importorskip``.
 
-    Basic usage: Launch two jobs to test the ``pycparser`` hooks on linux, Pythons 3.6 and 3.7, using the latest
+    Basic usage: Launch two jobs to test the ``pycparser`` hooks on linux, Pythons 3.10 and 3.11, using the latest
     version of ``pycparser``. And open the build in a browser window.
 
-        python cloud-test.py --py=3.6,3.7 --os=ubuntu --browser pycparser
+        python cloud-test.py --py=3.10,3.11 --os=ubuntu --browser pycparser
 
     The **package** can be anything you'd put on the right hand side of `pip install`. Multiple packages to install can
     be separated by a space: Launch one job which installs and tests two libraries.
