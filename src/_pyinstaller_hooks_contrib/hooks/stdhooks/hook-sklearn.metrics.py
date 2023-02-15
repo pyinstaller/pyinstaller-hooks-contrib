@@ -10,10 +10,16 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-# Required by scikit-learn 1.0.0
-from PyInstaller.utils.hooks import is_module_satisfies
+from PyInstaller.utils.hooks import is_module_satisfies, collect_submodules
 
+hiddenimports = []
+
+# Required by scikit-learn 1.0.0
 if is_module_satisfies("scikit-learn >= 1.0.0"):
-    hiddenimports = [
+    hiddenimports += [
         'sklearn.utils._typedefs',
     ]
+
+# Required by scikit-learn 1.2.0
+if is_module_satisfies("scikit-learn >= 1.2.0"):
+    hiddenimports += collect_submodules("sklearn.metrics._pairwise_distances_reduction")
