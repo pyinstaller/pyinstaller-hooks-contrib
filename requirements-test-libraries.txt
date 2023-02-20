@@ -45,7 +45,7 @@ mnemonic==0.20
 msoffcrypto-tool==5.0.0
 netCDF4==1.6.2; python_version >= '3.8'
 numcodecs==0.11.0; python_version >= '3.8'
-Office365-REST-Python-Client==2.3.16
+Office365-REST-Python-Client==2.4.0
 openpyxl==3.1.1
 pandas==1.5.3; python_version >= '3.8'
 panel==0.14.3; python_version >= '3.7'
