@@ -30,8 +30,11 @@ datas = collect_data_files('pyqtgraph', excludes=['**/examples/*'])
 # To be future-proof, we collect all modules by
 # using collect-submodules, and filtering the modules
 # which appear to be templates.
+# We need to avoid recursing into `pyqtgraph.examples`, because that
+# triggers instantiation of `QApplication` (which requires X/Wayland
+# session on linux).
 # Tested with pyqtgraph master branch (commit c1900aa).
-all_imports = collect_submodules("pyqtgraph")
+all_imports = collect_submodules("pyqtgraph", filter=lambda name: name != "pyqtgraph.examples")
 hiddenimports = [name for name in all_imports if "Template" in name]
 
 # Collect the pyqtgraph/multiprocess/bootstrap.py as a module; this is required by our pyqtgraph.multiprocess runtime
