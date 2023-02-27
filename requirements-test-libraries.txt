@@ -106,7 +106,7 @@ lark==1.1.5
 python-stdnum==1.18
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
-sounddevice==0.4.5; sys_platform != 'linux'
+sounddevice==0.4.6; sys_platform != 'linux'
 soundfile==0.11.0; sys_platform != 'linux'
 yt-dlp==2023.1.6
 limits==3.2.0
