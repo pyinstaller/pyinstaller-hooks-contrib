@@ -1265,13 +1265,6 @@ def test_soundfile(pyi_builder):
     """)
 
 
-@importorskip('yt_dlp')
-def test_yt_dlp(pyi_builder):
-    pyi_builder.test_source("""
-        import yt_dlp
-    """)
-
-
 @importorskip('limits')
 def test_limits(pyi_builder):
     pyi_builder.test_source("""

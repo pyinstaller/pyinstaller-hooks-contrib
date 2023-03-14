@@ -1,0 +1,2 @@
+Delete hook for ``yt_dlp`` which fixed the offending hidden import upstream in
+``yt_dlp>=2022.07.18``.
