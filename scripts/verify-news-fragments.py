@@ -26,7 +26,7 @@ CHANGELOG_GUIDE = \
     "https://github.com/pyinstaller/pyinstaller-hooks-contrib/tree/master/news#readme"
 
 CHANGE_TYPES = {
-    'new', 'update', 'process', 'tests'
+    'new', 'update', 'remove', 'process', 'tests'
 }
 
 NEWS_PATTERN = re.compile(r"(\d+)\.(\w+)\.(?:(\d+)\.)?rst")

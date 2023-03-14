@@ -22,6 +22,11 @@
 		showcontent = true
 
 	[[tool.towncrier.type]]
+		directory = "remove"
+		name = "Removed hooks"
+		showcontent = true
+
+	[[tool.towncrier.type]]
 		directory = "process"
 		name = "Project & Process"
 		showcontent = true
