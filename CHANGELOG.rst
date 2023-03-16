@@ -1,3 +1,34 @@
+2023.1 (2023-03-16)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Add work-around for ``ffpyplayer`` 4.3.5 and 4.4.0 trying to use
+  ``site.USER_BASE``, which is ``None`` in  PyInstaller 5.5 and later
+  due to removal of PyInstaller's fake ``site`` module. (`#545
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/545>`_)
+* Add work-around for ``tensorflow`` < 2.3.0 trying to use
+  ``site.USER_SITE``, which is ``None`` in  PyInstaller 5.5 and later
+  due to removal of PyInstaller's fake ``site`` module. (`#546
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/546>`_)
+* Prevent ``pyqtgraph`` hook from recursing into ``pyqgraph.examples``
+  while scanning for submodules. (`#551
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/551>`_)
+* Update ``sklearn`` hooks for compatibility with ``scikit-learn`` 1.2.0
+  and 1.2.1. (`#547
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/547>`_)
+
+
+Removed hooks
+~~~~~~~~~~~~~
+
+* Delete hook for ``yt_dlp`` which fixed the offending hidden import upstream
+  in
+  ``yt_dlp>=2022.07.18``. (`#556
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/556>`_)
+
+
 2023.0 (2023-02-13)
 -------------------
 

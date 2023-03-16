@@ -1,2 +1,0 @@
-Prevent ``pyqtgraph`` hook from recursing into ``pyqgraph.examples``
-while scanning for submodules.

@@ -1,3 +1,0 @@
-Add work-around for ``tensorflow`` < 2.3.0 trying to use
-``site.USER_SITE``, which is ``None`` in  PyInstaller 5.5 and later
-due to removal of PyInstaller's fake ``site`` module.
