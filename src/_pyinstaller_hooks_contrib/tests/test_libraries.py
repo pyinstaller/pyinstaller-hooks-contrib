@@ -1519,3 +1519,13 @@ def test_minecraft_launcher_lib(pyi_builder):
         assert isinstance(minecraft_launcher_lib.utils.get_library_version(), str)
         '''
     )
+
+
+@importorskip('moviepy')
+def test_moviepy_editor(pyi_builder):
+    # `moviepy.editor` tries to access the `moviepy.video.fx` and `moviepy.audio.fx` plugins/modules via the
+    # `moviepy.video.fx.all` and `moviepy.video.fx.all` modules, which in turn programmatically import and
+    # forward all corresponding submodules.
+    pyi_builder.test_source("""
+        import moviepy.editor
+    """)
