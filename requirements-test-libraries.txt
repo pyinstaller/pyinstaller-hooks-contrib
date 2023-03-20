@@ -64,7 +64,7 @@ pycryptodomex==3.17
 pyexcelerate==0.10.0
 pylint==2.17.0
 pypemicro==0.1.11
-pyphen==0.13.2
+pyphen==0.14.0
 pyppeteer==1.0.2
 pyqtgraph==0.13.2; python_version > '3.7'
 pyusb==1.2.1
