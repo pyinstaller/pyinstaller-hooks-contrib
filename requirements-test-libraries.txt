@@ -92,7 +92,7 @@ tableauhyperapi==0.0.16638
 thinc==8.1.9
 timezonefinder==6.1.10; python_version > '3.8'
 Twisted==22.10.0
-tzdata==2022.7
+tzdata==2023.2
 Unidecode==1.3.6
 weasyprint==58.1
 web3==6.0.0
