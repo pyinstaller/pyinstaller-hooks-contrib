@@ -1366,7 +1366,11 @@ def test_pyqtgraph_remote_graphics_view(pyi_builder):
     )
 
 
+# Remove xfail once facebookresearch/hydra#2531 is merged.
 @importorskip('hydra')
+@xfail(
+    is_module_satisfies('PyInstaller >= 5.8'),
+    reason="uses deprecated PEP-302 functionality that was removed from PyInstaller's FrozenImporter.")
 def test_hydra(pyi_builder, tmpdir):
     config_file = str((Path(__file__) / '../data/test_hydra/config.yaml').resolve(strict=True).as_posix())
 
