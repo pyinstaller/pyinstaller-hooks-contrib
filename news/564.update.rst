@@ -1,0 +1,1 @@
+Update the hook for ``tensorflow`` to be compatible with TensorFlow 2.12.
