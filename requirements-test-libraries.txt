@@ -120,6 +120,7 @@ exchangelib==4.9.0
 NBT==1.5.1
 minecraft-launcher-lib==5.3; python_version >= '3.8'
 scikit-learn==1.2.2; python_version >= '3.8'
+scikit-image==0.20.0; python_version >= '3.8'
 
 
 # ------------------- Platform (OS) specifics
