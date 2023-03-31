@@ -10,9 +10,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import is_module_satisfies
+from PyInstaller.utils.hooks import is_module_satisfies, collect_submodules
 
-# The following missing module prevents import of skimage.feature
-# with skimage 0.18.x.
-if is_module_satisfies("scikit_image >= 0.18.0"):
+if is_module_satisfies("scikit_image >= 0.19.0"):
+    # In scikit-image 0.19.0, `skimage.filters` switched to lazy module loading, so we need to collect all submodules.
+    hiddenimports = collect_submodules('skimage.filters', filter=lambda name: name != 'skimage.filters.tests')
+elif is_module_satisfies("scikit_image >= 0.18.0"):
+    # The following missing module prevents import of skimage.feature with skimage 0.18.x.
     hiddenimports = ['skimage.filters.rank.core_cy_3d', ]

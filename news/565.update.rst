@@ -1,0 +1,2 @@
+Update ``scikit-image`` hooks for compatibility with the 0.19.x series;
+account for lazy module loading in ``skimage.filters``.
