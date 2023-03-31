@@ -114,3 +114,26 @@ jobs:
 
       - name: Run tests
         run: pytest -v
+
+      # Conditionally enable slow tests, so that they are ran only if
+      # their corresponding packages are explicitly installed but not
+      # if they are installed as dependencies of some other package.
+      - name: Check if slow tests are required (scikit-learn)
+        id: check-scikit-learn
+        shell: bash
+        run: |
+          grep -E "scikit-learn" requirements-test-libraries.txt && echo "AVAILABLE=yes" >> $GITHUB_OUTPUT || echo "AVAILABLE=no" >> $GITHUB_OUTPUT
+
+      - name: Run slow tests (scikit-learn)
+        if: ${{ steps.check-scikit-learn.outputs.AVAILABLE == 'yes' }}
+        run: pytest -v -m slow -k sklearn
+
+      - name: Check if slow tests are required (scikit-image)
+        id: check-scikit-image
+        shell: bash
+        run: |
+          grep -E "scikit-image" requirements-test-libraries.txt && echo "AVAILABLE=yes" >> $GITHUB_OUTPUT || echo "AVAILABLE=no" >> $GITHUB_OUTPUT
+
+      - name: Run slow tests (scikit-image)
+        if: ${{ steps.check-scikit-image.outputs.AVAILABLE == 'yes' }}
+        run: pytest -v -m slow -k skimage
