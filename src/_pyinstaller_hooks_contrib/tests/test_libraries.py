@@ -487,7 +487,7 @@ def test_pydivert(pyi_builder):
 @pytest.mark.parametrize('submodule', [
     'color', 'data', 'draw', 'exposure', 'feature', 'filters', 'future',
     'graph', 'io', 'measure', 'metrics', 'morphology', 'registration',
-    'restoration', 'segmentation', 'transform', 'util', 'viewer'
+    'restoration', 'segmentation', 'transform', 'util'
 ])
 def test_skimage(pyi_builder, submodule):
     pyi_builder.test_source("""
