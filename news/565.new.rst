@@ -1,0 +1,1 @@
+Added hook file for scikit-image (skimage). There were existing hooks for individual submodules of skimage, but since v0.2 it needs more.
