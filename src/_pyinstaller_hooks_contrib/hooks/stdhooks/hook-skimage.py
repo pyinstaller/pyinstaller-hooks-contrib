@@ -16,5 +16,4 @@
 
 from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 hiddenimports = [x for x in collect_submodules("skimage") if "tests" not in x]
-datas =collect_data_files("skimage")
-
+datas = collect_data_files("skimage")
