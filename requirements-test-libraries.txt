@@ -100,7 +100,7 @@ websockets==11.0; python_version >= '3.7'
 zeep==4.2.1
 pypsexec==0.3.0
 mimesis==7.0.0; python_version >= '3.8'
-orjson==3.8.8
+orjson==3.8.9
 altair==4.2.2; python_version >= '3.7'
 shapely==2.0.1
 lark==1.1.5
