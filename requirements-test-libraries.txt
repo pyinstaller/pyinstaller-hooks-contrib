@@ -116,7 +116,7 @@ pyshark==0.5.3
 opencv-python==4.7.0.72
 hydra-core==1.3.2
 spiceypy==5.1.2
-exchangelib==4.9.0
+exchangelib==5.0.1
 NBT==1.5.1
 minecraft-launcher-lib==5.3; python_version >= '3.8'
 scikit-learn==1.2.2; python_version >= '3.8'
