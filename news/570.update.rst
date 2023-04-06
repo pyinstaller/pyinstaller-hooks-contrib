@@ -1,0 +1,2 @@
+Add automatic increase of recursion limit in the ``torch`` hook to ensure that
+recursion limit is at least 5000 if ``torch`` 2.0.0 or later is detected.
