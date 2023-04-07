@@ -1,3 +1,0 @@
-Extend ``cv2`` hook with support for OpenCV built manually from source
-and for OpenCV installed using the official Windows installer. This
-support requires PyInstaller >= 5.3 to work properly.

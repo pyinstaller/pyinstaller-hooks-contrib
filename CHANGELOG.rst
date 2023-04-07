@@ -1,3 +1,42 @@
+2023.2 (2023-04-07)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hooks for ``moviepy.audio.fx.all`` and ``moviepy.video.fx.all`` that
+  collect all
+  corresponding submodules, so that importing ``moviepy.editor`` from MoviePy
+  works
+  out-of-the-box in the frozen application. (`#559
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/559>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Add automatic increase of recursion limit in the ``torch`` hook to ensure
+  that
+  recursion limit is at least 5000 if ``torch`` 2.0.0 or later is detected.
+  (`#570
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/570>`_)
+* Extend ``cv2`` hook with support for OpenCV built manually from source
+  and for OpenCV installed using the official Windows installer. This
+  support requires PyInstaller >= 5.3 to work properly. (`#557
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/557>`_)
+* Update ``scikit-image`` hooks for compatibility with the 0.19.x series;
+  account for lazy module loading in ``skimage.filters``. (`#565
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/565>`_)
+* Update ``scikit-image`` hooks for compatibility with the 0.20.x series;
+  account for switch to ``lazy_module`` in ``skimage.data`` and
+  ``skimage.filters`` as well as in main package. Collect new data files
+  that are now required by ``skimage.morphology``. (`#565
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/565>`_)
+* Update the hook for ``tensorflow`` to be compatible with TensorFlow 2.12.
+  (`#564
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/564>`_)
+
+
 2023.1 (2023-03-16)
 -------------------
 

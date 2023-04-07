@@ -1,4 +1,0 @@
-Update ``scikit-image`` hooks for compatibility with the 0.20.x series;
-account for switch to ``lazy_module`` in ``skimage.data`` and
-``skimage.filters`` as well as in main package. Collect new data files
-that are now required by ``skimage.morphology``.
