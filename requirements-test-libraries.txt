@@ -31,7 +31,7 @@ fiona==1.9.3; sys_platform != 'win32'
 folium==0.14.0
 ffpyplayer==4.5.0
 geopandas==0.12.2; python_version >= '3.8' and sys_platform != 'win32'
-python-gitlab==3.13.0
+python-gitlab==3.14.0
 h5py==3.8.0; python_version >= '3.7'
 humanize==4.6.0
 iminuit==2.21.3; python_version >= '3.8'
