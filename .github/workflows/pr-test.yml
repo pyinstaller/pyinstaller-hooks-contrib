@@ -98,6 +98,8 @@ jobs:
           brew install pango
           # Install libdiscid (dependency of discid python package).
           brew install libdiscid
+          # Install lsl library for pylsl
+          brew install lsl
 
       - name: Install dependencies
         shell: bash
