@@ -11,19 +11,23 @@
 # ------------------------------------------------------------------
 
 import os
-from PyInstaller.utils.hooks import logger
+from PyInstaller.utils.hooks import logger, isolated 
 
-try:
-    # the import will fail it the library cannot be found
-    from pylsl import pylsl
-    
-    # the find_liblsl_libraries() is a generator function that yields multiple possibilities
-    for libfile in pylsl.find_liblsl_libraries():
-        if libfile:
-            break
-except:
-    libfile = None
+def find_library():
+    try:
+        # the import will fail it the library cannot be found
+        from pylsl import pylsl
+        
+        # the find_liblsl_libraries() is a generator function that yields multiple possibilities
+        for libfile in pylsl.find_liblsl_libraries():
+            if libfile:
+                break
+    except:
+        libfile = None
+    return libfile
 
+# whenever a hook needs to load a 3rd party library, it needs to be done in an isolated subprocess
+libfile = isolated.call(find_library)
 
 if libfile:
     # add the liblsl library to the binaries
