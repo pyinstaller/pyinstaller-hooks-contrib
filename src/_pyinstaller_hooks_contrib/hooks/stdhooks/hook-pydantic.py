@@ -35,6 +35,7 @@ if is_compiled:
         'uuid',
         # Optional dependencies.
         'dotenv',
+        'email_validator'
     ]
     # Older releases (prior 1.4) also import distutils.version
     if not is_module_satisfies('pydantic >= 1.4'):
