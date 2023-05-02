@@ -99,7 +99,7 @@ jobs:
           # Install libdiscid (dependency of discid python package).
           brew install libdiscid
           # Install lsl library for pylsl
-          brew install lsl
+          brew install brew install labstreaminglayer/tap/lsl
 
       - name: Install dependencies
         shell: bash
