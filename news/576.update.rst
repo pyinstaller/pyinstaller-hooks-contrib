@@ -1,0 +1,1 @@
+ Update ``pydantic`` hook hidden imports to include the optional dependency ``email_validator``.
