@@ -39,4 +39,3 @@ if libfile:
 else:
     logger.warning("liblsl shared library not found - pylsl will likely fail to work!")
     binaries = []
-    
