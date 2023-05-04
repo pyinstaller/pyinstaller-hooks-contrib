@@ -252,7 +252,7 @@ def test_markdown(pyi_builder):
 
 
 @importorskip('pylsl')
-def test_lxml_isoschematron(pyi_builder):
+def test_pylsl(pyi_builder):
     pyi_builder.test_source(
         """
         import pylsl
