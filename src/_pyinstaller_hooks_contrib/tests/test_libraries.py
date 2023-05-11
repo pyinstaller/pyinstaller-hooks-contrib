@@ -1215,6 +1215,16 @@ def test_gitlab(pyi_builder):
         """)
 
 
+@importorskip('graphql_query')
+def test_graphql_query(pyi_builder):
+    pyi_builder.test_source("""
+        from graphql_query import Operation, Query
+        hero = Query(name="hero", fields=["name"])
+        operation = Operation(type="query", queries=[hero])
+        print(operation.render())
+        """)
+
+
 @importorskip('shapely')
 def test_shapely(pyi_builder):
     pyi_builder.test_source("""
