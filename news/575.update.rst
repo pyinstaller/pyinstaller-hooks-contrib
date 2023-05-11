@@ -1,1 +1,0 @@
- Remove no longer needed ``py`` hidden imports for ``pyshark >= 0.6``.

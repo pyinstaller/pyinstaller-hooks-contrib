@@ -1,3 +1,25 @@
+2023.3 (2023-05-11)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``graphql_query`` (`#579
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/579>`_)
+* Add hook for ``pylsl`` (`#573
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/573>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Remove no longer needed ``py`` hidden imports for ``pyshark >= 0.6``. (`#575
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/575>`_)
+* Update ``pydantic`` hook hidden imports to include the optional dependency
+  ``email_validator``. (`#576
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/576>`_)
+
+
 2023.2 (2023-04-07)
 -------------------
 
