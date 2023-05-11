@@ -1552,3 +1552,10 @@ def test_moviepy_editor(pyi_builder):
     pyi_builder.test_source("""
         import moviepy.editor
     """)
+
+
+@importorskip('customtkinter')
+def test_customtkinter(pyi_builder):
+    pyi_builder.test_source("""
+        import customtkinter
+    """)
