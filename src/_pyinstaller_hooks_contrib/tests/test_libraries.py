@@ -1588,3 +1588,30 @@ def test_fastparquet(pyi_builder):
     pyi_builder.test_source("""
         import fastparquet
     """)
+
+
+@importorskip('librosa')
+def test_librosa(pyi_builder):
+    pyi_builder.test_source("""
+        import librosa
+
+        # Requires intervals.msgpack data file
+        import librosa.core.intervals
+
+        # Requires example files on import
+        import librosa.util.files
+    """)
+
+
+@importorskip('librosa')
+def test_librosa_util_function(pyi_builder):
+    # Test that functions from `librosa.util` that use `numba` vectorization can be run in frozen application.
+    pyi_builder.test_source("""
+        import librosa.util
+        import numpy as np
+
+        x = np.array([1, 0, 1, 2, -1, 0, -2, 1])
+        result = librosa.util.localmin(x)
+        expected = np.array([False,  True, False, False,  True, False,  True, False])
+        assert (result == expected).all()
+    """)
