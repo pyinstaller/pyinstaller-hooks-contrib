@@ -1581,3 +1581,10 @@ def test_pylibmagic(pyi_builder):
             assert os.path.isfile(f"{pylibmagic_data_path}/{file}"), \
                 f"The {file} was not collected to _MEIPASS!"
     """)
+
+
+@importorskip('fastparquet')
+def test_fastparquet(pyi_builder):
+    pyi_builder.test_source("""
+        import fastparquet
+    """)
