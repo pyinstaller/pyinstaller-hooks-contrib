@@ -1559,3 +1559,25 @@ def test_customtkinter(pyi_builder):
     pyi_builder.test_source("""
         import customtkinter
     """)
+
+
+@importorskip('pylibmagic')
+def test_pylibmagic(pyi_builder):
+    pyi_builder.test_source("""
+        import pylibmagic
+        import os
+        import sys
+
+        bundle_dir = os.path.normpath(sys._MEIPASS)
+        pylibmagic_data_path = f"{bundle_dir}/pylibmagic"
+
+        files_to_assert = ["magic.mgc"]
+        if sys.platform == 'darwin':
+            files_to_assert.append("libmagic.1.dylib")
+        elif sys.platform.startswith('linux'):
+            files_to_assert.append("libmagic.so.1")
+
+        for file in files_to_assert:
+            assert os.path.isfile(f"{pylibmagic_data_path}/{file}"), \
+                f"The {file} was not collected to _MEIPASS!"
+    """)
