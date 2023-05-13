@@ -63,6 +63,7 @@ pycparser==2.21
 pycryptodome==3.17
 pycryptodomex==3.17
 pyexcelerate==0.10.0
+pylibmagic==0.3.0; sys_platform != 'win32' and python_version >= '3.7'
 pylint==2.17.4
 pypemicro==0.1.11
 pyphen==0.14.0
