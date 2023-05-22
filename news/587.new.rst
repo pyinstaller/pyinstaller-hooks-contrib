@@ -1,0 +1,2 @@
+Add hook for ``sympy`` that automatically raises recursion limit
+to 5000 if ``sympy`` >= 1.12 is detected.

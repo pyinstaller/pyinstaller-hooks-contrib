@@ -1615,3 +1615,10 @@ def test_librosa_util_function(pyi_builder):
         expected = np.array([False,  True, False, False,  True, False,  True, False])
         assert (result == expected).all()
     """)
+
+
+@importorskip('sympy')
+def test_sympy(pyi_builder):
+    pyi_builder.test_source("""
+        import sympy
+    """)
