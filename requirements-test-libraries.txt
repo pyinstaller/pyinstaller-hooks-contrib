@@ -62,7 +62,7 @@ plotly==5.14.1
 publicsuffix2==2.20191221
 pycparser==2.21
 pycryptodome==3.18.0
-pycryptodomex==3.17
+pycryptodomex==3.18.0
 pyexcelerate==0.10.0
 pylibmagic==0.3.0; sys_platform != 'win32' and python_version >= '3.7'
 pylint==2.17.4
