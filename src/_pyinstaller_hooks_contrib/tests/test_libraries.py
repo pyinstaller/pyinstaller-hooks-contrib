@@ -1496,7 +1496,7 @@ def test_compliance_checker(pyi_builder):
     # The test file - taken from the package's own test data/examples. Use an .nc file instead of .cdl one, because
     # loading the latter requires ncgen utility to be available on the system.
     pkg_path = get_module_attribute('compliance_checker', '__path__')[0]
-    input_file = Path(pkg_path) / 'tests/data/trajectory.nc'
+    input_file = Path(pkg_path) / 'tests/data/bad-trajectory.nc'
     assert input_file.is_file(), f"Selected test file, {input_file!s} does not exist! Fix the test!"
 
     pyi_builder.test_source("""
