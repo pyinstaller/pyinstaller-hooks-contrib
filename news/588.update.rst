@@ -1,0 +1,1 @@
+Update hook for ``bokeh`` to collect metadata for ``bokeh`` >= 3.0.0.

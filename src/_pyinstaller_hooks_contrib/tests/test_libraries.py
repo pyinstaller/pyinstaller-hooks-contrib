@@ -1622,3 +1622,10 @@ def test_sympy(pyi_builder):
     pyi_builder.test_source("""
         import sympy
     """)
+
+
+@importorskip('bokeh')
+def test_bokeh(pyi_builder):
+    pyi_builder.test_source("""
+        import bokeh
+    """)
