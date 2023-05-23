@@ -11,7 +11,7 @@
 # ------------------------------------------------------------------
 
 
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, copy_metadata, is_module_satisfies
 
 # core/_templates/*
 # server/static/**/*
@@ -22,3 +22,8 @@ datas = collect_data_files('bokeh.core') + \
         collect_data_files('bokeh.server') + \
         collect_data_files('bokeh.command.subcommands', include_py_files=True) + \
         collect_data_files('bokeh')
+
+
+# bokeh >= 3.0.0 sets its __version__ from metadata
+if is_module_satisfies('bokeh >= 3.0.0'):
+    datas += copy_metadata('bokeh')
