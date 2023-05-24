@@ -1629,3 +1629,11 @@ def test_bokeh(pyi_builder):
     pyi_builder.test_source("""
         import bokeh
     """)
+
+
+@importorskip('xyzservices')
+def test_xyzservices(pyi_builder):
+    pyi_builder.test_source("""
+        import xyzservices.providers
+        print(xyzservices.providers.CartoDB)
+    """)
