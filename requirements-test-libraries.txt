@@ -102,7 +102,7 @@ web3==6.4.0
 websockets==11.0.3; python_version >= '3.7'
 zeep==4.2.1
 pypsexec==0.3.0
-mimesis==10.0.0; python_version >= '3.8'
+mimesis==10.1.0; python_version >= '3.8'
 orjson==3.8.12
 altair==5.0.0; python_version >= '3.7'
 shapely==2.0.1
