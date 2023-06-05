@@ -21,7 +21,7 @@ charset_normalizer==3.1.0
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.0; sys_platform != 'win32' and python_version >= '3.8'
-dash==2.10.0
+dash==2.10.2
 dash-bootstrap-components==1.4.1
 dash-uploader==0.6.0
 # discid requires libdiscid to be provided by the system.
