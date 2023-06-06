@@ -1,0 +1,1 @@
+Update ``scikit-image`` hooks for compatibility with version 0.21.0.
