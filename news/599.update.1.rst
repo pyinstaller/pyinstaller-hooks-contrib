@@ -1,0 +1,1 @@
+Update ``netCDF4`` hook for compatibility with ``netCDF4`` v1.6.4.

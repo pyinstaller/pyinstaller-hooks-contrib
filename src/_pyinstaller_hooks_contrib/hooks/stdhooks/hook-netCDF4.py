@@ -20,3 +20,8 @@ if is_module_satisfies("netCDF4 < 1.4.0"):
     hiddenimports += ['netcdftime']
 else:
     hiddenimports += ['cftime']
+
+# Starting with netCDF 1.6.4, certifi is a hidden import made in
+# netCDF4/_netCDF4.pyx.
+if is_module_satisfies("netCDF4 >= 1.6.4"):
+    hiddenimports += ['certifi']
