@@ -13,7 +13,7 @@ import ctypes.util
 import os
 
 from PyInstaller.depend.utils import _resolveCtypesImports
-from PyInstaller.utils.hooks import collect_data_files, logger
+from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies, logger
 
 datas = collect_data_files("cairocffi")
 
@@ -38,3 +38,8 @@ except Exception as e:
 
 if not binaries:
     logger.warning("Cairo library not found - cairocffi will likely fail to work!")
+
+# cairocffi 1.6.0 requires cairocffi/constants.py source file, so make sure it is collected.
+# The module collection mode setting requires PyInstaller >= 5.3.
+if is_module_satisfies('cairocffi >= 1.6.0'):
+    module_collection_mode = {'cairocffi.constants': 'pyz+py'}

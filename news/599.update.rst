@@ -1,0 +1,1 @@
+Update ``cairocffi`` hook for compatibility with ``cairocffi`` v1.6.0.
