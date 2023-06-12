@@ -1,0 +1,1 @@
+Update hook for ``googleapiclient.model``, fixing missing discovery docs and improving test.

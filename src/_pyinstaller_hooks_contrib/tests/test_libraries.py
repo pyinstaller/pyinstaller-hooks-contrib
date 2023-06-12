@@ -605,10 +605,21 @@ def test_torchvision_nms(pyi_builder):
     """)
 
 
-@importorskip('googleapiclient')
+@requires('google-api-python-client >= 2.0.0')
 def test_googleapiclient(pyi_builder):
     pyi_builder.test_source("""
-        from googleapiclient.discovery import build
+        from googleapiclient import discovery, discovery_cache
+
+        API_NAME = "youtube"
+        API_VERSION = "v3"
+
+        for file in os.listdir(discovery_cache.DISCOVERY_DOC_DIR): # Always up to date
+            if file.startswith("youtube.v") and file.endswith(".json"):
+                API_NAME, API_VERSION = file.split(".")[:2]
+                break
+
+        # developerKey can be any non-empty string
+        yt = discovery.build(API_NAME, API_VERSION, developerKey=":)", static_discovery=True)
         """)
 
 
