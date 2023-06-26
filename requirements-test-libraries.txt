@@ -127,7 +127,7 @@ NBT==1.5.1
 minecraft-launcher-lib==6.1
 scikit-learn==1.2.2
 scikit-image==0.21.0
-customtkinter==5.1.3
+customtkinter==5.2.0
 fastparquet==2023.4.0
 librosa==0.10.0.post2
 sympy==1.12
