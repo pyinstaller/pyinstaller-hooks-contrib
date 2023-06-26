@@ -116,7 +116,7 @@ soundfile==0.12.1; sys_platform != 'linux'
 limits==3.5.0
 # great-expectations as of v0.16.10 does not officially support python 3.11 yet, and the pyspark
 # compatibility wrapper seems to be broken for python 3.11 in this version.
-great-expectations==0.16.16; python_version < '3.11'
+great-expectations==0.17.1; python_version < '3.11'
 tensorflow==2.12.0
 pyshark==0.6.0
 opencv-python==4.7.0.72
