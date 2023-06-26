@@ -10,8 +10,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 import os
-DIR = os.path.dirname(__file__)
 
+DIR = os.path.dirname(__file__)
 """
 All sub folders in this folder - "stdhooks" - are considered hook directories.
 
@@ -21,11 +21,11 @@ We recommend that it contains the copyright header, and nothing else.
 
 
 def get_hook_dirs():
-    
+
     dirs = []
     # For every directory and sub directory (including cwd)
     for path, _, _ in os.walk(DIR):
         # Add the norm'd path to dirs
         dirs.append(os.path.normpath(path))
-    
+
     return dirs

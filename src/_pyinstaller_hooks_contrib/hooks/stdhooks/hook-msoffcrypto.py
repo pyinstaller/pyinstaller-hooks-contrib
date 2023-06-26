@@ -8,7 +8,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------
-
 """
 msoffcrypto contains hidden metadata as of v4.12.0
 """

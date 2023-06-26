@@ -53,5 +53,4 @@ Windows 7 (Python 3.7, minimal system-wide installation).
 """
 from PyInstaller.utils.hooks import collect_data_files
 
-
 datas = collect_data_files("ttkthemes")

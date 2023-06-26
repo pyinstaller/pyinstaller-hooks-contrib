@@ -9,11 +9,8 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 Hook for https://pypi.org/project/nnpy/
 """
-
 
 hiddenimports = ['_cffi_backend']

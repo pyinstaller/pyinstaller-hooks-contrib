@@ -572,6 +572,7 @@ def test_pydantic(pyi_builder):
 
 
 def torch_onedir_only(test):
+
     def wrapped(pyi_builder):
         if pyi_builder._mode != 'onedir':
             pytest.skip('PyTorch tests support only onedir mode '
@@ -851,7 +852,7 @@ def test_pythonnet2(pyi_builder):
 
 @requires('pythonnet >= 3.dev')
 def test_pythonnet3(pyi_builder):
-    pyi_builder.test_source(f"""
+    pyi_builder.test_source("""
         from clr_loader import get_coreclr
         from pythonnet import set_runtime
         set_runtime(get_coreclr())  # Pick up and use any installed .NET runtime.

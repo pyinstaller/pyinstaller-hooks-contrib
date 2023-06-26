@@ -19,7 +19,6 @@
 # As the module is already relocatable, we circumvent this issue by bundling
 # pypylon as-is - for pyinstaller we treat the shared library files as just data.
 
-
 import os
 
 from PyInstaller.utils.hooks import collect_data_files

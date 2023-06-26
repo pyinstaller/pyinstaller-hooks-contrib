@@ -10,4 +10,4 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 # Import all fixtures from PyInstaller into the tests.
-from PyInstaller.utils.conftest import *
+from PyInstaller.utils.conftest import *  # noqa: F401,F403

@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # This hook was tested with pyexcel-xls 0.5.8:
 # https://github.com/pyexcel/pyexcel-xls
 

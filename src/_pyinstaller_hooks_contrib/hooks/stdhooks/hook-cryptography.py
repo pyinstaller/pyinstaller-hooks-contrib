@@ -9,8 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 Hook for cryptography module from the Python Cryptography Authority.
 """

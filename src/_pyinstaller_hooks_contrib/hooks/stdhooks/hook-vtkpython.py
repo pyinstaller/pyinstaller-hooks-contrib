@@ -10,9 +10,16 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 import os
 if os.name == 'posix':
-    hiddenimports = ['libvtkCommonPython','libvtkFilteringPython','libvtkIOPython','libvtkImagingPython','libvtkGraphicsPython','libvtkRenderingPython','libvtkHybridPython','libvtkParallelPython','libvtkPatentedPython']
+    hiddenimports = [
+        'libvtkCommonPython', 'libvtkFilteringPython', 'libvtkIOPython',
+        'libvtkImagingPython', 'libvtkGraphicsPython', 'libvtkRenderingPython',
+        'libvtkHybridPython', 'libvtkParallelPython', 'libvtkPatentedPython'
+    ]
 else:
-    hiddenimports = ['vtkCommonPython','vtkFilteringPython','vtkIOPython','vtkImagingPython','vtkGraphicsPython','vtkRenderingPython','vtkHybridPython','vtkParallelPython','vtkPatentedPython']
+    hiddenimports = [
+        'vtkCommonPython', 'vtkFilteringPython', 'vtkIOPython',
+        'vtkImagingPython', 'vtkGraphicsPython', 'vtkRenderingPython',
+        'vtkHybridPython', 'vtkParallelPython', 'vtkPatentedPython'
+    ]

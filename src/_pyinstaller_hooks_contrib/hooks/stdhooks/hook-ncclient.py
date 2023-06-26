@@ -9,8 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 Hook for ncclient. ncclient is a Python library that facilitates client-side
 scripting and application development around the NETCONF protocol.
@@ -23,5 +21,3 @@ from PyInstaller.utils.hooks import collect_submodules
 # Modules 'ncclient.devices.*' are dynamically loaded and PyInstaller
 # is not able to find them.
 hiddenimports = collect_submodules('ncclient.devices')
-
-

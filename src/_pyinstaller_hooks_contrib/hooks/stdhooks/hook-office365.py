@@ -8,7 +8,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------
-
 """
 Office365-REST-Python-Client contains xml templates that are needed by some methods
 This hook ensures that all of the data used by the package is bundled

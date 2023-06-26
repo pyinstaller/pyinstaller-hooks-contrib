@@ -18,6 +18,7 @@ binaries = collect_dynamic_libs("pymediainfo")
 
 # On linux, no wheels are available, and pymediainfo uses system shared library.
 if not binaries and not (is_win or is_darwin):
+
     def _find_system_mediainfo_library():
         import os
         import ctypes.util

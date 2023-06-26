@@ -9,7 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
 """
 Gooey GUI carries some language and images for it's UI to function.
 """

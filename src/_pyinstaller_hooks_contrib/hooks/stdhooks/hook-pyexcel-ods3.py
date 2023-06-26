@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # This hook was tested with pyexcel-ods3 0.5.3:
 # https://github.com/pyexcel/pyexcel-ods3
 

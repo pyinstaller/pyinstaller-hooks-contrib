@@ -14,4 +14,5 @@
 # Tested with zeep 0.13.0, Python 2.7, Windows
 
 from PyInstaller.utils.hooks import copy_metadata
+
 datas = copy_metadata('zeep')

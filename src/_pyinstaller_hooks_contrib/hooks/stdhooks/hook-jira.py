@@ -9,7 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
 """
 Hook for https://pypi.python.org/pypi/jira/
 """

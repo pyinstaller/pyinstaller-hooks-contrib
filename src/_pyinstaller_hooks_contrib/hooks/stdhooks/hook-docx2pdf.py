@@ -10,11 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later.
 # ------------------------------------------------------------------
 
-
 # Hook for docx2pdf: https://pypi.org/project/docx2pdf/
 
 from PyInstaller.utils.hooks import copy_metadata, collect_data_files
-
 
 datas = copy_metadata('docx2pdf')
 datas += collect_data_files('docx2pdf')

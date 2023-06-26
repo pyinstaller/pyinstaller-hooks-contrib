@@ -9,7 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
 """
 pysoundfile:
 https://github.com/bastibe/SoundFile

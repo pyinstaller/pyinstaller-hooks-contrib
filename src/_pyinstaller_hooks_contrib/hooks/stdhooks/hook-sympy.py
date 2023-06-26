@@ -12,7 +12,6 @@
 
 from PyInstaller.utils.hooks import logger, is_module_satisfies
 
-
 # With sympy 1.12, PyInstaller's modulegraph analysis hits the recursion limit.
 # So, unless the user has already done so, increase it automatically.
 if is_module_satisfies('sympy >= 1.12'):

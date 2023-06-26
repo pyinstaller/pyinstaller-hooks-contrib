@@ -9,8 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 Hook for FMPy, a library to simulate Functional Mockup Units (FMUs)
 https://github.com/CATIA-Systems/FMPy

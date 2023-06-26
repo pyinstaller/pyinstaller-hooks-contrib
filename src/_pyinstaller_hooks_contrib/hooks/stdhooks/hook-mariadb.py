@@ -19,7 +19,6 @@ from PyInstaller.utils.hooks import is_module_satisfies, collect_submodules
 # collected as a hidden import.
 hiddenimports = ['decimal']
 
-
 # mariadb >= 1.1.0 requires several hidden imports from mariadb.constants.
 # Collect them all, just to be on the safe side...
 if is_module_satisfies("mariadb >= 1.1.0"):

@@ -13,7 +13,6 @@
 # Python wrapper for pyshark(https://pypi.org/project/pyshark/)
 # Tested with version 0.4.5
 
-
 from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies
 
 hiddenimports = ['pyshark.config']

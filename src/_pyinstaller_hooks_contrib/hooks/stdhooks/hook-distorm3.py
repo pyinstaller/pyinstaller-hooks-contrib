@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # Hook for the diStorm3 module: https://pypi.python.org/pypi/distorm3
 # Tested with distorm3 3.3.0, Python 2.7, Windows
 

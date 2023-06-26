@@ -9,13 +9,10 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 pyttsx imports drivers module based on specific platform.
 Found at http://mrmekon.tumblr.com/post/5272210442/pyinstaller-and-pyttsx
 """
-
 
 hiddenimports = [
     'drivers',

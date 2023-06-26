@@ -10,12 +10,10 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 from PyInstaller.utils.hooks import collect_data_files
 from PyInstaller.compat import is_win, base_prefix
 
-import os, sys
-
+import os
 
 # mpl_toolkits.basemap (tested with v.1.0.7) is shipped with auxiliary data,
 # usually stored in mpl_toolkits\basemap\data and used to plot maps
@@ -23,7 +21,7 @@ datas = collect_data_files('mpl_toolkits.basemap', subdir='data')
 
 # check if the data has been effectively found
 if len(datas) == 0:
-    
+
     # - conda-specific
 
     if is_win:

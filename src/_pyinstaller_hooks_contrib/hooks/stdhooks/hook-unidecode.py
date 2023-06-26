@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # Hook for the unidecode package: https://pypi.python.org/pypi/unidecode
 # Tested with Unidecode 0.4.21 and Python 3.6.2, on Windows 10 x64.
 

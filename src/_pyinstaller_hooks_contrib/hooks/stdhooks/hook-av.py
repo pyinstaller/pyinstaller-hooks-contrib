@@ -16,7 +16,6 @@ from PyInstaller.utils.hooks import collect_submodules, is_module_satisfies, get
 
 hiddenimports = ['fractions'] + collect_submodules("av")
 
-
 # Starting with av 9.1.1, the DLLs shipped with Windows PyPI wheels are stored
 # in site-packages/av.libs instead of directly in the site-packages/av.
 if is_module_satisfies("av >= 9.1.1") and is_win:

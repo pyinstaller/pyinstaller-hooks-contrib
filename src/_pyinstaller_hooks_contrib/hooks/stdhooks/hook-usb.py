@@ -17,7 +17,6 @@ from PyInstaller.depend.utils import _resolveCtypesImports
 from PyInstaller.compat import is_cygwin, getenv
 from PyInstaller.utils.hooks import logger
 
-
 # Include glob for library lookup in run-time hook.
 hiddenimports = ['glob']
 
@@ -26,12 +25,10 @@ hiddenimports = ['glob']
 
 binaries = []
 
-
 # Running usb.core.find() in this script crashes Ubuntu 14.04LTS,
 # let users circumvent pyusb discovery with an environment variable.
 skip_pyusb_discovery = \
     bool(getenv('PYINSTALLER_USB_HOOK_SKIP_PYUSB_DISCOVERY'))
-
 
 # Try to use pyusb's library locator.
 if not skip_pyusb_discovery:
@@ -56,7 +53,6 @@ if not skip_pyusb_discovery:
     except (ValueError, usb.core.USBError) as exc:
         logger.warning("%s", exc)
 
-
 # If pyusb didn't find a backend, manually search for usb libraries.
 if not binaries:
     # NOTE: Update these lists when adding further libs.
@@ -65,9 +61,12 @@ if not binaries:
     else:
         libusb_candidates = [
             # libusb10
-            'usb-1.0', 'usb', 'libusb-1.0',
+            'usb-1.0',
+            'usb',
+            'libusb-1.0',
             # libusb01
-            'usb-0.1', 'libusb0',
+            'usb-0.1',
+            'libusb0',
             # openusb
             'openusb',
         ]
@@ -79,7 +78,6 @@ if not binaries:
             backend_library_basenames.append(os.path.basename(libname))
     if backend_library_basenames:
         binaries = _resolveCtypesImports(backend_library_basenames)
-
 
 # Validate and normalize the first found usb library.
 if binaries:

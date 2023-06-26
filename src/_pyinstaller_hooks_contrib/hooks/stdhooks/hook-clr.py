@@ -10,13 +10,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # There is a name clash between pythonnet's clr module/extension (which this hooks is for) and clr package that provides
 # the terminal styling library (https://pypi.org/project/clr/). Therefore, we must first check if pythonnet is actually
 # available...
 from PyInstaller.utils.hooks import is_module_satisfies
 from PyInstaller.compat import is_win
-
 
 if is_module_satisfies("pythonnet"):
     # pythonnet requires both clr.pyd and Python.Runtime.dll, but the latter isn't found by PyInstaller.

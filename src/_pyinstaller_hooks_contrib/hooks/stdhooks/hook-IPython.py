@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # Tested with IPython 4.0.0.
 
 from PyInstaller.compat import is_win, is_darwin

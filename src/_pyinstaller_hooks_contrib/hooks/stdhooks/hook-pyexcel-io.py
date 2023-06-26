@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # This hook was tested with pyexcel-io 0.5.18:
 # https://github.com/pyexcel/pyexcel-io
 

@@ -9,8 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 Hook for tinycss2. tinycss2 is a low-level CSS parser and generator.
 https://github.com/Kozea/tinycss2

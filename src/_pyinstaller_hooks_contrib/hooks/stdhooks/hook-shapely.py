@@ -25,7 +25,6 @@ if is_module_satisfies('shapely >= 2.0.0'):
     # extensions were introduced in v2.0.0.
     hiddenimports += ['shapely._geos']
 
-
 pkg_base, pkg_dir = get_package_paths('shapely')
 
 binaries = []
@@ -73,9 +72,9 @@ if compat.is_win:
 
     if not geos_c_dll_found:
         raise SystemExit(
-                "Error: geos_c.dll not found, required by hook-shapely.py.\n"
-                "Please check your installation or provide a pull request to "
-                "PyInstaller to update hook-shapely.py.")
+            "Error: geos_c.dll not found, required by hook-shapely.py.\n"
+            "Please check your installation or provide a pull request to "
+            "PyInstaller to update hook-shapely.py.")
 elif compat.is_linux and is_module_satisfies('shapely < 1.7'):
     # This duplicates the libgeos*.so* files in the build.  PyInstaller will
     # copy them into the root of the build by default, but shapely cannot load

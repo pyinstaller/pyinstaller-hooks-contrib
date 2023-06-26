@@ -9,12 +9,9 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
-Some modules use the old-style import: explicitly include 
+Some modules use the old-style import: explicitly include
 the new module when the old one is referenced.
 """
-
 
 hiddenimports = ["email.mime.text", "email.mime.multipart"]

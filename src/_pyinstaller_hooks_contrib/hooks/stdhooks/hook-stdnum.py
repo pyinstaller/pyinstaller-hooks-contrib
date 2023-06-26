@@ -12,4 +12,5 @@
 
 # Collect data files that are required by some of the stdnum's sub-modules
 from PyInstaller.utils.hooks import collect_data_files
+
 datas = collect_data_files("stdnum")

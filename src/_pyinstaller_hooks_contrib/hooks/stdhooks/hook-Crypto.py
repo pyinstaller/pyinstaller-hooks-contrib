@@ -9,7 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
 """
 Hook for PyCryptodome library: https://pypi.python.org/pypi/pycryptodome
 
@@ -43,7 +42,7 @@ from PyInstaller.utils.hooks import get_module_file_attribute
 
 binaries = []
 binary_module_names = [
-    'Crypto.Math',      # First in the list
+    'Crypto.Math',  # First in the list
     'Crypto.Cipher',
     'Crypto.Util',
     'Crypto.Hash',

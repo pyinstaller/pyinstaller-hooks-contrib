@@ -9,7 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
 """
 APScheduler uses entry points to dynamically load executors, job
 stores and triggers.

@@ -10,16 +10,13 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # Tested with PyNaCl 0.3.0 on Mac OS X.
-
 
 import os.path
 import glob
 
 from PyInstaller.compat import EXTENSION_SUFFIXES
 from PyInstaller.utils.hooks import collect_data_files, get_module_file_attribute
-
 
 datas = collect_data_files('nacl')
 

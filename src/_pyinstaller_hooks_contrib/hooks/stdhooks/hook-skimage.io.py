@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # This hook was tested with scikit-image (skimage) 0.14.1:
 # https://scikit-image.org
 

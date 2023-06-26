@@ -9,7 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
 """
 accessible_output2: http://hg.q-continuum.net/accessible_output2
 """

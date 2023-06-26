@@ -9,7 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
 """
 Libaudioverse: https://github.com/libaudioverse/libaudioverse
 """
