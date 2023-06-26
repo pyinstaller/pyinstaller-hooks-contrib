@@ -25,4 +25,3 @@
 from PyInstaller.utils.hooks import collect_data_files
 
 datas = collect_data_files('wx.lib.pubsub', include_py_files=True, excludes=['*.txt', '**/__pycache__'])
-

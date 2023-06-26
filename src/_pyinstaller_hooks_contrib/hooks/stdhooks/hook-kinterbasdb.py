@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # kinterbasdb
 hiddenimports = ['k_exceptions', 'services', 'typeconv_naked',
                  'typeconv_backcompat', 'typeconv_23plus',

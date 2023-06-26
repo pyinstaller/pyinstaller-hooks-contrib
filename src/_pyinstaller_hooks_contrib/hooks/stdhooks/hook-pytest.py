@@ -9,11 +9,10 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 Hook for http://pypi.python.org/pypi/pytest/
 """
 
 import pytest
+
 hiddenimports = pytest.freeze_includes()

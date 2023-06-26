@@ -13,8 +13,7 @@
 import os
 import sys
 from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies, copy_metadata
-from PyInstaller.compat import is_win
-
+from PyInstaller.compat import is_win, is_conda
 
 hiddenimports = [
     "pyproj.datadir"
@@ -48,7 +47,6 @@ else:  # both linux and darwin
     tgt_proj_data = os.path.join('share', 'proj')
     src_proj_data = os.path.join(root_path, 'share', 'proj')
 
-from PyInstaller.compat import is_conda
 if is_conda:
     if os.path.exists(src_proj_data):
         datas.append((src_proj_data, tgt_proj_data))

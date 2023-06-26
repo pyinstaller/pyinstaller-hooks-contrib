@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 # -----------------------------------------------------------------------------
-
 """
 text-unidecode:
 https://github.com/kmike/text-unidecode/
@@ -18,7 +17,6 @@ https://github.com/kmike/text-unidecode/
 
 import os
 from PyInstaller.utils.hooks import get_package_paths
-
 
 package_path = get_package_paths("text_unidecode")
 data_bin_path = os.path.join(package_path[1], "data.bin")

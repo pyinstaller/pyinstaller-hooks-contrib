@@ -9,13 +9,10 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 Hook for Python bindings for Amazon's Product Advertising API.
 https://bitbucket.org/basti/python-amazon-product-api
 """
-
 
 hiddenimports = ['amazonproduct.processors.__init__',
                  'amazonproduct.processors._lxml',

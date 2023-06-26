@@ -8,7 +8,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------
-
 """
 srsly.msgpack._packer contains hidden imports which are needed to import it
 This hook was created to make spacy work correctly.

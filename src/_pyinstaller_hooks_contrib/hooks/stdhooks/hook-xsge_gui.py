@@ -13,5 +13,5 @@
 # Hook for the xsge_gui module: https://pypi.python.org/pypi/xsge_gui
 
 from PyInstaller.utils.hooks import collect_data_files
-datas = collect_data_files('xsge_gui')
 
+datas = collect_data_files('xsge_gui')

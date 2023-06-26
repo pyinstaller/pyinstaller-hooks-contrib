@@ -14,24 +14,15 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-        fetch-depth: 0
 
-    - name: Get out of detached head state
-      run: |
-        git fetch origin ${{ github.base_ref }}
-        git fetch origin ${{ github.ref }}
-        git checkout FETCH_HEAD --
     - name: Setup Python
       uses: actions/setup-python@v4
-      with:
-        python-version: 3.7
 
     - name: Install dependencies
       run: pip install -U flake8 wheel setuptools
 
     - name: Run Lint
-      run: |
-        git diff -U0 origin/${{ github.base_ref }} -- | flake8 --diff -v -
+      run: flake8 -v
     - name: Test Distribution
       run: |
         python setup.py sdist bdist_wheel

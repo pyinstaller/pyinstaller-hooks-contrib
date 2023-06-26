@@ -13,4 +13,5 @@
 # Tested on Windows 10 64bit with python 3.7.1
 
 from PyInstaller.utils.hooks import collect_data_files
+
 datas = collect_data_files('sklearn')

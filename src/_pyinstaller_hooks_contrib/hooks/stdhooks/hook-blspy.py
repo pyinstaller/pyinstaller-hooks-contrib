@@ -16,7 +16,6 @@ import glob
 from PyInstaller.utils.hooks import get_module_file_attribute
 from PyInstaller.compat import is_win
 
-
 # blspy comes as a stand-alone extension module that's placed directly
 # in site-packages.
 #

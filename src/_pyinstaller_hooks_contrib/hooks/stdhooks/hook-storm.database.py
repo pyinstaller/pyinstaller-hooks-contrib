@@ -9,15 +9,12 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 Hook for storm ORM.
 """
-
 
 hiddenimports = [
     'storm.databases.sqlite',
     'storm.databases.postgres',
     'storm.databases.mysql'
-    ]
+]

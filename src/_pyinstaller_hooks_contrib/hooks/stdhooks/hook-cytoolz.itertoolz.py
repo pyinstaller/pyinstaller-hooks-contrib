@@ -13,4 +13,4 @@
 # Hook for the cytoolz package: https://pypi.python.org/pypi/cytoolz
 # Tested with cytoolz 0.9.0 and Python 3.5.2, on Ubuntu Linux x64
 
-hiddenimports = [ 'cytoolz.utils', 'cytoolz._signatures' ]
+hiddenimports = ['cytoolz.utils', 'cytoolz._signatures']

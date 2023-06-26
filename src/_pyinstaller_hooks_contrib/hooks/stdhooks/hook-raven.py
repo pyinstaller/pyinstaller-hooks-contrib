@@ -10,5 +10,4 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 hiddenimports = ['raven.events', 'raven.processors']

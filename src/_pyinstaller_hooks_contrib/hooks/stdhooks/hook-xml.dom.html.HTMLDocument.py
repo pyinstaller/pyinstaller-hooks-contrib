@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # xml.dom.html.HTMLDocument
 hiddenimports = ['xml.dom.html.HTMLAnchorElement',
                  'xml.dom.html.HTMLAppletElement',
@@ -65,4 +64,4 @@ hiddenimports = ['xml.dom.html.HTMLAnchorElement',
                  'xml.dom.html.HTMLTextAreaElement',
                  'xml.dom.html.HTMLTitleElement',
                  'xml.dom.html.HTMLUListElement',
-        ]
+                 ]

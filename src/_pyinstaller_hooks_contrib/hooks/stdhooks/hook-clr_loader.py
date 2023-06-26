@@ -10,10 +10,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 from PyInstaller.compat import is_win, is_cygwin
 from PyInstaller.utils.hooks import collect_dynamic_libs
-
 
 # The clr-loader is used by pythonnet 3.x to load CLR (.NET) runtime.
 # On Windows, the default runtime is the .NET Framework, and its corresponding

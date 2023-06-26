@@ -10,9 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 from PyInstaller.utils.hooks import collect_data_files, copy_metadata
-
 
 datas = collect_data_files('pint')
 datas += copy_metadata('pint')

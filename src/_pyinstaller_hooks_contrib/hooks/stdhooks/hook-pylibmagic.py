@@ -9,7 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
 """
 Pylibmagic contains data files (libmagic compiled and configurations) required to use the python-magic package.
 """

@@ -10,17 +10,14 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # GStreamer contains a lot of plugins. We need to collect them and bundle
 # them wih the exe file.
 # We also need to resolve binary dependencies of these GStreamer plugins.
-
 
 import glob
 import os
 from PyInstaller.compat import is_win
 from PyInstaller.utils.hooks import exec_statement
-
 
 hiddenimports = ['gmodule', 'gobject']
 

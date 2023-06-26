@@ -15,4 +15,5 @@
 # https://cloud.google.com/kms/docs/reference/libraries#client-libraries-install-python
 
 from PyInstaller.utils.hooks import copy_metadata
+
 datas = copy_metadata('google-cloud-kms')

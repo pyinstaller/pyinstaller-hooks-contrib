@@ -10,19 +10,19 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 import os
-DIR = os.path.dirname(__file__)
 
+DIR = os.path.dirname(__file__)
 """
 This directory and every sub directory contains tests
 """
 
 
 def get_test_dirs():
-    
+
     dirs = []
     # For every directory and sub directory (including cwd)
     for path, _, _ in os.walk(DIR):
         # Add the norm'd path to dirs
         dirs.append(os.path.normpath(path))
-    
+
     return dirs

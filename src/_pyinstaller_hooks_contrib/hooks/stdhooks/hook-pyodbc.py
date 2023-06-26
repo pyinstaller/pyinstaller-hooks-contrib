@@ -10,9 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 from PyInstaller.utils.hooks import get_pyextension_imports
-
 
 # It's hard to detect imports of binary Python module without importing it.
 # Let's try importing that module in a subprocess.

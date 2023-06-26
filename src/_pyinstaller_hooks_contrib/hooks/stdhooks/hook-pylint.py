@@ -55,10 +55,10 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules, is_m
     get_module_file_attribute
 
 datas = (
-         [(get_module_file_attribute('pylint.__init__'), 'pylint')] +
-         collect_data_files('pylint.checkers', True) +
-         collect_data_files('pylint.reporters', True)
-         )
+    [(get_module_file_attribute('pylint.__init__'), 'pylint')] +
+    collect_data_files('pylint.checkers', True) +
+    collect_data_files('pylint.reporters', True)
+)
 
 
 # Add imports from dynamically loaded modules, excluding pylint.test

@@ -25,15 +25,15 @@ class BumpVersion(Command):
         ('minor', None, 'Bump the minor (middle) version number. If specified, the build NO will be set to 0.'),
         ('build', None, 'Bump the build (rightmost) version number. (Default)')
     ]
-    
+
     def get_version_tuple(self, str_ver):
         return list(int(x) for x in str_ver.split('.'))
-    
+
     def initialize_options(self):
         self.major = False
         self.minor = False
         self.build = True
-    
+
     def finalize_options(self):
         if self.major:
             self.major = True
@@ -47,7 +47,7 @@ class BumpVersion(Command):
             self.major = False
             self.minor = False
             self.build = True
-    
+
     def run(self):
         import re
         # REGEX:
@@ -56,7 +56,7 @@ class BumpVersion(Command):
         #  [.]*[0-9]*  - Third - and optional - part of version
         #  [^.]$  - The entire string must not end with a dot
         version_regex = re.compile('[0-9]+[.][0-9]*[.]*[0-9]*[^.]$')
-        
+
         # List of ABSOLUTE file paths of files to bump
         files = [
             os.path.abspath(os.path.join(DIR, 'src/_pyinstaller_hooks_contrib/__init__.py'))
@@ -64,11 +64,11 @@ class BumpVersion(Command):
         for file in files:
             old_file = open(file).readlines()
             changed = False
-            
+
             for i in range(len(old_file)):
                 # Get rid of line endings, if they exist
                 line = old_file[i].replace('\n', '')
-                
+
                 # If the line starts with version, try and bump it
                 if line.startswith('__version__'):
                     print('Line {ln} in {file} appears to be a version. Attempting to bump...'.format(ln=i, file=file))
@@ -78,18 +78,18 @@ class BumpVersion(Command):
                         # Convert a "valid" version to a tuple of ints
                         ver = self.get_version_tuple(m.string)
                         print(ver)
-                        
+
                         # If the tuple isn't valid - not len(3) - then it's not a valid version
                         if len(ver) not in (2, 3):
                             print('Invalid version number. Skipping...')
                             continue
-                        
+
                         if len(ver) == 3:
                             if self.major:
                                 ver[0] += 1
                                 ver[1] = 0
                                 ver[2] = 0
-                                
+
                             elif self.minor:
                                 ver[1] += 1
                                 ver[2] = 0
@@ -101,22 +101,22 @@ class BumpVersion(Command):
                                 ver[1] = 0
                             else:
                                 ver[1] += 1
-                        
+
                         ver = '.'.join(str(x) for x in ver)
-                        
+
                         old_file[i] = old_file[i].replace(m.string, ver)
                         print('Version bumped from {} to {}.'.format(m.string, ver))
                         changed = True
                     else:
                         print('No version found - {file}:{ln}'.format(ln=i, file=file))
-            
+
             if changed:
                 # Write the changes to the file
                 with open(file, 'w') as f:
                     f.writelines(old_file)
                 # And print that to the console.
                 print('Changes written to {}'.format(file))
-                        
+
 
 setup(
     setup_requires="setuptools >= 30.3.0",

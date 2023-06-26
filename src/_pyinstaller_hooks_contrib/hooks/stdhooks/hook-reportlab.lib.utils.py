@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # Needed for ReportLab 3
 hiddenimports = [
     'reportlab.rl_settings',

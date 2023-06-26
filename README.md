@@ -295,25 +295,15 @@ rerunning a configuration is just a case of pressing up then enter.
 
 We use `flake8` to enforce code-style.
 `pip install flake8` if you haven't already then run it with the following.
-Note that this assumes that you did create a new branch in the [setup step](#setup).
 
 ```
-git diff -U0 master | flake8 --diff -
+flake8
 ```
 
 No news is good news.
 If it complains about your changes then do what it asks then run it again.
 If you don't understand the errors it come up with them lookup the error code
 in each line (a capital letter followed by a number e.g. `W391`).
-
-If it complains about code which you haven't written,
-or if you didn't create a new branch at the start then, using `git log`,
-find the commit ID of the newest commit which you didn't write, copy it
-and replace `master` in the above command with that ID.
-
-```
-git diff -U0 a5d3841c282fa23fd68c3d6a85519e73c08acb4a | flake8 --diff -
-```
 
 **Please do not fix flake8 issues found in parts of the repository other than the bit that you are working on.** Not only is it very boring for you, but it is harder for maintainers to
 review your changes because so many of them are irrelevant to the hook you are adding or changing.
@@ -334,7 +324,7 @@ A brief checklist for before submitting your pull request:
 
 * [ ] All new Python files have [the appropriate copyright header](#add-the-copyright-header).
 * [ ] You have written a [news entry](#add-a-news-entry).
-* [ ] Your changes [satisfy the linter](#run-linter) (run `git diff -U0 master | flake8 --diff -`).
+* [ ] Your changes [satisfy the linter](#run-linter) (run `flake8`).
 * [ ] You have written tests (if possible), [pinned the test requirement](#pin-the-test-requirement) and linked to a successful CI build.
 
 

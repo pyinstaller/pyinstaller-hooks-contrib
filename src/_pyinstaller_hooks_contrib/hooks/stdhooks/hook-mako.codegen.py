@@ -9,12 +9,9 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 codegen generates Python code that is then executed through exec().
 This Python code imports the following modules.
 """
-
 
 hiddenimports = ['mako.cache', 'mako.runtime', 'mako.filters']

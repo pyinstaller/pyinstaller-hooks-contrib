@@ -10,8 +10,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 #
-# A fast, distributed, high performance gradient boosting 
-# (GBT, GBDT, GBRT, GBM or MART) framework based on decision 
+# A fast, distributed, high performance gradient boosting
+# (GBT, GBDT, GBRT, GBM or MART) framework based on decision
 # tree algorithms, used for ranking, classification and
 # many other machine learning tasks.
 #

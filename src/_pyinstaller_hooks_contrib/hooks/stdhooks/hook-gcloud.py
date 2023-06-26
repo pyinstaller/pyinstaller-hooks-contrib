@@ -10,6 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 from PyInstaller.utils.hooks import copy_metadata
+
 datas = copy_metadata('gcloud')

@@ -43,7 +43,6 @@ hiddenimports += hookutils.collect_submodules('cv2', filter=lambda name: name !=
 # We also need to explicitly exclude `cv2.load_config_py2` due to it being imported in `cv2.__init__`.
 excludedimports = ['cv2.load_config_py2']
 
-
 # OpenCV loader from 4.5.4.60 requires extra config files and modules.
 # We need to collect `config.py`  and `load_config_py3`; to improve compatibility with PyInstaller < 5.2, where
 # `module_collection_mode` (see below) is not implemented.

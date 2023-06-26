@@ -8,7 +8,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------
-
 """
 Thinc contains data files and hidden imports. This hook was created to make spacy work correctly.
 """

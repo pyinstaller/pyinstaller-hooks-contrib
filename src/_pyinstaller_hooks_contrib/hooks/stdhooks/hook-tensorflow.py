@@ -18,7 +18,6 @@ tf_post_1_15_0 = is_module_satisfies("tensorflow >= 1.15.0")
 tf_pre_2_0_0 = is_module_satisfies("tensorflow < 2.0.0")
 tf_pre_2_2_0 = is_module_satisfies("tensorflow < 2.2.0")
 
-
 # Exclude from data collection:
 #  - development headers in include subdirectory
 #  - XLA AOT runtime sources

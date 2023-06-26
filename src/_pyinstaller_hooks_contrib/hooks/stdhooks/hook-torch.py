@@ -12,7 +12,7 @@
 
 from PyInstaller.utils.hooks import logger, get_package_paths, is_module_satisfies
 
-datas = [(get_package_paths('torch')[1],"torch"),]
+datas = [(get_package_paths('torch')[1], "torch")]
 
 # With torch 2.0.0, PyInstaller's modulegraph analysis hits the recursion limit.
 # So, unless the user has already done so, increase it automatically.

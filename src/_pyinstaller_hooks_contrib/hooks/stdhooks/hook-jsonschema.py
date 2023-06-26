@@ -14,5 +14,6 @@
 # with jsonschema module
 
 from PyInstaller.utils.hooks import collect_data_files, copy_metadata
+
 datas = collect_data_files('jsonschema')
 datas += copy_metadata('jsonschema')

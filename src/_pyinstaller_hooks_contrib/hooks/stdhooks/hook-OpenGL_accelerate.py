@@ -9,15 +9,12 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-
-
 """
 OpenGL_accelerate contais modules written in cython. This module
 should speed up some functions from OpenGL module. The following
 hiddenimports are not resolved by PyInstaller because OpenGL_accelerate
 is compiled to native Python modules.
 """
-
 
 hiddenimports = [
     'OpenGL_accelerate.wrapper',

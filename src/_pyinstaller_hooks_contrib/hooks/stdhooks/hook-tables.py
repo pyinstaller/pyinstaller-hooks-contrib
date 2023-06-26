@@ -10,6 +10,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 # PyTables is a package for managing hierarchical datasets
 hiddenimports = ["tables._comp_lzo", "tables._comp_bzip2"]

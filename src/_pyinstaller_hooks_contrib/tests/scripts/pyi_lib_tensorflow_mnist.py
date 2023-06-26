@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 import os
 
 # Force CPU
@@ -44,7 +43,7 @@ model.compile(optimizer='adam', loss=loss_fn, metrics=['accuracy'])
 model.fit(x_train, y_train, epochs=1, verbose=1)
 
 # Evaluate
-results = model.evaluate(x_test,  y_test, verbose=1)
+results = model.evaluate(x_test, y_test, verbose=1)
 
 # Expected accuracy after a single epoch is around 95%, so use 90%
 # as a passing bar

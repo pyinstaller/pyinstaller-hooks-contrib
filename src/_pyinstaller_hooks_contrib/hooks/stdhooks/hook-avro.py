@@ -16,7 +16,6 @@ Avro is a serialization and RPC framework.
 import os
 from PyInstaller.utils.hooks import get_module_file_attribute
 
-
 res_loc = os.path.dirname(get_module_file_attribute("avro"))
 # see https://github.com/apache/avro/blob/master/lang/py3/setup.py
 datas = [

@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-
 hiddenimports = ['gtkglext', 'gdkgl', 'gdkglext', 'gdk', 'gtk.gdk', 'gtk.gtkgl',
                  'gtk.gtkgl._gtkgl', 'gtkgl', 'pangocairo', 'pango', 'atk',
                  'gobject', 'gtk.glade', 'cairo', 'gio',

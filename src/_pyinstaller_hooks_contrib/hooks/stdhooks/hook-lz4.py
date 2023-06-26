@@ -12,4 +12,5 @@
 # hook for https://github.com/python-lz4/python-lz4
 
 from PyInstaller.utils.hooks import copy_metadata
+
 datas = copy_metadata('lz4')

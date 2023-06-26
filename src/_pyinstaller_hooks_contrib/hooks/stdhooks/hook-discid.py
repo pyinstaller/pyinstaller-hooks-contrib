@@ -15,7 +15,6 @@ import os
 from PyInstaller.utils.hooks import get_module_attribute, logger
 from PyInstaller.depend.utils import _resolveCtypesImports
 
-
 binaries = []
 
 # Use the _LIB_NAME attribute of discid.libdiscid to resolve the shared library name. This saves us from having to

@@ -13,6 +13,7 @@ import pygraphviz
 
 # Override pygraphviz.AGraph._which method to search for graphviz executables inside sys._MEIPASS
 if hasattr(pygraphviz.AGraph, '_which'):
+
     def _pygraphviz_override_which(self, name):
         import os
         import sys
