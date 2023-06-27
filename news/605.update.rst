@@ -1,0 +1,7 @@
+Turn the hook for ``google.cloud`` into hook for ``google.cloud.core``
+by renaming it. This hook is trying to collect metadata for
+``google-cloud-core``, whereas ``google.cloud`` is a namespace package
+that can be populated by other dists as well. Specifically,
+``googleapis-common-protos`` puts some files there, and when
+``google-cloud-core`` is not installed, the mis-named hook triggered a
+missing-metadata error.
