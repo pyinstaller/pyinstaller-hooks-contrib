@@ -132,6 +132,7 @@ fastparquet==2023.4.0
 librosa==0.10.0.post2
 sympy==1.12
 xyzservices==2023.5.0
+mistune==3.0.1
 
 # ------------------- Platform (OS) specifics
 
