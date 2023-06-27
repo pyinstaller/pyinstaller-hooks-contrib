@@ -1,2 +1,0 @@
-Add hook for ``mistune`` that collects plugin modules, which are indirectly
-loaded starting with ``mistune`` v3.0.0.

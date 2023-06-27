@@ -1,3 +1,51 @@
+2023.4 (2023-06-27)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``customtkinter`` (`#542
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/542>`_)
+* Add hook for ``fastparquet``. (`#583
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/583>`_)
+* Add hook for ``librosa``. (`#582
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/582>`_)
+* Add hook for ``mistune`` that collects plugin modules, which are indirectly
+  loaded starting with ``mistune`` v3.0.0. (`#605
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/605>`_)
+* Add hook for ``sympy`` that automatically raises recursion limit
+  to 5000 if ``sympy`` >= 1.12 is detected. (`#587
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/587>`_)
+* Add hook for ``xyzservices``. (`#590
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/590>`_)
+* Add hook for pylibmagic (`#581
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/581>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Turn the hook for ``google.cloud`` into hook for ``google.cloud.core``
+  by renaming it. This hook is trying to collect metadata for
+  ``google-cloud-core``, whereas ``google.cloud`` is a namespace package
+  that can be populated by other dists as well. Specifically,
+  ``googleapis-common-protos`` puts some files there, and when
+  ``google-cloud-core`` is not installed, the mis-named hook triggered a
+  missing-metadata error. (`#605
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/605>`_)
+* Update ``cairocffi`` hook for compatibility with ``cairocffi`` v1.6.0. (`#599
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/599>`_)
+* Update ``netCDF4`` hook for compatibility with ``netCDF4`` v1.6.4. (`#599
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/599>`_)
+* Update ``scikit-image`` hooks for compatibility with version 0.21.0. (`#594
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/594>`_)
+* Update hook for ``bokeh`` to collect metadata for ``bokeh`` >= 3.0.0. (`#588
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/588>`_)
+* Update hook for ``googleapiclient.model``, fixing missing discovery docs and
+  improving test. (`#596
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/596>`_)
+
+
 2023.3 (2023-05-11)
 -------------------
 
