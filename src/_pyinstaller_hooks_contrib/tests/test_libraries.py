@@ -1649,3 +1649,10 @@ def test_xyzservices(pyi_builder):
         import xyzservices.providers
         print(xyzservices.providers.CartoDB)
     """)
+
+
+@importorskip('mistune')
+def test_mistune(pyi_builder):
+    pyi_builder.test_source("""
+        import mistune
+    """)
