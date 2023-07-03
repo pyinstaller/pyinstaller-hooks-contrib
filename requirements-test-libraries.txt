@@ -22,7 +22,7 @@ charset_normalizer==3.1.0
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.0; sys_platform != 'win32'
-dash==2.11.0
+dash==2.11.1
 dash-bootstrap-components==1.4.1
 dash-uploader==0.6.0
 # discid requires libdiscid to be provided by the system.
