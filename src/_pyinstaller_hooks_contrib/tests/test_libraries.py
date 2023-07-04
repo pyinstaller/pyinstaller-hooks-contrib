@@ -567,7 +567,23 @@ def test_pyproj(pyi_builder):
 @importorskip('pydantic')
 def test_pydantic(pyi_builder):
     pyi_builder.test_source("""
+        import datetime
+        import pprint
+
         import pydantic
+
+
+        class User(pydantic.BaseModel):
+            id: int
+            name: str = 'John Doe'
+            signup_ts: datetime.datetime
+
+
+        external_data = {'id': 'not an int', }
+        try:
+            User(**external_data)
+        except pydantic.ValidationError as e:
+            pprint.pprint(e.errors())
         """)
 
 

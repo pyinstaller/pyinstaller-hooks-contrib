@@ -13,13 +13,16 @@
 from PyInstaller.utils.hooks import get_module_attribute, collect_submodules
 from PyInstaller.utils.hooks import is_module_satisfies
 
-# By default, pydantic from PyPi comes with all modules compiled as
-# cpython extensions, which seems to prevent pyinstaller from automatically
-# picking up the submodules.
-# NOTE: in PyInstaller 4.x and earlier, get_module_attribute() returns the
-# string representation of the value ('True'), while in PyInstaller 5.x
-# and later, the actual value is returned (True).
-is_compiled = get_module_attribute('pydantic', 'compiled') in {'True', True}
+# By default, PyPi wheels for pydantic < 2.0.0 come with all modules compiled as cython extensions, which prevents
+# PyInstaller from automatically picking up the submodules.
+if is_module_satisfies('pydantic >= 2.0.0'):
+    # The `pydantic.compiled` attribute was removed in v2.
+    is_compiled = False
+else:
+    # NOTE: in PyInstaller 4.x and earlier, get_module_attribute() returns the string representation of the value
+    # ('True'), while in PyInstaller 5.x and later, the actual value is returned (True).
+    is_compiled = get_module_attribute('pydantic', 'compiled') in {'True', True}
+
 if is_compiled:
     # Compiled version; we need to manually collect the submodules from
     # pydantic...
