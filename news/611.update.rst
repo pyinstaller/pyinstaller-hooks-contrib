@@ -1,0 +1,1 @@
+Update ``pydantic`` hook for compatibility with ``pydantic`` v2.0.0.
