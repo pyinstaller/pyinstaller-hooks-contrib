@@ -1,3 +1,22 @@
+2023.2 (2023-07-05)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for astropy-iers-data, which includes data. (`#608
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/608>`_)
+* Add a hook for skyfield, which includes data. (`#607
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/607>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``pydantic`` hook for compatibility with ``pydantic`` v2.0.0. (`#611
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/611>`_)
+
+
 2023.4 (2023-06-27)
 -------------------
 
