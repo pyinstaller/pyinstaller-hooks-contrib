@@ -1672,3 +1672,26 @@ def test_mistune(pyi_builder):
     pyi_builder.test_source("""
         import mistune
     """)
+
+
+@importorskip('jsonschema')
+def test_jsonschema(pyi_builder):
+    pyi_builder.test_source("""
+        import jsonschema
+
+        # Sample schema
+        schema = {
+            "type" : "object",
+            "properties" : {
+                "price" : {"type" : "number"},
+                "name" : {"type" : "string"},
+            },
+        }
+
+        jsonschema.validate(instance={"name" : "Eggs", "price" : 3.38}, schema=schema)
+
+        try:
+            jsonschema.validate(instance={"name" : "Eggs", "price" : "Invalid"}, schema=schema)
+        except jsonschema.ValidationError as e:
+            print(f"Validation error: {e}")
+    """)
