@@ -1,0 +1,2 @@
+Add hook for ``jsonschema_specifications`` to collect the data files
+that ``jsonschema`` v4.18.0 moved into a separate package.
