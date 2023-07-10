@@ -53,7 +53,7 @@ numcodecs==0.11.0
 Office365-REST-Python-Client==2.4.2
 openpyxl==3.1.2
 pandas==2.0.3
-panel==1.1.1
+panel==1.2.0
 passlib==1.7.4
 pendulum==2.1.2
 phonenumbers==8.13.15
