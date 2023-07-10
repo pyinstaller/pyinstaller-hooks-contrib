@@ -117,7 +117,7 @@ limits==3.5.0
 # great-expectations as of v0.16.10 does not officially support python 3.11 yet, and the pyspark
 # compatibility wrapper seems to be broken for python 3.11 in this version.
 great-expectations==0.17.4; python_version < '3.11'
-tensorflow==2.12.0
+tensorflow==2.13.0
 pyshark==0.6.0
 opencv-python==4.8.0.74
 hydra-core==1.3.2
