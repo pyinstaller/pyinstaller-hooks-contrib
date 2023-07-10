@@ -56,7 +56,7 @@ pandas==2.0.3
 panel==1.2.0
 passlib==1.7.4
 pendulum==2.1.2
-phonenumbers==8.13.15
+phonenumbers==8.13.16
 pingouin==0.5.3
 pinyin==0.4.0
 platformdirs==3.8.0
