@@ -131,7 +131,7 @@ customtkinter==5.2.0
 fastparquet==2023.7.0
 librosa==0.10.0.post2
 sympy==1.12
-xyzservices==2023.5.0
+xyzservices==2023.7.0
 mistune==3.0.1
 pydantic==2.0.0
 jsonschema==4.18.0
