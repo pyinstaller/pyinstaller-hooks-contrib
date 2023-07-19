@@ -1,0 +1,1 @@
+Add hook for ``ens`` package, required by ``web3`` v6.6.0 and later.
