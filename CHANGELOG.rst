@@ -1,3 +1,16 @@
+2023.6 (2023-07-20)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``ens`` package, required by ``web3`` v6.6.0 and later. (`#617
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/617>`_)
+* Add hook for ``jsonschema_specifications`` to collect the data files
+  that ``jsonschema`` v4.18.0 moved into a separate package. (`#614
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/614>`_)
+
+
 2023.5 (2023-07-05)
 -------------------
 
