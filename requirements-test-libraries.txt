@@ -8,12 +8,12 @@ av==10.0.0
 adbutils==1.2.12; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version < '3.10'
 APScheduler==3.10.1
 backports.zoneinfo==0.2.1; python_version < '3.9'
-bokeh==3.2.0; python_version >= '3.9'
+bokeh==3.2.1; python_version >= '3.9'
 boto==2.49.0
-boto3==1.28.3
-botocore==1.31.3
+boto3==1.28.9
+botocore==1.31.9
 branca==0.6.0
-cairocffi==1.6.0
+cairocffi==1.6.1
 CairoSVG==2.7.0
 cassandra-driver==3.28.0
 cf-units==3.2.0; sys_platform != 'win32'
@@ -33,7 +33,7 @@ fiona==1.9.4.post1; sys_platform != 'win32'
 folium==0.14.0
 ffpyplayer==4.5.0
 geopandas==0.13.2; sys_platform != 'win32'
-google-api-python-client==2.93.0
+google-api-python-client==2.94.0
 graphql-query==1.1.1
 python-gitlab==3.15.0
 h5py==3.9.0
@@ -47,16 +47,16 @@ markdown==3.4.3
 # MetPy==1.2.0
 moviepy==1.0.3
 mnemonic==0.20
-msoffcrypto-tool==5.1.0
+msoffcrypto-tool==5.1.1
 netCDF4==1.6.4
 numcodecs==0.11.0
-Office365-REST-Python-Client==2.4.2
+Office365-REST-Python-Client==2.4.3
 openpyxl==3.1.2
 pandas==2.0.3
 panel==1.2.0
 passlib==1.7.4
 pendulum==2.1.2
-phonenumbers==8.13.16
+phonenumbers==8.13.17
 pingouin==0.5.3
 pinyin==0.4.0
 platformdirs==3.9.1
@@ -90,7 +90,7 @@ scipy==1.11.1; python_version > '3.8'
 sentry-sdk==1.28.1
 shotgun_api3==3.3.5
 spacy==3.6.0
-srsly==2.4.6
+srsly==2.4.7
 swagger-spec-validator==3.0.3
 tableauhyperapi==0.0.17360
 thinc==8.1.10
@@ -107,7 +107,7 @@ mimesis==10.1.0
 orjson==3.9.2
 altair==5.0.1
 shapely==2.0.1
-lark==1.1.5
+lark==1.1.7
 python-stdnum==1.18
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
@@ -116,7 +116,7 @@ soundfile==0.12.1; sys_platform != 'linux'
 limits==3.5.0
 # great-expectations as of v0.16.10 does not officially support python 3.11 yet, and the pyspark
 # compatibility wrapper seems to be broken for python 3.11 in this version.
-great-expectations==0.17.4; python_version < '3.11'
+great-expectations==0.17.6; python_version < '3.11'
 tensorflow==2.13.0
 pyshark==0.6.0
 opencv-python==4.8.0.74
