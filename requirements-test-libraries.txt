@@ -90,7 +90,7 @@ scipy==1.11.1; python_version > '3.8'
 sentry-sdk==1.28.1
 shotgun_api3==3.3.5
 spacy==3.6.0
-srsly==2.4.6
+srsly==2.4.7
 swagger-spec-validator==3.0.3
 tableauhyperapi==0.0.17360
 thinc==8.1.10
