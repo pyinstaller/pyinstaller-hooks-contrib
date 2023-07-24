@@ -107,7 +107,7 @@ mimesis==10.1.0
 orjson==3.9.2
 altair==5.0.1
 shapely==2.0.1
-lark==1.1.5
+lark==1.1.7
 python-stdnum==1.18
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
