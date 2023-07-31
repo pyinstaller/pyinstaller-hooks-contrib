@@ -14,4 +14,4 @@ PyInstaller hook file for graphql_query. Tested with version 1.0.3.
 
 from PyInstaller.utils.hooks import collect_data_files
 
-datas = collect_data_files('graphql_query.templates')
+datas = collect_data_files('graphql_query')
