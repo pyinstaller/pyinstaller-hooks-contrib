@@ -134,7 +134,7 @@ sympy==1.12
 xyzservices==2023.7.0
 mistune==3.0.1
 pydantic==2.1.1
-jsonschema==4.18.3
+jsonschema==4.18.4
 
 # ------------------- Platform (OS) specifics
 
