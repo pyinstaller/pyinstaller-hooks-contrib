@@ -103,7 +103,7 @@ web3==6.7.0
 websockets==11.0.3
 zeep==4.2.1
 pypsexec==0.3.0
-mimesis==10.1.0
+mimesis==10.2.1
 orjson==3.9.2
 altair==5.0.1
 shapely==2.0.1
