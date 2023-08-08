@@ -39,15 +39,15 @@ excludedimports = [
 if LINUX:
     excludedimports.remove("psutil._pslinux")
 elif WINDOWS:
-    excludedimports.remove("psutil._pslinux")
+    excludedimports.remove("psutil._pswindows")
     # see https://github.com/giampaolo/psutil/blob/release-5.9.5/psutil/_common.py#L856
     # This will exclude `curses` for windows
     excludedimports.append("curses")
 elif MACOS:
-    excludedimports.remove("psutil._pslinux")
+    excludedimports.remove("psutil._psosx")
 elif BSD:
-    excludedimports.remove("psutil._pslinux")
+    excludedimports.remove("psutil._psbsd")
 elif SUNOS:
-    excludedimports.remove("psutil._pslinux")
+    excludedimports.remove("psutil._pssunos")
 elif AIX:
-    excludedimports.remove("psutil._pslinux")
+    excludedimports.remove("psutil._psaix")
