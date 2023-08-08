@@ -13,8 +13,41 @@
 # (extension/add-on)
 # ------------------------------------------------------------------
 import os
+import sys
 
-# see https://github.com/giampaolo/psutil/blob/release-5.9.5/psutil/_common.py#L856
-# This will exclude `curses` for os.name == 'nt'
-if os.name == 'nt':
-    excludedimports = ["curses"]
+# see https://github.com/giampaolo/psutil/blob/release-5.9.5/psutil/_common.py#L82
+WINDOWS = os.name == "nt"
+LINUX = sys.platform.startswith("linux")
+MACOS = sys.platform.startswith("darwin")
+FREEBSD = sys.platform.startswith(("freebsd", "midnightbsd"))
+OPENBSD = sys.platform.startswith("openbsd")
+NETBSD = sys.platform.startswith("netbsd")
+BSD = FREEBSD or OPENBSD or NETBSD
+SUNOS = sys.platform.startswith(("sunos", "solaris"))
+AIX = sys.platform.startswith("aix")
+
+excludedimports = [
+    "psutil._pslinux",
+    "psutil._pswindows",
+    "psutil._psosx",
+    "psutil._psbsd",
+    "psutil._pssunos",
+    "psutil._psaix",
+]
+
+# see https://github.com/giampaolo/psutil/blob/release-5.9.5/psutil/__init__.py#L97
+if LINUX:
+    excludedimports.remove("psutil._pslinux")
+elif WINDOWS:
+    excludedimports.remove("psutil._pslinux")
+    # see https://github.com/giampaolo/psutil/blob/release-5.9.5/psutil/_common.py#L856
+    # This will exclude `curses` for windows
+    excludedimports.append("curses")
+elif MACOS:
+    excludedimports.remove("psutil._pslinux")
+elif BSD:
+    excludedimports.remove("psutil._pslinux")
+elif SUNOS:
+    excludedimports.remove("psutil._pslinux")
+elif AIX:
+    excludedimports.remove("psutil._pslinux")
