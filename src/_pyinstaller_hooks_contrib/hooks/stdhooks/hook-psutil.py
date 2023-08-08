@@ -9,9 +9,6 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-# A fully customizable messagebox for customtkinter!
-# (extension/add-on)
-# ------------------------------------------------------------------
 import os
 import sys
 
