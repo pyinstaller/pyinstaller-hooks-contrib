@@ -1695,3 +1695,10 @@ def test_jsonschema(pyi_builder):
         except jsonschema.ValidationError as e:
             print(f"Validation error: {e}")
     """)
+
+
+@importorskip('psutil')
+def test_psutil(pyi_builder):
+    pyi_builder.test_source("""
+        import psutil
+    """)
