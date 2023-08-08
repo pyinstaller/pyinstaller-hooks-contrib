@@ -135,6 +135,7 @@ xyzservices==2023.7.0
 mistune==3.0.1
 pydantic==2.1.1
 jsonschema==4.19.0
+psutil==5.9.5
 
 # ------------------- Platform (OS) specifics
 
