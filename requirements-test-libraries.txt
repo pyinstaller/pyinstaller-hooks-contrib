@@ -60,7 +60,7 @@ phonenumbers==8.13.18
 pingouin==0.5.3
 pinyin==0.4.0
 platformdirs==3.10.0
-plotly==5.15.0
+plotly==5.16.0
 publicsuffix2==2.20191221
 pycparser==2.21
 pycryptodome==3.18.0
