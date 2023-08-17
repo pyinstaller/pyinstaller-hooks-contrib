@@ -1702,3 +1702,23 @@ def test_psutil(pyi_builder):
     pyi_builder.test_source("""
         import psutil
     """)
+
+@importorskip('litestar')
+def test_litestar(pyi_builder):
+    pyi_builder.test_source("""
+        from litestar import Litestar, get
+        from litestar.testing import TestClient
+        from typing import Any
+
+
+        @get("/sync", sync_to_thread=False)
+        def sync_hello_world() -> dict[str, Any]:
+            return {"hello": "world"}
+
+
+        app = Litestar(route_handlers=[sync_hello_world])
+        client = TestClient(app)
+        response = client.get("/sync")
+        assert response.status_code == 200
+        assert response.json() == {"hello": "world"}
+    """)
