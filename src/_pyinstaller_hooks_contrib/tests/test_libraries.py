@@ -1709,11 +1709,11 @@ def test_litestar(pyi_builder):
     pyi_builder.test_source("""
         from litestar import Litestar, get
         from litestar.testing import TestClient
-        from typing import Any
+        from typing import Dict, Any
 
 
         @get("/sync", sync_to_thread=False)
-        def sync_hello_world() -> dict[str, Any]:
+        def sync_hello_world() -> Dict[str, Any]:
             return {"hello": "world"}
 
 
