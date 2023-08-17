@@ -1703,6 +1703,7 @@ def test_psutil(pyi_builder):
         import psutil
     """)
 
+
 @importorskip('litestar')
 def test_litestar(pyi_builder):
     pyi_builder.test_source("""
