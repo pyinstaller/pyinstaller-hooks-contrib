@@ -136,6 +136,7 @@ mistune==3.0.1
 pydantic==2.1.1
 jsonschema==4.19.0
 psutil==5.9.5
+litestar==2.0.0rc1
 
 # ------------------- Platform (OS) specifics
 
