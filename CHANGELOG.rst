@@ -1,3 +1,25 @@
+2023.7 (2023-08-18)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``psutil``, which has platform-dependent exclude list. (`#623
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/623>`_)
+* Add hook for CtkMessagebox. (`#619
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/619>`_)
+* Add hook for Litestar (`#625
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/625>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``graphql_query`` hook for compatibility with ``graphql-query``
+  v1.2.0. (`#621
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/621>`_)
+
+
 2023.6 (2023-07-20)
 -------------------
 

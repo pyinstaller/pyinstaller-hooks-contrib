@@ -1,2 +1,0 @@
-Update ``graphql_query`` hook for compatibility with ``graphql-query``
-v1.2.0.
