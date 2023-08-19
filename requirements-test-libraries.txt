@@ -137,6 +137,7 @@ pydantic==2.1.1
 jsonschema==4.19.0
 psutil==5.9.5
 litestar==2.0.0rc1
+lingua-language-detector==1.3.2; python_version >= '3.8'
 
 # ------------------- Platform (OS) specifics
 
