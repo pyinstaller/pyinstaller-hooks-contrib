@@ -1755,3 +1755,12 @@ def test_jieba(pyi_builder):
 
         assert jieba.lcut('我来到北京清华大学') == ['我', '来到', '北京', '清华大学']
     """)
+
+
+@importorskip('simplemma')
+def test_simplemma(pyi_builder):
+    pyi_builder.test_source("""
+        import simplemma
+
+        assert simplemma.lemmatize('tests', lang = 'en') == 'test'
+    """)
