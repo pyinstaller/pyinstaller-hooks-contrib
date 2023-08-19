@@ -1746,3 +1746,12 @@ def test_opencc(pyi_builder):
 
         assert cc.convert('开放中文转换') == '開放中文轉換'
     """)
+
+
+@importorskip('jieba')
+def test_jieba(pyi_builder):
+    pyi_builder.test_source("""
+        import jieba
+
+        assert jieba.lcut('我来到北京清华大学') == ['我', '来到', '北京', '清华大学']
+    """)
