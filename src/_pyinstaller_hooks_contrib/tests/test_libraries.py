@@ -1723,3 +1723,15 @@ def test_litestar(pyi_builder):
         assert response.status_code == 200
         assert response.json() == {"hello": "world"}
     """)
+
+
+@importorskip('lingua')
+def test_lingua_language_detector(pyi_builder):
+    pyi_builder.test_source("""
+        from lingua import Language, LanguageDetectorBuilder
+
+        languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
+        detector = LanguageDetectorBuilder.from_languages(*languages).build()
+
+        assert detector.detect_language_of("languages are awesome") == Language.ENGLISH
+    """)
