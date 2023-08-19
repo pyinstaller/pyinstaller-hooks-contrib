@@ -1764,3 +1764,12 @@ def test_simplemma(pyi_builder):
 
         assert simplemma.lemmatize('tests', lang='en') == 'test'
     """)
+
+
+@importorskip('wordcloud')
+def test_wordcloud(pyi_builder):
+    pyi_builder.test_source("""
+        import wordcloud
+
+        wordcloud.WordCloud().generate('test')
+    """)
