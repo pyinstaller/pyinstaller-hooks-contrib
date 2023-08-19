@@ -1762,5 +1762,5 @@ def test_simplemma(pyi_builder):
     pyi_builder.test_source("""
         import simplemma
 
-        assert simplemma.lemmatize('tests', lang = 'en') == 'test'
+        assert simplemma.lemmatize('tests', lang='en') == 'test'
     """)
