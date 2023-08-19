@@ -1736,6 +1736,7 @@ def test_lingua_language_detector(pyi_builder):
         assert detector.detect_language_of("languages are awesome") == Language.ENGLISH
     """)
 
+
 @importorskip('opencc')
 def test_opencc(pyi_builder):
     pyi_builder.test_source("""
