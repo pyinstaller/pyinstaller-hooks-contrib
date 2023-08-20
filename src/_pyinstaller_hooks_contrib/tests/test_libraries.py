@@ -1773,3 +1773,10 @@ def test_wordcloud(pyi_builder):
 
         wordcloud.WordCloud().generate('test')
     """)
+
+
+@importorskip('eng_to_ipa')
+def test_eng_to_ipa(pyi_builder):
+    pyi_builder.test_source("""
+        import eng_to_ipa
+    """)
