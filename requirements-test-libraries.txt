@@ -142,6 +142,7 @@ opencc-python-reimplemented==0.1.7
 jieba==0.42.1
 simplemma==0.9.1
 wordcloud==1.9.2
+eng-to-ipa==0.0.2
 
 # ------------------- Platform (OS) specifics
 
