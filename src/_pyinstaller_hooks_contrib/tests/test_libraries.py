@@ -1780,3 +1780,12 @@ def test_eng_to_ipa(pyi_builder):
     pyi_builder.test_source("""
         import eng_to_ipa
     """)
+
+
+@importorskip('mecab')
+def test_mecab(pyi_builder):
+    pyi_builder.test_source("""
+        import mecab
+
+        mecab.MeCab()
+    """)
