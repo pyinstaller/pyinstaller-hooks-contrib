@@ -1796,3 +1796,10 @@ def test_khmernltk(pyi_builder):
     pyi_builder.test_source("""
         import khmernltk
     """)
+
+
+@importorskip('pycrfsuite')
+def test_pycrfsuite(pyi_builder):
+    pyi_builder.test_source("""
+        import pycrfsuite
+    """)
