@@ -1803,3 +1803,13 @@ def test_pycrfsuite(pyi_builder):
     pyi_builder.test_source("""
         import pycrfsuite
     """)
+
+
+@importorskip('pymorphy3')
+def test_pymorphy3(pyi_builder):
+    pyi_builder.test_source("""
+        import pymorphy3
+
+        pymorphy3.MorphAnalyzer(lang='ru')
+        pymorphy3.MorphAnalyzer(lang='uk')
+    """)
