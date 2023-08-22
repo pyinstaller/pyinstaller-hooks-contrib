@@ -1813,3 +1813,14 @@ def test_pymorphy3(pyi_builder):
         pymorphy3.MorphAnalyzer(lang='ru')
         pymorphy3.MorphAnalyzer(lang='uk')
     """)
+
+
+@importorskip('sudachipy')
+def test_sudachipy(pyi_builder):
+    pyi_builder.test_source("""
+        from sudachipy import Dictionary
+
+        Dictionary(dict_type='small').create()
+        Dictionary(dict_type='core').create()
+        Dictionary(dict_type='full').create()
+    """)

@@ -148,6 +148,10 @@ khmer-nltk==1.5
 python-crfsuite==0.9.9
 pymorphy3==1.2.0
 pymorphy3-dicts-uk==2.4.1.1.1663094765
+sudachipy==0.6.7
+sudachidict-core==20230711
+sudachidict-small==20230711
+sudachidict-full==20230711
 
 # ------------------- Platform (OS) specifics
 
