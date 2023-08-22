@@ -1789,3 +1789,10 @@ def test_mecab(pyi_builder):
 
         mecab.MeCab()
     """)
+
+
+@importorskip('khmernltk')
+def test_khmernltk(pyi_builder):
+    pyi_builder.test_source("""
+        import khmernltk
+    """)
