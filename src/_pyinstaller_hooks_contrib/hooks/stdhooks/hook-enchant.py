@@ -59,4 +59,7 @@ if is_darwin:
         # In Macports are available mostly hunspell (myspell) and aspell dictionaries.
         libdir = os.path.dirname(libenchant)  # e.g. /opt/local/lib
         sharedir = os.path.join(os.path.dirname(libdir), 'share')  # e.g. /opt/local/share
-        datas.append((os.path.join(sharedir, 'enchant'), 'enchant/share/enchant'))
+        if os.path.exists(os.path.join(sharedir, 'enchant')):
+            datas.append((os.path.join(sharedir, 'enchant'), 'enchant/share/enchant'))
+        if os.path.exists(os.path.join(sharedir, 'enchant-2')):
+            datas.append((os.path.join(sharedir, 'enchant-2'), 'enchant/share/enchant-2'))
