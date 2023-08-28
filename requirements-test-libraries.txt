@@ -104,7 +104,7 @@ websockets==11.0.3
 zeep==4.2.1
 pypsexec==0.3.0
 mimesis==11.1.0
-orjson==3.9.4
+orjson==3.9.5
 altair==5.0.1
 shapely==2.0.1
 lark==1.1.7
