@@ -108,7 +108,7 @@ orjson==3.9.5
 altair==5.1.0
 shapely==2.0.1
 lark==1.1.7
-python-stdnum==1.18
+python-stdnum==1.19
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
 sounddevice==0.4.6; sys_platform != 'linux'
