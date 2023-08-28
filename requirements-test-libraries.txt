@@ -89,7 +89,7 @@ sacremoses==0.0.53
 scipy==1.11.2; python_version > '3.8'
 sentry-sdk==1.29.2
 shotgun_api3==3.3.5
-spacy==3.6.0
+spacy==3.6.1
 srsly==2.4.7
 swagger-spec-validator==3.0.3
 tableauhyperapi==0.0.17537
