@@ -37,7 +37,7 @@ google-api-python-client==2.97.0
 graphql-query==1.2.0
 python-gitlab==3.15.0
 h5py==3.9.0
-humanize==4.7.0
+humanize==4.8.0
 iminuit==2.23.0
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
