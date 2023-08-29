@@ -1,1 +1,0 @@
-Fix an issue with enchant 2 using a different directory (in MacPorts)

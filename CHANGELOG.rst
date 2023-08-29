@@ -1,3 +1,40 @@
+2023.8 (2023-08-29)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``eng_to_ipa``. (`#631
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/631>`_)
+* Add hook for ``jieba``. (`#628
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/628>`_)
+* Add hook for ``khmer-nltk``. (`#633
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/633>`_)
+* Add hook for ``Lingua``. (`#626
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/626>`_)
+* Add hook for ``opencc-python``. (`#627
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/627>`_)
+* Add hook for ``pymorphy3``. (`#634
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/634>`_)
+* Add hook for ``python-crfsuite``. (`#633
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/633>`_)
+* Add hook for ``python-mecab-ko``. (`#632
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/632>`_)
+* Add hook for ``simplemma``. (`#629
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/629>`_)
+* Add hook for ``SudachiPy``. (`#635
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/635>`_)
+* Add hook for ``wordcloud``. (`#630
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/630>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix an issue with enchant 2 using a different directory (in MacPorts) (`#636
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/636>`_)
+
+
 2023.7 (2023-08-18)
 -------------------
 
