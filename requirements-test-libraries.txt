@@ -121,7 +121,7 @@ tensorflow==2.13.0
 pyshark==0.6.0
 opencv-python==4.8.0.76
 hydra-core==1.3.2
-spiceypy==5.1.2
+spiceypy==6.0.0
 exchangelib==5.1.0
 NBT==1.5.1
 minecraft-launcher-lib==6.2
