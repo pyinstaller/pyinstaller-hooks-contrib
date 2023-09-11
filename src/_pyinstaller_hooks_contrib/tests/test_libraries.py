@@ -1807,12 +1807,23 @@ def test_pycrfsuite(pyi_builder):
 
 @importorskip('pymorphy3')
 def test_pymorphy3(pyi_builder):
+    # Language availability depends on installed packages.
+    available_languages = []
+    if can_import_module('pymorphy3_dicts_ru'):
+        available_languages.append('ru')
+    if can_import_module('pymorphy3_dicts_uk'):
+        available_languages.append('uk')
+
     pyi_builder.test_source("""
+        import sys
         import pymorphy3
 
-        pymorphy3.MorphAnalyzer(lang='ru')
-        pymorphy3.MorphAnalyzer(lang='uk')
-    """)
+        languages = sys.argv[1:]
+        print(f"Languages to test: {languages}")
+
+        for language in languages:
+            pymorphy3.MorphAnalyzer(lang=language)
+    """, app_args=available_languages)
 
 
 @importorskip('sudachipy')
