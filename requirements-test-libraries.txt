@@ -79,7 +79,7 @@ pynput==1.7.6
 pymssql==2.2.8
 pystray==0.19.4
 pythonnet==3.0.2
-pytz==2023.3
+pytz==2023.3.post1
 pyzmq==25.1.1
 PyQt5==5.15.9
 qtmodern==0.2.0
