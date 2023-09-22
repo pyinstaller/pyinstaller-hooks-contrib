@@ -1835,3 +1835,10 @@ def test_sudachipy(pyi_builder):
         Dictionary(dict_type='core').create()
         Dictionary(dict_type='full').create()
     """)
+
+
+@importorskip('laonlp')
+def test_laonlp(pyi_builder):
+    pyi_builder.test_source("""
+        import laonlp
+    """)
