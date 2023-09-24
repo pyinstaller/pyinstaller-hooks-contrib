@@ -1842,3 +1842,10 @@ def test_laonlp(pyi_builder):
     pyi_builder.test_source("""
         import laonlp
     """)
+
+
+@importorskip('pythainlp')
+def test_pythainlp(pyi_builder):
+    pyi_builder.test_source("""
+        import pythainlp
+    """)
