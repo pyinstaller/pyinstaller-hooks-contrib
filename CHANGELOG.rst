@@ -1,3 +1,15 @@
+2023.9 (2023-09-26)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``LaoNLP``. (`#644
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/644>`_)
+* Add hook for ``PyThaiNLP``. (`#644
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/644>`_)
+
+
 2023.8 (2023-08-29)
 -------------------
 
