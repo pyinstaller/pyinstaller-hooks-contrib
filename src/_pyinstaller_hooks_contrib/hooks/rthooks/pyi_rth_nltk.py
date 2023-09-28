@@ -14,4 +14,4 @@ import os
 import nltk
 
 #add the path to nltk_data
-nltk.data.path.append(os.path.join(sys._MEIPASS, "nltk_data"))
+nltk.data.path.insert(0, os.path.join(sys._MEIPASS, "nltk_data"))

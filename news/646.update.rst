@@ -1,0 +1,1 @@
+If ``nltk_data`` can be found both in the frozen program and under the default location specified by ``NLTK``, the former should be preferred to the latter.
