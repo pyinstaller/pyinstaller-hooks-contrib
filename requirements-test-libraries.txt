@@ -10,15 +10,15 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.2.2; python_version >= '3.9'
 boto==2.49.0
-boto3==1.28.53
-botocore==1.31.53
+boto3==1.28.57
+botocore==1.31.57
 branca==0.6.0
 cairocffi==1.6.1
 CairoSVG==2.7.1
 cassandra-driver==3.28.0
 cf-units==3.2.0; sys_platform != 'win32'
 cftime==1.6.2
-charset_normalizer==3.2.0
+charset_normalizer==3.3.0
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.0; sys_platform != 'win32'
@@ -56,10 +56,10 @@ pandas==2.1.1; python_version >= '3.9'
 panel==1.2.3
 passlib==1.7.4
 pendulum==2.1.2
-phonenumbers==8.13.21
+phonenumbers==8.13.22
 pingouin==0.5.3
 pinyin==0.4.0
-platformdirs==3.10.0
+platformdirs==3.11.0
 plotly==5.17.0
 publicsuffix2==2.20191221
 pycparser==2.21
@@ -67,7 +67,7 @@ pycryptodome==3.19.0
 pycryptodomex==3.19.0
 pyexcelerate==0.10.0
 pylibmagic==0.4.0; sys_platform != 'win32'
-pylint==2.17.6
+pylint==3.0.0
 pypemicro==0.1.11
 pyphen==0.14.0
 pyppeteer==1.0.2
@@ -86,10 +86,10 @@ qtmodern==0.2.0
 Rtree==1.0.1
 sacremoses==0.0.53
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
-scipy==1.11.2; python_version > '3.8'
+scipy==1.11.3; python_version > '3.8'
 sentry-sdk==1.31.0
-shotgun_api3==3.3.5
-spacy==3.6.1
+shotgun_api3==3.4.0
+spacy==3.7.0
 srsly==2.4.8
 swagger-spec-validator==3.0.3
 tableauhyperapi==0.0.17782
@@ -97,8 +97,8 @@ thinc==8.2.1
 timezonefinder==6.2.0; python_version > '3.8'
 Twisted==23.8.0
 tzdata==2023.3
-Unidecode==1.3.6
-weasyprint==60.0
+Unidecode==1.3.7
+weasyprint==60.1
 web3==6.10.0
 websockets==11.0.3
 zeep==4.2.1
@@ -116,10 +116,10 @@ soundfile==0.12.1; sys_platform != 'linux'
 limits==3.6.0
 # great-expectations as of v0.16.10 does not officially support python 3.11 yet, and the pyspark
 # compatibility wrapper seems to be broken for python 3.11 in this version.
-great-expectations==0.17.19; python_version < '3.11'
+great-expectations==0.17.20; python_version < '3.11'
 tensorflow==2.14.0; python_version >= '3.9'
 pyshark==0.6.0
-opencv-python==4.8.0.76
+opencv-python==4.8.1.78
 hydra-core==1.3.2
 spiceypy==6.0.0
 exchangelib==5.1.0
@@ -132,12 +132,12 @@ fastparquet==2023.8.0
 librosa==0.10.1
 sympy==1.12
 xyzservices==2023.7.0
-mistune==3.0.1
-pydantic==2.4.0
+mistune==3.0.2
+pydantic==2.4.2
 jsonschema==4.19.1
 psutil==5.9.5
 litestar==2.1.1
-lingua-language-detector==1.3.2; python_version >= '3.8'
+lingua-language-detector==1.3.3; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
 simplemma==0.9.1
@@ -149,9 +149,9 @@ python-crfsuite==0.9.9
 pymorphy3==1.2.1
 pymorphy3-dicts-uk==2.4.1.1.1663094765
 sudachipy==0.6.7
-sudachidict-core==20230711
-sudachidict-small==20230711
-sudachidict-full==20230711
+sudachidict-core==20230927
+sudachidict-small==20230927
+sudachidict-full==20230927
 wxPython==4.2.1; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.1.2
 pythainlp==4.1.0b5
