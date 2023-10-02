@@ -119,7 +119,7 @@ limits==3.6.0
 great-expectations==0.17.20; python_version < '3.11'
 tensorflow==2.14.0; python_version >= '3.9'
 pyshark==0.6.0
-opencv-python==4.8.0.76
+opencv-python==4.8.1.78
 hydra-core==1.3.2
 spiceypy==6.0.0
 exchangelib==5.1.0
