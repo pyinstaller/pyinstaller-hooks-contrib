@@ -132,7 +132,7 @@ fastparquet==2023.8.0
 librosa==0.10.1
 sympy==1.12
 xyzservices==2023.7.0
-mistune==3.0.1
+mistune==3.0.2
 pydantic==2.4.0
 jsonschema==4.19.1
 psutil==5.9.5
