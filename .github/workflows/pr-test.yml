@@ -88,6 +88,9 @@ jobs:
           sudo apt-get install -y libcairo2
           # Install libdiscid (dependency of discid python package).
           sudo apt-get install -y libdiscid0
+          # These are dependencies of gmsh
+          sudo apt-get install -y libglu1 libgl1 libxrender1 libxcursor1 libxft2 \
+            libxinerama1 libgomp1
 
       - name: Install brew dependencies
         if: startsWith(matrix.os, 'macos')
