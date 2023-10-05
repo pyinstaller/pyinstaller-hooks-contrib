@@ -1849,3 +1849,10 @@ def test_pythainlp(pyi_builder):
     pyi_builder.test_source("""
         import pythainlp
     """)
+
+
+@importorskip('gmsh')
+def test_gmsh(pyi_builder):
+    pyi_builder.test_source("""
+        import gmsh
+    """)
