@@ -36,7 +36,7 @@ geopandas==0.14.0; sys_platform != 'win32' and python_version >= '3.9'
 google-api-python-client==2.102.0
 graphql-query==1.2.0
 python-gitlab==3.15.0
-h5py==3.9.0
+h5py==3.10.0
 humanize==4.8.0
 iminuit==2.24.0
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
