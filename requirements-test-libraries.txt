@@ -31,7 +31,7 @@ discid==1.2.0; sys_platform != 'win32'
 fabric==3.2.2
 fiona==1.9.4.post1; sys_platform != 'win32'
 folium==0.14.0
-ffpyplayer==4.5.0
+ffpyplayer==4.5.1
 geopandas==0.14.0; sys_platform != 'win32' and python_version >= '3.9'
 google-api-python-client==2.101.0
 graphql-query==1.2.0
