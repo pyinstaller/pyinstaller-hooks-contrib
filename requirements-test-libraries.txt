@@ -92,7 +92,7 @@ shotgun_api3==3.4.0
 spacy==3.7.1
 srsly==2.4.8
 swagger-spec-validator==3.0.3
-tableauhyperapi==0.0.17782
+tableauhyperapi==0.0.17971
 thinc==8.2.1
 timezonefinder==6.2.0; python_version > '3.8'
 Twisted==23.8.0
