@@ -1,3 +1,28 @@
+2023.10 (2023-10-13)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``gmsh``. (`#650
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/650>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* If ``nltk_data`` can be found both in the frozen program and under the
+  default location specified by ``NLTK``, the former should be preferred to the
+  latter. (`#646
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/646>`_)
+* Update ``skimage`` hooks for compatibility with ``scikit-image`` 0.22.0.
+  (`#652
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/652>`_)
+* Update ``tensorflow`` hook for compatibility with ``tensorflow`` 2.14.0.
+  (`#647
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/647>`_)
+
+
 2023.9 (2023-09-26)
 -------------------
 
