@@ -78,7 +78,7 @@ pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.6
 pymssql==2.2.9
 pystray==0.19.5
-pythonnet==3.0.2
+pythonnet==3.0.3
 pytz==2023.3.post1
 pyzmq==25.1.1
 PyQt5==5.15.9
