@@ -163,7 +163,7 @@ gmsh==4.11.1
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
 
 # uvloop does not currently support Windows.
-uvloop==0.17.0; sys_platform != 'win32'
+uvloop==0.18.0; sys_platform != 'win32'
 
 # pydivert only runs on Windows
 pydivert==2.1.0; sys_platform == 'win32'
