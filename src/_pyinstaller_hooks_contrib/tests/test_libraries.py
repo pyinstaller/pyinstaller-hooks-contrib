@@ -640,6 +640,13 @@ def test_googleapiclient(pyi_builder):
         """)
 
 
+@importorskip('eth_typing')
+def test_eth_typing(pyi_builder):
+    pyi_builder.test_source("""
+        import eth_typing
+    """)
+
+
 @importorskip('plotly')
 @importorskip('pandas')
 def test_plotly(pyi_builder):
