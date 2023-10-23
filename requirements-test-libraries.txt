@@ -35,7 +35,7 @@ fiona==1.9.5; sys_platform != 'win32'
 folium==0.14.0
 ffpyplayer==4.5.1
 geopandas==0.14.0; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.103.0
+google-api-python-client==2.104.0
 graphql-query==1.2.1
 python-gitlab==3.15.0
 h5py==3.10.0
