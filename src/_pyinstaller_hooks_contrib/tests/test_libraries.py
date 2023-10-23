@@ -647,6 +647,14 @@ def test_eth_typing(pyi_builder):
     """)
 
 
+@importorskip("eth_utils")
+def test_eth_utils_network(pyi_builder):
+    pyi_builder.test_source("""
+        import eth_utils.network
+        eth_utils.network.name_from_chain_id(1)
+    """)
+
+
 @importorskip('plotly')
 @importorskip('pandas')
 def test_plotly(pyi_builder):

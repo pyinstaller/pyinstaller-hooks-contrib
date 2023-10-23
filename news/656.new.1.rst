@@ -1,0 +1,1 @@
+Add hook for ``eth_utils`` to collect its embedded JSON files.
