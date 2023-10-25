@@ -10,15 +10,15 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.3.0; python_version >= '3.9'
 boto==2.49.0
-boto3==1.28.63
-botocore==1.31.63
+boto3==1.28.68
+botocore==1.31.68
 branca==0.6.0
 cairocffi==1.6.1
 CairoSVG==2.7.1
 cassandra-driver==3.28.0
 cf-units==3.2.0; sys_platform != 'win32'
-cftime==1.6.2
-charset_normalizer==3.3.0
+cftime==1.6.3
+charset_normalizer==3.3.1
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.0; sys_platform != 'win32'
@@ -35,7 +35,7 @@ fiona==1.9.5; sys_platform != 'win32'
 folium==0.14.0
 ffpyplayer==4.5.1
 geopandas==0.14.0; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.103.0
+google-api-python-client==2.104.0
 graphql-query==1.2.1
 python-gitlab==3.15.0
 h5py==3.10.0
@@ -51,14 +51,14 @@ moviepy==1.0.3
 mnemonic==0.20
 msoffcrypto-tool==5.1.1
 netCDF4==1.6.4
-numcodecs==0.11.0
+numcodecs==0.12.1
 Office365-REST-Python-Client==2.5.1
 openpyxl==3.1.2
 pandas==2.1.1; python_version >= '3.9'
 panel==1.2.3
 passlib==1.7.4
 pendulum==2.1.2
-phonenumbers==8.13.22
+phonenumbers==8.13.23
 pingouin==0.5.3
 pinyin==0.4.0
 platformdirs==3.11.0
@@ -68,8 +68,8 @@ pycparser==2.21
 pycryptodome==3.19.0
 pycryptodomex==3.19.0
 pyexcelerate==0.10.0
-pylibmagic==0.4.0; sys_platform != 'win32'
-pylint==3.0.1
+pylibmagic==0.5.0; sys_platform != 'win32'
+pylint==3.0.2
 pypemicro==0.1.11
 pyphen==0.14.0
 pyppeteer==1.0.2
@@ -101,15 +101,15 @@ Twisted==23.8.0
 tzdata==2023.3
 Unidecode==1.3.7
 weasyprint==60.1
-web3==6.11.0
-websockets==11.0.3
+web3==6.11.1
+websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
 mimesis==11.1.0
 orjson==3.9.9
 altair==5.1.2
 shapely==2.0.2
-lark==1.1.7
+lark==1.1.8
 python-stdnum==1.19
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
@@ -118,7 +118,7 @@ soundfile==0.12.1; sys_platform != 'linux'
 limits==3.6.0
 # great-expectations as of v0.16.10 does not officially support python 3.11 yet, and the pyspark
 # compatibility wrapper seems to be broken for python 3.11 in this version.
-great-expectations==0.17.22; python_version < '3.11'
+great-expectations==0.17.23; python_version < '3.11'
 tensorflow==2.14.0; python_version >= '3.9'
 pyshark==0.6.0
 opencv-python==4.8.1.78
@@ -127,9 +127,9 @@ spiceypy==6.0.0
 exchangelib==5.1.0
 NBT==1.5.1
 minecraft-launcher-lib==6.3
-scikit-learn==1.3.1
+scikit-learn==1.3.2
 scikit-image==0.22.0; python_version >= '3.9'
-customtkinter==5.2.0
+customtkinter==5.2.1
 fastparquet==2023.8.0
 librosa==0.10.1
 sympy==1.12
@@ -155,7 +155,7 @@ sudachidict-core==20230927
 sudachidict-small==20230927
 sudachidict-full==20230927
 wxPython==4.2.1; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
-laonlp==1.1.2
+laonlp==1.1.3
 pythainlp==4.1.0b5
 gmsh==4.11.1
 
@@ -165,7 +165,7 @@ gmsh==4.11.1
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
 
 # uvloop does not currently support Windows.
-uvloop==0.18.0; sys_platform != 'win32'
+uvloop==0.19.0; sys_platform != 'win32'
 
 # pydivert only runs on Windows
 pydivert==2.1.0; sys_platform == 'win32'
