@@ -78,7 +78,7 @@ pyusb==1.2.1
 pyviz-comms==3.0.0
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.6
-pymssql==2.2.9
+pymssql==2.2.10
 pystray==0.19.5
 pythonnet==3.0.3
 pytz==2023.3.post1
