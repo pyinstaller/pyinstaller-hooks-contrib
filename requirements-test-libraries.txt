@@ -86,7 +86,7 @@ pyzmq==25.1.1
 PyQt5==5.15.10
 qtmodern==0.2.0
 Rtree==1.1.0
-sacremoses==0.0.53
+sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.11.3; python_version > '3.8'
 sentry-sdk==1.32.0
