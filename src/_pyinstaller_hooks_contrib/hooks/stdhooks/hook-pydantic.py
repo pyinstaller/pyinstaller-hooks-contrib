@@ -15,7 +15,7 @@ from PyInstaller.utils.hooks import is_module_satisfies
 
 # By default, PyPi wheels for pydantic < 2.0.0 come with all modules compiled as cython extensions, which prevents
 # PyInstaller from automatically picking up the submodules.
-if is_module_satisfies('pydantic >= 2.0.0'):
+if is_module_satisfies('pydantic >= 2.0.0') or is_module_satisfies('pydantic >= 2.0.0b'):
     # The `pydantic.compiled` attribute was removed in v2.
     is_compiled = False
 else:
