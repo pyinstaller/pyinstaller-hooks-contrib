@@ -136,7 +136,7 @@ sympy==1.12
 xyzservices==2023.10.0
 mistune==3.0.2
 pydantic==2.5.1
-jsonschema==4.19.2
+jsonschema==4.20.0
 psutil==5.9.6
 litestar==2.3.2
 lingua-language-detector==1.3.4; python_version >= '3.8'
