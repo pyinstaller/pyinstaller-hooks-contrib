@@ -5,7 +5,7 @@ importlib_resources==6.1.1; python_version < '3.9'
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==11.0.0
 # The latest release of adbutils (1.2.11) explicitly requires requests<2.16, which is incompatible with python >= 3.10.
-adbutils==1.2.15; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version < '3.10'
+adbutils==2.0.1; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version < '3.10'
 APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.3.1; python_version >= '3.9'
