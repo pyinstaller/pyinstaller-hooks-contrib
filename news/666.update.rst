@@ -1,0 +1,1 @@
+Discard header files (and static libraries on Windows) of ``torch``
