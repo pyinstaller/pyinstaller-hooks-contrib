@@ -587,16 +587,6 @@ def test_pydantic(pyi_builder):
         """)
 
 
-@importorskip('torch')
-@torch_onedir_only
-def test_torch(pyi_builder):
-    pyi_builder.test_source("""
-        import torch
-
-        torch.rand((10, 10)) * torch.rand((10, 10))
-    """)
-
-
 def torch_onedir_only(test):
 
     def wrapped(pyi_builder):
@@ -606,6 +596,16 @@ def torch_onedir_only(test):
         test(pyi_builder)
 
     return wrapped
+
+
+@importorskip('torch')
+@torch_onedir_only
+def test_torch(pyi_builder):
+    pyi_builder.test_source("""
+        import torch
+
+        torch.rand((10, 10)) * torch.rand((10, 10))
+    """)
 
 
 @importorskip('torchvision')
