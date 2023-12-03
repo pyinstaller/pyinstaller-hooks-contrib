@@ -10,10 +10,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import logger, collect_data_files, is_module_satisfies
+from PyInstaller.utils.hooks import logger, collect_data_files, is_module_satisfies, collect_dynamic_libs
+from PyInstaller.compat import ALL_SUFFIXES
 
-datas = collect_data_files("torch", excludes=["**/*.h", "**/*.hpp", "**/*.cuh",
-                                              "**/*.lib"], include_py_files=True)
+datas = collect_data_files("torch", excludes=["**/*.h", "**/*.hpp", "**/*.cuh", "**/*.lib"])
+datas += collect_dynamic_libs("torch", search_patterns=["**/*" + i for i in ALL_SUFFIXES if i.lower() != ".pyc"])
 
 # With torch 2.0.0, PyInstaller's modulegraph analysis hits the recursion limit.
 # So, unless the user has already done so, increase it automatically.
