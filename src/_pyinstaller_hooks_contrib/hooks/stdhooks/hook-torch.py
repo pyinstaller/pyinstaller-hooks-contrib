@@ -21,6 +21,7 @@ from PyInstaller.utils.hooks import (
 
 if is_module_satisfies("PyInstaller >= 6.0"):
     module_collection_mode = "pyz+py"
+    warn_on_missing_hiddenimports = False
 
     datas = collect_data_files(
         "torch",
