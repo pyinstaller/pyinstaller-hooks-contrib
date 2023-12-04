@@ -1,1 +1,1 @@
-Modernize the torch for ``hook`` and reduce the amount of unnecessarily collected data files (header files and static libraries). Requires PyInstaller >= 6.0.
+Modernize the hook for ``torch`` and reduce the amount of unnecessarily collected data files (header files and static libraries). Requires PyInstaller >= 6.0.
