@@ -107,7 +107,7 @@ zeep==4.2.1
 pypsexec==0.3.0
 mimesis==11.1.0
 orjson==3.9.10
-altair==5.1.2
+altair==5.2.0
 shapely==2.0.2
 lark==1.1.8
 python-stdnum==1.19
