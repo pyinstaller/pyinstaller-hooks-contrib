@@ -158,6 +158,7 @@ wxPython==4.2.1; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI pro
 laonlp==1.1.3
 pythainlp==4.1.0b5
 gmsh==4.11.1
+sspilib==0.1.0
 
 # ------------------- Platform (OS) specifics
 
