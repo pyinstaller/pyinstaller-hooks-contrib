@@ -126,7 +126,7 @@ hydra-core==1.3.2
 spiceypy==6.0.0
 exchangelib==5.1.0
 NBT==1.5.1
-minecraft-launcher-lib==6.3
+minecraft-launcher-lib==6.4
 scikit-learn==1.3.2
 scikit-image==0.22.0; python_version >= '3.9'
 customtkinter==5.2.1
