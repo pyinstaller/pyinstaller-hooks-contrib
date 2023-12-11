@@ -156,7 +156,7 @@ sudachidict-small==20230927
 sudachidict-full==20230927
 wxPython==4.2.1; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.1.3
-pythainlp==4.1.0b5
+pythainlp==5.0.0.dev0
 gmsh==4.11.1
 sspilib==0.1.0
 
