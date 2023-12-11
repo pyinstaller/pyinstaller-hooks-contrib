@@ -1881,3 +1881,22 @@ def test_gmsh(pyi_builder):
     pyi_builder.test_source("""
         import gmsh
     """)
+
+
+@importorskip('sspilib')
+def test_sspilib(pyi_builder):
+    pyi_builder.test_source("""
+        import sspilib
+
+        cred = sspilib.UserCredential(
+            "username@DOMAIN.COM",
+            "password",
+        )
+
+        ctx = sspilib.ClientSecurityContext(
+            "host/server.domain.com",
+            credential=cred,
+        )
+
+        print(ctx)
+    """)
