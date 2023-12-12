@@ -1,0 +1,2 @@
+Add hooks for ``nvidia.*`` packages, which provide a way of installing
+CUDA via PyPI wheels (e.g., ``nvidia-cuda-runtime-cu12``).
