@@ -1,0 +1,2 @@
+Update ``torchvision`` hook to collect source .py files for TorchScript/JIT
+(requires PyInstaller >= 5.3 to take effect).
