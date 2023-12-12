@@ -15,14 +15,8 @@ import pytest
 from PyInstaller.utils.tests import importorskip
 
 
-def torch_onedir_only(test):
-
-    def wrapped(pyi_builder):
-        if pyi_builder._mode != 'onedir':
-            pytest.skip('PyTorch tests support only onedir mode due to potential distribution size.')
-        test(pyi_builder)
-
-    return wrapped
+# Run the tests in onedir mode only
+torch_onedir_only = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
 
 
 @importorskip('torch')
