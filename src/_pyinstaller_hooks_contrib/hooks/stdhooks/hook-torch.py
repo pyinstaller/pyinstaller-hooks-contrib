@@ -20,6 +20,8 @@ from PyInstaller.utils.hooks import (
 )
 
 if is_module_satisfies("PyInstaller >= 6.0"):
+    from PyInstaller.utils.hooks import PY_DYLIB_PATTERNS
+
     module_collection_mode = "pyz+py"
     warn_on_missing_hiddenimports = False
 
@@ -35,8 +37,12 @@ if is_module_satisfies("PyInstaller >= 6.0"):
             "**/*.cmake",
         ],
     )
-    binaries = collect_dynamic_libs("torch")
     hiddenimports = collect_submodules("torch")
+    binaries = collect_dynamic_libs(
+        "torch",
+        # Ensure we pick up fully-versioned .so files as well
+        search_patterns=PY_DYLIB_PATTERNS + ['*.so.*'],
+    )
 else:
     datas = [(get_package_paths("torch")[1], "torch")]
 

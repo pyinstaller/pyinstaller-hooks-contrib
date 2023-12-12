@@ -1,0 +1,2 @@
+(Linux) Update ``torch`` hook to explicitly collect versioned .so files
+in the new PyInstaller >= 6.0 codepath.
