@@ -1,0 +1,4 @@
+(Linux) Extend ``torch`` hook to automatically collect CUDA libraries
+distributed via ``nvidia-*`` packages (such as ``nvidia-cuda-runtime-cu12``)
+if they are specified among the requirements in the ``torch`` distribution's
+metadata.
