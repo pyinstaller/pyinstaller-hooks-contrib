@@ -10,6 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-# Functions from torchvision.ops.* modules require torchvision._C
-# extension module, which PyInstaller fails to pick up automatically...
+# Functions from torchvision.ops.* modules require torchvision._C extension module, which PyInstaller fails to pick up
+# automatically due to indirect load.
 hiddenimports = ['torchvision._C']
+
+# Collect source .py files for JIT/torchscript. Requires PyInstaller >= 5.3, no-op in older versions.
+module_collection_mode = 'pyz+py'
