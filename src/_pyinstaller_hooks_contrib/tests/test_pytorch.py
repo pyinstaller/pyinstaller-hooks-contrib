@@ -51,3 +51,49 @@ def test_torchvision_nms(pyi_builder):
         # is discarded.
         assert keep == 1
     """)
+
+
+# Advanced tests that uses torchvision.datasets and torchvision.transforms;
+# the transforms are combined using torchscript, which requires access to
+# transforms' sources.
+@importorskip('torchvision')
+@torch_onedir_only
+def test_torchvision_scripted_transforms(pyi_builder):
+    pyi_builder.test_source("""
+        import torch
+        import torch.nn
+
+        import torchvision.transforms
+        import torchvision.datasets
+
+        # Generate one image, and convert it from PIL to tensor
+        preproc = torchvision.transforms.Compose([
+            torchvision.transforms.PILToTensor()
+        ])
+
+        dataset = torchvision.datasets.FakeData(
+            size=1,  # 1 image
+            image_size=(3, 200, 200),
+            num_classes=2,
+            transform=preproc,
+        )
+
+        assert len(dataset) == 1
+        image, category = dataset[0]
+
+        assert image.size() == (3, 200, 200)
+        assert image.dtype == torch.uint8
+
+        # Create a composite transform that uses torchscript
+        transforms = torch.nn.Sequential(
+            torchvision.transforms.RandomCrop(100),
+            torchvision.transforms.RandomHorizontalFlip(p=0.3),
+        )
+        scripted_transforms = torch.jit.script(transforms)
+
+        # Transform image
+        transformed_image = scripted_transforms(image)
+
+        assert transformed_image.size() == (3, 100, 100)
+        assert transformed_image.dtype == torch.uint8
+    """)
