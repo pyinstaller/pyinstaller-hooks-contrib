@@ -20,6 +20,7 @@ from PyInstaller.utils.hooks import (
 )
 
 if is_module_satisfies("PyInstaller >= 6.0"):
+    from PyInstaller.compat import is_linux
     from PyInstaller.utils.hooks import PY_DYLIB_PATTERNS
 
     module_collection_mode = "pyz+py"
@@ -43,6 +44,47 @@ if is_module_satisfies("PyInstaller >= 6.0"):
         # Ensure we pick up fully-versioned .so files as well
         search_patterns=PY_DYLIB_PATTERNS + ['*.so.*'],
     )
+
+    # On Linux, torch wheels built with non-default CUDA version bundle CUDA libraries themselves (and should be handled
+    # by the above `collect_dynamic_libs`). Wheels built with default CUDA version (which are available on PyPI), on the
+    # other hand, use CUDA libraries provided by nvidia-* packages. Due to all possible combinations (CUDA libs from
+    # nvidia-* packages, torch-bundled CUDA libs, CPU-only CUDA libs) we do not add hidden imports directly, but instead
+    # attempt to infer them from requirements listed in the `torch` metadata.
+    if is_linux:
+        def _infer_nvidia_hiddenimports():
+            import re
+            import packaging.requirements  # Requirement of PyInstaller >= 6.0, so guaranteed to be available here.
+            from PyInstaller.compat import importlib_metadata
+
+            dist = importlib_metadata.distribution("torch")
+            requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]
+            requirements = [req.name for req in requirements if req.marker is None or req.marker.evaluate()]
+
+            # All nvidia-* packages install to nvidia top-level package, so we cannot query top-level module via
+            # metadata. Instead, we manually translate them from dist name to package name.
+            _PATTERN = r'^nvidia-(?P<subpackage>.+)-cu[\d]+$'
+            nvidia_hiddenimports = []
+
+            for req in requirements:
+                m = re.match(_PATTERN, req)
+                if m is None:
+                    if req.startswith("nvidia-"):
+                        logger.warning("hook-torch: unhandled NVIDIA CUDA requirement: %r!", req)
+                else:
+                    # Convert
+                    package_name = "nvidia." + m.group('subpackage').replace('-', '_')
+                    nvidia_hiddenimports.append(package_name)
+
+            return nvidia_hiddenimports
+
+        try:
+            nvidia_hiddenimports = _infer_nvidia_hiddenimports()
+        except Exception:
+            # Log the exception, but make it non-fatal
+            logger.warning("hook-torch: failed to infer NVIDIA CUDA hidden imports!", exc_info=True)
+            nvidia_hiddenimports = []
+        logger.info("hook-torch: inferred hidden imports for CUDA libraries: %r", nvidia_hiddenimports)
+        hiddenimports += nvidia_hiddenimports
 else:
     datas = [(get_package_paths("torch")[1], "torch")]
 
