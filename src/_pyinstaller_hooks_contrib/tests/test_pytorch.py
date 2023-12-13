@@ -29,6 +29,43 @@ def test_torch(pyi_builder):
     """)
 
 
+# Test with torchaudio transform that uses torchcript, which requires
+# access to transforms' sources.
+@importorskip('torchaudio')
+@torch_onedir_only
+def test_torchaudio_scripted_transforms(pyi_builder):
+    pyi_builder.test_source("""
+        import numpy as np
+
+        import torch.nn
+        import torchaudio.transforms
+
+        # Generate a sine waveform
+        volume = 0.5  # range [0.0, 1.0]
+        sampling_rate = 44100  # sampling rate, Hz
+        duration = 5.0  # seconds
+        freq = 500.0  # sine frequency, Hz
+
+        points = np.arange(0, sampling_rate * duration)
+        signal = volume * np.sin(2 * np.pi * points * freq / sampling_rate)
+
+        # Resample the signal using scripted transform
+        transforms = torch.nn.Sequential(
+            torchaudio.transforms.Resample(
+                orig_freq=sampling_rate,
+                new_freq=sampling_rate // 2
+            ),
+        )
+        scripted_transforms = torch.jit.script(transforms)
+
+        signal_tensor = torch.from_numpy(signal).float()
+        resampled_tensor = scripted_transforms(signal_tensor)
+
+        print("Result size:", resampled_tensor.size())
+        assert len(resampled_tensor) == len(signal_tensor) / 2
+    """)
+
+
 @importorskip('torchvision')
 @torch_onedir_only
 def test_torchvision_nms(pyi_builder):
