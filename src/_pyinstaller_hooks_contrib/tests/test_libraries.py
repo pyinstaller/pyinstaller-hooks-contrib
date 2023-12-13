@@ -80,52 +80,6 @@ def test_geopandas(pyi_builder):
     )
 
 
-def tensorflow_onedir_only(test):
-    def wrapped(pyi_builder):
-        if pyi_builder._mode != 'onedir':
-            pytest.skip('Tensorflow tests support only onedir mode '
-                        'due to potential distribution size.')
-        test(pyi_builder)
-
-    return wrapped
-
-
-@importorskip('tensorflow')
-@tensorflow_onedir_only
-def test_tensorflow(pyi_builder):
-    pyi_builder.test_source(
-        """
-        from tensorflow import *
-        """
-    )
-
-
-# Test if tensorflow.keras imports properly result in tensorflow being collected.
-# See https://github.com/pyinstaller/pyinstaller/discussions/6890
-@importorskip('tensorflow')
-@tensorflow_onedir_only
-def test_tensorflow_keras_import(pyi_builder):
-    pyi_builder.test_source(
-        """
-        from tensorflow.keras.models import Sequential
-        from tensorflow.keras.layers import Dense, LSTM, Dropout
-        from tensorflow.keras.optimizers import Adam
-        """
-    )
-
-
-@importorskip('tensorflow')
-@tensorflow_onedir_only
-def test_tensorflow_layer(pyi_builder):
-    pyi_builder.test_script('pyi_lib_tensorflow_layer.py')
-
-
-@importorskip('tensorflow')
-@tensorflow_onedir_only
-def test_tensorflow_mnist(pyi_builder):
-    pyi_builder.test_script('pyi_lib_tensorflow_mnist.py')
-
-
 @importorskip('trimesh')
 def test_trimesh(pyi_builder):
     pyi_builder.test_source(
