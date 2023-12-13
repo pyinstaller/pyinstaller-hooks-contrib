@@ -66,6 +66,45 @@ def test_torchaudio_scripted_transforms(pyi_builder):
     """)
 
 
+# Test with torchtext transform that uses torchcript, which requires
+# access to transforms' sources.
+@importorskip('torchtext')
+@torch_onedir_only
+def test_torchtext_scripted_berta_tokenizer_transform(pyi_builder):
+    pyi_builder.test_source("""
+        import torch.nn
+        import torchtext.models
+        import torchtext.functional
+
+        # Create Roberta Encoder with Base configuration
+        roberta_base = torchtext.models.ROBERTA_BASE_ENCODER
+        classifier_head = torchtext.models.RobertaClassificationHead(num_classes=2, input_dim=768)
+        transform = roberta_base.transform()
+
+        # Create transform that uses torchscript
+        scripted_transform = torch.jit.script(transform)
+        print(scripted_transform)
+
+        # Prepare test data
+        small_input_batch = [
+            "Hello world",
+            "How are you!",
+        ]
+
+        model_input = torchtext.functional.to_tensor(scripted_transform(small_input_batch), padding_value=1)
+        print("Tokenized input:", model_input)
+
+        # Process
+        if False:
+            # Downloads the model (~ 240 MB), if necessary.
+            model = roberta_base.get_model(head=classifier_head)
+
+            output = model(model_input)
+            print(output)
+            print(output.shape)
+    """)
+
+
 @importorskip('torchvision')
 @torch_onedir_only
 def test_torchvision_nms(pyi_builder):
