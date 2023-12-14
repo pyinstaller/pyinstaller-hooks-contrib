@@ -83,3 +83,20 @@ def test_fastai_tabular_data(pyi_builder):
         learn.fit_one_cycle(2)
         learn.show_results()
     """)
+
+
+@importorskip('timm')
+@onedir_only
+def test_timm_model_creation(pyi_builder):
+    pyi_builder.test_source("""
+        import timm
+
+        # List available models
+        pretrained_models = timm.list_models(pretrained=True)
+        print(f"Pre-trained models: {len(pretrained_models)}")
+        assert len(pretrained_models) > 0
+
+        # Create a model (non-trained version, to avoid downloading weights)
+        model = timm.create_model("resnet50d", pretrained=False)
+        print(model)
+    """)
