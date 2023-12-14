@@ -129,6 +129,22 @@ def test_torchvision_nms(pyi_builder):
     """)
 
 
+# Ensure that torchvision.io.image manages to load torchvision.image extension for its ops.
+@importorskip('torchvision')
+@torch_onedir_only
+def test_torchvision_image_io(pyi_builder):
+    pyi_builder.test_source("""
+        import torch
+        import torchvision.io.image
+
+        image = torch.zeros((3, 100, 100), dtype=torch.uint8)
+        png_data = torchvision.io.image.encode_png(image)
+        decoded_image = torchvision.io.image.decode_png(png_data)
+
+        assert torch.equal(image, decoded_image), "Original and decoded image are not identical!"
+    """)
+
+
 # Advanced tests that uses torchvision.datasets and torchvision.transforms;
 # the transforms are combined using torchscript, which requires access to
 # transforms' sources.
