@@ -43,3 +43,43 @@ def test_transformers_deberta_import(pyi_builder):
         configuration = DebertaConfig()
         model = DebertaModel(configuration)
     """)
+
+
+# Building models from tabular data example from https://docs.fast.ai/quick_start.html
+@importorskip('fastai')
+@onedir_only
+def test_fastai_tabular_data(pyi_builder):
+    pyi_builder.test_source("""
+        from fastai.tabular.all import *
+
+        path = untar_data(URLs.ADULT_SAMPLE)
+        print(f"Dataset path: {path}")
+
+        dls = TabularDataLoaders.from_csv(
+            path/'adult.csv',
+            path=path,
+            y_names="salary",
+            cat_names = [
+                'workclass',
+                'education',
+                'marital-status',
+                'occupation',
+                'relationship',
+                'race',
+            ],
+            cont_names = [
+                'age',
+                'fnlwgt',
+                'education-num',
+            ],
+            procs = [
+                Categorify,
+                FillMissing,
+                Normalize,
+            ],
+        )
+
+        learn = tabular_learner(dls, metrics=accuracy)
+        learn.fit_one_cycle(2)
+        learn.show_results()
+    """)
