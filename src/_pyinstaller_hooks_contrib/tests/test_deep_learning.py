@@ -184,3 +184,20 @@ def test_bitsandbytes(pyi_builder):
         linear = bitsandbytes.nn.Linear8bitLt(dim1, dim2, bias=True, has_fp16_weights=False, threshold=6.0)
         adam = bitsandbytes.optim.Adam8bit(linear.parameters(), lr=0.001, betas=(0.9, 0.995))
     """)
+
+
+@importorskip('linear_operator')
+@onedir_only
+def test_linear_operator(pyi_builder):
+    pyi_builder.test_source("""
+        import torch
+        from linear_operator.operators import DiagLinearOperator, LowRankRootLinearOperator
+
+        diag1 = 0.1 + torch.rand(100)
+        diag2 = 0.1 + torch.rand(100)
+
+        mat1 = DiagLinearOperator(diag1)
+        mat2 = DiagLinearOperator(diag2)
+
+        result = (mat1 + mat2).diagonal()
+    """)
