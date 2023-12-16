@@ -278,3 +278,12 @@ def test_gpytorch_simple_gp_regression(pyi_builder):
         print("Test X:", test_x.numpy())
         print("Predicted Y:", observed_pred.mean.numpy())
     """)
+
+
+# Basic import test for fvcore.nn, which shows that we need to collect its source.py files for TorchScript/JIT.
+@importorskip('fvcore')
+@onedir_only
+def test_fvcore(pyi_builder):
+    pyi_builder.test_source("""
+        import fvcore.nn
+    """)
