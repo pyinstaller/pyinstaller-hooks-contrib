@@ -287,3 +287,21 @@ def test_fvcore(pyi_builder):
     pyi_builder.test_source("""
         import fvcore.nn
     """)
+
+
+# Basic test for detectron2, which shows that we need to collect its source.py files for TorchScript/JIT.
+@importorskip('detectron2')
+@onedir_only
+def test_detectron2(pyi_builder):
+    pyi_builder.test_source("""
+        from detectron2 import model_zoo
+        from detectron2.config import get_cfg
+        from detectron2.engine import DefaultTrainer
+
+        cfg = get_cfg()
+        print("Config:", cfg)
+
+        # We cannot instantiate DefaultTrainer without specifying training datasets in config...
+        #trainer = DefaultTrainer(cfg)
+        #print(trainer)
+    """)
