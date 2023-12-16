@@ -305,3 +305,22 @@ def test_detectron2(pyi_builder):
         #trainer = DefaultTrainer(cfg)
         #print(trainer)
     """)
+
+
+# Hugging Face datasets: Download squad dataset (76 MB train, 10 MB validation)
+@importorskip('datasets')
+@onedir_only
+def test_datasets_download_squad(pyi_builder):
+    pyi_builder.test_source("""
+        from datasets import load_dataset
+        from huggingface_hub import list_datasets
+
+        # Print all the available datasets
+        available_datasets = [dataset.id for dataset in list_datasets()]
+        print("Available datasets:", len(available_datasets))
+
+        # Load a dataset and print the first example in the training set
+        print("Loading squad dataset...")
+        squad_dataset = load_dataset('squad')
+        print("First sample:", squad_dataset['train'][0])
+    """)
