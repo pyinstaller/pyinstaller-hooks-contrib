@@ -1,0 +1,7 @@
+Add hooks for ``bitsandbytes``, and its dependency ``triton``. Both
+packages have dynamically-loaded extension libraries that need to be
+collected, and both require collection of source .py files for
+(``triton``'s) JIT module. Some submodules of ``triton`` need to be
+collected only as source .py files (bypassing PYZ archive), because the
+code naively assumes that ``__file__`` attribute points to the source
+.py file.
