@@ -201,3 +201,80 @@ def test_linear_operator(pyi_builder):
 
         result = (mat1 + mat2).diagonal()
     """)
+
+
+# Based on https://docs.gpytorch.ai/en/latest/examples/01_Exact_GPs/Simple_GP_Regression.html
+@importorskip('gpytorch')
+@onedir_only
+def test_gpytorch_simple_gp_regression(pyi_builder):
+    pyi_builder.test_source("""
+        import math
+
+        import torch
+        import gpytorch
+
+        ## Training
+        # Training data is 100 points in [0,1] inclusive regularly spaced
+        train_x = torch.linspace(0, 1, 100)
+
+        # True function is sin(2*pi*x) with Gaussian noise
+        train_y = torch.sin(train_x * (2 * math.pi)) + torch.randn(train_x.size()) * math.sqrt(0.04)
+
+        # We will use the simplest form of GP model, exact inference
+        class ExactGPModel(gpytorch.models.ExactGP):
+            def __init__(self, train_x, train_y, likelihood):
+                super().__init__(train_x, train_y, likelihood)
+                self.mean_module = gpytorch.means.ConstantMean()
+                self.covar_module = gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel())
+
+            def forward(self, x):
+                mean_x = self.mean_module(x)
+                covar_x = self.covar_module(x)
+                return gpytorch.distributions.MultivariateNormal(mean_x, covar_x)
+
+        # Initialize likelihood and model
+        likelihood = gpytorch.likelihoods.GaussianLikelihood()
+        model = ExactGPModel(train_x, train_y, likelihood)
+
+        # Find optimal model hyperparameters
+        training_iter = 2
+
+        model.train()
+        likelihood.train()
+
+        # Use the adam optimizer
+        optimizer = torch.optim.Adam(model.parameters(), lr=0.1)  # Includes GaussianLikelihood parameters
+
+        # "Loss" for GPs - the marginal log likelihood
+        mll = gpytorch.mlls.ExactMarginalLogLikelihood(likelihood, model)
+
+        print("Training the model...")
+        for i in range(training_iter):
+            # Zero gradients from previous iteration
+            optimizer.zero_grad()
+            # Output from model
+            output = model(train_x)
+            # Calc loss and backprop gradients
+            loss = -mll(output, train_y)
+            loss.backward()
+            print('Iter %d/%d - Loss: %.3f   lengthscale: %.3f   noise: %.3f' % (
+                i + 1, training_iter, loss.item(),
+                model.covar_module.base_kernel.lengthscale.item(),
+                model.likelihood.noise.item()
+            ))
+            optimizer.step()
+
+        ## Inference
+        # Get into evaluation (predictive posterior) mode
+        model.eval()
+        likelihood.eval()
+
+        # Test points are regularly spaced along [0,1]
+        # Make predictions by feeding model through likelihood
+        with torch.no_grad(), gpytorch.settings.fast_pred_var():
+            test_x = torch.linspace(0, 1, 51)
+            observed_pred = likelihood(model(test_x))
+
+        print("Test X:", test_x.numpy())
+        print("Predicted Y:", observed_pred.mean.numpy())
+    """)
