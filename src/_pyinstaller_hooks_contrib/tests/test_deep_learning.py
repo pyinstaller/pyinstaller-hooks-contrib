@@ -170,3 +170,17 @@ def test_lightning_mnist_autoencoder(pyi_builder):
             torch.utils.data.DataLoader(train),
         )
     """)
+
+
+@importorskip('bitsandbytes')
+@onedir_only
+def test_bitsandbytes(pyi_builder):
+    pyi_builder.test_source("""
+        import bitsandbytes
+
+        # Instantiate a model and optimizer
+        dim1 = 256
+        dim2 = 256
+        linear = bitsandbytes.nn.Linear8bitLt(dim1, dim2, bias=True, has_fp16_weights=False, threshold=6.0)
+        adam = bitsandbytes.optim.Adam8bit(linear.parameters(), lr=0.001, betas=(0.9, 0.995))
+    """)
