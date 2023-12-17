@@ -10,16 +10,62 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+from _pyinstaller_hooks_contrib.compat import importlib_metadata
+from packaging.version import Version
+
 from PyInstaller.utils.hooks import (
     collect_data_files,
     collect_submodules,
+    get_module_attribute,
     is_module_satisfies,
+    logger,
 )
 
-tf_pre_1_15_0 = is_module_satisfies("tensorflow < 1.15.0")
-tf_post_1_15_0 = is_module_satisfies("tensorflow >= 1.15.0")
-tf_pre_2_0_0 = is_module_satisfies("tensorflow < 2.0.0")
-tf_pre_2_2_0 = is_module_satisfies("tensorflow < 2.2.0")
+# Determine the name of `tensorflow` dist; this is available under different names (releases vs. nightly, plus build
+# variants). We need to determine the dist that we are dealing with, so we can query its version and metadata.
+_CANDIDATE_DIST_NAMES = (
+    "tensorflow",
+    "tensorflow-cpu",
+    "tensorflow-gpu",
+    "tensorflow-intel",
+    "tensorflow-rocm",
+    "tensorflow-macos",
+    "tensorflow-aarch64",
+    "tensorflow-cpu-aws",
+    "tf-nightly",
+    "tf-nightly-cpu",
+    "tf-nightly-gpu",
+    "tf-nightly-rocm",
+    "intel-tensorflow",
+    "intel-tensorflow-avx512",
+)
+dist = None
+for candidate_dist_name in _CANDIDATE_DIST_NAMES:
+    try:
+        dist = importlib_metadata.distribution(candidate_dist_name)
+        break
+    except importlib_metadata.PackageNotFoundError:
+        continue
+
+version = None
+if dist is None:
+    logger.warning(
+        "hook-tensorflow: failed to determine tensorflow dist name! Reading version from tensorflow.__version__!"
+    )
+    try:
+        version = get_module_attribute("tensorflow", "__version__")
+    except Exception as e:
+        raise Exception("Failed to read tensorflow.__version__") from e
+else:
+    logger.info("hook-tensorflow: tensorflow dist name: %s", dist.name)
+    version = dist.version
+
+# Parse version
+logger.info("hook-tensorflow: tensorflow version: %s", version)
+try:
+    version = Version(version)
+except Exception as e:
+    raise Exception("Failed to parse tensorflow version!") from e
 
 # Exclude from data collection:
 #  - development headers in include subdirectory
@@ -53,31 +99,29 @@ def _submodules_filter(x):
     return x not in excluded_submodules
 
 
-if tf_pre_1_15_0:
+if version < Version("1.15.0a0"):
     # 1.14.x and earlier: collect everything from tensorflow
     hiddenimports = collect_submodules('tensorflow', filter=_submodules_filter)
     datas = collect_data_files('tensorflow', excludes=data_excludes)
-elif tf_post_1_15_0 and tf_pre_2_2_0:
+elif version >= Version("1.15.0a0") and version < Version("2.2.0a0"):
     # 1.15.x - 2.1.x: collect everything from tensorflow_core
     hiddenimports = collect_submodules('tensorflow_core', filter=_submodules_filter)
     datas = collect_data_files('tensorflow_core', excludes=data_excludes)
 
-    # Under 1.15.x, we seem to fail collecting a specific submodule,
-    # and need to add it manually...
-    if tf_post_1_15_0 and tf_pre_2_0_0:
+    # Under 1.15.x, we seem to fail collecting a specific submodule, and need to add it manually...
+    if version < Version("2.0.0a0"):
         hiddenimports += ['tensorflow_core._api.v1.compat.v2.summary.experimental']
 else:
     # 2.2.0 and newer: collect everything from tensorflow again
     hiddenimports = collect_submodules('tensorflow', filter=_submodules_filter)
     datas = collect_data_files('tensorflow', excludes=data_excludes)
 
-    # From 2.6.0 on, we also need to explicitly collect keras (due to
-    # lazy mapping of tensorflow.keras.xyz -> keras.xyz)
-    if is_module_satisfies("tensorflow >= 2.6.0"):
+    # From 2.6.0 on, we also need to explicitly collect keras (due to lazy mapping of tensorflow.keras.xyz -> keras.xyz)
+    if version >= Version("2.6.0a0"):
         hiddenimports += collect_submodules('keras')
 
     # Starting with 2.14.0, we need `ml_dtypes` among hidden imports.
-    if is_module_satisfies("tensorflow >= 2.14.0"):
+    if version >= Version("2.14.0"):
         hiddenimports += ['ml_dtypes']
 
 excludedimports = excluded_submodules
