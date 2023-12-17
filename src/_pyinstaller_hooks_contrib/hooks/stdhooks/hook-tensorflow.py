@@ -39,7 +39,14 @@ data_excludes = [
 # also causes problems on macOS, so we try to prevent the extension module "variant" from being picked up.
 #
 # See pyinstaller/pyinstaller-hooks-contrib#49 for details.
-excluded_submodules = ['tensorflow.python._pywrap_tensorflow_internal']
+#
+# With PyInstaller >= 6.0, this issue is alleviated, because the binary dependency analysis (which picks up the
+# extension in question as a shared library that other extensions are linked against) now preserves the parent directory
+# layout, and creates a symbolic link to the top-level application directory.
+if is_module_satisfies('PyInstaller >= 6.0'):
+    excluded_submodules = []
+else:
+    excluded_submodules = ['tensorflow.python._pywrap_tensorflow_internal']
 
 
 def _submodules_filter(x):
