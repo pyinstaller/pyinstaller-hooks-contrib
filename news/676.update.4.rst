@@ -1,0 +1,3 @@
+Update ``tensorflow`` hook to collect source .py files for
+``tensorflow.python.autograph`` in order to silence a run-time warning
+about AutoGraph not being available.
