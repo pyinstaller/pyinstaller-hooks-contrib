@@ -324,3 +324,24 @@ def test_datasets_download_squad(pyi_builder):
         squad_dataset = load_dataset('squad')
         print("First sample:", squad_dataset['train'][0])
     """)
+
+
+# Basic test for Hugging Face accelerate framework
+@importorskip('accelerate')
+@onedir_only
+def test_accelerate(pyi_builder):
+    pyi_builder.test_source("""
+        import torch
+        from accelerate import Accelerator
+
+        accelerator = Accelerator()
+        device = accelerator.device
+        print("Accelerator device:", device)
+
+        model = torch.nn.Transformer().to(device)
+        optimizer = torch.optim.Adam(model.parameters())
+
+        model, optimizer = accelerator.prepare(model, optimizer)
+        print("Model:", model)
+        print("Optimizer:", optimizer)
+    """)
