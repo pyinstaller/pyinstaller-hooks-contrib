@@ -1907,3 +1907,10 @@ def test_rlp(pyi_builder):
     pyi_builder.test_source("""
         import rlp
     """)
+
+
+@importorskip('eth_rlp')
+def test_eth_rlp(pyi_builder):
+    pyi_builder.test_source("""
+        import eth_rlp
+    """)
