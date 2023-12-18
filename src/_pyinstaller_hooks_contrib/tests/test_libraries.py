@@ -1859,9 +1859,9 @@ def test_sudachipy(pyi_builder):
     pyi_builder.test_source("""
         from sudachipy import Dictionary
 
-        Dictionary(dict_type='small').create()
-        Dictionary(dict_type='core').create()
-        Dictionary(dict_type='full').create()
+        Dictionary(dict='small').create()
+        Dictionary(dict='core').create()
+        Dictionary(dict='full').create()
     """)
 
 
