@@ -1852,6 +1852,9 @@ def test_pymorphy3(pyi_builder):
 
 
 @importorskip('sudachipy')
+@importorskip('sudachidict_small')
+@importorskip('sudachidict_core')
+@importorskip('sudachidict_full')
 def test_sudachipy(pyi_builder):
     pyi_builder.test_source("""
         from sudachipy import Dictionary
