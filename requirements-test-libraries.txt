@@ -139,7 +139,7 @@ pydantic==2.5.2
 jsonschema==4.20.0
 psutil==5.9.7
 litestar==2.4.4
-lingua-language-detector==2.0.1; python_version >= '3.8'
+lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
 simplemma==0.9.1
