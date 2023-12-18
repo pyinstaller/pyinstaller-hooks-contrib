@@ -82,7 +82,7 @@ pymssql==2.2.11
 pystray==0.19.5
 pythonnet==3.0.3
 pytz==2023.3.post1
-pyzmq==25.1.1
+pyzmq==25.1.2
 PyQt5==5.15.10
 qtmodern==0.2.0
 Rtree==1.1.0
