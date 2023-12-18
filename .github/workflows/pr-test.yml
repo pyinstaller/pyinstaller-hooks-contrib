@@ -50,6 +50,13 @@ jobs:
           set -e
           echo '-r requirements-test.txt' >> requirements-test-libraries.txt
           if grep -q pyqtgraph requirements-test-libraries.txt ; then echo PyQt5 >> requirements-test-libraries.txt ;fi
+          # NOTE: specify minimum allowed version for sudachidict-* packages, to prevent pip from installing invalid
+          # SudachiDict_full-0.0.0-py3-none-any.whl due to --prefer-binary switch used with pip install...
+          if grep -q sudachipy requirements-test-libraries.txt; then
+            echo "sudachidict-small>=20230927" >> requirements-test-libraries.txt;
+            echo "sudachidict-core>=20230927" >> requirements-test-libraries.txt;
+            echo "sudachidict-full>=20230927" >> requirements-test-libraries.txt;
+          fi
           cat requirements-test-libraries.txt
 
       - name: Set up .NET Core for pythonnet tests
