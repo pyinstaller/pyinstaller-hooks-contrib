@@ -150,7 +150,7 @@ khmer-nltk==1.6
 python-crfsuite==0.9.9
 pymorphy3==1.2.1
 pymorphy3-dicts-uk==2.4.1.1.1663094765
-sudachipy==0.6.7
+sudachipy==0.6.8
 sudachidict-core==20230927
 sudachidict-small==20230927
 sudachidict-full==20230927
