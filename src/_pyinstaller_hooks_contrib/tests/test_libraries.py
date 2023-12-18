@@ -1900,3 +1900,10 @@ def test_sspilib(pyi_builder):
 
         print(ctx)
     """)
+
+
+@importorskip('rlp')
+def test_rlp(pyi_builder):
+    pyi_builder.test_source("""
+        import rlp
+    """)
