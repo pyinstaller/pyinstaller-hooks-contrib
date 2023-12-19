@@ -1,0 +1,2 @@
+Add a hook for ``z3c.rml`` that collects the required subset of Bitstream
+Vera TTF fonts from the ``reportlab`` package.

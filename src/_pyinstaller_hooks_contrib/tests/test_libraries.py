@@ -1917,3 +1917,31 @@ def test_eth_rlp(pyi_builder):
     pyi_builder.test_source("""
         import eth_rlp
     """)
+
+
+@importorskip('z3c.rml')
+def test_z3c_rml_rml2pdf(pyi_builder):
+    pyi_builder.test_source("""
+        from z3c.rml import rml2pdf
+
+        rml = '''
+        <!DOCTYPE document SYSTEM "rml.dtd" >
+        <document filename="test.pdf">
+          <template showBoundary="1">
+            <!--Debugging is now turned on, frame outlines -->
+            <!--will appear on the page -->
+            <pageTemplate id="main">
+              <!-- two frames are defined here: -->
+              <frame id="first" x1="100" y1="400" width="150" height="200" />
+              <frame id="second" x1="300" y1="400" width="150" height="200" />
+            </pageTemplate>
+          </template>
+          <stylesheet><!-- still empty...--></stylesheet>
+          <story>
+            <para>Welcome to RML.</para>
+          </story>
+        </document>
+        '''
+
+        pdf_bytes = rml2pdf.parseString(rml)
+    """)
