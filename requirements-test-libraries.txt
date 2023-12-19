@@ -162,6 +162,7 @@ sspilib==0.1.0
 rlp==4.0.0
 eth-rlp==1.0.0
 z3c.rml==4.4.0
+freetype-py==2.4.0
 
 # ------------------- Platform (OS) specifics
 
