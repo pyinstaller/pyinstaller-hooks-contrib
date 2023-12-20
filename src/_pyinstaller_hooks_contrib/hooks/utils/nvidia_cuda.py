@@ -11,6 +11,7 @@
 # ------------------------------------------------------------------
 
 import os
+import re
 
 from PyInstaller.utils.hooks import (
     logger,
@@ -40,3 +41,22 @@ def collect_nvidia_cuda_binaries(hook_file):
         logger.warning("hook-%s: this hook requires PyInstaller >= 5.8!", module_name)
 
     return binaries
+
+
+# Helper to turn list of requirements (e.g., ['nvidia-cublas-cu12', 'nvidia-nccl-cu12', 'nvidia-cudnn-cu12']) into
+# list of corresponding nvidia.* module names (e.g., ['nvidia.cublas', 'nvidia.nccl', 'nvidia-cudnn']), while ignoring
+# unrecognized requirements. Intended for use in hooks for frameworks, such as `torch` and `tensorflow`.
+def infer_hiddenimports_from_requirements(requirements):
+    # All nvidia-* packages install to nvidia top-level package, so we cannot query top-level module via
+    # metadata. Instead, we manually translate them from dist name to package name.
+    _PATTERN = r'^nvidia-(?P<subpackage>.+)-cu[\d]+$'
+    nvidia_hiddenimports = []
+
+    for req in requirements:
+        m = re.match(_PATTERN, req)
+        if m is not None:
+            # Convert
+            package_name = "nvidia." + m.group('subpackage').replace('-', '_')
+            nvidia_hiddenimports.append(package_name)
+
+    return nvidia_hiddenimports

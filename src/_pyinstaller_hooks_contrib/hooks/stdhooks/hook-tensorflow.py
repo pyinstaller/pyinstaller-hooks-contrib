@@ -13,6 +13,7 @@
 from _pyinstaller_hooks_contrib.compat import importlib_metadata
 from packaging.version import Version
 
+from PyInstaller.compat import is_linux
 from PyInstaller.utils.hooks import (
     collect_data_files,
     collect_submodules,
@@ -138,3 +139,29 @@ warn_on_missing_hiddenimports = False
 module_collection_mode = {
     'tensorflow.python.autograph': 'py+pyz',
 }
+
+# Linux builds of tensorflow can optionally use CUDA from nvidia-* packages. If we managed to obtain dist, query the
+# requirements from metadata (the `and-cuda` extra marker), and convert them to module names.
+#
+# NOTE: while the installation of nvidia-* packages via `and-cuda` extra marker is not gated by the OS version check,
+# it is effectively available only on Linux (last Windows-native build that supported GPU is v2.10.0, and assumed that
+# CUDA is externally available).
+if is_linux and dist is not None:
+    def _infer_nvidia_hiddenimports():
+        import packaging.requirements
+        from _pyinstaller_hooks_contrib.hooks.utils import nvidia_cuda as cudautils
+
+        requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]
+        env = {'extra': 'and-cuda'}
+        requirements = [req.name for req in requirements if req.marker is None or req.marker.evaluate(env)]
+
+        return cudautils.infer_hiddenimports_from_requirements(requirements)
+
+    try:
+        nvidia_hiddenimports = _infer_nvidia_hiddenimports()
+    except Exception:
+        # Log the exception, but make it non-fatal
+        logger.warning("hook-tensorflow: failed to infer NVIDIA CUDA hidden imports!", exc_info=True)
+        nvidia_hiddenimports = []
+    logger.info("hook-tensorflow: inferred hidden imports for CUDA libraries: %r", nvidia_hiddenimports)
+    hiddenimports += nvidia_hiddenimports

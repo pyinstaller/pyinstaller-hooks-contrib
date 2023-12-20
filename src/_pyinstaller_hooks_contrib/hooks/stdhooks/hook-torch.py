@@ -52,30 +52,15 @@ if is_module_satisfies("PyInstaller >= 6.0"):
     # attempt to infer them from requirements listed in the `torch` metadata.
     if is_linux:
         def _infer_nvidia_hiddenimports():
-            import re
-            import packaging.requirements  # Requirement of PyInstaller >= 6.0, so guaranteed to be available here.
-            from PyInstaller.compat import importlib_metadata
+            import packaging.requirements
+            from _pyinstaller_hooks_contrib.compat import importlib_metadata
+            from _pyinstaller_hooks_contrib.hooks.utils import nvidia_cuda as cudautils
 
             dist = importlib_metadata.distribution("torch")
             requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]
             requirements = [req.name for req in requirements if req.marker is None or req.marker.evaluate()]
 
-            # All nvidia-* packages install to nvidia top-level package, so we cannot query top-level module via
-            # metadata. Instead, we manually translate them from dist name to package name.
-            _PATTERN = r'^nvidia-(?P<subpackage>.+)-cu[\d]+$'
-            nvidia_hiddenimports = []
-
-            for req in requirements:
-                m = re.match(_PATTERN, req)
-                if m is None:
-                    if req.startswith("nvidia-"):
-                        logger.warning("hook-torch: unhandled NVIDIA CUDA requirement: %r!", req)
-                else:
-                    # Convert
-                    package_name = "nvidia." + m.group('subpackage').replace('-', '_')
-                    nvidia_hiddenimports.append(package_name)
-
-            return nvidia_hiddenimports
+            return cudautils.infer_hiddenimports_from_requirements(requirements)
 
         try:
             nvidia_hiddenimports = _infer_nvidia_hiddenimports()
