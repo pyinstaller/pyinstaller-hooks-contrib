@@ -16,8 +16,13 @@ from PyInstaller.utils.hooks import is_module_satisfies
 from PyInstaller.utils.tests import importorskip
 
 
-# Basic import tests for sub-packages of skimage.
+# Run the tests in onedir mode only
+onedir_only = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
+
+
+# Basic import tests for sub-packages of skimage. Run only on demand, and only in onedir mode.
 @pytest.mark.slow
+@onedir_only
 @importorskip('skimage')
 @pytest.mark.skipif(
     not is_module_satisfies('scikit_image >= 0.16'),
