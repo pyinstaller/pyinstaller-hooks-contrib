@@ -37,3 +37,34 @@ def test_skimage(pyi_builder, submodule):
     pyi_builder.test_source("""
         import skimage.{0}
         """.format(submodule))
+
+
+# Test the ORB descriptor, which requires the data file with descriptor sample points.
+@importorskip('skimage')
+def test_skimage_feature_orb(pyi_builder):
+    pyi_builder.test_source("""
+        import skimage.feature
+        import numpy as np
+
+        # Prepare test images
+        img1 = np.zeros((100, 100))
+        img2 = np.zeros_like(img1)
+        rng = np.random.default_rng(1984)
+        square = rng.random((20, 20))
+        img1[40:60, 40:60] = square
+        img2[53:73, 53:73] = square
+
+        # ORB detector/descriptor extractor
+        detector_extractor1 = skimage.feature.ORB(n_keypoints=5)
+        detector_extractor2 = skimage.feature.ORB(n_keypoints=5)
+
+        # Process
+        detector_extractor1.detect_and_extract(img1)
+        detector_extractor2.detect_and_extract(img2)
+
+        matches = skimage.feature.match_descriptors(
+            detector_extractor1.descriptors,
+            detector_extractor2.descriptors,
+        )
+        print(matches)
+        """)
