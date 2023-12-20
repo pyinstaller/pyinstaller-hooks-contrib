@@ -1,3 +1,43 @@
+2023.11 (2023-12-20)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``freetype`` that collects the shared library that is
+  bundled with ``freetype-py`` PyPI wheels. (`#674
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/674>`_)
+* Add a hook for ``z3c.rml`` that collects the required subset of Bitstream
+  Vera TTF fonts from the ``reportlab`` package. (`#674
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/674>`_)
+* Add hook for ``eth_rlp``. (`#672
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/672>`_)
+* Add hook for ``eth_typing`` which requires its package metadata. (`#656
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/656>`_)
+* Add hook for ``eth_utils`` to collect its embedded JSON files. (`#656
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/656>`_)
+* Add hook for ``rlp``. (`#672
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/672>`_)
+* Add hook for ``sspilib`` that collects submodules of ``sspilib.raw``,
+  most of which are cythonized extensions. (`#669
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/669>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Modernize the hook for ``torch`` and reduce the amount of unnecessarily
+  collected data files (header files and static libraries). Requires
+  PyInstaller >= 6.0. (`#666
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/666>`_)
+* Update ```pyarrow``` hook to collect all of the package's submodules. (`#662
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/662>`_)
+* Update ``rtree`` hook for compatibility with ``Rtree >= 1.1.0``. (`#657
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/657>`_)
+* Update ``sudachipy`` hook for ``sudachipy`` 0.6.8. (`#673
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/673>`_)
+
+
 2023.10 (2023-10-13)
 --------------------
 

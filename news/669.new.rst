@@ -1,2 +1,0 @@
-Add hook for ``sspilib`` that collects submodules of ``sspilib.raw``,
-most of which are cythonized extensions.

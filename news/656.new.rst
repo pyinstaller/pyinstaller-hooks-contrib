@@ -1,1 +1,0 @@
-Add hook for ``eth_typing`` which requires its package metadata.

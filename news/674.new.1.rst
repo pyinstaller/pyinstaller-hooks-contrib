@@ -1,2 +1,0 @@
-Add a hook for ``freetype`` that collects the shared library that is
-bundled with ``freetype-py`` PyPI wheels.
