@@ -110,6 +110,11 @@ def test_lightning_mnist_autoencoder(pyi_builder):
     pyi_builder.test_source("""
         import os
 
+        # On macOS, multiprocessing seems to be used at some point...
+        if __name__ == '__main__':
+            import multiprocessing
+            multiprocessing.freeze_support()
+
         import torch
         import torchvision
         import lightning
