@@ -1,0 +1,5 @@
+Extend ``tensorflow`` hook to collect plugins installed in the
+``tensorflow-plugins`` directory/package. Have the run-time ``tensorflow``
+hook provide an override for ``site.getsitepackages()`` that allows us
+to work around a broken module file location check and trick ``tensorflow``
+into loading the collected plugins.
