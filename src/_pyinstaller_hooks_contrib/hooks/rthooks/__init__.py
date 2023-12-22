@@ -8,19 +8,3 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------
-import os
-
-DIR = os.path.dirname(__file__)
-"""
-This sub-package includes runtime hooks for pyinstaller.
-"""
-
-
-def get_hook_dirs():
-    dirs = []
-    # For every directory and sub directory (including cwd)
-    for path, _, _ in os.walk(DIR):
-        # Add the norm'd path to dirs
-        dirs.append(os.path.normpath(path))
-
-    return dirs
