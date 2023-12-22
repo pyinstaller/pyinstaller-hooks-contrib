@@ -10,15 +10,13 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 import os
-from . import stdhooks
-from . import rthooks
-
-_FILE_DIR = os.path.dirname(__file__)
 
 
 def get_hook_dirs():
+    hooks_dir = os.path.dirname(__file__)
     return [
-        *stdhooks.get_hook_dirs(),
-        *rthooks.get_hook_dirs(),
-        _FILE_DIR  # pre_* hooks
+        # Required because standard hooks are in sub-directory instead of the top-level hooks directory.
+        os.path.join(hooks_dir, 'stdhooks'),
+        # pre_* and run-time hooks
+        hooks_dir,
     ]
