@@ -15,7 +15,7 @@ botocore==1.34.7
 branca==0.7.0
 cairocffi==1.6.1
 CairoSVG==2.7.1
-cassandra-driver==3.28.0
+cassandra-driver==3.29.0
 cf-units==3.2.0; sys_platform != 'win32'
 cftime==1.6.3
 charset_normalizer==3.3.2
