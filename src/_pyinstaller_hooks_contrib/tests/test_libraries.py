@@ -1844,3 +1844,11 @@ def test_pyi_freetype(pyi_builder):
         print(f"FT library file (resolved): {ft_library_path}", file=sys.stderr)
         assert app_dir in ft_library_path.parents, "FT library is not bundled with frozen application!"
     """)
+
+
+@importorskip('vaderSentiment')
+def test_vadersentiment(pyi_builder):
+    pyi_builder.test_source("""
+        import vaderSentiment.vaderSentiment
+        vaderSentiment.vaderSentiment.SentimentIntensityAnalyzer()
+    """)
