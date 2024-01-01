@@ -65,7 +65,7 @@ platformdirs==4.1.0
 plotly==5.18.0
 publicsuffix2==2.20191221
 pycparser==2.21
-pycryptodome==3.19.0
+pycryptodome==3.19.1
 pycryptodomex==3.19.0
 pyexcelerate==0.10.0
 pylibmagic==0.5.0; sys_platform != 'win32'
