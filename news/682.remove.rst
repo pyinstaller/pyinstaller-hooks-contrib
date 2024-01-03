@@ -1,0 +1,3 @@
+Remove hook for ``google.api``, which erroneously assumes that presence
+of the ``google.api`` namespace package implies availability of the
+``google-api-core`` dist.
