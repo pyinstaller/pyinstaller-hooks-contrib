@@ -1852,3 +1852,10 @@ def test_vadersentiment(pyi_builder):
         import vaderSentiment.vaderSentiment
         vaderSentiment.vaderSentiment.SentimentIntensityAnalyzer()
     """)
+
+
+@importorskip('langchain')
+def test_langchain_llm_summarization_checker(pyi_builder):
+    pyi_builder.test_source("""
+        import langchain.chains.llm_summarization_checker.base
+    """)
