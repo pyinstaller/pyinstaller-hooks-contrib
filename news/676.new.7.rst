@@ -1,2 +1,0 @@
-Add hook for ``lightning`` (PyTorch Lightning) to ensure that its
-``version.info`` data file is collected.

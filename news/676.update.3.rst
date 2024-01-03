@@ -1,8 +1,0 @@
-(Linux) Remove the ``tensorflow.python._pywrap_tensorflow_internal``
-hack in the ``tensorflow`` hook (i.e., adding it to excluded modules
-to avoid duplication) when using PyInstaller >= 6.0, where the
-duplication issue is alleviated thanks to the binary dependency analysis
-preserving the parent directory layout of discovered/collected shared
-libraries. This should fix the problem with ``tensorflow`` builds where
-the ``_pywrap_tensorflow_internal`` module is not used as a shared
-library, as seen in ``tensorflow`` builds for Raspberry Pi.

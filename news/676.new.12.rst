@@ -1,2 +1,0 @@
-Add hook for Hugging Face ``datasets`` to collect its source .py files for
-TorchScript/JIT.

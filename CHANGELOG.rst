@@ -1,3 +1,125 @@
+2023.12 (2024-01-03)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``detectron2`` to collect its source .py files for
+  TorchScript/JIT. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``fastai`` to collect its source .py files for TorchScript/JIT.
+  (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``fvcore.nn`` to collect its source .py files for
+  TorchScript/JIT. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``langchain`` that collects data files from the package. (`#681
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/681>`_)
+* Add hook for ``lightning`` (PyTorch Lightning) to ensure that its
+  ``version.info`` data file is collected. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``linear_operator`` to collect its source .py files for
+  TorchScript/JIT. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``seedir`` that collects the ``words.txt`` data file from
+  the package. (`#681
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/681>`_)
+* Add hook for ``timm`` (Hugging Face PyTorch Image Models) to collect its
+  source .py files for TorchScript/JIT. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``torchaudio`` that collects dynamically-loaded extensions,
+  as well as source .py files for TorchScript/JIT. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``torchtext`` that collects dynamically-loaded extensions,
+  as well as source .py files for TorchScript/JIT. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``torchvision.io.image`` to ensure that dynamically-loaded
+  extension, required by this module, is collected. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for ``VADER``. (`#679
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/679>`_)
+* Add hook for Hugging Face ``datasets`` to collect its source .py files for
+  TorchScript/JIT. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hook for Hugging Face ``transformers``. The hook attempts to
+  automatically collect the metadata of all dependencies (as declared
+  in `deps` dictionary in the `transformers.dependency_versions_table`
+  module), in order to make dependencies available at build time visible
+  to ``transformers`` at run time. The hook also collects source .py files
+  as some of the package's functionality uses TorchScript/JIT. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hooks for ``bitsandbytes``, and its dependency ``triton``. Both
+  packages have dynamically-loaded extension libraries that need to be
+  collected, and both require collection of source .py files for
+  (``triton``'s) JIT module. Some submodules of ``triton`` need to be
+  collected only as source .py files (bypassing PYZ archive), because the
+  code naively assumes that ``__file__`` attribute points to the source
+  .py file. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Add hooks for ``nvidia.*`` packages, which provide a way of installing
+  CUDA via PyPI wheels (e.g., ``nvidia-cuda-runtime-cu12``). (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Linux) Extend ``tensorflow`` hook to automatically collect CUDA libraries
+  distributed via ``nvidia-*`` packages (such as ``nvidia-cuda-runtime-cu12``)
+  if they are specified among the requirements in the ``tensorflow``
+  distribution's metadata. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* (Linux) Extend ``torch`` hook to automatically collect CUDA libraries
+  distributed via ``nvidia-*`` packages (such as ``nvidia-cuda-runtime-cu12``)
+  if they are specified among the requirements in the ``torch`` distribution's
+  metadata. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* (Linux) Remove the ``tensorflow.python._pywrap_tensorflow_internal``
+  hack in the ``tensorflow`` hook (i.e., adding it to excluded modules
+  to avoid duplication) when using PyInstaller >= 6.0, where the
+  duplication issue is alleviated thanks to the binary dependency analysis
+  preserving the parent directory layout of discovered/collected shared
+  libraries. This should fix the problem with ``tensorflow`` builds where
+  the ``_pywrap_tensorflow_internal`` module is not used as a shared
+  library, as seen in ``tensorflow`` builds for Raspberry Pi. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* (Linux) Update ``torch`` hook to explicitly collect versioned .so files
+  in the new PyInstaller >= 6.0 codepath. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Extend ``tensorflow`` hook to collect plugins installed in the
+  ``tensorflow-plugins`` directory/package. Have the run-time ``tensorflow``
+  hook provide an override for ``site.getsitepackages()`` that allows us
+  to work around a broken module file location check and trick ``tensorflow``
+  into loading the collected plugins. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Update ``tensorflow`` hook to attempt to resolve the top-level distribution
+  name and infer the package version from it, in order to improve version
+  handling when the "top-level" ``tensorflow`` dist is not installed (for
+  example, user installs only ``tensorflow-intel`` or ``tensorflow-macos``)
+  or has a different name (e.g., ``tf-nightly``). (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Update ``tensorflow`` hook to collect source .py files for
+  ``tensorflow.python.autograph`` in order to silence a run-time warning
+  about AutoGraph not being available. (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Update ``torchvision`` hook to collect source .py files for TorchScript/JIT
+  (requires PyInstaller >= 5.3 to take effect). (`#676
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/676>`_)
+* Update hook for ``skimage.feature`` to collect the
+  ``orb_descriptor_positions.txt`` data file, which is required by
+  the ``skimage.feature.ORB`` class. (`#675
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/675>`_)
+
+
+Removed hooks
+~~~~~~~~~~~~~
+
+* Remove hook for ``google.api``, which erroneously assumes that presence
+  of the ``google.api`` namespace package implies availability of the
+  ``google-api-core`` dist. (`#682
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/682>`_)
+
+
 2023.11 (2023-12-20)
 --------------------
 

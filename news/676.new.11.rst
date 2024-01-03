@@ -1,2 +1,0 @@
-Add hook for ``detectron2`` to collect its source .py files for
-TorchScript/JIT.

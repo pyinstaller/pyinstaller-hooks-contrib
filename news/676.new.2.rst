@@ -1,2 +1,0 @@
-Add hook for ``torchtext`` that collects dynamically-loaded extensions,
-as well as source .py files for TorchScript/JIT.

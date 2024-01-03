@@ -1,5 +1,0 @@
-Update ``tensorflow`` hook to attempt to resolve the top-level distribution
-name and infer the package version from it, in order to improve version
-handling when the "top-level" ``tensorflow`` dist is not installed (for
-example, user installs only ``tensorflow-intel`` or ``tensorflow-macos``)
-or has a different name (e.g., ``tf-nightly``).

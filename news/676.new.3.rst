@@ -1,6 +1,0 @@
-Add hook for Hugging Face ``transformers``. The hook attempts to
-automatically collect the metadata of all dependencies (as declared
-in `deps` dictionary in the `transformers.dependency_versions_table`
-module), in order to make dependencies available at build time visible
-to ``transformers`` at run time. The hook also collects source .py files
-as some of the package's functionality uses TorchScript/JIT.

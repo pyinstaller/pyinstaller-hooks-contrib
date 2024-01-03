@@ -1,2 +1,0 @@
-Add hook for ``linear_operator`` to collect its source .py files for
-TorchScript/JIT.

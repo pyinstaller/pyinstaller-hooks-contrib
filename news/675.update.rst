@@ -1,3 +1,0 @@
-Update hook for ``skimage.feature`` to collect the
-``orb_descriptor_positions.txt`` data file, which is required by
-the ``skimage.feature.ORB`` class.

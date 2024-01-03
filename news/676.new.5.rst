@@ -1,2 +1,0 @@
-Add hook for ``torchvision.io.image`` to ensure that dynamically-loaded
-extension, required by this module, is collected.

@@ -1,2 +1,0 @@
-Add hook for ``fvcore.nn`` to collect its source .py files for
-TorchScript/JIT.

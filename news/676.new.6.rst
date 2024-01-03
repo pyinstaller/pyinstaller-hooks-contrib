@@ -1,2 +1,0 @@
-Add hook for ``timm`` (Hugging Face PyTorch Image Models) to collect its
-source .py files for TorchScript/JIT.

@@ -1,2 +1,0 @@
-Add hook for ``seedir`` that collects the ``words.txt`` data file from
-the package.
