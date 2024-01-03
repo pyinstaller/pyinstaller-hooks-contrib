@@ -166,6 +166,7 @@ z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
 langchain==0.0.353
+seedir==0.4.2
 
 # ------------------- Platform (OS) specifics
 
