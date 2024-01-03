@@ -1859,3 +1859,10 @@ def test_langchain_llm_summarization_checker(pyi_builder):
     pyi_builder.test_source("""
         import langchain.chains.llm_summarization_checker.base
     """)
+
+
+@importorskip('seedir')
+def test_seedir(pyi_builder):
+    pyi_builder.test_source("""
+        import seedir
+    """)
