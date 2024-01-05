@@ -188,5 +188,8 @@ pymediainfo==6.1.0; sys_platform == 'darwin' or sys_platform == 'win32'
 # the required library can be installed with "brew install labstreaminglayer/tap/lsl" on macOS, or with "conda install liblsl" on any platform
 pylsl==1.16.2; sys_platform == "darwin"
 
+# PyTaskbarProgress only runs on Windows
+PyTaskbarProgress==0.0.8; sys_platform == 'win32'
+
 # Include the requirements for testing
 -r requirements-test.txt

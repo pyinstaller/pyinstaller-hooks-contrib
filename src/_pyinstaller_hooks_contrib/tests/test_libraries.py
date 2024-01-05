@@ -1866,3 +1866,11 @@ def test_seedir(pyi_builder):
     pyi_builder.test_source("""
         import seedir
     """)
+
+
+@importorskip('PyTaskbar')
+@pytest.mark.skipif(not is_win, reason='PyTaskbar is supported only on Windows')
+def test_PyTaskbar(pyi_builder):
+    pyi_builder.test_source("""
+            import PyTaskbar
+        """)
