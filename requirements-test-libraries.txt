@@ -5,13 +5,13 @@ importlib_resources==6.1.1; python_version < '3.9'
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==11.0.0
 # The latest release of adbutils (1.2.11) explicitly requires requests<2.16, which is incompatible with python >= 3.10.
-adbutils==2.1.0; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version < '3.10'
+adbutils==2.2.0; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version < '3.10'
 APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.3.2; python_version >= '3.9'
 boto==2.49.0
-boto3==1.34.11
-botocore==1.34.11
+boto3==1.34.14
+botocore==1.34.14
 branca==0.7.0
 cairocffi==1.6.1
 CairoSVG==2.7.1
@@ -34,8 +34,8 @@ fabric==3.2.2
 fiona==1.9.5; sys_platform != 'win32'
 folium==0.15.1
 ffpyplayer==4.5.1
-geopandas==0.14.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.111.0
+geopandas==0.14.2; sys_platform != 'win32' and python_version >= '3.9'
+google-api-python-client==2.112.0
 graphql-query==1.2.2
 python-gitlab==4.3.0
 h5py==3.10.0
@@ -48,8 +48,8 @@ markdown==3.5.1
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 moviepy==1.0.3
-mnemonic==0.20
-msoffcrypto-tool==5.1.1
+mnemonic==0.21
+msoffcrypto-tool==5.2.0
 netCDF4==1.6.5
 numcodecs==0.12.1
 Office365-REST-Python-Client==2.5.4
@@ -105,7 +105,8 @@ web3==6.13.0
 websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
-mimesis==11.1.0
+# mimesis 12.x dropped support for python < 3.10
+mimesis==12.1.0; python_version >= '3.10'
 orjson==3.9.10
 altair==5.2.0
 shapely==2.0.2
@@ -139,7 +140,7 @@ mistune==3.0.2
 pydantic==2.5.3
 jsonschema==4.20.0
 psutil==5.9.7
-litestar==2.4.5
+litestar==2.5.0
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -165,7 +166,7 @@ eth-rlp==1.0.0
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.0.353
+langchain==0.1.0
 seedir==0.4.2
 
 # ------------------- Platform (OS) specifics
