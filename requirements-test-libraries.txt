@@ -48,7 +48,7 @@ markdown==3.5.1
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 moviepy==1.0.3
-mnemonic==0.20
+mnemonic==0.21
 msoffcrypto-tool==5.1.1
 netCDF4==1.6.5
 numcodecs==0.12.1
