@@ -1874,3 +1874,10 @@ def test_PyTaskbar(pyi_builder):
     pyi_builder.test_source("""
             import PyTaskbar
         """)
+
+
+@importorskip('celpy')
+def test_celpy(pyi_builder):
+    pyi_builder.test_source("""
+            import celpy
+        """)
