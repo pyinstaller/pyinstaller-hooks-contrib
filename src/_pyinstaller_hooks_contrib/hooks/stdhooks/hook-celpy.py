@@ -20,5 +20,5 @@
 
 from PyInstaller.utils.hooks import collect_data_files
 
-# collects *.lark if PyInstaller packaging requires celpy
+# Collect *.lark file(s) from the package
 datas = collect_data_files('celpy')

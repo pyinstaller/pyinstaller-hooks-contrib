@@ -1,1 +1,1 @@
-Add hook for ``cel-python``
+Add hook for ``cel-python``.
