@@ -1881,3 +1881,10 @@ def test_celpy(pyi_builder):
     pyi_builder.test_source("""
         import celpy
     """)
+
+
+@importorskip('pygwalker')
+def test_pygwalker(pyi_builder):
+    pyi_builder.test_source("""
+        import pygwalker
+    """)

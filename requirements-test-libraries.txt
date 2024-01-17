@@ -169,6 +169,7 @@ vaderSentiment==3.3.2
 langchain==0.1.0
 seedir==0.4.2
 cel-python==0.1.5
+pygwalker==0.4.2
 
 # ------------------- Platform (OS) specifics
 
