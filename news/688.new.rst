@@ -1,2 +1,0 @@
-Add hook for ``eth_keys`` that collects package metadata for
-``eth-keys >= 0.5.0``.

@@ -1,3 +1,34 @@
+2024.0 (2024-01-18)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``cel-python``. (`#687
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/687>`_)
+* Add hook for ``eth_keys`` that collects package metadata for
+  ``eth-keys >= 0.5.0``. (`#688
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/688>`_)
+* Add hook for ``fairscale`` to collect its source .py files for
+  TorchScript/JIT. (`#692
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/692>`_)
+* Add hook for ``pygwalker`` that collects data files from the package. (`#690
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/690>`_)
+* Add hook for ``PyTaskbar`` (`#684
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/684>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Collect package metadata for ``eth-hash`` (fixes ``PackageNotFoundError``).
+  (`#688
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/688>`_)
+* Update ``pypylon`` hook for compatibility with PyInstaller 6.0 and later.
+  (`#691
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/691>`_)
+
+
 2023.12 (2024-01-03)
 --------------------
 
