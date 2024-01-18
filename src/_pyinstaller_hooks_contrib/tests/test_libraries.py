@@ -1888,3 +1888,10 @@ def test_pygwalker(pyi_builder):
     pyi_builder.test_source("""
         import pygwalker
     """)
+
+
+@importorskip('pypylon')
+def test_pypylon(pyi_builder):
+    pyi_builder.test_source("""
+        from pypylon import pylon
+    """)
