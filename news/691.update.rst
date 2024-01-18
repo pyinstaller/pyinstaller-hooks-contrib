@@ -1,0 +1,1 @@
+Update ``pypylon`` hook for compatibility with PyInstaller 6.0 and later.

@@ -21,19 +21,28 @@
 
 import os
 
-from PyInstaller.utils.hooks import collect_data_files
-from PyInstaller.utils.hooks import collect_dynamic_libs
+from PyInstaller.utils.hooks import (
+    collect_data_files,
+    collect_dynamic_libs,
+    is_module_satisfies
+)
 
-# Collect dynamic libs as data (to prevent pyinstaller from modifying them)
+# Collect dynamic libs as data (to prevent pyinstaller from modifying them).
+# NOTE: under PyInstaller 6.x, these files end up re-classified as binaries anyway.
 datas = collect_dynamic_libs('pypylon')
 
 # Collect data files, looking for pypylon/pylonCXP/bin/ProducerCXP.cti, but other files may also be needed
 datas += collect_data_files('pypylon')
 
-# Exclude the C++-extensions from automatic search, add them manually as data files
-# their dependencies were already handled with collect_dynamic_libs
-excludedimports = ['pypylon._pylon', 'pypylon._genicam']
-for filename, module in collect_data_files('pypylon', include_py_files=True):
-    if (os.path.basename(filename).startswith('_pylon.')
-            or os.path.basename(filename).startswith('_genicam.')):
-        datas += [(filename, module)]
+# NOTE: the part below is incompatible with PyInstaller 6.x, because `collect_data_files(..., include_py_files=True)`
+# does not include binary extensions anymore. In addition, `pyinstaller/pyinstaller@ecc218c` in PyInstaller 6.2 fixed
+# the module exclusion for relative imports, so the modules listed below actually end up excluded. Presumably this
+# part was necessary with older PyInstaller versions, so we keep it around, but disable it for PyInstaller >= 6.0.
+if is_module_satisfies('PyInstaller < 6.0'):
+    # Exclude the C++-extensions from automatic search, add them manually as data files
+    # their dependencies were already handled with collect_dynamic_libs
+    excludedimports = ['pypylon._pylon', 'pypylon._genicam']
+    for filename, module in collect_data_files('pypylon', include_py_files=True):
+        if (os.path.basename(filename).startswith('_pylon.')
+                or os.path.basename(filename).startswith('_genicam.')):
+            datas += [(filename, module)]
