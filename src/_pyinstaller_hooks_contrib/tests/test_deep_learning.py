@@ -285,7 +285,7 @@ def test_gpytorch_simple_gp_regression(pyi_builder):
     """)
 
 
-# Basic import test for fvcore.nn, which shows that we need to collect its source.py files for TorchScript/JIT.
+# Basic import test for fvcore.nn, which shows that we need to collect its source .py files for TorchScript/JIT.
 @importorskip('fvcore')
 @onedir_only
 def test_fvcore(pyi_builder):
@@ -294,7 +294,7 @@ def test_fvcore(pyi_builder):
     """)
 
 
-# Basic test for detectron2, which shows that we need to collect its source.py files for TorchScript/JIT.
+# Basic test for detectron2, which shows that we need to collect its source .py files for TorchScript/JIT.
 @importorskip('detectron2')
 @onedir_only
 def test_detectron2(pyi_builder):
@@ -349,4 +349,13 @@ def test_accelerate(pyi_builder):
         model, optimizer = accelerator.prepare(model, optimizer)
         print("Model:", model)
         print("Optimizer:", optimizer)
+    """)
+
+
+# Basic import test for fairscale, which shows that we need to collect its source .py files for TorchScript/JIT.
+@importorskip('fairscale')
+@onedir_only
+def test_fairscale(pyi_builder):
+    pyi_builder.test_source("""
+        import fairscale
     """)
