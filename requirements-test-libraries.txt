@@ -153,7 +153,7 @@ python-crfsuite==0.9.10
 pymorphy3==2.0.1
 pymorphy3-dicts-uk==2.4.1.1.1663094765
 sudachipy==0.6.8
-sudachidict-core==20230927
+sudachidict-core==20240109
 sudachidict-small==20230927
 sudachidict-full==20230927
 wxPython==4.2.1; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
