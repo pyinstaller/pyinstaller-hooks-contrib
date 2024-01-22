@@ -1905,4 +1905,3 @@ def test_osgeo(pyi_builder):
         sr.ImportFromEPSG(4326)
         assert(sr.EPSGTreatsAsLatLong())
     """)
-    
