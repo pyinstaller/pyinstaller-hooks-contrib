@@ -49,7 +49,7 @@ markdown==3.5.2
 # MetPy==1.2.0
 moviepy==1.0.3
 mnemonic==0.21
-msoffcrypto-tool==5.2.0
+msoffcrypto-tool==5.3.1
 netCDF4==1.6.5
 numcodecs==0.12.1
 Office365-REST-Python-Client==2.5.4
