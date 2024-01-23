@@ -129,7 +129,7 @@ spiceypy==6.0.0
 exchangelib==5.1.0
 NBT==1.5.1
 minecraft-launcher-lib==6.4
-scikit-learn==1.4.0
+scikit-learn==1.4.0; python_version >= '3.9'
 scikit-image==0.22.0; python_version >= '3.9'
 customtkinter==5.2.2
 fastparquet==2023.10.1
