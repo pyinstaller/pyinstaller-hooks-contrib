@@ -1895,3 +1895,13 @@ def test_pypylon(pyi_builder):
     pyi_builder.test_source("""
         from pypylon import pylon
     """)
+
+
+@importorskip('osgeo')
+def test_osgeo(pyi_builder):
+    pyi_builder.test_source("""
+        from osgeo import osr
+        sr = osr.SpatialReference()
+        sr.ImportFromEPSG(4326)
+        assert(sr.EPSGTreatsAsLatLong())
+    """)
