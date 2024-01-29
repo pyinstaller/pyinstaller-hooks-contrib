@@ -57,6 +57,8 @@ jobs:
             echo "sudachidict-core>=20230927" >> requirements-test-libraries.txt;
             echo "sudachidict-full>=20230927" >> requirements-test-libraries.txt;
           fi
+          # pythainlp requires python-crfsuite, but fails to declare it as a requirement.
+          if grep -q pythainlp requirements-test-libraries.txt ; then echo python-crfsuite >> requirements-test-libraries.txt; fi
           cat requirements-test-libraries.txt
 
       - name: Set up .NET Core for pythonnet tests

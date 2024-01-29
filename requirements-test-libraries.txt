@@ -8,10 +8,10 @@ av==11.0.0
 adbutils==2.2.1; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version < '3.10'
 APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
-bokeh==3.3.3; python_version >= '3.9'
+bokeh==3.3.4; python_version >= '3.9'
 boto==2.49.0
-boto3==1.34.23
-botocore==1.34.23
+boto3==1.34.29
+botocore==1.34.29
 branca==0.7.0
 cairocffi==1.6.1
 CairoSVG==2.7.1
@@ -35,7 +35,7 @@ fiona==1.9.5; sys_platform != 'win32'
 folium==0.15.1
 ffpyplayer==4.5.1
 geopandas==0.14.2; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.114.0
+google-api-python-client==2.115.0
 graphql-query==1.2.2
 python-gitlab==4.4.0
 h5py==3.10.0
@@ -55,10 +55,10 @@ numcodecs==0.12.1
 Office365-REST-Python-Client==2.5.5
 openpyxl==3.1.2
 pandas==2.2.0; python_version >= '3.9'
-panel==1.3.7; python_version >= '3.9'
+panel==1.3.8; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.28
+phonenumbers==8.13.29
 pingouin==0.5.4
 pinyin==0.4.0
 platformdirs==4.1.0
@@ -81,7 +81,7 @@ pynput==1.7.6
 pymssql==2.2.11
 pystray==0.19.5
 pythonnet==3.0.3
-pytz==2023.3.post1
+pytz==2023.4
 pyzmq==25.1.2
 PyQt5==5.15.10
 qtmodern==0.2.0
@@ -101,12 +101,12 @@ Twisted==23.10.0
 tzdata==2023.4
 Unidecode==1.3.8
 weasyprint==60.2
-web3==6.14.0
+web3==6.15.0
 websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
-mimesis==13.0.0; python_version >= '3.10'
+mimesis==13.1.0; python_version >= '3.10'
 orjson==3.9.12
 altair==5.2.0
 shapely==2.0.2
@@ -137,10 +137,10 @@ librosa==0.10.1
 sympy==1.12
 xyzservices==2023.10.0
 mistune==3.0.2
-pydantic==2.5.3
+pydantic==2.6.0
 jsonschema==4.21.1
 psutil==5.9.8
-litestar==2.5.1
+litestar==2.5.2
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -158,18 +158,18 @@ sudachidict-small==20240109
 sudachidict-full==20240109
 wxPython==4.2.1; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.1.3
-pythainlp==5.0.0.dev1
+pythainlp==5.0.0.dev2
 gmsh==4.12.2
 sspilib==0.1.0
 rlp==4.0.0
-eth-rlp==1.0.0
+eth-rlp==1.0.1
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.1.2
+langchain==0.1.4
 seedir==0.4.2
 cel-python==0.1.5
-pygwalker==0.4.2
+pygwalker==0.4.4
 eth-hash==0.6.0
 pypylon==3.0.1
 
