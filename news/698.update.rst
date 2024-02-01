@@ -1,1 +1,1 @@
-Update the hook for sklearn.neighbors to account for removed hidden import neighbors._typedef
+Update the hook for ``sklearn.neighbors`` to account for removed hidden import ``neighbors._typedef``
