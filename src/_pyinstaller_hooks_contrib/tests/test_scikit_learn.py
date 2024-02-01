@@ -44,3 +44,21 @@ def test_sklearn(pyi_builder, submodule):
     pyi_builder.test_source("""
         import sklearn.{0}
         """.format(submodule))
+
+
+@pytest.mark.slow
+@onedir_only
+@importorskip('sklearn')
+@pytest.mark.skipif(
+    not is_module_satisfies('scikit_learn >= 1.0.2'),
+    reason='The test supports only scikit-learn >= 1.0.2.',
+)
+@pytest.mark.parametrize('submodule', [
+    'neighbors',
+])
+def test_sklearn_hidden_warnings_not_thrown(caplog, pyi_builder, submodule):
+    """Make sure that warnings are not thrown on hidden imports that were removed in sklearn"""
+    pyi_builder.test_source("""
+        import sklearn.{0}
+        """.format(submodule))
+    assert 'sklearn.neighbors._typedefs" not found!' not in caplog.text

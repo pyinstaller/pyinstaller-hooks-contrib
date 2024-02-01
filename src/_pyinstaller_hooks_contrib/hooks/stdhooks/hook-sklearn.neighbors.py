@@ -14,17 +14,22 @@ from PyInstaller.utils.hooks import is_module_satisfies
 
 hiddenimports = []
 
-if is_module_satisfies("scikit_learn >= 0.22"):
-    # 0.22 and later
+if is_module_satisfies("scikit_learn > 1.0.1"):
+    # 1.0.2 and later
     hiddenimports += [
-        'sklearn.neighbors._typedefs',
         'sklearn.neighbors._quad_tree',
     ]
-else:
-    # 0.21
+elif is_module_satisfies("scikit_learn < 0.22 "):
+    # 0.21 and below
     hiddenimports += [
         'sklearn.neighbors.typedefs',
         'sklearn.neighbors.quad_tree',
+    ]
+else:
+    # between and including 0.22 and 1.0.1
+    hiddenimports += [
+        'sklearn.neighbors._typedefs',
+        'sklearn.neighbors._quad_tree',
     ]
 
 # The following hidden import must be added here
