@@ -1,3 +1,16 @@
+2024.1 (2024-02-10)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix hook for ``osgeo``, to include proj data files. (`#693
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/693>`_)
+* Update the hook for ``sklearn.neighbors`` to account for removed hidden
+  import ``neighbors._typedef`` (`#698
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/698>`_)
+
+
 2024.0 (2024-01-18)
 -------------------
 
