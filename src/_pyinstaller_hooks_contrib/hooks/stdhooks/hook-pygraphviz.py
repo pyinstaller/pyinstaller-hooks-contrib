@@ -49,7 +49,7 @@ if is_win:
 else:
     # The dot binary in PATH is typically a symlink, handle that.
     # graphviz_bindir is e.g. /usr/local/Cellar/graphviz/2.46.0/bin
-    graphviz_bindir = os.path.dirname(os.path.realpath(shutil.which("dot")))
+    graphviz_bindir = os.path.dirname(shutil.which("dot"))
     for binary in progs:
         binaries.append((graphviz_bindir + "/" + binary, "."))
     if is_darwin:
