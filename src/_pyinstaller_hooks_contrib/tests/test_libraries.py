@@ -1905,3 +1905,11 @@ def test_osgeo(pyi_builder):
         sr.ImportFromEPSG(4326)
         assert(sr.EPSGTreatsAsLatLong())
     """)
+
+
+@importorskip('falcon')
+def test_falcon(pyi_builder):
+    # https://github.com/falconry/falcon/blob/v3.1.3/examples/things.py
+    pyi_builder.test_source("""
+        import falcon
+    """)
