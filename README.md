@@ -230,6 +230,9 @@ The requirements already in there should guide you on the syntax.
 
 #### Run the test on CI/CD
 
+<details><summary>CI/CD now triggers itself when you open a pull request.
+These instructions for triggering jobs manually are obsolete except in rare cases.</summary>
+
 To test hooks on all platforms we use Github's continuous integration (CI/CD).
 Our CI/CD is a bit unusual in that it's triggered manually and takes arguments
 which limit which tests are run.
@@ -290,6 +293,8 @@ Run ``python scripts/cloud-test.py --help`` which should walk you through it.
 You will have to enter all the details again but, thanks to the wonders of terminal history,
 rerunning a configuration is just a case of pressing up then enter.
 
+</details>
+
 
 ### Run Linter
 
@@ -325,15 +330,14 @@ A brief checklist for before submitting your pull request:
 * [ ] All new Python files have [the appropriate copyright header](#add-the-copyright-header).
 * [ ] You have written a [news entry](#add-a-news-entry).
 * [ ] Your changes [satisfy the linter](#run-linter) (run `flake8`).
-* [ ] You have written tests (if possible), [pinned the test requirement](#pin-the-test-requirement) and linked to a successful CI build.
+* [ ] You have written tests (if possible) and [pinned the test requirement](#pin-the-test-requirement).
 
 
 ### Submit the pull request
 
-Once you've done all the above, go ahead and create a pull request.
+Once you've done all the above, run `git push --set-upstream origin hook-for-foo` then go ahead and create a pull request.
 If you're stuck doing any of the above steps, create a draft pull request and explain what's wrong - we'll sort you out...
 Feel free to copy/paste commit messages into the Github pull request title and description.
-If you have run CI/CD, please include a link to it in your description so that we can see that it works.
 If you've never done a pull request before, note that you can edit it simply by running `git push` again.
 No need to close the old one and start a new one.
 
