@@ -71,7 +71,7 @@ This will overwrite your current installation.
 ```
 pip install -e .
 pip install -r requirements-test.txt
-pip install flake8
+pip install flake8 pyinstaller
 ```
 
 Note that on macOS and Linux, `pip` may by called `pip3`.
