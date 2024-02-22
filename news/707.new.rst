@@ -1,1 +1,1 @@
-Add a hook for ``iso639-lang```, which has a hidden import
+Add a hook for ``iso639-lang```, to collect data files
