@@ -42,6 +42,7 @@ python-gitlab==4.4.0
 h5py==3.10.0
 humanize==4.9.0
 iminuit==2.25.2
+iso639-lang==2.2.3
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.1.10; sys_platform != "darwin"
