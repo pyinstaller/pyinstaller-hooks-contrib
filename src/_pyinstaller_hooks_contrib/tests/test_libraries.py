@@ -1913,7 +1913,8 @@ def test_falcon(pyi_builder):
     pyi_builder.test_source("""
         import falcon
     """)
-    
+
+
 @importorskip('iso639')
 def test_iso639(pyi_builder):
     pyi_builder.test_source("""
