@@ -19,7 +19,16 @@ from PyInstaller.utils.hooks import collect_data_files
 # Ignore GUI libraries. IPython supports integration with GUI frameworks.
 # Assume that it will be imported by any other module when the user really
 # uses it.
-excludedimports = ['gtk', 'matplotlib', 'PyQt4', 'PyQt5', 'PySide']
+excludedimports = [
+    'gtk',
+    'matplotlib',
+    'PySide',
+    'PyQt4',
+    'PySide2',
+    'PyQt5',
+    'PySide6',
+    'PyQt6',
+]
 
 # IPython uses 'tkinter' for clipboard access on Linux/Unix. Exclude it on Windows and OS X.
 if is_win or is_darwin:
