@@ -1246,19 +1246,19 @@ def test_pyshark(pyi_builder):
     )
 
 
-@importorskip('pyqtgraph')
 @importorskip('PyQt5')
+@importorskip('pyqtgraph')
 def test_pyqtgraph(pyi_builder):
     pyi_builder.test_source(
         """
         import pyqtgraph.graphicsItems.PlotItem
         import pyqtgraph.graphicsItems.ViewBox.ViewBoxMenu
         import pyqtgraph.imageview.ImageView
-        """,
-        pyi_args=['--exclude', 'PySide2', '--exclude', 'PySide6', '--exclude', 'PyQt6']
+        """
     )
 
 
+@importorskip('PyQt5')
 @importorskip('pyqtgraph')
 def test_pyqtgraph_colormap(pyi_builder):
     pyi_builder.test_source(
@@ -1269,8 +1269,8 @@ def test_pyqtgraph_colormap(pyi_builder):
     )
 
 
-@importorskip('pyqtgraph')
 @importorskip('PyQt5')
+@importorskip('pyqtgraph')
 def test_pyqtgraph_remote_graphics_view(pyi_builder):
     pyi_builder.test_source(
         """
@@ -1305,8 +1305,7 @@ def test_pyqtgraph_remote_graphics_view(pyi_builder):
         QtCore.QTimer.singleShot(1000, app.exit)
 
         sys.exit(app.exec_())
-        """,
-        pyi_args=['--exclude', 'PySide2', '--exclude', 'PySide6', '--exclude', 'PyQt6']
+        """
     )
 
 

@@ -41,3 +41,16 @@ hiddenimports = [name for name in all_imports if "Template" in name]
 # hook to handle the pyqtgraph's multiprocessing implementation. The pyqtgraph.multiprocess seems to be imported
 # automatically on the import of pyqtgraph itself, so there is no point in creating a separate hook for this.
 hiddenimports += ['pyqtgraph.multiprocess.bootstrap']
+
+# Attempt to auto-select applicable Qt bindings and exclude extraneous Qt bindings.
+# Available in PyInstaller >= 6.5, which has `PyInstaller.utils.hooks.qt.exclude_extraneous_qt_bindings` helper.
+try:
+    from PyInstaller.utils.hooks.qt import exclude_extraneous_qt_bindings
+except ImportError:
+    pass
+else:
+    # Use the helper's default preference order, to keep it consistent across multiple hooks that use the same helper.
+    excludedimports = exclude_extraneous_qt_bindings(
+        hook_name="hook-pyqtgraph",
+        qt_bindings_order=None,
+    )
