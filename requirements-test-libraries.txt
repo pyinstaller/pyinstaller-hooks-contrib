@@ -1,5 +1,5 @@
 # Backport of importlib.resources for python 3.8 and earlier.
-importlib_resources==6.1.1; python_version < '3.9'
+importlib_resources==6.1.2; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
@@ -10,8 +10,8 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.3.4; python_version >= '3.9'
 boto==2.49.0
-boto3==1.34.44
-botocore==1.34.44
+boto3==1.34.49
+botocore==1.34.49
 branca==0.7.1
 cairocffi==1.6.1
 CairoSVG==2.7.1
@@ -29,14 +29,14 @@ dash-uploader==0.6.0
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
 eth_typing==4.0.0
-eth_utils==3.0.0
+eth_utils==4.0.0
 fabric==3.2.2
 falcon==3.1.3
 fiona==1.9.5; sys_platform != 'win32'
 folium==0.15.1
 ffpyplayer==4.5.1
 geopandas==0.14.3; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.118.0
+google-api-python-client==2.119.0
 graphql-query==1.3.1
 python-gitlab==4.4.0
 h5py==3.10.0
@@ -56,11 +56,11 @@ netCDF4==1.6.5
 numcodecs==0.12.1
 Office365-REST-Python-Client==2.5.5
 openpyxl==3.1.2
-pandas==2.2.0; python_version >= '3.9'
+pandas==2.2.1; python_version >= '3.9'
 panel==1.3.8; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.30
+phonenumbers==8.13.31
 pingouin==0.5.4
 pinyin==0.4.0
 platformdirs==4.2.0
@@ -71,7 +71,7 @@ pycryptodome==3.20.0
 pycryptodomex==3.20.0
 pyexcelerate==0.10.0
 pylibmagic==0.5.0; sys_platform != 'win32'
-pylint==3.0.3
+pylint==3.1.0
 pypemicro==0.1.11
 pyphen==0.14.0
 pyppeteer==2.0.0
@@ -102,14 +102,14 @@ timezonefinder==6.4.1; python_version > '3.8'
 Twisted==23.10.0
 tzdata==2024.1
 Unidecode==1.3.8
-weasyprint==61.0
+weasyprint==61.1
 web3==6.15.1
 websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==14.0.0; python_version >= '3.10'
-orjson==3.9.14
+orjson==3.9.15
 altair==5.2.0
 shapely==2.0.3
 lark==1.1.9
@@ -139,7 +139,7 @@ librosa==0.10.1
 sympy==1.12
 xyzservices==2023.10.0
 mistune==3.0.2
-pydantic==2.6.1
+pydantic==2.6.2
 jsonschema==4.21.1
 psutil==5.9.8
 litestar==2.6.1
@@ -168,7 +168,7 @@ eth-rlp==1.0.1
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.1.7
+langchain==0.1.9
 seedir==0.4.2
 cel-python==0.1.5
 pygwalker==0.4.6
