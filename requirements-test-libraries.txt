@@ -71,7 +71,7 @@ pycryptodome==3.20.0
 pycryptodomex==3.20.0
 pyexcelerate==0.10.0
 pylibmagic==0.5.0; sys_platform != 'win32'
-pylint==3.0.3
+pylint==3.1.0
 pypemicro==0.1.11
 pyphen==0.14.0
 pyppeteer==2.0.0
