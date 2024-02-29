@@ -1,2 +1,0 @@
-Update the exclude list for GUI frameworks in the ``IPython`` hook with
-additional contemporary Qt bindings (``PySide2``, ``PySide6``, and ``PyQt6``).

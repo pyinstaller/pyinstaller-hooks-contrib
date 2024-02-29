@@ -1,3 +1,29 @@
+2024.2 (2024-02-29)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``iso639-lang``, to collect data files (`#707
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/707>`_)
+* Add hook for ``falcon``, which has hidden imports. (`#703
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/703>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``pyqtgraph`` hook to use the helper for automatic Qt bindings
+  selection and exclusion from PyInstaller >= 6.5 (no-op with earlier
+  versions). This should help preventing multiple Qt bindings from
+  being collected into frozen application. (`#710
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/710>`_)
+* Update the exclude list for GUI frameworks in the ``IPython`` hook with
+  additional contemporary Qt bindings (``PySide2``, ``PySide6``, and
+  ``PyQt6``). (`#708
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/708>`_)
+
+
 2024.1 (2024-02-10)
 -------------------
 

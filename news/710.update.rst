@@ -1,4 +1,0 @@
-Update ``pyqtgraph`` hook to use the helper for automatic Qt bindings
-selection and exclusion from PyInstaller >= 6.5 (no-op with earlier
-versions). This should help preventing multiple Qt bindings from
-being collected into frozen application.

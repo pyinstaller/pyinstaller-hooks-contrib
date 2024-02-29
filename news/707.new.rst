@@ -1,1 +1,0 @@
-Add a hook for ``iso639-lang``, to collect data files
