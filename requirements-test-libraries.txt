@@ -108,7 +108,7 @@ websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
-mimesis==14.0.0; python_version >= '3.10'
+mimesis==15.1.0; python_version >= '3.10'
 orjson==3.9.15
 altair==5.2.0
 shapely==2.0.3
