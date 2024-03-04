@@ -172,7 +172,7 @@ langchain==0.1.10
 seedir==0.4.2
 cel-python==0.1.5
 pygwalker==0.4.6
-eth-hash==0.6.0
+eth-hash==0.7.0
 pypylon==3.0.1
 
 # ------------------- Platform (OS) specifics
