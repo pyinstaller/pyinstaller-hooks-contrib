@@ -1768,8 +1768,8 @@ def test_sspilib(pyi_builder):
         )
 
         ctx = sspilib.ClientSecurityContext(
-            "host/server.domain.com",
             credential=cred,
+            target_name="host/server.domain.com",
         )
 
         print(ctx)
