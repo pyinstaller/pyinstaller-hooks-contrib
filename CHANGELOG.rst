@@ -1,3 +1,16 @@
+2024.3 (2024-03-09)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``torch`` hook to add support for MKL-enabled ``torch`` builds
+  on Windows (e.g., the nightly ``2.3.0.dev20240308+cpu`` build). The hook
+  now attempts to discover and collect DLLs from MKL and its dependencies
+  (``mkl``, ``tbb``, ``intel-openmp``). (`#712
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/712>`_)
+
+
 2024.2 (2024-02-29)
 -------------------
 
