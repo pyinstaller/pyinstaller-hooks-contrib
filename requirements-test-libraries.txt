@@ -1,5 +1,5 @@
 # Backport of importlib.resources for python 3.8 and earlier.
-importlib_resources==6.1.2; python_version < '3.9'
+importlib_resources==6.1.3; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
@@ -10,8 +10,8 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.3.4; python_version >= '3.9'
 boto==2.49.0
-boto3==1.34.54
-botocore==1.34.54
+boto3==1.34.59
+botocore==1.34.59
 branca==0.7.1
 cairocffi==1.6.1
 CairoSVG==2.7.1
@@ -22,7 +22,7 @@ charset_normalizer==3.3.2
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.0; sys_platform != 'win32'
-dash==2.16.0
+dash==2.16.1
 dash-bootstrap-components==1.5.0
 dash-uploader==0.6.0
 # discid requires libdiscid to be provided by the system.
@@ -32,11 +32,11 @@ eth_typing==4.0.0
 eth_utils==4.0.0
 fabric==3.2.2
 falcon==3.1.3
-fiona==1.9.5; sys_platform != 'win32'
+fiona==1.9.6; sys_platform != 'win32'
 folium==0.16.0
 ffpyplayer==4.5.1
 geopandas==0.14.3; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.120.0
+google-api-python-client==2.121.0
 graphql-query==1.3.1
 python-gitlab==4.4.0
 h5py==3.10.0
@@ -75,7 +75,7 @@ pylint==3.1.0
 pypemicro==0.1.11
 pyphen==0.14.0
 pyppeteer==2.0.0
-pyqtgraph==0.13.3
+pyqtgraph==0.13.4; python_version >= "3.9"
 pyusb==1.2.1
 pyviz-comms==3.0.1
 pyvjoy==1.0.1; sys_platform == 'win32'
@@ -91,18 +91,18 @@ Rtree==1.2.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.12.0; python_version > '3.8'
-sentry-sdk==1.40.6
+sentry-sdk==1.41.0
 shotgun_api3==3.4.2
 spacy==3.7.4
 srsly==2.4.8
 swagger-spec-validator==3.0.3
-tableauhyperapi==0.0.18618
+tableauhyperapi==0.0.18825
 thinc==8.2.3
 timezonefinder==6.4.1; python_version > '3.8'
 Twisted==24.3.0
 tzdata==2024.1
 Unidecode==1.3.8
-weasyprint==61.1
+weasyprint==61.2
 web3==6.15.1
 websockets==12.0
 zeep==4.2.1
@@ -118,17 +118,17 @@ python-stdnum==1.19
 # and libsndfile, respectively.
 sounddevice==0.4.6; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
-limits==3.9.0
+limits==3.10.0
 # great-expectations as of v0.16.10 does not officially support python 3.11 yet, and the pyspark
 # compatibility wrapper seems to be broken for python 3.11 in this version.
 great-expectations==0.18.10; python_version < '3.11'
-tensorflow==2.15.0.post1; python_version >= '3.9' and sys_platform == 'linux'
-tensorflow==2.15.0; python_version >= '3.9' and sys_platform != 'linux'  # pyup: != 2.15.0.post1 # Available only for linux (merge back together on next update)
+tensorflow==2.16.1; python_version >= '3.9' and sys_platform == 'linux'
+tensorflow==2.16.1; python_version >= '3.9' and sys_platform != 'linux'  # pyup: != 2.15.0.post1 # Available only for linux (merge back together on next update)
 pyshark==0.6.0
 opencv-python==4.9.0.80
 hydra-core==1.3.2
 spiceypy==6.0.0
-exchangelib==5.1.0
+exchangelib==5.2.0
 NBT==1.5.1
 minecraft-launcher-lib==6.4
 scikit-learn==1.4.1.post1; python_version >= '3.9'
@@ -142,7 +142,7 @@ mistune==3.0.2
 pydantic==2.6.3
 jsonschema==4.21.1
 psutil==5.9.8
-litestar==2.6.3
+litestar==2.7.0
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -164,14 +164,14 @@ pythainlp==5.0.1
 gmsh==4.12.2
 sspilib==0.1.0
 rlp==4.0.0
-eth-rlp==1.0.1
+eth-rlp==2.0.0
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.1.10
+langchain==0.1.11
 seedir==0.4.2
 cel-python==0.1.5
-pygwalker==0.4.6
+pygwalker==0.4.7
 eth-hash==0.7.0
 pypylon==3.0.1
 
