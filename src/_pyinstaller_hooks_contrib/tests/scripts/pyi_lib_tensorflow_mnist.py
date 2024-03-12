@@ -10,6 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+import sys
 import os
 
 # Force CPU
@@ -17,6 +18,21 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 # Display only warnings and errors
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+# tensorflow 2.16 and keras 3.0 upgraded the interactive progress bar (displayed during dataset download, during model
+# fitting, etc.) with fancier version that uses Unicode arrows (←). For this to work, `sys.stdout` must be using utf-8
+# encoding. As per https://docs.python.org/3/library/sys.html#sys.stdout, on Windows, python defaults to using utf-8
+# for the console device. However, non-character devices such as pipes use the system locale encoding (i.e. the ANSI
+# codepage). PyInstaller's `pyi_builder` test fixture runs the build executable via `subprocess.Popen` with stdout
+# and stderr redirected to pipes, so the embedded interpreter in the frozen test application ends up using system
+# locale encoding (e.g., cp1252) instead of utf-8 for `sys.stdout` and `sys.stderr`. In contrast to unfrozen python,
+# the encoding cannot be overridden by the calling process via `PYTHONIOENCODING` environment variable when starting
+# the application (sub)process. However, we can reconfigure the encoding on the stream objects here, in the application
+# itself. Which, everything considered, is the sanest place to do so.
+if sys.stdout.encoding != 'utf8':
+    sys.stdout.reconfigure(encoding='utf-8')
+if sys.stderr.encoding != 'utf8':
+    sys.stderr.reconfigure(encoding='utf-8')
 
 # Begin test - import tensorflow after environment variables are set
 import tensorflow as tf  # noqa: E402
