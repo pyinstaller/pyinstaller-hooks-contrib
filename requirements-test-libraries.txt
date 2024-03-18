@@ -46,7 +46,7 @@ iso639-lang==2.2.3
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.1.10; sys_platform != "darwin"
-markdown==3.5.2
+markdown==3.6
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 moviepy==1.0.3
