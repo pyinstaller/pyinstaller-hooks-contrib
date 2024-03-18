@@ -64,7 +64,7 @@ phonenumbers==8.13.32
 pingouin==0.5.4
 pinyin==0.4.0
 platformdirs==4.2.0
-plotly==5.19.0
+plotly==5.20.0
 publicsuffix2==2.20191221
 pycparser==2.21
 pycryptodome==3.20.0
