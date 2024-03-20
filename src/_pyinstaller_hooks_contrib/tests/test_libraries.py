@@ -1920,3 +1920,17 @@ def test_iso639(pyi_builder):
         from iso639 import Lang
         test = Lang("en")
     """)
+
+
+# Check that `numba.cloudpickle.cloudpickle_fast` is collected even if it is not directly imported anywhere.
+@importorskip('numba')
+def test_numba_cloudpickle_fast(pyi_builder):
+    pyi_builder.test_source("""
+        # Assume the application or its dependencies import numba somewhere.
+        import numba
+
+        # Simulate indirect import of `numba.cloudpickle.cloudpickle_fast`that would happen during data unpickling.
+        import importlib
+        modname = "numba.cloudpickle.cloudpickle_fast"
+        mod = importlib.import_module(modname)
+    """)
