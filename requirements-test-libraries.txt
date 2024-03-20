@@ -19,6 +19,7 @@ cassandra-driver==3.29.0
 cf-units==3.2.0; sys_platform != 'win32'
 cftime==1.6.3
 charset_normalizer==3.3.2
+cloudpickle==3.0.0
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.0; sys_platform != 'win32'

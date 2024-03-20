@@ -1934,3 +1934,17 @@ def test_numba_cloudpickle_fast(pyi_builder):
         modname = "numba.cloudpickle.cloudpickle_fast"
         mod = importlib.import_module(modname)
     """)
+
+
+# Check that `cloudpickle.cloudpickle_fast` is collected even if it is not directly imported anywhere.
+@importorskip('cloudpickle')
+def test_cloudpickle_fast(pyi_builder):
+    pyi_builder.test_source("""
+        # Assume the application or its dependencies import cloudpickle somewhere.
+        import cloudpickle
+
+        # Simulate indirect import of `cloudpickle.cloudpickle_fast`that would happen during data unpickling.
+        import importlib
+        modname = "cloudpickle.cloudpickle_fast"
+        mod = importlib.import_module(modname)
+    """)
