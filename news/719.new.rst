@@ -1,0 +1,1 @@
+Add a hook for ``python-pptx``, including required template files.
