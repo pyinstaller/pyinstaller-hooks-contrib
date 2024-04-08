@@ -1953,5 +1953,7 @@ def test_cloudpickle_fast(pyi_builder):
 # Check if pptx template is included
 @importorskip('pptx')
 def test_pptx(pyi_builder):
-    import pptx
-    pptx.Presentation()
+    pyi_builder.test_source("""
+        import pptx
+        pptx.Presentation()
+    """)
