@@ -28,7 +28,7 @@ dash-uploader==0.6.0
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
-eth_typing==4.0.0
+eth_typing==4.1.0
 eth_utils==4.0.0
 fabric==3.2.2
 falcon==3.1.3
