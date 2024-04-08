@@ -1948,3 +1948,10 @@ def test_cloudpickle_fast(pyi_builder):
         modname = "cloudpickle.cloudpickle_fast"
         mod = importlib.import_module(modname)
     """)
+
+
+# Check if pptx template is included
+@importorskip('pptx')
+def test_pptx(pyi_builder):
+    import pptx
+    pptx.Presentation()
