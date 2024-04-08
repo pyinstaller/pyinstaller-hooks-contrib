@@ -138,7 +138,7 @@ customtkinter==5.2.2
 fastparquet==2024.2.0
 librosa==0.10.1
 sympy==1.12
-xyzservices==2023.10.0
+xyzservices==2024.4.0
 mistune==3.0.2
 pydantic==2.6.4
 jsonschema==4.21.1
