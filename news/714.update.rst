@@ -1,1 +1,0 @@
-Update ``tensorflow`` hooks for compatibility with ``tensorflow`` v2.16.0.

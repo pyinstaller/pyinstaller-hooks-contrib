@@ -1,3 +1,40 @@
+2024.4 (2024-04-13)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``python-pptx``, including required template files. (`#719
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/719>`_)
+* Add hook for ``cloudpickle`` to ensure that ``cloudpickle.cloudpickle_fast``
+  is collected when using ``cloudpickle`` v3.0.0 or later. (`#716
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/716>`_)
+* Add hook for ``hexbytes`` that collects package's metadata (required
+  starting with ``hexbytes`` v.1.1.0). (`#714
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/714>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Windows) Update ``netCDF4`` hook to explicitly collect DLLs and
+  load-order file (if present) from ``netCDF4.libs`` directory. This
+  fixes ``DLL load failed while importing _netCDF4`` error when using
+  Anaconda python 3.8 or 3.9, where ``delvewheel`` (used by ``netCDF4``)
+  needs to load DLLs via load-order file due to defunct
+  ``os.add_dll_directory`` function. (`#722
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/722>`_)
+* Update ``adbutils`` hooks for compatibility with ``adbutils`` v2.2.2 and
+  later. (`#717
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/717>`_)
+* Update ``numba`` hook to ensure that ``numba.cloudpickle.cloudpickle_fast``
+  is collected when using ``numba`` v0.59.0 or later. (`#716
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/716>`_)
+* Update ``tensorflow`` hooks for compatibility with ``tensorflow`` v2.16.0.
+  (`#714
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/714>`_)
+
+
 2024.3 (2024-03-09)
 -------------------
 

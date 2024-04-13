@@ -1,2 +1,0 @@
-Update ``numba`` hook to ensure that ``numba.cloudpickle.cloudpickle_fast``
-is collected when using ``numba`` v0.59.0 or later.

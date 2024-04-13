@@ -1,2 +1,0 @@
-Update ``adbutils`` hooks for compatibility with ``adbutils`` v2.2.2 and
-later.

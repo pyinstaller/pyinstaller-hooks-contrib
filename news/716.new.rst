@@ -1,2 +1,0 @@
-Add hook for ``cloudpickle`` to ensure that ``cloudpickle.cloudpickle_fast``
-is collected when using ``cloudpickle`` v3.0.0 or later.
