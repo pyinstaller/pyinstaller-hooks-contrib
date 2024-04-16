@@ -1,0 +1,2 @@
+Add hook for ``skimage.metrics`` to account for lazy loading of the
+``skimage.metrics`` that was introduced in ``scikit-image`` 0.23.0.
