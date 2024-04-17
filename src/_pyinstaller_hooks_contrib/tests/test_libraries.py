@@ -1957,3 +1957,25 @@ def test_pptx(pyi_builder):
         import pptx
         pptx.Presentation()
     """)
+
+
+@importorskip('opentelemetry.sdk')
+def test_opentelemetry(pyi_builder):
+    # Basic tracer example, taken from
+    # https://github.com/open-telemetry/opentelemetry-python/blob/main/docs/examples/basic_tracer/basic_trace.py
+    pyi_builder.test_source("""
+        from opentelemetry import trace
+        from opentelemetry.sdk.trace import TracerProvider
+        from opentelemetry.sdk.trace.export import (
+            BatchSpanProcessor,
+            ConsoleSpanExporter,
+        )
+
+        trace.set_tracer_provider(TracerProvider())
+        trace.get_tracer_provider().add_span_processor(
+            BatchSpanProcessor(ConsoleSpanExporter())
+        )
+        tracer = trace.get_tracer(__name__)
+        with tracer.start_as_current_span("foo"):
+            print("Hello world!")
+    """)
