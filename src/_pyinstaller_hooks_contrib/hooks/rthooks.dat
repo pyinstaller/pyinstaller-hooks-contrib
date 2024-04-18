@@ -1,4 +1,5 @@
 {
+    'cryptography': ['pyi_rth_cryptography_openssl.py'],
     'enchant': ['pyi_rth_enchant.py'],
     'ffpyplayer': ['pyi_rth_ffpyplayer.py'],
     'osgeo': ['pyi_rth_osgeo.py'],
