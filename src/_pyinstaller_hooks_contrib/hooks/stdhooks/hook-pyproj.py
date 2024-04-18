@@ -19,6 +19,8 @@ hiddenimports = [
     "pyproj.datadir"
 ]
 
+binaries = []
+
 # Versions prior to 2.3.0 also require pyproj._datadir
 if not is_module_satisfies("pyproj >= 2.3.0"):
     hiddenimports += ["pyproj._datadir"]
@@ -59,3 +61,12 @@ if is_conda:
 # `__init__.py`. This change was reverted in subsequent releases of pyproj, so we collect metadata only for 3.4.0.
 if is_module_satisfies("pyproj == 3.4.0"):
     datas += copy_metadata("pyproj")
+
+# pyproj 3.4.0 was also the first release that used `delvewheel` for its Windows PyPI wheels. While contemporary
+# PyInstaller versions automatically pick up DLLs from external `pyproj.libs` directory, this does not work on Anaconda
+# python 3.8 and 3.9 due to defunct `os.add_dll_directory`, which forces `delvewheel` to use the old load-order file
+# approach. So we need to explicitly ensure that load-order file as well as DLLs are collected.
+if is_win and is_module_satisfies("pyproj >= 3.4.0"):
+    if is_module_satisfies("PyInstaller >= 5.6"):
+        from PyInstaller.utils.hooks import collect_delvewheel_libs_directory
+        datas, binaries = collect_delvewheel_libs_directory("pyproj", datas=datas, binaries=binaries)
