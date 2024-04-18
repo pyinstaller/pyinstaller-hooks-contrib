@@ -1,0 +1,2 @@
+Add hook for ``xarray``, which ensures that metadata for ``numpy``
+(required by ``xarray``) is collected.

@@ -1995,3 +1995,18 @@ def test_cryptography(pyi_builder):
 
         print(f"Decrypted message: {f.decrypt(token)}")
     """)
+
+
+@importorskip('xarray')
+def test_xarray(pyi_builder):
+    pyi_builder.test_source("""
+        import xarray as xr
+        import numpy as np
+
+        data = xr.DataArray(
+            np.random.randn(2, 3),
+            dims=("x", "y"),
+            coords={"x": [10, 20]},
+        )
+        print(data)
+    """)
