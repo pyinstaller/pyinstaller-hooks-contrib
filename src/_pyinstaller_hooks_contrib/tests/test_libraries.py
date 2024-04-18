@@ -1979,3 +1979,19 @@ def test_opentelemetry(pyi_builder):
         with tracer.start_as_current_span("foo"):
             print("Hello world!")
     """)
+
+
+# Basic test for cryptography package
+@importorskip('cryptography')
+def test_cryptography(pyi_builder):
+    pyi_builder.test_source("""
+        from cryptography.fernet import Fernet
+
+        key = Fernet.generate_key()
+        f = Fernet(key)
+
+        token = f.encrypt(b"This is test.")
+        print(f"Encrypted message: {token}")
+
+        print(f"Decrypted message: {f.decrypt(token)}")
+    """)
