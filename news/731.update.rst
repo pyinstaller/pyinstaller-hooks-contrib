@@ -1,0 +1,3 @@
+Suppress errors in ``gcloud`` hook that occur when the hook is triggered
+by the ``gcloud`` namespace package from ``gcloud-aio-*`` and ``gcloud-rest-*``
+dists instead of the ``gcloud`` package from the ``gcloud`` dist.
