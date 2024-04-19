@@ -2010,3 +2010,17 @@ def test_xarray(pyi_builder):
         )
         print(data)
     """)
+
+
+@importorskip('tables')
+def test_pytables(pyi_builder):
+    # NOTE: run_from_path=True prevents `pyi_builder` from completely clearing the `PATH` environment variable. At the
+    # time of writing, `cpu_info` (used by PyTables) raises error if `PATH` is missing from `os.environ`.
+    pyi_builder.test_source("""
+        # `tables` uses cpu_info package during initialization, which in turn uses `multiprocessing`, so we need to call
+        # `multiprocessing.freeze_support()` before importing `tables`.
+        import multiprocessing
+        multiprocessing.freeze_support()
+
+        import tables
+    """, run_from_path=True)
