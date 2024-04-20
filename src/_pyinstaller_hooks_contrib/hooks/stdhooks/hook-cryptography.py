@@ -114,6 +114,11 @@ if uses_openssl3:
         if not ossl_modules_dir.is_dir() and openssl_lib_dir.name == 'bin':
             ossl_modules_dir = openssl_lib_dir.parent / 'lib' / 'ossl-modules'
 
+        # On Alpine linux, the true location of shared library is /lib directory, but the modules' directory is located
+        # in /usr/lib instead. Account for that possibility.
+        if not ossl_modules_dir.is_dir() and openssl_lib_dir == pathlib.Path('/lib'):
+            ossl_modules_dir = pathlib.Path('/usr/lib/ossl-modules')
+
         if ossl_modules_dir.is_dir():
             logger.debug("hook-cryptography: collecting OpenSSL modules directory: %r", str(ossl_modules_dir))
             binaries.append((str(ossl_modules_dir), 'ossl-modules'))
