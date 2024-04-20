@@ -90,6 +90,11 @@ if uses_openssl3:
             # Linux and other POSIX systems
             lib_name = 'libssl.so.3'
             openssl_lib = bindepend.resolve_library_path(lib_name)
+            if openssl_lib is None and compat.is_musl:
+                # Work-around for bug in `bindepend.resolve_library_path` in PyInstaller 6.x, <= 6.6; for search without
+                # ldconfig cache (for example, with musl libc on Alpine linux), we need library name without suffix.
+                lib_name = 'libssl'
+                openssl_lib = bindepend.resolve_library_path(lib_name)
     else:
         logger.warning(
             "hook-cryptography: full support for cryptography + OpenSSL >= 3.0.0 requires PyInstaller >= 6.0"
