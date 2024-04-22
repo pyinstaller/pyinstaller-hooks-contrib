@@ -99,7 +99,7 @@ spacy==3.7.4
 srsly==2.4.8
 swagger-spec-validator==3.0.3
 tableauhyperapi==0.0.18825
-thinc==8.2.3
+thinc==9.0.0
 timezonefinder==6.5.0; python_version > '3.8'
 Twisted==24.3.0
 tzdata==2024.1
