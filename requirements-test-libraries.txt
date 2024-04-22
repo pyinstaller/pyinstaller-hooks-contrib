@@ -131,7 +131,7 @@ exchangelib==5.2.1
 NBT==1.5.1
 minecraft-launcher-lib==6.4
 scikit-learn==1.4.2; python_version >= '3.9'
-scikit-image==0.23.1; python_version >= '3.10'
+scikit-image==0.23.2; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.2.0
 librosa==0.10.1
