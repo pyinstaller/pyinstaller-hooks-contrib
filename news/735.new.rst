@@ -1,3 +1,0 @@
-Add hook for ``backports`` package, to accommodate the ``pkgutil``-style
-``backports`` namespace package provided by ``backports.functools-lru-cache``
-and the latest release of ``backports.tarfile``.

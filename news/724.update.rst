@@ -1,8 +1,0 @@
-Extend ``cryptography`` hook to collect OpenSSL modules (the
-``ossl-modules`` directory) when available. Add a run-time hook that
-overrides OpenSSL module search path by setting the ``OPENSSL_MODULES``
-environment variable to the bundled ``ossl-modules`` directory. This
-fixes ``RuntimeError: OpenSSL 3.0's legacy provider failed to load.``
-error when using ``cryptography`` with OpenSSL >= 3.0 builds that have
-modules enabled (e.g., most Linux distributions, msys/MinGW on Windows,
-and Homebrew on macOS).

@@ -1,6 +1,0 @@
-(Windows) Update ``pyproj`` hook to explicitly collect DLLs and
-load-order file (if present) from ``pyproj.libs`` directory. This
-fixes ``DLL load failed while importing _network`` error when using
-Anaconda python 3.8 or 3.9, where ``delvewheel`` (used by ``pyproj``)
-needs to load DLLs via load-order file due to defunct
-``os.add_dll_directory`` function.

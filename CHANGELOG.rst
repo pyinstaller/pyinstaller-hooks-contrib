@@ -1,3 +1,54 @@
+2024.5 (2024-04-23)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``backports`` package, to accommodate the ``pkgutil``-style
+  ``backports`` namespace package provided by ``backports.functools-lru-cache``
+  and the latest release of ``backports.tarfile``. (`#735
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/735>`_)
+* Add hook for ``opentelemetry`` that collects all entry-points with
+  ``opentelemetry_`` prefix. (`#725
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/725>`_)
+* Add hook for ``skimage.metrics`` to account for lazy loading of the
+  ``skimage.metrics`` that was introduced in ``scikit-image`` 0.23.0. (`#723
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/723>`_)
+* Add hook for ``xarray``, which ensures that metadata for ``numpy``
+  (required by ``xarray``) is collected. (`#728
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/728>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Windows) Update ``pyproj`` hook to explicitly collect DLLs and
+  load-order file (if present) from ``pyproj.libs`` directory. This
+  fixes ``DLL load failed while importing _network`` error when using
+  Anaconda python 3.8 or 3.9, where ``delvewheel`` (used by ``pyproj``)
+  needs to load DLLs via load-order file due to defunct
+  ``os.add_dll_directory`` function. (`#726
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/726>`_)
+* Extend ``cryptography`` hook to collect OpenSSL modules (the
+  ``ossl-modules`` directory) when available. Add a run-time hook that
+  overrides OpenSSL module search path by setting the ``OPENSSL_MODULES``
+  environment variable to the bundled ``ossl-modules`` directory. This
+  fixes ``RuntimeError: OpenSSL 3.0's legacy provider failed to load.``
+  error when using ``cryptography`` with OpenSSL >= 3.0 builds that have
+  modules enabled (e.g., most Linux distributions, msys/MinGW on Windows,
+  and Homebrew on macOS). (`#724
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/724>`_)
+* Suppress errors in ``gcloud`` hook that occur when the hook is triggered
+  by the ``gcloud`` namespace package from ``gcloud-aio-*`` and
+  ``gcloud-rest-*``
+  dists instead of the ``gcloud`` package from the ``gcloud`` dist. (`#731
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/731>`_)
+* Update hook for ``tables`` (PyTables) to collect bundled blosc2
+  shared library, if available. On Windows, explicitly collect DLLs and
+  load-order file (if present) from ``tables.libs`` directory. (`#732
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/732>`_)
+
+
 2024.4 (2024-04-13)
 -------------------
 

@@ -1,3 +1,0 @@
-Update hook for ``tables`` (PyTables) to collect bundled blosc2
-shared library, if available. On Windows, explicitly collect DLLs and
-load-order file (if present) from ``tables.libs`` directory.
