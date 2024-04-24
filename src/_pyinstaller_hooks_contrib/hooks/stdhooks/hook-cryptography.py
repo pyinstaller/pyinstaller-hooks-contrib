@@ -18,7 +18,6 @@ import glob
 import pathlib
 
 from PyInstaller import compat
-from PyInstaller import isolated
 from PyInstaller.utils.hooks import (
     collect_submodules,
     copy_metadata,
@@ -53,18 +52,35 @@ for ext in compat.EXTENSION_SUFFIXES:
 # Check if cryptography was built with support for OpenSSL >= 3.0.0. In that case, we might need to collect external
 # OpenSSL modules, if OpenSSL was built with modules support. It seems the best indication of this is the presence
 # of ossl-modules directory next to the OpenSSL shared library.
-try:
-    @isolated.decorate
-    def _check_cryptography_openssl3():
-        from cryptography.hazmat.backends.openssl.backend import backend
-        return bool(backend._lib.CRYPTOGRAPHY_OPENSSL_300_OR_GREATER)
+if is_module_satisfies("PyInstaller >= 5.0"):
+    from PyInstaller import isolated
 
-    uses_openssl3 = _check_cryptography_openssl3()
-except Exception:
-    logger.warning(
-        "hook-cryptography: failed to determine whether cryptography is using OpenSSL >= 3.0.0", exc_info=True
-    )
-    uses_openssl3 = False
+    try:
+        @isolated.decorate
+        def _check_cryptography_openssl3():
+            from cryptography.hazmat.backends.openssl.backend import backend
+            return bool(backend._lib.CRYPTOGRAPHY_OPENSSL_300_OR_GREATER)
+
+        uses_openssl3 = _check_cryptography_openssl3()
+    except Exception:
+        logger.warning(
+            "hook-cryptography: failed to determine whether cryptography is using OpenSSL >= 3.0.0", exc_info=True
+        )
+        uses_openssl3 = False
+else:
+    # Fallback for ancient PyInstaller versions
+    from PyInstaller.utils.hooks import exec_statement
+
+    try:
+        uses_openssl3 = exec_statement("""
+            from cryptography.hazmat.backends.openssl.backend import backend
+            print('Y' if backend._lib.CRYPTOGRAPHY_OPENSSL_300_OR_GREATER else 'N')
+        """).strip() == 'Y'
+    except Exception:
+        logger.warning(
+            "hook-cryptography: failed to determine whether cryptography is using OpenSSL >= 3.0.0", exc_info=True
+        )
+        uses_openssl3 = False
 
 if uses_openssl3:
     # Determine location of OpenSSL shared library.

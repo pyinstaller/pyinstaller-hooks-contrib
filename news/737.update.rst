@@ -1,0 +1,3 @@
+Allow ``cryptography`` hook to run under PyInstaller versions older
+than 5.0, until support for those PyInstaller versions is formally
+dropped.
