@@ -11,31 +11,35 @@
 # ------------------------------------------------------------------
 
 import os
-from PyInstaller.utils.hooks import logger, isolated
+from PyInstaller.utils.hooks import is_module_satisfies, logger
 
 
-def find_library():
-    try:
-        # the import will fail it the library cannot be found
-        from pylsl import pylsl
+if is_module_satisfies('PyInstaller >= 5.0'):
+    from PyInstaller import isolated
 
-        # the find_liblsl_libraries() is a generator function that yields multiple possibilities
-        for libfile in pylsl.find_liblsl_libraries():
-            if libfile:
-                break
-    except (ImportError, ModuleNotFoundError, RuntimeError) as error:
-        print(error)
-        libfile = None
-    return libfile
+    def find_library():
+        try:
+            # the import will fail it the library cannot be found
+            from pylsl import pylsl
 
+            # the find_liblsl_libraries() is a generator function that yields multiple possibilities
+            for libfile in pylsl.find_liblsl_libraries():
+                if libfile:
+                    break
+        except (ImportError, ModuleNotFoundError, RuntimeError) as error:
+            print(error)
+            libfile = None
+        return libfile
 
-# whenever a hook needs to load a 3rd party library, it needs to be done in an isolated subprocess
-libfile = isolated.call(find_library)
+    # whenever a hook needs to load a 3rd party library, it needs to be done in an isolated subprocess
+    libfile = isolated.call(find_library)
 
-if libfile:
-    # add the liblsl library to the binaries
-    # it gets packaged in pylsl/lib, which is where pylsl will look first
-    binaries = [(libfile, os.path.join('pylsl', 'lib'))]
+    if libfile:
+        # add the liblsl library to the binaries
+        # it gets packaged in pylsl/lib, which is where pylsl will look first
+        binaries = [(libfile, os.path.join('pylsl', 'lib'))]
+    else:
+        logger.warning("liblsl shared library not found - pylsl will likely fail to work!")
+        binaries = []
 else:
-    logger.warning("liblsl shared library not found - pylsl will likely fail to work!")
-    binaries = []
+    logger.warning("hook-pylsl requires PyInstaller >= 5.0")
