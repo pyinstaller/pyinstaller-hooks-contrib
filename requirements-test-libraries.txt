@@ -65,7 +65,7 @@ pendulum==3.0.0
 phonenumbers==8.13.35
 pingouin==0.5.4
 pinyin==0.4.0
-platformdirs==4.2.0
+platformdirs==4.2.1
 plotly==5.21.0
 publicsuffix2==2.20191221
 pycparser==2.22
