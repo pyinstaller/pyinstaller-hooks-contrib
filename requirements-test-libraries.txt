@@ -12,7 +12,7 @@ boto==2.49.0
 boto3==1.34.93
 botocore==1.34.93
 branca==0.7.2
-cairocffi==1.6.1
+cairocffi==1.7.0
 CairoSVG==2.7.1
 cassandra-driver==3.29.1
 cf-units==3.2.0; sys_platform != 'win32'
