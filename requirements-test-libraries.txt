@@ -75,7 +75,7 @@ pyexcelerate==0.11.0
 pylibmagic==0.5.0; sys_platform != 'win32'
 pylint==3.1.0
 pypemicro==0.1.11
-pyphen==0.14.0
+pyphen==0.15.0
 pyppeteer==2.0.0
 pyqtgraph==0.13.6; python_version >= "3.9"
 pyusb==1.2.1
