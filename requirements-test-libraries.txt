@@ -4,13 +4,13 @@ importlib_resources==6.4.0; python_version < '3.9'
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==12.0.0
-adbutils==2.5.0
+adbutils==2.6.0
 APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.4.1; python_version >= '3.9'
 boto==2.49.0
-boto3==1.34.93
-botocore==1.34.93
+boto3==1.34.98
+botocore==1.34.98
 branca==0.7.2
 cairocffi==1.7.0
 CairoSVG==2.7.1
@@ -22,8 +22,8 @@ cloudpickle==3.0.0
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.0; sys_platform != 'win32'
-cryptography==42.0.5
-dash==2.16.1
+cryptography==42.0.7
+dash==2.17.0
 dash-bootstrap-components==1.6.0
 dash-uploader==0.6.0
 # discid requires libdiscid to be provided by the system.
@@ -52,7 +52,7 @@ markdown==3.6
 # MetPy==1.2.0
 moviepy==1.0.3
 mnemonic==0.21
-msoffcrypto-tool==5.3.1
+msoffcrypto-tool==5.4.0
 netCDF4==1.6.5
 numba==0.59.1; python_version >= '3.9'
 numcodecs==0.12.1
@@ -62,11 +62,11 @@ pandas==2.2.2; python_version >= '3.9'
 panel==1.4.2; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.35
+phonenumbers==8.13.36
 pingouin==0.5.4
 pinyin==0.4.0
 platformdirs==4.2.1
-plotly==5.21.0
+plotly==5.22.0
 publicsuffix2==2.20191221
 pycparser==2.22
 pycryptodome==3.20.0
@@ -86,14 +86,14 @@ pymssql==2.3.0
 pystray==0.19.5
 pythonnet==3.0.3
 pytz==2024.1
-pyzmq==26.0.2
+pyzmq==26.0.3
 PyQt5==5.15.10
 qtmodern==0.2.0
 Rtree==1.2.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.13.0; python_version > '3.8'
-sentry-sdk==2.0.1
+sentry-sdk==2.1.1
 shotgun_api3==3.5.1
 spacy==3.7.4
 srsly==2.4.8
@@ -104,14 +104,14 @@ timezonefinder==6.5.0; python_version > '3.8'
 Twisted==24.3.0
 tzdata==2024.1
 Unidecode==1.3.8
-weasyprint==61.2
-web3==6.17.2
+weasyprint==62.1; python_version >= '3.9'
+web3==6.18.0
 websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==16.0.0; python_version >= '3.10'
-orjson==3.10.1
+orjson==3.10.3
 altair==5.3.0
 shapely==2.0.4
 lark==1.1.9
@@ -121,7 +121,7 @@ python-stdnum==1.20
 sounddevice==0.4.6; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.11.0
-great-expectations==0.18.12
+great-expectations==0.18.13
 tensorflow==2.16.1; python_version >= '3.9'
 pyshark==0.6.0
 opencv-python==4.9.0.80
@@ -134,14 +134,14 @@ scikit-learn==1.4.2; python_version >= '3.9'
 scikit-image==0.23.2; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.2.0
-librosa==0.10.1
+librosa==0.10.2
 sympy==1.12
 xyzservices==2024.4.0
 mistune==3.0.2
 pydantic==2.7.1
-jsonschema==4.21.1
+jsonschema==4.22.0
 psutil==5.9.8
-litestar==2.8.2
+litestar==2.8.3
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -167,7 +167,7 @@ eth-rlp==2.1.0
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.1.16
+langchain==0.1.17
 seedir==0.4.2
 cel-python==0.1.5
 pygwalker==0.4.8.1
