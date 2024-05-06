@@ -121,7 +121,7 @@ python-stdnum==1.20
 sounddevice==0.4.6; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.11.0
-great-expectations==0.18.12
+great-expectations==0.18.13
 tensorflow==2.16.1; python_version >= '3.9'
 pyshark==0.6.0
 opencv-python==4.9.0.80
