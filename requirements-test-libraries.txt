@@ -22,7 +22,7 @@ cloudpickle==3.0.0
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.0; sys_platform != 'win32'
-cryptography==42.0.5
+cryptography==42.0.7
 dash==2.16.1
 dash-bootstrap-components==1.6.0
 dash-uploader==0.6.0
