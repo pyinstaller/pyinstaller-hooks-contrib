@@ -2024,3 +2024,15 @@ def test_pytables(pyi_builder):
 
         import tables
     """, run_from_path=True)
+
+
+@importorskip('schwifty')
+def test_schwifty(pyi_builder):
+    pyi_builder.test_source("""
+        import schwifty
+
+        iban = schwifty.IBAN('DE89 3704 0044 0532 0130 00')
+        print(iban.country_code)
+        print(iban.bank_code)
+        print(iban.account_code)
+    """)

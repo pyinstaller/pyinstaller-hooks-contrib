@@ -1,0 +1,2 @@
+Add hook for ``schwifty``. Requires ``schwifty >= 2024.5.1`` due to
+issues with data search path in earlier versions.
