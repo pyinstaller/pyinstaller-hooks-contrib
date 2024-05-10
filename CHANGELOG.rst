@@ -1,3 +1,14 @@
+2024.6 (2024-05-10)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``schwifty``. Requires ``schwifty >= 2024.5.1`` due to
+  issues with data search path in earlier versions. (`#742
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/742>`_)
+
+
 2024.5 (2024-04-23)
 -------------------
 
