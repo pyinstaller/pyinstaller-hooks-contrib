@@ -81,7 +81,7 @@ pyqtgraph==0.13.7; python_version >= "3.9"
 pyusb==1.2.1
 pyviz-comms==3.0.2
 pyvjoy==1.0.1; sys_platform == 'win32'
-pynput==1.7.6
+pynput==1.7.7
 pymssql==2.3.0
 pystray==0.19.5
 pythonnet==3.0.3
