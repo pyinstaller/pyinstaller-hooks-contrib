@@ -2057,3 +2057,43 @@ def test_eccodes_gribapi(pyi_builder):
 
         assert os.path.isfile(lib_filename), f"Shared library {lib_filename!s} not found!"
     """)
+
+
+@importorskip('dbus_fast')
+def test_dbus_fast(pyi_builder):
+    pyi_builder.test_source("""
+        import os
+        import sys
+        import asyncio
+        import json
+
+        from dbus_fast import Message, MessageType
+        from dbus_fast.aio import MessageBus
+
+
+        async def main():
+            # Connect to bus
+            try:
+                bus = await MessageBus().connect()
+            except Exception as e:
+                print(f"Could not connect to bus: {e}")
+                return
+
+            # List all available names
+            reply = await bus.call(
+                Message(
+                    destination="org.freedesktop.DBus",
+                    path="/org/freedesktop/DBus",
+                    interface="org.freedesktop.DBus",
+                    member="ListNames",
+                )
+            )
+
+            if reply.message_type == MessageType.ERROR:
+                raise Exception(reply.body[0])
+
+            print(json.dumps(reply.body[0], indent=2))
+
+
+        asyncio.run(main())
+    """)
