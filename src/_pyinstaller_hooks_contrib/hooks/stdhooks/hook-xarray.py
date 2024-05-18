@@ -10,8 +10,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import copy_metadata
+from PyInstaller.utils.hooks import copy_metadata, collect_entry_point
+
+# Collect additional backend plugins that are registered via `xarray.backends` entry-point.
+datas, hiddenimports = collect_entry_point('xarray.backends')
 
 # `xarray` requires `numpy` metadata due to several calls to its `xarray.core.utils.module_available` with specified
 # `minversion` argument, which end up calling `importlib.metadata.version`.
-datas = copy_metadata('numpy')
+datas += copy_metadata('numpy')
