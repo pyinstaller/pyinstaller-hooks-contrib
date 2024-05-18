@@ -43,9 +43,11 @@ jobs:
         run: |
           git fetch origin ${{ github.base_ref }}
           set +e
-          diff --changed-group-format='%>' --unchanged-group-format='' \
+          # NOTE: we need to be compatible with both GNU diff and Apple/FreeBSD diff
+          diff \
             <(git show origin/${{ github.base_ref }}:requirements-test-libraries.txt) \
             <(git show HEAD:requirements-test-libraries.txt) \
+            | grep -E "^>" | sed "s/^> //" \
           > requirements-test-libraries.txt
           set -e
           echo '-r requirements-test.txt' >> requirements-test-libraries.txt
