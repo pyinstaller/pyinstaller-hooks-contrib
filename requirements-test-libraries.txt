@@ -181,6 +181,9 @@ schwifty==2024.5.3
 
 # ------------------- Platform (OS) specifics
 
+# eccodes package requires the eccodes shared library provided by the environment (linux distribution, homebrew, or Anaconda).
+eccodes==1.7.0; sys_platform == 'darwin' or sys_platform == 'linux'
+
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
 
