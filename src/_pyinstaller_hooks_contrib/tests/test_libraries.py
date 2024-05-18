@@ -2036,3 +2036,24 @@ def test_schwifty(pyi_builder):
         print(iban.bank_code)
         print(iban.account_code)
     """)
+
+
+@importorskip('gribapi')
+def test_eccodes_gribapi(pyi_builder):
+    pyi_builder.test_source("""
+        import sys
+        import os
+
+        # Basic import test
+        import gribapi
+
+        # Ensure that the eccodes shared library is bundled with the frozen application.
+        import gribapi.bindings
+
+        lib_filename = os.path.join(
+            sys._MEIPASS,
+            os.path.basename(gribapi.bindings.library_path),
+        )
+
+        assert os.path.isfile(lib_filename), f"Shared library {lib_filename!s} not found!"
+    """)
