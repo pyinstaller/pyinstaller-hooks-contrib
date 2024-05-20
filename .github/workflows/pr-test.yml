@@ -22,7 +22,7 @@ jobs:
       matrix:
         python-version: [3.8, 3.9, '3.10', '3.11']
         pyinstaller: ["https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
-        os: ["macos-latest", "ubuntu-latest", "windows-latest"]
+        os: ["macos-12", "ubuntu-22.04", "windows-latest"]
       fail-fast: false
 
     env:
