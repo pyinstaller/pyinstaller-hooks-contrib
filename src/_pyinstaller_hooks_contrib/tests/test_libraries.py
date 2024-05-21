@@ -2097,3 +2097,14 @@ def test_dbus_fast(pyi_builder):
 
         asyncio.run(main())
     """)
+
+
+@importorskip('patoolib')
+def test_patoolib(pyi_builder):
+    pyi_builder.test_source("""
+
+        import patoolib
+
+        patoolib.is_archive(".")
+
+    """)
