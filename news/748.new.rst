@@ -1,0 +1,1 @@
+add hook for `patoolib` which has a hidden import to its `programs` submodule.
