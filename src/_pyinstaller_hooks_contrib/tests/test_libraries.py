@@ -2103,5 +2103,18 @@ def test_dbus_fast(pyi_builder):
 def test_patoolib(pyi_builder):
     pyi_builder.test_source("""
         import patoolib
-        patoolib.is_archive(".")
+
+        archive = 'archive.zip'
+
+        # The call to `get_archive_cmdlist_func` triggers import of module from `patoolib.programs` via
+        # `importlib.import_module`; the set up below is based on code from `patoolib._extract_archive`.
+        archive_format, compression = patoolib.get_archive_format(archive)
+        print(f"Archive format: {archive_format}")
+        print(f"Compression: compression")
+
+        program = patoolib.find_archive_program(archive_format, 'extract')
+        print(f"Program: {program}")
+
+        cmdlist = patoolib.get_archive_cmdlist_func(program, 'extract', archive_format)
+        print(f"Cmdlist: {cmdlist}")
     """)
