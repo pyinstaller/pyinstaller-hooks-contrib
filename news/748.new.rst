@@ -1,1 +1,2 @@
-add hook for `patoolib` which has a hidden import to its `programs` submodule.
+Add hook for ``patoolib`` to collect dynamically-imported modules from
+the ``patoolib.programs`` sub-package.
