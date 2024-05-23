@@ -1,12 +1,13 @@
 # -----------------------------------------------------------------------------
 # Copyright (c) 2005-2020, PyInstaller Development Team.
 #
-# Distributed under the terms of the GNU General Public License (version 2
-# or later) with exception for distributing the bootloader.
+# This file is distributed under the terms of the GNU General Public
+# License (version 2.0 or later).
 #
-# The full license is in the file COPYING.txt, distributed with this software.
+# The full license is available in LICENSE, distributed with
+# this software.
 #
-# SPDX-License-Identifier: (GPL-2.0-or-later WITH Bootloader-exception)
+# SPDX-License-Identifier: GPL-2.0-or-later
 # -----------------------------------------------------------------------------
 
 # Enchant hook test. Tested with PyEnchant 1.6.6.
