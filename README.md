@@ -116,12 +116,12 @@ replacing 2021 with the current year.
 
 ```python
 # ------------------------------------------------------------------
-# Copyright (c) 2021 PyInstaller Development Team.
+# Copyright (c) 2024 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
 #
-# The full license is available in LICENSE.GPL.txt, distributed with
+# The full license is available in LICENSE, distributed with
 # this software.
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
@@ -130,16 +130,16 @@ replacing 2021 with the current year.
 
 </details>
 
-<details><summary>APL header for runtime hooks only.
+<details><summary>Apache header for runtime hooks only.
 Again, if you're unsure if your hook is a runtime hook then it'll be a standard hook.</summary>
 
 ```python
 # ------------------------------------------------------------------
-# Copyright (c) 2021 PyInstaller Development Team.
+# Copyright (c) 2024 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the Apache License 2.0
 #
-# The full license is available in LICENSE.APL.txt, distributed with
+# The full license is available in LICENSE, distributed with
 # this software.
 #
 # SPDX-License-Identifier: Apache-2.0

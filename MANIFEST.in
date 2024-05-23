@@ -1,4 +1,2 @@
 graft src/_pyinstaller_hooks_contrib
 include LICENSE
-include LICENSE.APL.txt
-include LICENSE.GPL.txt
