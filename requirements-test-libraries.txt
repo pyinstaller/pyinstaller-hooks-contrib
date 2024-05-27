@@ -177,7 +177,7 @@ python-pptx==0.6.23
 opentelemetry-sdk==1.24.0
 xarray==2024.5.0; python_version >= '3.9'
 tables==3.9.2; python_version >= '3.9'
-schwifty==2024.5.3
+schwifty==2024.5.4
 patool==2.2.0; python_version >= '3.10'
 
 # ------------------- Platform (OS) specifics
