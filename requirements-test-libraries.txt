@@ -133,7 +133,7 @@ minecraft-launcher-lib==6.5
 scikit-learn==1.5.0; python_version >= '3.9'
 scikit-image==0.23.2; python_version >= '3.10'
 customtkinter==5.2.2
-fastparquet==2024.2.0
+fastparquet==2024.5.0
 librosa==0.10.2.post1
 sympy==1.12
 xyzservices==2024.4.0
