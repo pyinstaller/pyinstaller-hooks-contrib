@@ -3,14 +3,14 @@ importlib_resources==6.4.0; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==12.0.0
+av==12.1.0
 adbutils==2.7.2
 APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.4.1; python_version >= '3.9'
 boto==2.49.0
-boto3==1.34.113
-botocore==1.34.113
+boto3==1.34.117
+botocore==1.34.117
 branca==0.7.2
 cairocffi==1.7.0
 CairoSVG==2.7.1
@@ -37,12 +37,12 @@ fiona==1.9.6; sys_platform != 'win32'
 folium==0.16.0
 ffpyplayer==4.5.1
 geopandas==0.14.4; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.130.0
+google-api-python-client==2.131.0
 graphql-query==1.3.2
-python-gitlab==4.5.0
+python-gitlab==4.6.0
 h5py==3.11.0
 humanize==4.9.0
-iminuit==2.25.2
+iminuit==2.26.0
 iso639-lang==2.2.3
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
@@ -57,9 +57,9 @@ netCDF4==1.6.5
 numba==0.59.1; python_version >= '3.9'
 numcodecs==0.12.1
 Office365-REST-Python-Client==2.5.10
-openpyxl==3.1.2
+openpyxl==3.1.3
 pandas==2.2.2; python_version >= '3.9'
-panel==1.4.3; python_version >= '3.9'
+panel==1.4.4; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.0.0
 phonenumbers==8.13.37
@@ -110,7 +110,7 @@ websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
-mimesis==16.0.0; python_version >= '3.10'
+mimesis==17.0.0; python_version >= '3.10'
 orjson==3.10.3
 altair==5.3.0
 shapely==2.0.4
@@ -118,13 +118,13 @@ lark==1.1.9
 python-stdnum==1.20
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
-sounddevice==0.4.6; sys_platform != 'linux'
+sounddevice==0.4.7; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.12.0
-great-expectations==0.18.14
+great-expectations==0.18.15
 tensorflow==2.16.1; python_version >= '3.9'
 pyshark==0.6.0
-opencv-python==4.9.0.80
+opencv-python==4.10.0.82
 hydra-core==1.3.2
 spiceypy==6.0.0
 exchangelib==5.4.0
@@ -135,17 +135,17 @@ scikit-image==0.23.2; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.5.0; python_version >= '3.9'
 librosa==0.10.2.post1
-sympy==1.12
+sympy==1.12.1
 xyzservices==2024.4.0
 mistune==3.0.2
-pydantic==2.7.1
+pydantic==2.7.2
 jsonschema==4.22.0
 psutil==5.9.8
-litestar==2.8.3
+litestar==2.9.0
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
-simplemma==0.9.1
+simplemma==1.0.0
 wordcloud==1.9.3
 eng-to-ipa==0.0.2
 python-mecab-ko==1.3.5
@@ -159,7 +159,7 @@ sudachidict-small==20240409
 sudachidict-full==20240409
 wxPython==4.2.1; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
-pythainlp==5.0.3
+pythainlp==5.0.4
 gmsh==4.13.1
 sspilib==0.1.0
 rlp==4.0.1
@@ -167,14 +167,14 @@ eth-rlp==2.1.0
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.2.0
+langchain==0.2.1
 seedir==0.4.2
 cel-python==0.1.5
-pygwalker==0.4.8.6
+pygwalker==0.4.8.9
 eth-hash==0.7.0
 pypylon==3.0.1
 python-pptx==0.6.23
-opentelemetry-sdk==1.24.0
+opentelemetry-sdk==1.25.0
 xarray==2024.5.0; python_version >= '3.9'
 tables==3.9.2; python_version >= '3.9'
 schwifty==2024.5.4
