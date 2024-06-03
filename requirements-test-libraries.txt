@@ -10,7 +10,7 @@ backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.4.1; python_version >= '3.9'
 boto==2.49.0
 boto3==1.34.117
-botocore==1.34.113
+botocore==1.34.117
 branca==0.7.2
 cairocffi==1.7.0
 CairoSVG==2.7.1
