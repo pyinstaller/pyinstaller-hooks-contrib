@@ -1,2 +1,0 @@
-Add hook for ``dbus_fast`` in order to collect submodules that are imported
-from cythonized extensions.

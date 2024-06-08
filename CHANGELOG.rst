@@ -1,3 +1,29 @@
+2024.7 (2024-06-08)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``dbus_fast`` in order to collect submodules that are imported
+  from cythonized extensions. (`#600
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/600>`_)
+* Add hook for ``gribapi`` package from ``eccodes`` dist, in order to
+  collect bundled headers and ensure that the eccodes shared library is
+  collected from the build environment. (`#744
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/744>`_)
+* Add hook for ``patoolib`` to collect dynamically-imported modules from
+  the ``patoolib.programs`` sub-package. (`#748
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/748>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Extend the ``xarray`` hook to collect additional backend plugins that are
+  registered via the ``xarray.backends`` entry-point (e.g., ``cfgrib``). (`#744
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/744>`_)
+
+
 2024.6 (2024-05-10)
 -------------------
 

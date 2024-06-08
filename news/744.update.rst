@@ -1,2 +1,0 @@
-Extend the ``xarray`` hook to collect additional backend plugins that are
-registered via the ``xarray.backends`` entry-point (e.g., ``cfgrib``).
