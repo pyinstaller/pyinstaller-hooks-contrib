@@ -16,7 +16,7 @@ cairocffi==1.7.0
 CairoSVG==2.7.1
 cassandra-driver==3.29.1
 cf-units==3.2.0; sys_platform != 'win32'
-cftime==1.6.3
+cftime==1.6.4
 charset_normalizer==3.3.2
 cloudpickle==3.0.0
 cloudscraper==1.2.71
