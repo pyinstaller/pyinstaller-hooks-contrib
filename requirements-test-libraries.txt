@@ -71,7 +71,7 @@ publicsuffix2==2.20191221
 pycparser==2.22
 pycryptodome==3.20.0
 pycryptodomex==3.20.0
-pyexcelerate==0.11.0
+pyexcelerate==0.12.0
 pylibmagic==0.5.0; sys_platform != 'win32'
 pylint==3.2.2
 pypemicro==0.1.11
