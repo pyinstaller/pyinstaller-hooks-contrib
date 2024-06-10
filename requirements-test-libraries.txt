@@ -9,20 +9,20 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.4.1; python_version >= '3.9'
 boto==2.49.0
-boto3==1.34.117
-botocore==1.34.117
+boto3==1.34.122
+botocore==1.34.122
 branca==0.7.2
 cairocffi==1.7.0
 CairoSVG==2.7.1
 cassandra-driver==3.29.1
 cf-units==3.2.0; sys_platform != 'win32'
-cftime==1.6.3
+cftime==1.6.4
 charset_normalizer==3.3.2
 cloudpickle==3.0.0
 cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.1; sys_platform != 'win32'
-cryptography==42.0.7
+cryptography==42.0.8
 dash==2.17.0
 dash-bootstrap-components==1.6.0
 dash-uploader==0.6.0
@@ -37,7 +37,7 @@ fiona==1.9.6; sys_platform != 'win32'
 folium==0.16.0
 ffpyplayer==4.5.1
 geopandas==0.14.4; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.131.0
+google-api-python-client==2.132.0
 graphql-query==1.3.2
 python-gitlab==4.6.0
 h5py==3.11.0
@@ -62,7 +62,7 @@ pandas==2.2.2; python_version >= '3.9'
 panel==1.4.4; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.37
+phonenumbers==8.13.38
 pingouin==0.5.4
 pinyin==0.4.0
 platformdirs==4.2.2
@@ -71,9 +71,9 @@ publicsuffix2==2.20191221
 pycparser==2.22
 pycryptodome==3.20.0
 pycryptodomex==3.20.0
-pyexcelerate==0.11.0
+pyexcelerate==0.12.0
 pylibmagic==0.5.0; sys_platform != 'win32'
-pylint==3.2.2
+pylint==3.2.3
 pypemicro==0.1.11
 pyphen==0.15.0
 pyppeteer==2.0.0
@@ -93,25 +93,25 @@ Rtree==1.2.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.13.1; python_version > '3.8'
-sentry-sdk==2.3.1
+sentry-sdk==2.5.1
 shotgun_api3==3.5.1
-spacy==3.7.4
+spacy==3.7.5
 srsly==2.4.8
 swagger-spec-validator==3.0.3
-tableauhyperapi==0.0.18825
+tableauhyperapi==0.0.19484
 thinc==9.0.0; python_version >= '3.9'
 timezonefinder==6.5.0; python_version > '3.8'
 Twisted==24.3.0
 tzdata==2024.1
 Unidecode==1.3.8
-weasyprint==62.1; python_version >= '3.9'
+weasyprint==62.2; python_version >= '3.9'
 web3==6.19.0
 websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==17.0.0; python_version >= '3.10'
-orjson==3.10.3
+orjson==3.10.4
 altair==5.3.0
 shapely==2.0.4
 lark==1.1.9
@@ -136,9 +136,9 @@ customtkinter==5.2.2
 fastparquet==2024.5.0; python_version >= '3.9'
 librosa==0.10.2.post1
 sympy==1.12.1
-xyzservices==2024.4.0
+xyzservices==2024.6.0
 mistune==3.0.2
-pydantic==2.7.2
+pydantic==2.7.3
 jsonschema==4.22.0
 psutil==5.9.8
 litestar==2.9.0
@@ -167,7 +167,7 @@ eth-rlp==2.1.0
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.2.1
+langchain==0.2.3
 seedir==0.4.2
 cel-python==0.1.5
 pygwalker==0.4.8.9
@@ -177,7 +177,7 @@ python-pptx==0.6.23
 opentelemetry-sdk==1.25.0
 xarray==2024.5.0; python_version >= '3.9'
 tables==3.9.2; python_version >= '3.9'
-schwifty==2024.5.4
+schwifty==2024.6.1
 patool==2.2.0; python_version >= '3.10'
 
 # ------------------- Platform (OS) specifics
