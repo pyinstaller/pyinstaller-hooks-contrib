@@ -93,7 +93,7 @@ Rtree==1.2.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.13.1; python_version > '3.8'
-sentry-sdk==2.5.1
+sentry-sdk==2.6.0
 shotgun_api3==3.5.1
 spacy==3.7.5
 srsly==2.4.8
