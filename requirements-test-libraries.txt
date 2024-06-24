@@ -53,7 +53,7 @@ markdown==3.6
 moviepy==1.0.3
 mnemonic==0.21
 msoffcrypto-tool==5.4.1
-netCDF4==1.6.5
+netCDF4==1.7.1
 numba==0.59.1; python_version >= '3.9'
 numcodecs==0.12.1
 Office365-REST-Python-Client==2.5.10
