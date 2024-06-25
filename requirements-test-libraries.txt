@@ -9,10 +9,10 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.4.1; python_version >= '3.9'
 boto==2.49.0
-boto3==1.34.122
-botocore==1.34.122
+boto3==1.34.131
+botocore==1.34.131
 branca==0.7.2
-cairocffi==1.7.0
+cairocffi==1.7.1
 CairoSVG==2.7.1
 cassandra-driver==3.29.1
 cf-units==3.2.0; sys_platform != 'win32'
@@ -23,21 +23,21 @@ cloudscraper==1.2.71
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.1; sys_platform != 'win32'
 cryptography==42.0.8
-dash==2.17.0
+dash==2.17.1
 dash-bootstrap-components==1.6.0
 dash-uploader==0.6.0
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
-eth_typing==4.2.3
+eth_typing==4.3.1
 eth_utils==4.1.1
 fabric==3.2.2
 falcon==3.1.3
 fiona==1.9.6; sys_platform != 'win32'
-folium==0.16.0
+folium==0.17.0
 ffpyplayer==4.5.1
-geopandas==0.14.4; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.132.0
+geopandas==1.0.0; sys_platform != 'win32' and python_version >= '3.9'
+google-api-python-client==2.134.0
 graphql-query==1.3.2
 python-gitlab==4.6.0
 h5py==3.11.0
@@ -53,16 +53,16 @@ markdown==3.6
 moviepy==1.0.3
 mnemonic==0.21
 msoffcrypto-tool==5.4.1
-netCDF4==1.6.5
-numba==0.59.1; python_version >= '3.9'
+netCDF4==1.7.1; python_version >= '3.9'
+numba==0.60.0; python_version >= '3.9'
 numcodecs==0.12.1
 Office365-REST-Python-Client==2.5.10
-openpyxl==3.1.3
+openpyxl==3.1.4
 pandas==2.2.2; python_version >= '3.9'
 panel==1.4.4; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.38
+phonenumbers==8.13.39
 pingouin==0.5.4
 pinyin==0.4.0
 platformdirs==4.2.2
@@ -93,25 +93,25 @@ Rtree==1.2.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.13.1; python_version > '3.8'
-sentry-sdk==2.5.1
+sentry-sdk==2.6.0
 shotgun_api3==3.5.1
 spacy==3.7.5
 srsly==2.4.8
 swagger-spec-validator==3.0.3
 tableauhyperapi==0.0.19484
 thinc==9.0.0; python_version >= '3.9'
-timezonefinder==6.5.0; python_version > '3.8'
+timezonefinder==6.5.2; python_version > '3.8'
 Twisted==24.3.0
 tzdata==2024.1
 Unidecode==1.3.8
-weasyprint==62.2; python_version >= '3.9'
+weasyprint==62.3; python_version >= '3.9'
 web3==6.19.0
 websockets==12.0
 zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==17.0.0; python_version >= '3.10'
-orjson==3.10.4
+orjson==3.10.5
 altair==5.3.0
 shapely==2.0.4
 lark==1.1.9
@@ -120,28 +120,28 @@ python-stdnum==1.20
 # and libsndfile, respectively.
 sounddevice==0.4.7; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
-limits==3.12.0
+limits==3.13.0
 great-expectations==0.18.15
 tensorflow==2.16.1; python_version >= '3.9'
 pyshark==0.6.0
-opencv-python==4.10.0.82
+opencv-python==4.10.0.84
 hydra-core==1.3.2
 spiceypy==6.0.0
-exchangelib==5.4.0
+exchangelib==5.4.1
 NBT==1.5.1
 minecraft-launcher-lib==6.5
 scikit-learn==1.5.0; python_version >= '3.9'
-scikit-image==0.23.2; python_version >= '3.10'
+scikit-image==0.24.0; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.5.0; python_version >= '3.9'
 librosa==0.10.2.post1
 sympy==1.12.1
 xyzservices==2024.6.0
 mistune==3.0.2
-pydantic==2.7.3
+pydantic==2.7.4
 jsonschema==4.22.0
-psutil==5.9.8
-litestar==2.9.0
+psutil==6.0.0
+litestar==2.9.1
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -167,15 +167,15 @@ eth-rlp==2.1.0
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.2.3
+langchain==0.2.5
 seedir==0.4.2
 cel-python==0.1.5
-pygwalker==0.4.8.9
+pygwalker==0.4.8.10
 eth-hash==0.7.0
 pypylon==3.0.1
 python-pptx==0.6.23
 opentelemetry-sdk==1.25.0
-xarray==2024.5.0; python_version >= '3.9'
+xarray==2024.6.0; python_version >= '3.9'
 tables==3.9.2; python_version >= '3.9'
 schwifty==2024.6.1
 patool==2.2.0; python_version >= '3.10'
@@ -183,7 +183,7 @@ patool==2.2.0; python_version >= '3.10'
 # ------------------- Platform (OS) specifics
 
 # eccodes package requires the eccodes shared library provided by the environment (linux distribution, homebrew, or Anaconda).
-eccodes==1.7.0; sys_platform == 'darwin' or sys_platform == 'linux'
+eccodes==1.7.1; sys_platform == 'darwin' or sys_platform == 'linux'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
 dbus-fast==2.21.3; sys_platform == 'linux'
