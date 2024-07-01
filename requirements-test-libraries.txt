@@ -3,7 +3,7 @@ importlib_resources==6.4.0; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==12.1.0
+av==12.2.0
 adbutils==2.7.2
 APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
