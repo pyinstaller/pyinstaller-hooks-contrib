@@ -138,7 +138,7 @@ librosa==0.10.2.post1
 sympy==1.12.1
 xyzservices==2024.6.0
 mistune==3.0.2
-pydantic==2.7.4
+pydantic==2.8.0
 jsonschema==4.22.0
 psutil==6.0.0
 litestar==2.9.1
