@@ -56,7 +56,7 @@ msoffcrypto-tool==5.4.1
 netCDF4==1.7.1.post1; python_version >= '3.9'
 numba==0.60.0; python_version >= '3.9'
 numcodecs==0.12.1
-Office365-REST-Python-Client==2.5.10
+Office365-REST-Python-Client==2.5.11
 openpyxl==3.1.4
 pandas==2.2.2; python_version >= '3.9'
 panel==1.4.4; python_version >= '3.9'
