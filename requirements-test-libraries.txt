@@ -7,10 +7,10 @@ av==12.2.0
 adbutils==2.7.2
 APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
-bokeh==3.4.2; python_version >= '3.9'
+bokeh==3.5.0; python_version >= '3.10'
 boto==2.49.0
-boto3==1.34.136
-botocore==1.34.136
+boto3==1.34.140
+botocore==1.34.140
 branca==0.7.2
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -36,12 +36,12 @@ falcon==3.1.3
 fiona==1.9.6; sys_platform != 'win32'
 folium==0.17.0
 ffpyplayer==4.5.1
-geopandas==1.0.0; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.135.0
+geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
+google-api-python-client==2.136.0
 graphql-query==1.3.2
 python-gitlab==4.7.0
 h5py==3.11.0
-humanize==4.9.0
+humanize==4.10.0
 iminuit==2.26.0
 iso639-lang==2.2.3
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
@@ -93,12 +93,12 @@ Rtree==1.2.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.14.0; python_version >= '3.10'
-sentry-sdk==2.7.1
+sentry-sdk==2.8.0
 shotgun_api3==3.5.1
 spacy==3.7.5
 srsly==2.4.8
 swagger-spec-validator==3.0.4
-tableauhyperapi==0.0.19484
+tableauhyperapi==0.0.19691
 thinc==9.0.0; python_version >= '3.9'
 timezonefinder==6.5.2; python_version > '3.8'
 Twisted==24.3.0
@@ -111,7 +111,7 @@ zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==17.0.0; python_version >= '3.10'
-orjson==3.10.5
+orjson==3.10.6
 altair==5.3.0
 shapely==2.0.4
 lark==1.1.9
@@ -121,7 +121,7 @@ python-stdnum==1.20
 sounddevice==0.4.7; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.13.0
-great-expectations==0.18.17
+great-expectations==0.18.18
 tensorflow==2.16.2; python_version >= '3.9'
 pyshark==0.6.0
 opencv-python==4.10.0.84
@@ -130,7 +130,7 @@ spiceypy==6.0.0
 exchangelib==5.4.1
 NBT==1.5.1
 minecraft-launcher-lib==6.5
-scikit-learn==1.5.0; python_version >= '3.9'
+scikit-learn==1.5.1; python_version >= '3.9'
 scikit-image==0.24.0; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.5.0; python_version >= '3.9'
@@ -138,7 +138,7 @@ librosa==0.10.2.post1
 sympy==1.12.1
 xyzservices==2024.6.0
 mistune==3.0.2
-pydantic==2.8.0
+pydantic==2.8.2
 jsonschema==4.22.0
 psutil==6.0.0
 litestar==2.9.1
@@ -170,7 +170,7 @@ vaderSentiment==3.3.2
 langchain==0.2.6
 seedir==0.5.0
 cel-python==0.1.5
-pygwalker==0.4.9
+pygwalker==0.4.9.1
 eth-hash==0.7.0
 pypylon==3.0.1
 python-pptx==0.6.23
