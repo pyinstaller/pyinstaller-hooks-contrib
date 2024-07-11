@@ -1,0 +1,8 @@
+Update ``hydra`` hook to include work-around for ``hydra``'s plugin
+manager, which under python < 3.10 (still) uses deprecated PEP-302
+that was removed from PyInstaller's ``PyiFrozenImporter`` in
+PyInstaller 5.8. When building using python < 3.10 and PyInstaller >= 5.8,
+the modules collected from ``hydra._internal.core_plugins`` and
+``hydra_plugins`` packages are now collected as source .py files only;
+this way, they are handled by built-in python's finder/importer instead
+of PyInstaller's ``PyiFrozenImporter``.
