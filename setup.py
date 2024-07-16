@@ -123,7 +123,6 @@ setup(
     entry_points={
         'pyinstaller40': [
             'hook-dirs = _pyinstaller_hooks_contrib.hooks:get_hook_dirs',
-            'tests = _pyinstaller_hooks_contrib.tests:get_test_dirs'
         ]
     },
     cmdclass={

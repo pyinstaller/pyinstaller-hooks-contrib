@@ -181,7 +181,7 @@ Package's internal data files and hidden dependencies are prone to moving around
 tests should not explicitly check for presence of data files or hidden modules directly -
 rather they should use parts of the library which are expected to use said data files or hidden modules.
 
-Tests currently all live in [src/_pyinstaller_hooks_contrib/tests/test_libraries.py](../master/src/_pyinstaller_hooks_contrib/tests/test_libraries.py).
+Tests generally live in [tests/test_libraries.py](../master/tests/test_libraries.py).
 Navigate there and add something like the following, replacing all occurrences of `foo` with the real name of the library.
 (Note where you put it in that file doesn't matter.)
 
@@ -217,7 +217,7 @@ pytest -k test_foo
 
 Or using full paths:
 ```
-pytest src/_pyinstaller_hooks_contrib/tests/test_libraries.py::test_foo
+pytest tests/test_libraries.py::test_foo
 ```
 
 
