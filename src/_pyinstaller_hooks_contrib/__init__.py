@@ -13,3 +13,14 @@
 __version__ = '2024.7'
 __maintainer__ = 'Legorooj, bwoodsend'
 __uri__ = 'https://github.com/pyinstaller/pyinstaller-hooks-contrib'
+
+
+def get_hook_dirs():
+    import os
+    hooks_dir = os.path.dirname(__file__)
+    return [
+        # Required because standard hooks are in sub-directory instead of the top-level hooks directory.
+        os.path.join(hooks_dir, 'stdhooks'),
+        # pre_* and run-time hooks
+        hooks_dir,
+    ]

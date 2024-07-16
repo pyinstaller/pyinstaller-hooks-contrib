@@ -24,7 +24,7 @@ These are runtime hooks, bundled with complete pyinstaller executables. These
 files are licensed under the Apache-2.0 whose terms are found in the section
 titled *Apache License 2.0*.
 
-These reside in "src/_pyinstaller_hooks_contrib/hooks/rthooks".
+These reside in "src/_pyinstaller_hooks_contrib/rthooks".
 
 
 GNU General Public License

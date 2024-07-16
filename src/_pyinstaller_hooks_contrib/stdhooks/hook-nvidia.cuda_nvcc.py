@@ -11,7 +11,7 @@
 # ------------------------------------------------------------------
 
 from PyInstaller.utils.hooks import collect_data_files
-from _pyinstaller_hooks_contrib.hooks.utils.nvidia_cuda import collect_nvidia_cuda_binaries
+from _pyinstaller_hooks_contrib.utils.nvidia_cuda import collect_nvidia_cuda_binaries
 
 # Ensures that versioned .so files are collected
 binaries = collect_nvidia_cuda_binaries(__file__)

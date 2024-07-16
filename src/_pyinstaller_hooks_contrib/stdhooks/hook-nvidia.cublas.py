@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Copyright (c) 2020 PyInstaller Development Team.
+# Copyright (c) 2023 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
@@ -9,14 +9,7 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-import os
 
+from _pyinstaller_hooks_contrib.utils.nvidia_cuda import collect_nvidia_cuda_binaries
 
-def get_hook_dirs():
-    hooks_dir = os.path.dirname(__file__)
-    return [
-        # Required because standard hooks are in sub-directory instead of the top-level hooks directory.
-        os.path.join(hooks_dir, 'stdhooks'),
-        # pre_* and run-time hooks
-        hooks_dir,
-    ]
+binaries = collect_nvidia_cuda_binaries(__file__)
