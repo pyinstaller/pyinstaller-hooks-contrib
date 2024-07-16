@@ -56,7 +56,7 @@ if is_module_satisfies("PyInstaller >= 6.0"):
         def _infer_nvidia_hiddenimports():
             import packaging.requirements
             from _pyinstaller_hooks_contrib.compat import importlib_metadata
-            from _pyinstaller_hooks_contrib.hooks.utils import nvidia_cuda as cudautils
+            from _pyinstaller_hooks_contrib.utils import nvidia_cuda as cudautils
 
             dist = importlib_metadata.distribution("torch")
             requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]

@@ -151,7 +151,7 @@ module_collection_mode = {
 if is_linux and dist is not None:
     def _infer_nvidia_hiddenimports():
         import packaging.requirements
-        from _pyinstaller_hooks_contrib.hooks.utils import nvidia_cuda as cudautils
+        from _pyinstaller_hooks_contrib.utils import nvidia_cuda as cudautils
 
         requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]
         env = {'extra': 'and-cuda'}

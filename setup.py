@@ -122,7 +122,7 @@ setup(
     setup_requires="setuptools >= 30.3.0",
     entry_points={
         'pyinstaller40': [
-            'hook-dirs = _pyinstaller_hooks_contrib.hooks:get_hook_dirs',
+            'hook-dirs = _pyinstaller_hooks_contrib:get_hook_dirs',
         ]
     },
     cmdclass={
