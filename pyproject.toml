@@ -5,7 +5,6 @@
 	underlines = "-~^"
 	wrap = true
 	package = "_pyinstaller_hooks_contrib"
-	package_dir = "src"
 	title_format = "{version} ({project_date})"
 
 	[[tool.towncrier.section]]

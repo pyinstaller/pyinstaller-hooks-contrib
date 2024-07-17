@@ -81,8 +81,8 @@ You may skip the 2<sup>nd</sup> line if you have no intention of providing tests
 
 ### Add the hook
 
-Standard hooks live in the [src/_pyinstaller_hooks_contrib/stdhooks/](../master/src/_pyinstaller_hooks_contrib/stdhooks/) directory.
-Runtime hooks live in the [src/_pyinstaller_hooks_contrib/rthooks/](../master/src/_pyinstaller_hooks_contrib/rthooks/) directory.
+Standard hooks live in the [_pyinstaller_hooks_contrib/stdhooks/](../master/_pyinstaller_hooks_contrib/stdhooks/) directory.
+Runtime hooks live in the [_pyinstaller_hooks_contrib/rthooks/](../master/_pyinstaller_hooks_contrib/rthooks/) directory.
 Simply copy your hook into there.
 If you're unsure if your hook is a runtime hook then it almost certainly is a standard hook.
 

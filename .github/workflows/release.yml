@@ -46,7 +46,7 @@ jobs:
           VERSION="v$(python setup.py --version)"
           git config user.email "github-actions@github.com"
           git config user.name "github-actions"
-          git add src CHANGELOG.rst
+          git add _pyinstaller_hooks_contrib CHANGELOG.rst
           git status
           git commit -m "Release $VERSION"
           git tag "$VERSION"
