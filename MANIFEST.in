@@ -1,2 +1,2 @@
-graft src/_pyinstaller_hooks_contrib
+graft _pyinstaller_hooks_contrib
 include LICENSE
