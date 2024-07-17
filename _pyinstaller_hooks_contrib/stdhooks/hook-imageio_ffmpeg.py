@@ -12,6 +12,11 @@
 
 # Hook for imageio: http://imageio.github.io/
 
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies
 
 datas = collect_data_files('imageio_ffmpeg', subdir="binaries")
+
+# Starting with imageio_ffmpeg 0.5.0, `imageio_ffmpeg.binaries` is a package accessed via `importlib.resources`. Since
+# it is not directly imported anywhere, we need to add it to hidden imports.
+if is_module_satisfies('imageio_ffmpeg >= 0.5.0'):
+    hiddenimports = ['imageio_ffmpeg.binaries']
