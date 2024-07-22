@@ -142,7 +142,7 @@ jobs:
         shell: bash
         run: |
           # Upgrade to the latest pip.
-          python -m pip install -U pip setuptools wheel
+          python -m pip install -U pip "setuptools<71.0.0" wheel
 
           # Install hooks-contrib
           pip install -e .
