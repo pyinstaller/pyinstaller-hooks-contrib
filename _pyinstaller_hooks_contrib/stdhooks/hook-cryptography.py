@@ -57,7 +57,8 @@ try:
     @isolated.decorate
     def _check_cryptography_openssl3():
         from cryptography.hazmat.backends.openssl.backend import backend
-        return bool(backend._lib.CRYPTOGRAPHY_OPENSSL_300_OR_GREATER)
+        openssl_version = backend.openssl_version_number()
+        return openssl_version >= 0x30000000
 
     uses_openssl3 = _check_cryptography_openssl3()
 except Exception:
