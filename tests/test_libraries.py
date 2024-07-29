@@ -2114,3 +2114,10 @@ def test_patoolib(pyi_builder):
         cmdlist = patoolib.get_archive_cmdlist_func(program, 'extract', archive_format)
         print(f"Cmdlist: {cmdlist}")
     """)
+
+
+@importorskip('cmocean')
+def test_cmocean(pyi_builder):
+    pyi_builder.test_source("""
+        import cmocean
+    """)
