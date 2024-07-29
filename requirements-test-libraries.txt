@@ -20,6 +20,7 @@ cftime==1.6.4
 charset_normalizer==3.3.2
 cloudpickle==3.0.0
 cloudscraper==1.2.71
+cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.1; sys_platform != 'win32'
 cryptography==43.0.0
