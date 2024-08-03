@@ -2121,3 +2121,11 @@ def test_cmocean(pyi_builder):
     pyi_builder.test_source("""
         import cmocean
     """)
+
+
+@importorskip('tzwhere')
+def test_tzwhere(pyi_builder):
+    pyi_builder.test_source("""
+        from tzwhere import tzwhere
+        tzwhere.tzwhere()
+    """)
