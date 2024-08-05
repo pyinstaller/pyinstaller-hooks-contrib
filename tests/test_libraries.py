@@ -2136,3 +2136,16 @@ def test_trame(pyi_builder):
     pyi_builder.test_source("""
         import trame
     """)
+
+
+@importorskip('trame_vtk')
+def test_trame_vtk(pyi_builder):
+    pyi_builder.test_source("""
+        import os
+        import trame_vtk
+        import pyvista as pv
+
+        plotter = pv.Plotter()
+        plotter.export_html("test.html")  # Uses trame_vtk
+        os.remove("test.html")
+    """)
