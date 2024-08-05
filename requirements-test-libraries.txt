@@ -43,7 +43,7 @@ graphql-query==1.4.0
 python-gitlab==4.8.0
 h5py==3.11.0
 humanize==4.10.0
-iminuit==2.28.0
+iminuit==2.28.0; python_version >= '3.9'
 iso639-lang==2.2.3
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
