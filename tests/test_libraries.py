@@ -12,7 +12,9 @@
 
 import os
 from pathlib import Path
+
 import pytest
+
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
 from PyInstaller.utils.hooks import is_module_satisfies, can_import_module, get_module_attribute
 from PyInstaller.utils.tests import importorskip, requires, xfail
