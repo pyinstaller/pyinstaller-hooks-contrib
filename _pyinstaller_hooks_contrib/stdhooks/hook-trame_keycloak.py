@@ -12,4 +12,4 @@
 
 from PyInstaller.utils.hooks import collect_data_files
 
-datas = [*collect_data_files("trame_leaflet", subdir="module")]
+datas = collect_data_files("trame_keycloak", subdir="module")
