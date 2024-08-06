@@ -24,6 +24,7 @@ __pycache__/
 *.pdb
 .cache
 *.prof
+.vscode
 
 # Environments
 .env
