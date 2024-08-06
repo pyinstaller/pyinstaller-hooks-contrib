@@ -412,6 +412,7 @@ def test_trame_pvui(pyi_builder):
     """)
 
 
+@importorskip("vtk")
 @importorskip("trame_mesh_streamer")
 def test_trame_mesh_streamer(pyi_builder):
     pyi_builder.test_source("""
