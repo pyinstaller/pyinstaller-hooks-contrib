@@ -36,7 +36,7 @@ def test_trame_client(pyi_builder):
         server.controller.on_server_ready.add(
             lambda *args, **kwargs: asyncio.ensure_future(stop(*args, **kwargs))
         )
-        server.start(port=5100, open_browser=False)
+        server.start(port=0, open_browser=False)
     """)
 
 
@@ -58,7 +58,7 @@ def test_trame_vuetify(pyi_builder):
         server.controller.on_server_ready.add(
             lambda *args, **kwargs: asyncio.ensure_future(stop(*args, **kwargs))
         )
-        server.start(port=5101, open_browser=False)
+        server.start(port=0, open_browser=False)
     """)
 
 
@@ -67,8 +67,9 @@ def test_trame_vuetify(pyi_builder):
 def test_trame_vtk(pyi_builder):
     pyi_builder.test_source("""
         import os
-        import trame_vtk
+
         import pyvista as pv
+        import trame_vtk
 
         plotter = pv.Plotter()
         plotter.export_html("test.html")  # Uses trame_vtk
