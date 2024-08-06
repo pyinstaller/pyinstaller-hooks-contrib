@@ -14,9 +14,12 @@ import os
 from pathlib import Path
 
 import pytest
-
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
-from PyInstaller.utils.hooks import is_module_satisfies, can_import_module, get_module_attribute
+from PyInstaller.utils.hooks import (
+    can_import_module,
+    get_module_attribute,
+    is_module_satisfies,
+)
 from PyInstaller.utils.tests import importorskip, requires, xfail
 
 
@@ -1017,6 +1020,7 @@ def test_cv2_highgui(pyi_builder):
     @isolated.decorate
     def _get_cv2_highgui_backend():
         import re
+
         import cv2
 
         # Find `GUI: <type>` line in OpenCV build information dump. This is available only in recent OpenCV versions;
@@ -2138,6 +2142,7 @@ def test_trame(pyi_builder):
     """)
 
 
+@importorskip('pyvista')
 @importorskip('trame_vtk')
 def test_trame_vtk(pyi_builder):
     pyi_builder.test_source("""
