@@ -13,4 +13,4 @@
 # This hook was tested with pyexcel-ods 0.5.6:
 # https://github.com/pyexcel/pyexcel-ods
 
-hiddenimports = ['pyexcel_ods', 'pyexcel_ods.odsr', 'pyexcel_ods.odsw']
+hiddenimports = ['pyexcel_ods', 'pyexcel_ods.odsr', 'pyexcel_ods.odsw', "pyexcel_io.writers"]

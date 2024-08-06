@@ -2136,3 +2136,10 @@ def test_pydicom(pyi_builder):
     pyi_builder.test_source("""
         import pydicom
     """)
+
+
+@importorskip('pyexcel_ods')
+def test_pyexcel_ods(pyi_builder):
+    pyi_builder.test_source("""
+        import pyexcel_ods
+    """)
