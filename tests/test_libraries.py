@@ -2129,3 +2129,10 @@ def test_tzwhere(pyi_builder):
         from tzwhere import tzwhere
         tzwhere.tzwhere()
     """)
+
+
+@importorskip('pydicom')
+def test_pydicom(pyi_builder):
+    pyi_builder.test_source("""
+        import pydicom
+    """)
