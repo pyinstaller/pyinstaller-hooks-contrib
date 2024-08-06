@@ -89,7 +89,6 @@ pystray==0.19.5
 pythonnet==3.0.3
 pytz==2024.1
 pyvista==0.44.1
-pyzmq==26.0.3
 pyzmq==26.1.0
 PyQt5==5.15.11
 qtmodern==0.2.0
