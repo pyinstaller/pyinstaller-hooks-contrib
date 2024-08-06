@@ -62,9 +62,35 @@ def test_trame_vuetify(pyi_builder):
     """)
 
 
-@importorskip("pyvista")
+@importorskip("vtkmodules")
 @importorskip("trame_vtk")
 def test_trame_vtk(pyi_builder):
+    pyi_builder.test_source("""
+        import asyncio
+
+        from trame.app import get_server
+        from trame.ui.html import DivLayout
+        from trame_vtk.widgets import vtk
+
+
+        async def stop(*args, **kwargs):
+            await server.stop()
+
+
+        server = get_server()
+        with DivLayout(server):
+            vtk.VtkMesh("test")
+        server.controller.on_server_ready.add(
+            lambda *args, **kwargs: asyncio.ensure_future(stop(*args, **kwargs))
+        )
+        server.start(port=0, open_browser=False)
+    """)
+
+
+@importorskip("pyvista")
+@importorskip("vtkmodules")
+@importorskip("trame_vtk")
+def test_trame_vtk_tools(pyi_builder):
     pyi_builder.test_source("""
         import os
 
