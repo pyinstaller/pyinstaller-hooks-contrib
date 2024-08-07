@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Copyright (c) 2020 PyInstaller Development Team.
+# Copyright (c) 2024 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
@@ -91,17 +91,20 @@ def test_trame_vtk(pyi_builder):
 @importorskip("vtkmodules")
 @importorskip("nest_asyncio")
 @importorskip("trame_vtk")
-def test_trame_vtk_tools(pyi_builder):
+def test_trame_vtk_tools(pyi_builder, tmp_path):
     pyi_builder.test_source("""
         import os
+        import sys
+        from pathlib import Path
 
         import pyvista as pv
         import trame_vtk
 
+        path = Path(sys.argv[-1]) / "test.html"
         plotter = pv.Plotter()
-        plotter.export_html("test.html")  # Uses trame_vtk
-        os.remove("test.html")
-    """)
+        plotter.export_html(path)  # Uses trame_vtk
+        path.unlink()
+    """, app_args=[tmp_path])
 
 
 @importorskip("trame_xterm")
