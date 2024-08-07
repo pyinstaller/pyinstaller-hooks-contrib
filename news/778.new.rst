@@ -1,1 +1,1 @@
-Add hooks for ``monai`` and ``itk``, which have hidden imports.
+Add hook for ``monai`` to collect its source .py files for TorchScript/JIT.

@@ -14,6 +14,8 @@ from PyInstaller.utils.hooks import collect_submodules
 
 hiddenimports = collect_submodules("itk.Configuration")
 
+# `itk` requires `itk/Configuration` directory to exist on filesystem; collect source .py files from `itk.Configuration`
+# as a work-around that ensures the existence of this directory.
 module_collection_mode = {
     "itk.Configuration": "pyz+py",
 }
