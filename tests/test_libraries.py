@@ -2136,3 +2136,19 @@ def test_pydicom(pyi_builder):
     pyi_builder.test_source("""
         import pydicom
     """)
+
+
+# Excluding from test requirements due to lengthy CUDA/torch install
+@importorskip('itk')
+def test_itk(pyi_builder):
+    pyi_builder.test_source("""
+        import itk
+    """)
+
+
+# Excluding from test requirements due to lengthy CUDA/torch install
+@importorskip('monai')
+def test_monai(pyi_builder):
+    pyi_builder.test_source("""
+        import monai
+    """)
