@@ -54,6 +54,7 @@ markdown==3.6
 moviepy==1.0.3
 mnemonic==0.21
 msoffcrypto-tool==5.4.1
+nest-asyncio==1.6.0
 netCDF4==1.7.1.post1; python_version >= '3.9'
 numba==0.60.0; python_version >= '3.9'
 numcodecs==0.13.0; python_version >= '3.10'
@@ -89,6 +90,7 @@ pymssql==2.3.0
 pystray==0.19.5
 pythonnet==3.0.3
 pytz==2024.1
+pyvista==0.44.1
 pyzmq==26.1.0
 PyQt5==5.15.11
 qtmodern==0.2.0
@@ -104,9 +106,39 @@ swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.19691
 thinc==9.0.0; python_version >= '3.9'
 timezonefinder==6.5.2; python_version > '3.8'
+trame==3.6.3
+trame-client==3.2.1
+trame-code==1.0.1
+trame-components==2.4.0
+trame-datagrid==0.2.1
+trame-deckgl==2.0.3
+trame-formkit==0.1.2
+trame-grid-layout==1.0.3
+trame-iframe==1.0.1
+trame-keycloak==0.1.1
+trame-leaflet==1.1.1
+trame-markdown==3.0.1
+trame-matplotlib==2.0.3
+trame-mesh-streamer==0.1.0
+trame-plotly==3.0.2
+trame-pvui==0.1.1
+trame-quasar==0.2.1
+trame-rca==0.4.4
+trame-router==2.3.0
+trame-server==3.0.3
+trame-simput==2.4.3
+trame-tauri==0.6.1
+trame-tweakpane==0.1.3
+trame-vega==2.1.1
+trame-vtk==2.8.9
+trame-vtk3d==0.1.0
+trame-vtklocal==0.3.3
+trame-vuetify==2.6.2
+trame-xterm==0.2.1
 Twisted==24.3.0
 tzdata==2024.1
 Unidecode==1.3.8
+vtk==9.3.1
 weasyprint==62.3; python_version >= '3.9'
 web3==6.20.1
 websockets==12.0
