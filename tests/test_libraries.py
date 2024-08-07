@@ -2138,6 +2138,13 @@ def test_pydicom(pyi_builder):
     """)
 
 
+@importorskip('pyexcel_ods')
+def test_pyexcel_ods(pyi_builder):
+    pyi_builder.test_source("""
+        import pyexcel_ods
+    """)
+
+
 # Excluding from test requirements due to lengthy CUDA/torch install
 @importorskip('itk')
 def test_itk(pyi_builder):

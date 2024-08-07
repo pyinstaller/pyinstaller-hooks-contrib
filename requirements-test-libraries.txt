@@ -74,6 +74,7 @@ pycryptodome==3.20.0
 pycryptodomex==3.20.0
 pydicom==2.4.4
 pyexcelerate==0.12.0
+pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != 'win32'
 pylint==3.2.6
 pypemicro==0.1.11
