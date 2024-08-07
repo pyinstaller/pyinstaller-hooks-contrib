@@ -359,3 +359,11 @@ def test_fairscale(pyi_builder):
     pyi_builder.test_source("""
         import fairscale
     """)
+
+
+# Basic import test for monai, which shows that we need to collect its source .py files for TorchScript/JIT.
+@importorskip('monai')
+def test_monai(pyi_builder):
+    pyi_builder.test_source("""
+        import monai
+    """)

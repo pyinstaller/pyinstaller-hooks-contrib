@@ -2143,3 +2143,10 @@ def test_pyexcel_ods(pyi_builder):
     pyi_builder.test_source("""
         import pyexcel_ods
     """)
+
+
+@importorskip('itk')
+def test_itk(pyi_builder):
+    pyi_builder.test_source("""
+        import itk
+    """)
