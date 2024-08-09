@@ -59,7 +59,7 @@ class BumpVersion(Command):
 
         # List of ABSOLUTE file paths of files to bump
         files = [
-            os.path.abspath(os.path.join(DIR, 'src/_pyinstaller_hooks_contrib/__init__.py'))
+            os.path.abspath(os.path.join(DIR, '_pyinstaller_hooks_contrib/__init__.py'))
         ]
         for file in files:
             old_file = open(file).readlines()
