@@ -1,2 +1,0 @@
-Add hooks for ``itk`` to work around the package's requirements about
-the ``itk/Configuration`` directory.

@@ -1,3 +1,58 @@
+2024.8 (2024-08-09)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``cmocean``, which has text data files. (`#769
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/769>`_)
+* Add a hook for ``pydicom``, which has hidden imports. (`#776
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/776>`_)
+* Add a hook for ``tzwhere``, which has data files. (`#772
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/772>`_)
+* Add hook for ``monai`` to collect its source .py files for TorchScript/JIT.
+  (`#778
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/778>`_)
+* Add hooks for ``itk`` to work around the package's requirements about
+  the ``itk/Configuration`` directory. (`#778
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/778>`_)
+* Added hooks for the ``trame`` suite of libraries, which has data files and
+  hidden imports. (`#775
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/775>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Rework the OpenSSL version check in ``cryptography`` hook to fix
+  compatibility with ``cryptography`` 43.0.0. (`#768
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/768>`_)
+* Update ``hydra`` hook to include work-around for ``hydra``'s plugin
+  manager, which under python < 3.10 (still) uses deprecated PEP-302
+  that was removed from PyInstaller's ``PyiFrozenImporter`` in
+  PyInstaller 5.8. When building using python < 3.10 and PyInstaller >= 5.8,
+  the modules collected from ``hydra._internal.core_plugins`` and
+  ``hydra_plugins`` packages are now collected as source .py files only;
+  this way, they are handled by built-in python's finder/importer instead
+  of PyInstaller's ``PyiFrozenImporter``. (`#760
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/760>`_)
+* Update ``imageio_ffmpeg`` hook for compatibility with ``imageio-ffmpeg``
+  0.5.0 and later. (`#766
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/766>`_)
+* Update ``pyexcel_ods`` hook to add missing hidden import and add tests.
+  (`#779
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/779>`_)
+
+
+Project & Process
+~~~~~~~~~~~~~~~~~
+
+* Released sdists and tagged GitHub source archives contain the changelog
+  entries
+  for their current release. (`#761
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/761>`_)
+
+
 2024.7 (2024-06-08)
 -------------------
 

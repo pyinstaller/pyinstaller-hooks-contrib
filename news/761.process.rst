@@ -1,2 +1,0 @@
-Released sdists and tagged GitHub source archives contain the changelog entries
-for their current release.

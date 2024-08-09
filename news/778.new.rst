@@ -1,1 +1,0 @@
-Add hook for ``monai`` to collect its source .py files for TorchScript/JIT.

@@ -1,1 +1,0 @@
-Add a hook for ``pydicom``, which has hidden imports.

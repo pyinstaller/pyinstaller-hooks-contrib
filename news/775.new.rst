@@ -1,1 +1,0 @@
-Added hooks for the ``trame`` suite of libraries, which has data files and hidden imports.

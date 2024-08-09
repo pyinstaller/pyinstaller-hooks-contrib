@@ -1,2 +1,0 @@
-Rework the OpenSSL version check in ``cryptography`` hook to fix
-compatibility with ``cryptography`` 43.0.0.
