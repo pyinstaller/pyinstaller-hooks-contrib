@@ -53,7 +53,7 @@ markdown==3.6
 # MetPy==1.2.0
 moviepy==1.0.3
 mnemonic==0.21
-msoffcrypto-tool==5.4.1
+msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
 netCDF4==1.7.1.post1; python_version >= '3.9'
 numba==0.60.0; python_version >= '3.9'
