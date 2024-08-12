@@ -40,7 +40,7 @@ ffpyplayer==4.5.1
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
 google-api-python-client==2.140.0
 graphql-query==1.4.0
-python-gitlab==4.8.0
+python-gitlab==4.9.0
 h5py==3.11.0
 humanize==4.10.0
 iminuit==2.28.0; python_version >= '3.9'
