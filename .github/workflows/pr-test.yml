@@ -68,7 +68,7 @@ jobs:
             echo pyvista >> requirements-test-libraries.txt;
             echo nest-asyncio >> requirements-test-libraries.txt;
           fi
-          if grep -q trame-mesh-streamer requirements-test-libraries.txt; echo vtk >> requirements-test-libraries.txt; fi
+          if grep -q trame-mesh-streamer requirements-test-libraries.txt; then echo vtk >> requirements-test-libraries.txt; fi
           cat requirements-test-libraries.txt
 
       - name: Set up .NET Core for pythonnet tests
