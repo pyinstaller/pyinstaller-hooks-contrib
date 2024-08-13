@@ -73,6 +73,7 @@ def test_trame_vuetify(pyi_builder):
 
 @importorskip("vtkmodules")
 @importorskip("trame_vtk")
+@importorskip("trame_vuetify")  # implies existence of trame.widgets.vuetify, which we need in this test.
 def test_trame_vtk(pyi_builder):
     pyi_builder.test_source("""
         import asyncio
