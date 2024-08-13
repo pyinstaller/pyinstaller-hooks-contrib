@@ -10,7 +10,16 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+import pytest
+
 from PyInstaller.utils.tests import importorskip
+from PyInstaller.utils.hooks import check_requirement
+
+
+# Pretty much all tests here require `trame.app module` from core `trame` dist, so skip the tests if it is not
+# available (installing other `trame-*` dists does not seem to install `trame` dist itself). We could equivalently
+# check if `trame.app` is importable, but that would require an isolated check.
+pytestmark = pytest.mark.skipif(not check_requirement('trame'), reason="Core 'trame' distribution is not installed.")
 
 
 @importorskip("trame")
@@ -64,6 +73,7 @@ def test_trame_vuetify(pyi_builder):
 
 @importorskip("vtkmodules")
 @importorskip("trame_vtk")
+@importorskip("trame_vuetify")  # implies existence of trame.widgets.vuetify, which we need in this test.
 def test_trame_vtk(pyi_builder):
     pyi_builder.test_source("""
         import asyncio
