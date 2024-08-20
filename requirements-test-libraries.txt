@@ -1,5 +1,5 @@
 # Backport of importlib.resources for python 3.8 and earlier.
-importlib_resources==6.4.0; python_version < '3.9'
+importlib_resources==6.4.3; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
@@ -9,8 +9,8 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.5.1; python_version >= '3.10'
 boto==2.49.0
-boto3==1.34.158
-botocore==1.34.158
+boto3==1.35.0
+botocore==1.35.0
 branca==0.7.2
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -30,15 +30,15 @@ dash-uploader==0.6.0
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
-eth_typing==4.4.0
-eth_utils==4.1.1
+eth_typing==5.0.0
+eth_utils==5.0.0
 fabric==3.2.2
 falcon==3.1.3
 fiona==1.9.6; sys_platform != 'win32'
 folium==0.17.0
 ffpyplayer==4.5.1
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.140.0
+google-api-python-client==2.141.0
 graphql-query==1.4.0
 python-gitlab==4.9.0
 h5py==3.11.0
@@ -48,7 +48,7 @@ iso639-lang==2.2.3
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.1.10; sys_platform != "darwin"
-markdown==3.6
+markdown==3.7
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 moviepy==1.0.3
@@ -91,23 +91,23 @@ pystray==0.19.5
 pythonnet==3.0.3
 pytz==2024.1
 pyvista==0.44.1
-pyzmq==26.1.0
+pyzmq==26.1.1
 PyQt5==5.15.11
 qtmodern==0.2.0
 Rtree==1.3.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.14.0; python_version >= '3.10'
-sentry-sdk==2.12.0
+sentry-sdk==2.13.0
 shotgun_api3==3.5.1
 spacy==3.7.5
 srsly==2.4.8
 swagger-spec-validator==3.0.4
-tableauhyperapi==0.0.19691
+tableauhyperapi==0.0.20027
 thinc==9.0.0; python_version >= '3.9'
 timezonefinder==6.5.2; python_version > '3.8'
 trame==3.6.3
-trame-client==3.2.2
+trame-client==3.2.5
 trame-code==1.0.1
 trame-components==2.4.0
 trame-datagrid==0.2.1
@@ -125,7 +125,7 @@ trame-pvui==0.1.1
 trame-quasar==0.2.1
 trame-rca==0.4.4
 trame-router==2.3.0
-trame-server==3.0.3
+trame-server==3.1.0
 trame-simput==2.4.3
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
@@ -149,7 +149,7 @@ mimesis==17.0.0; python_version >= '3.10'
 orjson==3.10.7
 altair==5.4.0
 shapely==2.0.5
-lark==1.1.9
+lark==1.2.2
 python-stdnum==1.20
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
@@ -203,16 +203,16 @@ eth-rlp==2.1.0
 z3c.rml==4.4.0
 freetype-py==2.4.0
 vaderSentiment==3.3.2
-langchain==0.2.12
+langchain==0.2.14
 seedir==0.5.0
 cel-python==0.1.5
-pygwalker==0.4.9.4
+pygwalker==0.4.9.5
 eth-hash==0.7.0
 pypylon==4.0.0; python_version >= '3.9'
 python-pptx==1.0.2
 opentelemetry-sdk==1.26.0
 xarray==2024.7.0; python_version >= '3.9'
-tables==3.9.2; python_version >= '3.9'
+tables==3.10.1; python_version >= '3.10'
 schwifty==2024.6.1
 patool==2.3.0; python_version >= '3.10'
 
@@ -228,13 +228,13 @@ dbus-fast==2.22.1; sys_platform == 'linux'
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
 
 # uvloop does not currently support Windows.
-uvloop==0.19.0; sys_platform != 'win32'
+uvloop==0.20.0; sys_platform != 'win32'
 
 # pydivert only runs on Windows
 pydivert==2.1.0; sys_platform == 'win32'
 
 # pywin32-ctypes runs on Windows
-pywin32-ctypes==0.2.2; sys_platform == 'win32'
+pywin32-ctypes==0.2.3; sys_platform == 'win32'
 
 # pymediainfo on linux does not bundle mediainfo shared library, and requires system one.
 pymediainfo==6.1.0; sys_platform == 'darwin' or sys_platform == 'win32'
