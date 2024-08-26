@@ -215,7 +215,7 @@ opentelemetry-sdk==1.26.0
 xarray==2024.7.0; python_version >= '3.9'
 tables==3.10.1; python_version >= '3.10'
 schwifty==2024.8.1
-patool==2.3.0; python_version >= '3.10'
+patool==2.4.0; python_version >= '3.10'
 
 # ------------------- Platform (OS) specifics
 
