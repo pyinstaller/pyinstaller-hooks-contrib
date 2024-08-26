@@ -15,12 +15,13 @@ import pytest
 from PyInstaller.utils.tests import importorskip
 
 
-# Run the tests in onedir mode only
-tensorflow_onedir_only = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
+pytestmark = [
+    importorskip('tensorflow'),
+    # Run the tests in onedir mode only
+    pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
+]
 
 
-@importorskip('tensorflow')
-@tensorflow_onedir_only
 def test_tensorflow(pyi_builder):
     pyi_builder.test_source(
         """
@@ -31,8 +32,6 @@ def test_tensorflow(pyi_builder):
 
 # Test if tensorflow.keras imports properly result in tensorflow being collected.
 # See https://github.com/pyinstaller/pyinstaller/discussions/6890
-@importorskip('tensorflow')
-@tensorflow_onedir_only
 def test_tensorflow_keras_import(pyi_builder):
     pyi_builder.test_source(
         """
@@ -43,13 +42,9 @@ def test_tensorflow_keras_import(pyi_builder):
     )
 
 
-@importorskip('tensorflow')
-@tensorflow_onedir_only
 def test_tensorflow_layer(pyi_builder):
     pyi_builder.test_script('pyi_lib_tensorflow_layer.py')
 
 
-@importorskip('tensorflow')
-@tensorflow_onedir_only
 def test_tensorflow_mnist(pyi_builder):
     pyi_builder.test_script('pyi_lib_tensorflow_mnist.py')
