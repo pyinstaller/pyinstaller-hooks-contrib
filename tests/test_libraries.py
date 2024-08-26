@@ -2158,9 +2158,5 @@ def test_slixmpp(pyi_builder):
         import slixmpp
 
 
-        class JabberClient(slixmpp.ClientXMPP):
-            def __init__(self):
-                super().__init__('username', 'password')
-
-        _ = JabberClient()
+        slixmpp.ClientXMPP('username', 'password')
     """)
