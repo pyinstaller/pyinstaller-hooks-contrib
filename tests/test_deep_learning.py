@@ -16,13 +16,12 @@ from PyInstaller.utils.tests import importorskip
 
 
 # Run the tests in onedir mode only
-onedir_only = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
+pytestmark = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
 
 
 # Basic transformers test with BERT-based unmasker
 @importorskip('transformers')
 @importorskip('torch')
-@onedir_only
 def test_transformers_bert_pipeline(pyi_builder):
     pyi_builder.test_source("""
         import transformers
@@ -35,7 +34,6 @@ def test_transformers_bert_pipeline(pyi_builder):
 # Trying to import DebertaModel triggers error about missing source files for TorchScript
 @importorskip('transformers')
 @importorskip('torch')
-@onedir_only
 def test_transformers_deberta_import(pyi_builder):
     pyi_builder.test_source("""
         from transformers import DebertaConfig, DebertaModel
@@ -47,7 +45,6 @@ def test_transformers_deberta_import(pyi_builder):
 
 # Building models from tabular data example from https://docs.fast.ai/quick_start.html
 @importorskip('fastai')
-@onedir_only
 def test_fastai_tabular_data(pyi_builder):
     pyi_builder.test_source("""
         from fastai.tabular.all import *
@@ -86,7 +83,6 @@ def test_fastai_tabular_data(pyi_builder):
 
 
 @importorskip('timm')
-@onedir_only
 def test_timm_model_creation(pyi_builder):
     pyi_builder.test_source("""
         import timm
@@ -105,7 +101,6 @@ def test_timm_model_creation(pyi_builder):
 @importorskip('lightning')
 @importorskip('torchvision')
 @importorskip('torch')
-@onedir_only
 def test_lightning_mnist_autoencoder(pyi_builder):
     pyi_builder.test_source("""
         import os
@@ -178,7 +173,6 @@ def test_lightning_mnist_autoencoder(pyi_builder):
 
 
 @importorskip('bitsandbytes')
-@onedir_only
 def test_bitsandbytes(pyi_builder):
     pyi_builder.test_source("""
         import bitsandbytes
@@ -192,7 +186,6 @@ def test_bitsandbytes(pyi_builder):
 
 
 @importorskip('linear_operator')
-@onedir_only
 def test_linear_operator(pyi_builder):
     pyi_builder.test_source("""
         import torch
@@ -210,7 +203,6 @@ def test_linear_operator(pyi_builder):
 
 # Based on https://docs.gpytorch.ai/en/latest/examples/01_Exact_GPs/Simple_GP_Regression.html
 @importorskip('gpytorch')
-@onedir_only
 def test_gpytorch_simple_gp_regression(pyi_builder):
     pyi_builder.test_source("""
         import math
@@ -287,7 +279,6 @@ def test_gpytorch_simple_gp_regression(pyi_builder):
 
 # Basic import test for fvcore.nn, which shows that we need to collect its source .py files for TorchScript/JIT.
 @importorskip('fvcore')
-@onedir_only
 def test_fvcore(pyi_builder):
     pyi_builder.test_source("""
         import fvcore.nn
@@ -296,7 +287,6 @@ def test_fvcore(pyi_builder):
 
 # Basic test for detectron2, which shows that we need to collect its source .py files for TorchScript/JIT.
 @importorskip('detectron2')
-@onedir_only
 def test_detectron2(pyi_builder):
     pyi_builder.test_source("""
         from detectron2 import model_zoo
@@ -314,7 +304,6 @@ def test_detectron2(pyi_builder):
 
 # Hugging Face datasets: Download squad dataset (76 MB train, 10 MB validation)
 @importorskip('datasets')
-@onedir_only
 def test_datasets_download_squad(pyi_builder):
     pyi_builder.test_source("""
         from datasets import load_dataset
@@ -333,7 +322,6 @@ def test_datasets_download_squad(pyi_builder):
 
 # Basic test for Hugging Face accelerate framework
 @importorskip('accelerate')
-@onedir_only
 def test_accelerate(pyi_builder):
     pyi_builder.test_source("""
         import torch
@@ -354,7 +342,6 @@ def test_accelerate(pyi_builder):
 
 # Basic import test for fairscale, which shows that we need to collect its source .py files for TorchScript/JIT.
 @importorskip('fairscale')
-@onedir_only
 def test_fairscale(pyi_builder):
     pyi_builder.test_source("""
         import fairscale

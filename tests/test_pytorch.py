@@ -16,11 +16,10 @@ from PyInstaller.utils.tests import importorskip
 
 
 # Run the tests in onedir mode only
-torch_onedir_only = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
+pytestmark = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
 
 
 @importorskip('torch')
-@torch_onedir_only
 def test_torch(pyi_builder):
     pyi_builder.test_source("""
         import torch
@@ -32,7 +31,6 @@ def test_torch(pyi_builder):
 # Test with torchaudio transform that uses torchcript, which requires
 # access to transforms' sources.
 @importorskip('torchaudio')
-@torch_onedir_only
 def test_torchaudio_scripted_transforms(pyi_builder):
     pyi_builder.test_source("""
         import numpy as np
@@ -69,7 +67,6 @@ def test_torchaudio_scripted_transforms(pyi_builder):
 # Test with torchtext transform that uses torchcript, which requires
 # access to transforms' sources.
 @importorskip('torchtext')
-@torch_onedir_only
 def test_torchtext_scripted_berta_tokenizer_transform(pyi_builder):
     pyi_builder.test_source("""
         import torch.nn
@@ -106,7 +103,6 @@ def test_torchtext_scripted_berta_tokenizer_transform(pyi_builder):
 
 
 @importorskip('torchvision')
-@torch_onedir_only
 def test_torchvision_nms(pyi_builder):
     pyi_builder.test_source("""
         import torch
@@ -131,7 +127,6 @@ def test_torchvision_nms(pyi_builder):
 
 # Ensure that torchvision.io.image manages to load torchvision.image extension for its ops.
 @importorskip('torchvision')
-@torch_onedir_only
 def test_torchvision_image_io(pyi_builder):
     pyi_builder.test_source("""
         import torch
@@ -149,7 +144,6 @@ def test_torchvision_image_io(pyi_builder):
 # the transforms are combined using torchscript, which requires access to
 # transforms' sources.
 @importorskip('torchvision')
-@torch_onedir_only
 def test_torchvision_scripted_transforms(pyi_builder):
     pyi_builder.test_source("""
         import torch
