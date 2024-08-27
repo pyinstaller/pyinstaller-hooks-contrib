@@ -10,6 +10,10 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from _pyinstaller_hooks_contrib.utils.nvidia_cuda import collect_nvidia_cuda_binaries
+from _pyinstaller_hooks_contrib.utils.nvidia_cuda import (
+    collect_nvidia_cuda_binaries,
+    create_symlink_suppression_patterns,
+)
 
 binaries = collect_nvidia_cuda_binaries(__file__)
+bindepend_symlink_suppression = create_symlink_suppression_patterns(__file__)
