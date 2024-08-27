@@ -13,6 +13,7 @@
 import os
 import re
 
+from PyInstaller import compat
 from PyInstaller.utils.hooks import (
     logger,
     is_module_satisfies,
@@ -60,3 +61,17 @@ def infer_hiddenimports_from_requirements(requirements):
             nvidia_hiddenimports.append(package_name)
 
     return nvidia_hiddenimports
+
+
+def create_symlink_suppression_patterns(hook_file):
+    hook_name, hook_ext = os.path.splitext(os.path.basename(hook_file))
+    assert hook_ext.startswith('.py')
+    assert hook_name.startswith('hook-')
+    module_name = hook_name[5:]
+
+    # Applicable only to Linux
+    if not compat.is_linux:
+        return []
+
+    # Pattern: **/{module_dir}/lib/lib*.so*
+    return [os.path.join('**', *module_name.split('.'), 'lib', 'lib*.so*')]
