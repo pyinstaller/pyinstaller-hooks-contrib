@@ -172,3 +172,17 @@ if is_linux and dist is not None:
 # Collect the tensorflow-plugins (pluggable device plugins)
 hiddenimports += ['tensorflow-plugins']
 binaries += collect_dynamic_libs('tensorflow-plugins')
+
+# On Linux, prevent binary dependency analysis from generating symbolic links for libtensorflow_cc.so.2,
+# libtensorflow_framework.so.2, and _pywrap_tensorflow_internal.so to the top-level application directory. These
+# symbolic links seem to confuse tensorflow about its location (likely because code in one of the libraries looks up the
+# library file's location, but does not fully resolve it), which in turn prevents it from finding the collected CUDA
+# libraries in the nvidia/cu* package directories.
+#
+# The `bindepend_symlink_suppression` hook attribute requires PyInstaller >= 6.11, and is no-op in earlier versions.
+if is_linux:
+    bindepend_symlink_suppression = [
+        '**/libtensorflow_cc.so*',
+        '**/libtensorflow_framework.so*',
+        '**/_pywrap_tensorflow_internal.so',
+    ]
