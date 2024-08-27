@@ -354,3 +354,18 @@ def test_monai(pyi_builder):
     pyi_builder.test_source("""
         import monai
     """)
+
+
+# Basic functional test for ultralytics package. Shows that we need to collect data files from the package.
+# Also shows that on Linux, we need to suppress symbolic links to top-level application directory for shared libraries
+# from nvidia.cu* packages (https://github.com/pyinstaller/pyinstaller/issues/8758).
+#
+# The test requires internet connection (to download model weights and for the test image file).
+@importorskip('ultralytics')
+def test_ultralytics_yolo(pyi_builder):
+    pyi_builder.test_source("""
+        from ultralytics import YOLO
+
+        model = YOLO("yolov8n.pt")  # Download and load pre-trained model
+        results = model("https://ultralytics.com/images/bus.jpg")
+    """)
