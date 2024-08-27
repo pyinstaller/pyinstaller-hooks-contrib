@@ -12,6 +12,7 @@
 
 import pytest
 
+from PyInstaller import isolated
 from PyInstaller.utils.tests import importorskip
 
 
@@ -48,3 +49,27 @@ def test_tensorflow_layer(pyi_builder):
 
 def test_tensorflow_mnist(pyi_builder):
     pyi_builder.test_script('pyi_lib_tensorflow_mnist.py')
+
+
+# Test that if GPU is available in unfrozen python, it is also available in the frozen application. This aims to ensure
+# that CUDA is properly collected on platforms where it is supported.
+def test_tensorflow_gpu_available(pyi_builder):
+    # Check that GPU is available
+    @isolated.decorate
+    def _check_gpu():
+        import tensorflow as tf
+        gpu_devices = tf.config.list_physical_devices('GPU')
+        return bool(gpu_devices)
+
+    if not _check_gpu():
+        pytest.skip(reason="No GPU available.")
+
+    pyi_builder.test_source(
+        """
+        import tensorflow as tf
+        gpu_devices = tf.config.list_physical_devices('GPU')
+        print(f"GPU devices: {gpu_devices!r}")
+        if not gpu_devices:
+            raise Exception("No GPU available!")
+        """
+    )
