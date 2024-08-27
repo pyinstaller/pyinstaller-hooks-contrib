@@ -2150,3 +2150,13 @@ def test_itk(pyi_builder):
     pyi_builder.test_source("""
         import itk
     """)
+
+
+@importorskip('slixmpp')
+def test_slixmpp(pyi_builder):
+    pyi_builder.test_source("""
+        import slixmpp
+
+
+        slixmpp.ClientXMPP('username', 'password')
+    """)

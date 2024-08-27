@@ -1,0 +1,1 @@
+Add analysis hook for ``slixmpp`` library
