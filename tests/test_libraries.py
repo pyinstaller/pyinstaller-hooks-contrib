@@ -2160,3 +2160,11 @@ def test_slixmpp(pyi_builder):
 
         slixmpp.ClientXMPP('username', 'password')
     """)
+
+
+@importorskip('capstone')
+def test_capstone(pyi_builder):
+    pyi_builder.test_source("""
+        import capstone
+        capstone.__version__
+    """)
