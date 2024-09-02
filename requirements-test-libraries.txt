@@ -149,7 +149,7 @@ pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==17.0.0; python_version >= '3.10'
 orjson==3.10.7
-altair==5.4.0
+altair==5.4.1
 shapely==2.0.6
 lark==1.2.2
 python-stdnum==1.20
