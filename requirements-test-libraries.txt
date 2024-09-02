@@ -179,7 +179,7 @@ mistune==3.0.2
 pydantic==2.8.2
 jsonschema==4.23.0
 psutil==6.0.0
-litestar==2.10.0
+litestar==2.11.0
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
