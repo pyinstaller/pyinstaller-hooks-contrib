@@ -1,5 +1,5 @@
 # Backport of importlib.resources for python 3.8 and earlier.
-importlib_resources==6.4.4; python_version < '3.9'
+importlib_resources==6.4.5; python_version < '3.9'
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
@@ -9,8 +9,8 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.5.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.35.10
-botocore==1.35.10
+boto3==1.35.14
+botocore==1.35.14
 branca==0.7.2
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -24,8 +24,8 @@ cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.1; sys_platform != 'win32'
-cryptography==43.0.0
-dash==2.17.1
+cryptography==43.0.1
+dash==2.18.0
 dash-bootstrap-components==1.6.0
 dash-uploader==0.6.0
 # discid requires libdiscid to be provided by the system.
@@ -35,11 +35,11 @@ eth_typing==5.0.0
 eth_utils==5.0.0
 fabric==3.2.2
 falcon==3.1.3
-fiona==1.9.6; sys_platform != 'win32'
+fiona==1.10.0; sys_platform != 'win32'
 folium==0.17.0
 ffpyplayer==4.5.1
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.143.0
+google-api-python-client==2.144.0
 graphql-query==1.4.0
 python-gitlab==4.10.0
 h5py==3.11.0
@@ -65,10 +65,10 @@ pandas==2.2.2; python_version >= '3.9'
 panel==1.4.5; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.44
-pingouin==0.5.4
+phonenumbers==8.13.45
+pingouin==0.5.5
 pinyin==0.4.0
-platformdirs==4.2.2
+platformdirs==4.3.2
 plotly==5.24.0
 publicsuffix2==2.20191221
 pycparser==2.22
@@ -99,7 +99,7 @@ Rtree==1.3.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.14.1; python_version >= '3.10'
-sentry-sdk==2.13.0
+sentry-sdk==2.14.0
 shotgun_api3==3.5.1
 slixmpp==1.8.5
 spacy==3.7.6
@@ -127,7 +127,7 @@ trame-pvui==0.1.1
 trame-quasar==0.2.1
 trame-rca==0.4.4
 trame-router==2.3.0
-trame-server==3.1.0
+trame-server==3.1.2
 trame-simput==2.4.3
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
@@ -135,7 +135,7 @@ trame-vega==2.1.1
 trame-vtk==2.8.10
 trame-vtk3d==0.1.0
 trame-vtklocal==0.5.5
-trame-vuetify==2.7.0
+trame-vuetify==2.7.1
 trame-xterm==0.2.1
 Twisted==24.7.0
 tzdata==2024.1
@@ -158,14 +158,14 @@ python-stdnum==1.20
 sounddevice==0.5.0; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.13.0
-great-expectations==1.0.0
+great-expectations==1.0.2
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.17.0; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
 opencv-python==4.10.0.84
 hydra-core==1.3.2
 spiceypy==6.0.0
-exchangelib==5.4.2
+exchangelib==5.4.3
 NBT==1.5.1
 minecraft-launcher-lib==6.5
 scikit-learn==1.5.1; python_version >= '3.9'
@@ -174,9 +174,9 @@ customtkinter==5.2.2
 fastparquet==2024.5.0; python_version >= '3.9'
 librosa==0.10.2.post1
 sympy==1.13.2
-xyzservices==2024.6.0
+xyzservices==2024.9.0
 mistune==3.0.2
-pydantic==2.8.2
+pydantic==2.9.1
 jsonschema==4.23.0
 psutil==6.0.0
 litestar==2.11.0
@@ -205,10 +205,10 @@ eth-rlp==2.1.0
 z3c.rml==4.4.0
 freetype-py==2.5.1
 vaderSentiment==3.3.2
-langchain==0.2.14
+langchain==0.2.16
 seedir==0.5.0
 cel-python==0.1.5
-pygwalker==0.4.9.7
+pygwalker==0.4.9.8
 eth-hash==0.7.0
 pypylon==4.0.0; python_version >= '3.9'
 python-pptx==1.0.2
@@ -224,7 +224,7 @@ patool==2.4.0; python_version >= '3.10'
 eccodes==1.7.1; sys_platform == 'darwin' or sys_platform == 'linux'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.24.0; sys_platform == 'linux'
+dbus-fast==2.24.2; sys_platform == 'linux'
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
