@@ -2173,3 +2173,10 @@ def test_yapf(pyi_builder):
     pyi_builder.test_source("""
         import yapf
     """)
+
+
+@importorskip('grapheme')
+def test_grapheme(pyi_builder):
+    pyi_builder.test_source("""
+        import grapheme
+    """)
