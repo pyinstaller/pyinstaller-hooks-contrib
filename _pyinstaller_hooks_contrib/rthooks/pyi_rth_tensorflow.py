@@ -34,7 +34,7 @@ def _pyi_rthook():
     # need `sys._MEIPASS` to be among them (to load the plugins from the actual `sys._MEIPASS/tensorflow-plugins`).
     # Therefore, we monkey-patch `site.getsitepackages` to add those two entries to the list of "site directories".
 
-    _orig_getsitepackages = getattr(site, 'getsitepackages')
+    _orig_getsitepackages = getattr(site, 'getsitepackages', None)
 
     def _pyi_getsitepackages():
         return [
