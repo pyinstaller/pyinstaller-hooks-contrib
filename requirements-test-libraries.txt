@@ -221,7 +221,7 @@ patool==2.4.0; python_version >= '3.10'
 # ------------------- Platform (OS) specifics
 
 # eccodes package requires the eccodes shared library provided by the environment (linux distribution, homebrew, or Anaconda).
-eccodes==1.7.1; sys_platform == 'darwin' or sys_platform == 'linux'
+eccodes==2.37.0; sys_platform == 'darwin' or sys_platform == 'linux'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
 dbus-fast==2.24.0; sys_platform == 'linux'
