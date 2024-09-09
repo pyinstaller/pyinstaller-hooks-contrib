@@ -2156,8 +2156,6 @@ def test_itk(pyi_builder):
 def test_slixmpp(pyi_builder):
     pyi_builder.test_source("""
         import slixmpp
-
-
         slixmpp.ClientXMPP('username', 'password')
     """)
 
@@ -2167,4 +2165,11 @@ def test_capstone(pyi_builder):
     pyi_builder.test_source("""
         import capstone
         capstone.__version__
+    """)
+
+
+@importorskip('yapf')
+def test_yapf(pyi_builder):
+    pyi_builder.test_source("""
+        import yapf
     """)
