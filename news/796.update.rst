@@ -1,0 +1,1 @@
+Update ``pydicom`` hook for compatibility with ``pydicom`` v.3.0.0.
