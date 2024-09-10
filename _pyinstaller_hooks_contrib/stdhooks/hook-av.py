@@ -32,3 +32,8 @@ if is_module_satisfies("av >= 9.1.1") and is_win:
             (os.path.join(lib_dir, lib_file), 'av.libs')
             for lib_file in os.listdir(lib_dir)
         ]
+
+# With av 13.0.0, one of the cythonized modules (`av.audio.layout`) started using `dataclasses`. Add it to hidden
+# imports to ensure it is collected in cases when it is not referenced from anywhere else.
+if is_module_satisfies("av >= 13.0.0"):
+    hiddenimports += ['dataclasses']
