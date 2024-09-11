@@ -2187,3 +2187,15 @@ def test_xmlschema(pyi_builder):
     pyi_builder.test_source("""
         import xmlschema
     """)
+
+
+@importorskip('saml2')
+def test_saml2(pyi_builder):
+    pyi_builder.test_source("""
+        # this loads XSD files
+        import saml2.xml.schema
+
+        # this loads submodules from saml2.attributemap
+        from saml2.attribute_converter import ac_factory
+        ac_factory()
+    """)
