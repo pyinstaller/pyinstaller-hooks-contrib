@@ -2180,3 +2180,10 @@ def test_grapheme(pyi_builder):
     pyi_builder.test_source("""
         import grapheme
     """)
+
+
+@importorskip('xmlschema')
+def test_xmlschema(pyi_builder):
+    pyi_builder.test_source("""
+        import xmlschema
+    """)
