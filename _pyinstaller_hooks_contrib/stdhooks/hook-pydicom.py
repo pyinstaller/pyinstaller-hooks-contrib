@@ -35,28 +35,18 @@ if is_module_satisfies('pydicom >= 3.0.0'):
 
     # With pydicom 3.0.0, initialization of `pydicom` (unnecessarily) imports `pydicom.examples`, which attempts to set
     # up several test datasets: https://github.com/pydicom/pydicom/blob/v3.0.0/src/pydicom/examples/__init__.py#L10-L24
+    # Some of those are bundled with the package itself, some are downloaded (into `.pydicom/data` directory in user's
+    # home directory) on he first `pydicom.examples` import.
+    #
+    # The download code requires `pydicom/data/urls.json` and `pydicom/data/hashes.json`; the lack of former results in
+    # run-time error, while the lack of latter results in warnings about dataset download failure.
+    #
+    # The test data files that are bundled with the package are not listed in `urls.json`, so if they are missing, there
+    # is not attempt to download them. Therefore, try to get away without collecting them here - if anyone actually
+    # requires them in the frozen application, let them explicitly collect them.
     additional_data_patterns = [
-        # `pydicom/data/urls.json` and `pydicom/data/hashes.json` are required for data files that need to be downloaded
-        # at run-time. The lack of former results in run-time error, while the lack of latter results in warnings about
-        # dataset download failure.
         'urls.json',
         'hashes.json',
-        # Try to collect these from the package, to avoid having to download them at run-time. The `pydicom` searches
-        # for these files via recursive glob (`pathlib.Path.rglob`) to allow them being in sub-directories (for example,
-        # `test_files/dicomdirtests/DICOMDIR`); so let us also assume that there might be sub-directories involved.
-        "test_files/**/CT_small.dcm",
-        "test_files/**/DICOMDIR",
-        "test_files/**/US1_J2KR.dcm",
-        "test_files/**/MR_small.dcm",
-        "test_files/**/no_meta.dcm",
-        "test_files/**/MR-SIEMENS-DICOM-WithOverlays.dcm",
-        "test_files/**/OBXXXX1A.dcm",
-        "test_files/**/US1_UNCR.dcm",
-        "test_files/**/rtdose.dcm",
-        "test_files/**/rtplan.dcm",
-        "test_files/**/rtstruct.dcm",
-        "test_files/**/waveform_ecg.dcm",
-        "test_files/**/color3d_jpeg_baseline.dcm",
     ]
 else:
     hiddenimports += [
