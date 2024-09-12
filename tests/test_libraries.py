@@ -2008,6 +2008,19 @@ def test_xarray(pyi_builder):
     """)
 
 
+# Shows that we need to collect `xarray.chunkmanagers` entry point.
+# See: https://github.com/pyinstaller/pyinstaller/issues/8786
+@importorskip('xarray')
+@importorskip('dask')  # requires dask for default 'dask' chunk manager to become available
+def test_xarray_chunk(pyi_builder):
+    pyi_builder.test_source("""
+        import xarray as xr
+        import numpy as np
+
+        v = xr.Variable(dims=("T",), data=np.random.randn(10)).chunk()
+    """)
+
+
 @importorskip('tables')
 def test_pytables(pyi_builder):
     # NOTE: run_from_path=True prevents `pyi_builder` from completely clearing the `PATH` environment variable. At the
