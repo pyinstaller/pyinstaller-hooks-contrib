@@ -2212,3 +2212,15 @@ def test_saml2(pyi_builder):
         from saml2.attribute_converter import ac_factory
         ac_factory()
     """)
+
+
+@importorskip('toga')
+def test_toga(pyi_builder):
+    pyi_builder.test_source("""
+        import toga
+
+        def build(app):
+            return toga.Box()
+
+        toga.App("First App", "org.beeware.toga.gotcha", startup=build)
+    """)
