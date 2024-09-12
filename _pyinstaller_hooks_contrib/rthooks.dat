@@ -1,6 +1,7 @@
 {
     'cryptography': ['pyi_rth_cryptography_openssl.py'],
     'enchant': ['pyi_rth_enchant.py'],
+    'findlibs': ['pyi_rth_findlibs.py'],
     'ffpyplayer': ['pyi_rth_ffpyplayer.py'],
     'osgeo': ['pyi_rth_osgeo.py'],
     'traitlets': ['pyi_rth_traitlets.py'],
