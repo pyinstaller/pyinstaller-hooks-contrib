@@ -113,8 +113,6 @@ jobs:
           # These are dependencies of gmsh
           sudo apt-get install -y libglu1 libgl1 libxrender1 libxcursor1 libxft2 \
             libxinerama1 libgomp1
-          # This one is required by eccodes
-          sudo apt-get install -y libeccodes0
 
       - name: Install brew dependencies
         if: startsWith(matrix.os, 'macos')
@@ -127,7 +125,8 @@ jobs:
           brew install libdiscid
           # Install lsl library for pylsl
           brew install labstreaminglayer/tap/lsl
-          # This one is required by eccodes
+          # This one is required by eccodes (binary wheels with bundled eccodes
+          # library are provided only for macOS 13+).
           brew install eccodes
 
       - name: Install dependencies

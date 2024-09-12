@@ -226,7 +226,8 @@ pysaml2==7.3.0; python_version < '3.9'
 # ------------------- Platform (OS) specifics
 
 # eccodes package requires the eccodes shared library provided by the environment (linux distribution, homebrew, or Anaconda).
-eccodes==1.7.1; sys_platform == 'darwin' or sys_platform == 'linux'
+# Starting with v2.37.0, binary wheels with bundled shared library are provided for linux and macOS 13+.
+eccodes==2.37.0; sys_platform == 'darwin' or sys_platform == 'linux'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
 dbus-fast==2.24.2; sys_platform == 'linux'

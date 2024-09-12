@@ -1,0 +1,3 @@
+Update ``gribapi`` hook for compatibility with ``eccodes`` v2.37.0,
+to account for possibility of bundles ``eccodes`` shared library, which
+is provided by newly-introduced binary wheels for Linux and macOS 13+.
