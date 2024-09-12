@@ -2068,6 +2068,9 @@ def test_eccodes_gribapi(pyi_builder):
             #  - sys._MEIPASS/eccodes
             #  - sys._MEIPASS/eccodes.libs
             #  - sys._MEIPASS/eccodes/.dylibs
+            # as well as sys._MEIPASS itself (in case system-wide copy was collected into top-level application
+            # directory but is reported with full path instead of just basename due to our override of `findlibs.find()`
+            # via run-time hook).
             if pathlib.PurePath(sys._MEIPASS) not in pathlib.PurePath(library_path).parents:
                 raise RuntimeError(
                     f"Shared library path {library_path} is not rooted in top-level application directory!"

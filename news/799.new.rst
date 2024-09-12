@@ -1,0 +1,7 @@
+Add run-time hook for ``findlibs`` that overrides the ``findlibs.find``
+function with custom implementation in order to ensure that the top-level
+application directory is searched first. This prevents a system-wide
+copy of the library being found and loaded instead of the bundled copy
+when the system-wide copy happens to be available in one of fixed
+locations that is scanned by the original implementation of ``findlibs.find``
+(for example, Homebrew directory on macOS).
