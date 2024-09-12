@@ -2034,11 +2034,15 @@ def test_schwifty(pyi_builder):
     """)
 
 
-@importorskip('gribapi')
+@importorskip('eccodes')
 def test_eccodes_gribapi(pyi_builder):
     pyi_builder.test_source("""
         import sys
         import os
+        import pathlib
+
+        # With eccodes 2.37.0, eccodes needs to be imported before gribapi to avoid circular imports.
+        import eccodes
 
         # Basic import test
         import gribapi
@@ -2046,12 +2050,28 @@ def test_eccodes_gribapi(pyi_builder):
         # Ensure that the eccodes shared library is bundled with the frozen application.
         import gribapi.bindings
 
-        lib_filename = os.path.join(
-            sys._MEIPASS,
-            os.path.basename(gribapi.bindings.library_path),
-        )
+        print(f"gribapi.bindings.library_path={gribapi.bindings.library_path}")
 
-        assert os.path.isfile(lib_filename), f"Shared library {lib_filename!s} not found!"
+        library_path = gribapi.bindings.library_path
+        if os.path.basename(library_path) == library_path:
+            # Only library basename is given - assume this is a system-wide copy that was collected
+            # into top-level application directory and loaded via `findlibs.find()`/`ctypes`.
+            expected_library_file = os.path.join(
+                sys._MEIPASS,
+                library_path,
+            )
+            if not os.path.isfile(expected_library_file):
+                raise RuntimeError(f"Shared library {expected_library_file!s} not found!")
+        else:
+            # Absolute path; check that it is rooted in top-level application directory. This covers all valid locations
+            # as per https://github.com/ecmwf/eccodes-python/blob/2.37.0/gribapi/bindings.py#L61-L64,
+            #  - sys._MEIPASS/eccodes
+            #  - sys._MEIPASS/eccodes.libs
+            #  - sys._MEIPASS/eccodes/.dylibs
+            if pathlib.PurePath(sys._MEIPASS) not in pathlib.PurePath(library_path).parents:
+                raise RuntimeError(
+                    f"Shared library path {library_path} is not rooted in top-level application directory!"
+                )
     """)
 
 
