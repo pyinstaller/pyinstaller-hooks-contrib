@@ -220,6 +220,8 @@ schwifty==2024.9.0  # pyup: != '2024.8.1'
 patool==2.4.0; python_version >= '3.10'
 yapf==0.40.2
 xmlschema==2.5.1
+pysaml2==7.5.0; python_version >= '3.9'
+pysaml2==7.3.0; python_version < '3.9'
 
 # ------------------- Platform (OS) specifics
 
