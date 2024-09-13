@@ -22,7 +22,7 @@ else:
 
 hiddenimports = [f'toga_{backend}', f'toga_{backend}.factory']
 
-datas = copy_metadata("toga.core") 
+datas = copy_metadata("toga.core")
 
 for ep in ["toga.backends", "setuptools_scm.parse_scm"]:
     datas_, hiddenimports_ = collect_entry_point(ep)
