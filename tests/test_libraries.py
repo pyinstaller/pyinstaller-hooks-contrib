@@ -2239,11 +2239,7 @@ def test_saml2(pyi_builder):
 
 @importorskip('toga')
 def test_toga(pyi_builder):
-    pyi_builder.test_source("""
-        import toga
-
-        def build(app):
-            return toga.Box()
-
-        toga.App("First App", "org.beeware.toga.gotcha", startup=build)
-    """)
+    pyi_builder.test_script(
+        "pyi_toga_app.py",
+        app_args=['--automatic-shutdown', '5'],
+    )
