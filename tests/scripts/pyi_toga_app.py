@@ -6,6 +6,18 @@ import toga
 
 class TestApp(toga.App):
     def __init__(self, *args, automatic_shutdown=0, **kwargs):
+        # Hack: on macOS, toga assumes that the only possible build type is .app bundle, and tries to fall back to .app
+        # bundles icon instead of default. So until this is fixed on toga's side, we need to explicitly specify the icon
+        # if we are running in a POSIX build.
+        if getattr(sys, "frozen", False) and sys.platform == 'darwin':
+            is_app_bundle = (
+                sys._MEIPASS.endswith("Contents/Frameworks") or  # PyInstaller >= 6.0
+                sys._MEIPASS.endswith("Contents/MacOS")  # < PyInstaller < 6.0
+            )
+            if not is_app_bundle:
+                print("Explicitly specifying icon for macOS POSIX build...")
+                kwargs["icon"] = toga.icons.Icon.DEFAULT_ICON
+
         super().__init__(*args, **kwargs)
         self._automatic_shutdown = automatic_shutdown
 
