@@ -113,6 +113,8 @@ jobs:
           # These are dependencies of gmsh
           sudo apt-get install -y libglu1 libgl1 libxrender1 libxcursor1 libxft2 \
             libxinerama1 libgomp1
+          # Required by PyGObject (dependency of toga/toga-gtk)
+          sudo apt-get install -y gir1.2-gtk-3.0 libgirepository1.0-dev
 
       - name: Install brew dependencies
         if: startsWith(matrix.os, 'macos')
