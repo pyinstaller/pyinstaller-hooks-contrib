@@ -2242,4 +2242,5 @@ def test_toga(pyi_builder):
     pyi_builder.test_script(
         "pyi_toga_app.py",
         app_args=['--automatic-shutdown', '5'],
+        pyi_args=['--windowed'] if is_darwin else [],
     )
