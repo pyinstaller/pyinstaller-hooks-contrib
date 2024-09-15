@@ -12,7 +12,7 @@
 
 import os
 
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, copy_metadata
 
 # Collect default icon from `resources`, and license/readme file from  `toga_winforms/libs/WebView2`. Use the same call
 # to also collect bundled WebView2 DLLs from `toga_winforms/libs/WebView2`.
@@ -35,3 +35,6 @@ elif machine == 'arm64':
     include_patterns += ['libs/WebView2/runtimes/win-arm64/*']
 
 datas = collect_data_files('toga_winforms', includes=include_patterns)
+
+# Collect metadata so that the backend can be discovered via `toga.backends` entry-point.
+datas += copy_metadata("toga-winforms")

@@ -10,7 +10,10 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, copy_metadata
 
 # Collect default icon from `resources`.
 datas = collect_data_files('toga_gtk')
+
+# Collect metadata so that the backend can be discovered via `toga.backends` entry-point.
+datas += copy_metadata("toga-gtk")

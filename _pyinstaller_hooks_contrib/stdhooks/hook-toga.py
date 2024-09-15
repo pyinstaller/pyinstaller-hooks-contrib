@@ -10,21 +10,21 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.compat import is_darwin, is_linux
-from PyInstaller.utils.hooks import copy_metadata, collect_entry_point
+from PyInstaller import compat
+from PyInstaller.utils.hooks import copy_metadata
 
-if is_darwin:
+# Select the platform-specific backend.
+if compat.is_darwin:
     backend = 'cocoa'
-elif is_linux:
+elif compat.is_linux:
     backend = 'gtk'
-else:
+elif compat.is_win:
     backend = 'winforms'
+else:
+    backend = None
 
-hiddenimports = [f'toga_{backend}', f'toga_{backend}.factory']
+if backend is not None:
+    hiddenimports = [f'toga_{backend}', f'toga_{backend}.factory']
 
-datas = copy_metadata("toga.core")
-
-for ep in ["toga.backends", "setuptools_scm.parse_scm"]:
-    datas_, hiddenimports_ = collect_entry_point(ep)
-    datas += datas_
-    hiddenimports += hiddenimports_
+# Collect metadata for toga-core dist, which is used by toga module to determine its version.
+datas = copy_metadata("toga-core")
