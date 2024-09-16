@@ -221,7 +221,7 @@ patool==2.4.0; python_version >= '3.10'
 yapf==0.40.2
 xmlschema==3.4.1
 pysaml2==7.5.0; python_version >= '3.9'
-pysaml2==7.3.0; python_version < '3.9'
+pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 
 # ------------------- Platform (OS) specifics
 
