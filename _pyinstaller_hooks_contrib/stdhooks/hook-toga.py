@@ -28,3 +28,6 @@ if backend is not None:
 
 # Collect metadata for toga-core dist, which is used by toga module to determine its version.
 datas = copy_metadata("toga-core")
+
+# Prevent `toga` from pulling `setuptools_scm` into frozen application, as it makes no sense in that context.
+excludedimports = ["setuptools_scm"]
