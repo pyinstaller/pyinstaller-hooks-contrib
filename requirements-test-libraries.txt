@@ -214,7 +214,7 @@ eth-hash==0.7.0
 pypylon==4.0.0; python_version >= '3.9'
 python-pptx==1.0.2
 opentelemetry-sdk==1.27.0
-xarray==2024.7.0; python_version >= '3.9'
+xarray==2024.9.0; python_version >= '3.9'
 tables==3.10.1; python_version >= '3.10'
 schwifty==2024.9.0  # pyup: != '2024.8.1'
 patool==2.4.0; python_version >= '3.10'
