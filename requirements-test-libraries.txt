@@ -39,7 +39,7 @@ fiona==1.10.0; sys_platform != 'win32'
 folium==0.17.0
 ffpyplayer==4.5.1
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.144.0
+google-api-python-client==2.145.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==4.10.0
