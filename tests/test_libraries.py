@@ -842,6 +842,24 @@ def test_folium(pyi_builder):
         """)
 
 
+@importorskip("comtypes")
+@pytest.mark.skipif(not is_win, reason="comtypes is Windows only")
+def test_comtypes_stream(pyi_builder):
+    pyi_builder.test_source("""
+        import pathlib
+        import sys
+        import comtypes.client
+
+        module = comtypes.client.GetModule("shdocvw.dll")
+
+        try:
+            pathlib.Path(module.__file__).relative_to(sys._MEIPASS)
+            raise SystemExit(f"Error: comtypes is writing inside the application: {module.__file__}")
+        except ValueError:
+            pass
+    """)
+
+
 @importorskip("metpy")
 def test_metpy(pyi_builder):
     # Import metpy.plots, which triggers search for colortables data.
