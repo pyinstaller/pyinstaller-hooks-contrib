@@ -1,0 +1,1 @@
+Add a hook for comtypes to ensure compatibility with comtypes >= 1.4.5.
