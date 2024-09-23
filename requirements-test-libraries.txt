@@ -139,7 +139,7 @@ trame-vtklocal==0.5.7
 trame-vuetify==2.7.1
 trame-xterm==0.2.1
 Twisted==24.7.0
-tzdata==2024.1
+tzdata==2024.2
 Unidecode==1.3.8
 vtk==9.3.1
 weasyprint==62.3; python_version >= '3.9'
