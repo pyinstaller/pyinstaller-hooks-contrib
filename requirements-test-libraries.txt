@@ -9,8 +9,8 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.5.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.35.19
-botocore==1.35.19
+boto3==1.35.25
+botocore==1.35.25
 branca==0.7.2
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -35,11 +35,11 @@ eth_typing==5.0.0
 eth_utils==5.0.0
 fabric==3.2.2
 falcon==3.1.3
-fiona==1.10.0; sys_platform != 'win32'
+fiona==1.10.1; sys_platform != 'win32'
 folium==0.17.0
 ffpyplayer==4.5.1
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.145.0
+google-api-python-client==2.146.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==4.11.1
@@ -60,26 +60,26 @@ nest-asyncio==1.6.0
 netCDF4==1.7.1.post2; python_version >= '3.9'
 numba==0.60.0; python_version >= '3.9'
 numcodecs==0.13.0; python_version >= '3.10'
-Office365-REST-Python-Client==2.5.12
+Office365-REST-Python-Client==2.5.13
 openpyxl==3.1.5
-pandas==2.2.2; python_version >= '3.9'
+pandas==2.2.3; python_version >= '3.9'
 panel==1.5.0; python_version >= '3.10'
 passlib==1.7.4
 pendulum==3.0.0
 phonenumbers==8.13.45
 pingouin==0.5.5
 pinyin==0.4.0
-platformdirs==4.3.3
+platformdirs==4.3.6
 plotly==5.24.1
 publicsuffix2==2.20191221
 pycparser==2.22
 pycryptodome==3.20.0
 pycryptodomex==3.20.0
-pydicom==3.0.0; python_version >= '3.10'
+pydicom==3.0.1; python_version >= '3.10'
 pyexcelerate==0.12.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != 'win32'
-pylint==3.2.7
+pylint==3.3.0; python_version >= '3.9'
 pypemicro==0.1.11
 pyphen==0.16.0
 pyppeteer==2.0.0
@@ -90,7 +90,7 @@ pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.7
 pymssql==2.3.1
 pystray==0.19.5
-pythonnet==3.0.3
+pythonnet==3.0.4
 pytz==2024.2
 pyvista==0.44.1
 pyzmq==26.2.0
@@ -103,14 +103,14 @@ scipy==1.14.1; python_version >= '3.10'
 sentry-sdk==2.14.0
 shotgun_api3==3.5.1
 slixmpp==1.8.5
-spacy==3.7.6
+spacy==3.8.1; python_version >= '3.10'
 srsly==2.4.8
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.20027
 thinc==9.1.0; python_version >= '3.9'
-timezonefinder==6.5.2; python_version > '3.8'
+timezonefinder==6.5.3; python_version > '3.8'
 trame==3.6.5
-trame-client==3.2.5
+trame-client==3.3.1
 trame-code==1.0.1
 trame-components==2.4.0
 trame-datagrid==0.2.1
@@ -128,7 +128,7 @@ trame-pvui==0.1.1
 trame-quasar==0.2.1
 trame-rca==0.4.4
 trame-router==2.3.0
-trame-server==3.1.2
+trame-server==3.2.3
 trame-simput==2.4.3
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
@@ -139,12 +139,12 @@ trame-vtklocal==0.5.6
 trame-vuetify==2.7.1
 trame-xterm==0.2.1
 Twisted==24.7.0
-tzdata==2024.1
+tzdata==2024.2
 Unidecode==1.3.8
 vtk==9.3.1
 weasyprint==62.3; python_version >= '3.9'
 web3==7.2.0
-websockets==13.0.1
+websockets==13.1
 zeep==4.2.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
@@ -174,13 +174,13 @@ scikit-image==0.24.0; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.5.0; python_version >= '3.9'
 librosa==0.10.2.post1
-sympy==1.13.2
+sympy==1.13.3
 xyzservices==2024.9.0
 mistune==3.0.2
-pydantic==2.9.1
+pydantic==2.9.2
 jsonschema==4.23.0
 psutil==6.0.0
-litestar==2.11.0
+litestar==2.12.1
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
