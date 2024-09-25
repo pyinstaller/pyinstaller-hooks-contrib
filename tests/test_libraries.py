@@ -2235,3 +2235,12 @@ def test_saml2(pyi_builder):
         from saml2.attribute_converter import ac_factory
         ac_factory()
     """)
+
+
+@importorskip('toga')
+def test_toga(pyi_builder):
+    pyi_builder.test_script(
+        "pyi_toga_app.py",
+        app_args=['--automatic-shutdown', '5'],
+        pyi_args=['--windowed'] if is_darwin else [],
+    )
