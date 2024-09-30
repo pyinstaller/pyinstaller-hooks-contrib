@@ -112,7 +112,7 @@ timezonefinder==6.5.3; python_version > '3.8'
 trame==3.6.5
 trame-client==3.3.2
 trame-code==1.0.1
-trame-components==2.4.0
+trame-components==2.4.2
 trame-datagrid==0.2.1
 trame-deckgl==2.0.3
 trame-formkit==0.1.2
