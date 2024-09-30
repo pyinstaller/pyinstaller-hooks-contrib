@@ -120,7 +120,7 @@ trame-grid-layout==1.0.3
 trame-iframe==1.0.1
 trame-keycloak==0.1.1
 trame-leaflet==1.1.1
-trame-markdown==3.0.1
+trame-markdown==3.0.2
 trame-matplotlib==2.0.3
 trame-mesh-streamer==0.1.0
 trame-plotly==3.0.2
