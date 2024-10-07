@@ -209,7 +209,7 @@ vaderSentiment==3.3.2
 langchain==0.3.2; python_version >= '3.9'
 seedir==0.5.0
 cel-python==0.1.5
-pygwalker==0.4.9.10
+pygwalker==0.4.9.9
 eth-hash==0.7.0
 pypylon==4.0.0; python_version >= '3.9'
 python-pptx==1.0.2
