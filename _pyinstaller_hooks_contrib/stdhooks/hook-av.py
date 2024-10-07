@@ -37,3 +37,8 @@ if is_module_satisfies("av >= 9.1.1") and is_win:
 # imports to ensure it is collected in cases when it is not referenced from anywhere else.
 if is_module_satisfies("av >= 13.0.0"):
     hiddenimports += ['dataclasses']
+
+# av 13.1.0 added a cythonized `av.opaque` module that uses `uuid`; add it to hidden imports to ensure it is collected
+# in cases when it is not referenced from anywhere else.
+if is_module_satisfies("av >= 13.1.0"):
+    hiddenimports += ['uuid']
