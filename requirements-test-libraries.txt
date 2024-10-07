@@ -74,7 +74,7 @@ plotly==5.24.1
 publicsuffix2==2.20191221
 pycparser==2.22
 pycryptodome==3.21.0
-pycryptodomex==3.20.0
+pycryptodomex==3.21.0
 pydicom==3.0.1; python_version >= '3.10'
 pyexcelerate==0.12.0
 pyexcel_ods==0.6.0
