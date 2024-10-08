@@ -159,7 +159,7 @@ python-stdnum==1.20
 sounddevice==0.5.0; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.13.0
-great-expectations==1.0.5
+great-expectations==1.1.0
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.17.0; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -206,10 +206,10 @@ eth-rlp==2.1.0
 z3c.rml==4.4.0
 freetype-py==2.5.1
 vaderSentiment==3.3.2
-langchain==0.3.1; python_version >= '3.9'
+langchain==0.3.2; python_version >= '3.9'
 seedir==0.5.0
 cel-python==0.1.5
-pygwalker==0.4.9.9
+pygwalker==0.4.9.10
 eth-hash==0.7.0
 pypylon==4.0.0; python_version >= '3.9'
 python-pptx==1.0.2
