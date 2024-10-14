@@ -19,7 +19,7 @@ capstone==5.0.3
 cf-units==3.2.0; sys_platform != 'win32'
 cftime==1.6.4
 charset_normalizer==3.4.0
-cloudpickle==3.0.0
+cloudpickle==3.1.0
 cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
