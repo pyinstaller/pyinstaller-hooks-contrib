@@ -145,7 +145,7 @@ vtk==9.3.1
 weasyprint==62.3; python_version >= '3.9'
 web3==7.3.0
 websockets==13.1
-zeep==4.2.1
+zeep==4.3.0
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= '3.10'
