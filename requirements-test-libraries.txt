@@ -27,7 +27,7 @@ compliance-checker==5.1.1; sys_platform != 'win32'
 cryptography==43.0.1
 dash==2.18.1
 dash-bootstrap-components==1.6.0
-dash-uploader==0.6.0
+dash-uploader==0.6.1
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
