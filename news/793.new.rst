@@ -1,1 +1,0 @@
-Add hook for ``grapheme`` to collect its data files.

@@ -1,1 +1,0 @@
-Update ``xarray`` hook to collect ``xarray.chunkmanagers`` entry-points.

@@ -1,1 +1,0 @@
-Add hook for ``xmlschema`` package which has XSD files.

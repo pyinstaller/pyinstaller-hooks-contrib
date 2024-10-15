@@ -1,3 +1,86 @@
+2024.9 (2024-10-15)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for comtypes to ensure compatibility with comtypes >= 1.4.5.
+  (`#807
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/807>`_)
+* Add analysis hook for ``slixmpp`` library (`#784
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/784>`_)
+* Add hook for ``capstone`` package. (`#787
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/787>`_)
+* Add hook for ``grapheme`` to collect its data files. (`#793
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/793>`_)
+* Add hook for ``onnxruntime`` to ensure that provider plugins are
+  collected. (`#817
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/817>`_)
+* Add hook for ``saml2`` package which has XSD files and hidden imports. (`#798
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/798>`_)
+* Add hook for ``setuptools_scm`` that collects metadata of ``setuptools``
+  dist in order to avoid run-time warning about unknown/incompatible
+  ``setuptools`` version. (`#805
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/805>`_)
+* Add hook for ``ultralytics`` package. (`#786
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/786>`_)
+* Add hook for ``xmlschema`` package which has XSD files. (`#797
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/797>`_)
+* Add hook for ``yapf_third_party`` (part of ``yapf``) to collect its
+  data files. (`#792
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/792>`_)
+* Add hooks for ``toga`` widget toolkit and its backends. (`#804
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/804>`_)
+* Add run-time hook for ``findlibs`` that overrides the ``findlibs.find``
+  function with custom implementation in order to ensure that the top-level
+  application directory is searched first. This prevents a system-wide
+  copy of the library being found and loaded instead of the bundled copy
+  when the system-wide copy happens to be available in one of fixed
+  locations that is scanned by the original implementation of ``findlibs.find``
+  (for example, Homebrew directory on macOS). (`#799
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/799>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Linux) Update ``tensorflow`` hook to suppress creation of symbolic links
+  to the top-level application directory for the following shared libraries
+  discovered during binary dependency analysis: ``libtensorflow_cc.so.2``,
+  ``libtensorflow_framework.so.2``, and ``_pywrap_tensorflow_internal.so``.
+  This fixes run-time discovery of CUDA shared libraries from ``nvidia.cu*``
+  packages. This fix requires PyInstaller >= 6.11 to work, and is no-op
+  in earlier PyInstaller versions. (`#786
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/786>`_)
+* (Linux) Update hooks for ``nvidia.cu*`` packages to suppress creation of
+  symbolic links to the top-level application directory for all shared
+  libraries collected from the packages. This fixes run-time discovery
+  of other shared libraries from those packages, which are dynamically
+  loaded at run-time (as opposed to being linked against). Specifically,
+  this fixes the ``Unable to load any of
+  {libcudnn_engines_precompiled.so.9.1.0,
+  libcudnn_engines_precompiled.so.9.1, libcudnn_engines_precompiled.so.9,
+  libcudnn_engines_precompiled.so}`` and subsequent
+  ``RuntimeError: CUDNN_BACKEND_TENSOR_DESCRIPTOR cudnnFinalize failed
+  cudnn_status: CUDNN_STATUS_NOT_INITIALIZED`` when trying to use
+  ``ultralytics`` package. This fix requires PyInstaller >= 6.11 to work,
+  and is no-op in earlier PyInstaller versions. (`#786
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/786>`_)
+* Update ``av`` hook for compatibility with ``av`` v13.0.0. (`#794
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/794>`_)
+* Update ``av`` hook for compatibility with ``av`` v13.1.0. (`#814
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/814>`_)
+* Update ``gribapi`` hook for compatibility with ``eccodes`` v2.37.0,
+  to account for possibility of bundles ``eccodes`` shared library, which
+  is provided by newly-introduced binary wheels for Linux and macOS 13+. (`#799
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/799>`_)
+* Update ``pydicom`` hook for compatibility with ``pydicom`` v.3.0.0. (`#796
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/796>`_)
+* Update ``xarray`` hook to collect ``xarray.chunkmanagers`` entry-points.
+  (`#800
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/800>`_)
+
+
 2024.8 (2024-08-09)
 -------------------
 

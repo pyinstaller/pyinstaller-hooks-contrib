@@ -1,2 +1,0 @@
-Add hook for ``yapf_third_party`` (part of ``yapf``) to collect its
-data files.

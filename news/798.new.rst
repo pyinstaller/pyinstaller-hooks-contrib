@@ -1,1 +1,0 @@
-Add hook for ``saml2`` package which has XSD files and hidden imports.

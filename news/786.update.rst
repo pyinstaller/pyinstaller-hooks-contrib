@@ -1,7 +1,0 @@
-(Linux) Update ``tensorflow`` hook to suppress creation of symbolic links
-to the top-level application directory for the following shared libraries
-discovered during binary dependency analysis: ``libtensorflow_cc.so.2``,
-``libtensorflow_framework.so.2``, and ``_pywrap_tensorflow_internal.so``.
-This fixes run-time discovery of CUDA shared libraries from ``nvidia.cu*``
-packages. This fix requires PyInstaller >= 6.11 to work, and is no-op
-in earlier PyInstaller versions.
