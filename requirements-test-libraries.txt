@@ -238,7 +238,7 @@ dbus-fast==2.24.3; sys_platform == 'linux'
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
 
 # uvloop does not currently support Windows.
-uvloop==0.20.0; sys_platform != 'win32'
+uvloop==0.21.0; sys_platform != 'win32'
 
 # pydivert only runs on Windows
 pydivert==2.1.0; sys_platform == 'win32'
