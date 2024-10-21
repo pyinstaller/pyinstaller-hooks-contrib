@@ -34,7 +34,7 @@ discid==1.2.0; sys_platform != 'win32'
 eth_typing==5.0.0
 eth_utils==5.0.0
 fabric==3.2.2
-falcon==3.1.3
+falcon==4.0.0
 fiona==1.10.1; sys_platform != 'win32'
 folium==0.17.0
 ffpyplayer==4.5.1
