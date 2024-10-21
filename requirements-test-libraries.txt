@@ -223,7 +223,7 @@ yapf==0.40.2
 xmlschema==3.4.1
 pysaml2==7.5.0; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
-toga==0.4.6
+toga==0.4.8
 
 # ------------------- Platform (OS) specifics
 
