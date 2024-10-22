@@ -1,0 +1,2 @@
+Add hook for ``numbers_parser`` to ensure that package's data file is
+collected.

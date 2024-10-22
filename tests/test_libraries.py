@@ -2262,3 +2262,23 @@ def test_toga(pyi_builder):
         app_args=['--automatic-shutdown', '5'],
         pyi_args=['--windowed'] if is_darwin else [],
     )
+
+
+@importorskip('numbers_parser')
+def test_numbers_parser(pyi_builder, tmpdir):
+    output_filename = tmpdir / "output.numbers"
+    pyi_builder.test_source("""
+        import sys
+        import numbers_parser
+
+        output_filename = sys.argv[1]
+
+        doc = numbers_parser.Document()
+        doc.add_sheet("New Sheet", "New Table")
+        sheet = doc.sheets["New Sheet"]
+        table = sheet.tables["New Table"]
+        table.write(1, 1, 1000)
+        table.write(1, 2, 2000)
+        table.write(1, 3, 3000)
+        doc.save(output_filename)
+    """, app_args=[str(output_filename)])
