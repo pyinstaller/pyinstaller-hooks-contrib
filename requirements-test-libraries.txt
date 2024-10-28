@@ -9,15 +9,15 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.0; python_version >= '3.10'
 boto==2.49.0
-boto3==1.35.44
-botocore==1.35.44
+boto3==1.35.49
+botocore==1.35.49
 branca==0.8.0
 cairocffi==1.7.1
 CairoSVG==2.7.1
 cassandra-driver==3.29.2
 capstone==5.0.3
 cf-units==3.2.0; sys_platform != 'win32'
-cftime==1.6.4
+cftime==1.6.4.post1
 charset_normalizer==3.4.0
 cloudpickle==3.1.0
 cloudscraper==1.2.71
@@ -32,21 +32,21 @@ dash-uploader==0.6.1
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
 eth_typing==5.0.1
-eth_utils==5.0.0
+eth_utils==5.1.0
 fabric==3.2.2
-falcon==4.0.0
+falcon==4.0.1
 fiona==1.10.1; sys_platform != 'win32'
-folium==0.17.0
+folium==0.18.0
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
 google-api-python-client==2.149.0
 grapheme==0.6.0
 graphql-query==1.4.0
-python-gitlab==4.13.0
+python-gitlab==5.0.0; python_version >= '3.9'
 h5py==3.12.1; python_version >= '3.9'
 humanize==4.11.0; python_version >= '3.9'
 iminuit==2.30.1; python_version >= '3.9'
-iso639-lang==2.4.2
+iso639-lang==2.5.0
 kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
 langdetect==1.0.9
 mariadb==1.1.10; sys_platform != "darwin"
@@ -57,16 +57,16 @@ moviepy==1.0.3
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
-netCDF4==1.7.1.post2; python_version >= '3.9'
+netCDF4==1.7.2; python_version >= '3.9'
 numba==0.60.0; python_version >= '3.9'
 numcodecs==0.13.1; python_version >= '3.10'
 Office365-REST-Python-Client==2.5.13
 openpyxl==3.1.5
 pandas==2.2.3; python_version >= '3.9'
-panel==1.5.2; python_version >= '3.10'
+panel==1.5.3; python_version >= '3.10'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.47
+phonenumbers==8.13.48
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.3.6
@@ -108,7 +108,7 @@ srsly==2.4.8
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.20027
 thinc==9.1.1; python_version >= '3.9'
-timezonefinder==6.5.3; python_version > '3.8'
+timezonefinder==6.5.4; python_version > '3.8'
 trame==3.7.0
 trame-client==3.4.0
 trame-code==1.0.1
@@ -138,7 +138,7 @@ trame-vtk3d==0.1.0
 trame-vtklocal==0.6.2
 trame-vuetify==2.7.1
 trame-xterm==0.2.1
-Twisted==24.7.0
+Twisted==24.10.0
 tzdata==2024.2
 Unidecode==1.3.8
 vtk==9.3.1
@@ -149,7 +149,7 @@ zeep==4.3.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= '3.10'
-orjson==3.10.9
+orjson==3.10.10
 altair==5.4.1
 shapely==2.0.6
 lark==1.2.2
@@ -159,14 +159,14 @@ python-stdnum==1.20
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.13.0
-great-expectations==1.1.3; python_version >= '3.9'
+great-expectations==1.2.0; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
-tensorflow==2.17.0; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine == 'arm64')
+tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
 opencv-python==4.10.0.84
 hydra-core==1.3.2
 spiceypy==6.0.0
-exchangelib==5.4.3
+exchangelib==5.5.0; python_version >= '3.9'
 NBT==1.5.1
 minecraft-launcher-lib==6.5
 scikit-learn==1.5.2; python_version >= '3.9'
@@ -192,10 +192,10 @@ khmer-nltk==1.6
 python-crfsuite==0.9.11
 pymorphy3==2.0.2
 pymorphy3-dicts-uk==2.4.1.1.1663094765
-sudachipy==0.6.8
-sudachidict-core==20240716
-sudachidict-small==20240716
-sudachidict-full==20240716
+sudachipy==0.6.8; python_version < '3.13'
+sudachidict-core==20241021; python_version < '3.13'
+sudachidict-small==20241021; python_version < '3.13'
+sudachidict-full==20241021; python_version < '3.13'
 wxPython==4.2.2; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
 pythainlp==5.0.4
@@ -209,13 +209,15 @@ vaderSentiment==3.3.2
 langchain==0.3.4; python_version >= '3.9'
 seedir==0.5.0
 cel-python==0.1.5
-pygwalker==0.4.9.10
+# pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
+# pygwalker also depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
+pygwalker==0.4.9.11; python_version < '3.13'
 eth-hash==0.7.0
 pypylon==4.0.0; python_version >= '3.9'
 python-pptx==1.0.2
 comtypes==1.4.8; sys_platform == 'win32'
 opentelemetry-sdk==1.27.0
-xarray==2024.9.0; python_version >= '3.10'
+xarray==2024.10.0; python_version >= '3.10'
 tables==3.10.1; python_version >= '3.10'
 schwifty==2024.9.0  # pyup: != '2024.8.1'
 patool==3.0.2; python_version >= '3.10'
