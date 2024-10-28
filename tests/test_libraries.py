@@ -2282,3 +2282,10 @@ def test_numbers_parser(pyi_builder, tmpdir):
         table.write(1, 3, 3000)
         doc.save(output_filename)
     """, app_args=[str(output_filename)])
+
+
+@importorskip('h3')
+def test_h3(pyi_builder):
+    pyi_builder.test_source("""
+        import h3
+    """)
