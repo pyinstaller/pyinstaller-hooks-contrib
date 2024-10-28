@@ -51,27 +51,6 @@ jobs:
           > requirements-test-libraries.txt
           set -e
           echo '-r requirements-test.txt' >> requirements-test-libraries.txt
-          if grep -q pyqtgraph requirements-test-libraries.txt ; then echo PyQt5 >> requirements-test-libraries.txt ;fi
-          # NOTE: specify minimum allowed version for sudachidict-* packages, to prevent pip from installing invalid
-          # SudachiDict_full-0.0.0-py3-none-any.whl due to --prefer-binary switch used with pip install...
-          if grep -q sudachipy requirements-test-libraries.txt; then
-            echo "sudachidict-small>=20230927" >> requirements-test-libraries.txt;
-            echo "sudachidict-core>=20230927" >> requirements-test-libraries.txt;
-            echo "sudachidict-full>=20230927" >> requirements-test-libraries.txt;
-          fi
-          # pythainlp requires python-crfsuite, but fails to declare it as a requirement.
-          if grep -q pythainlp requirements-test-libraries.txt ; then echo python-crfsuite >> requirements-test-libraries.txt; fi
-          # tests for various trame-* packages require base trame package as well
-          if grep -q 'trame-.*' requirements-test-libraries.txt; then echo trame >> requirements-test-libraries.txt; fi
-          if grep -q trame-vtk requirements-test-libraries.txt; then
-            echo vtk >> requirements-test-libraries.txt;
-            echo pyvista >> requirements-test-libraries.txt;
-            echo nest-asyncio >> requirements-test-libraries.txt;
-            echo trame-vuetify >> requirements-test-libraries.txt;
-          fi
-          if grep -q trame-mesh-streamer requirements-test-libraries.txt; then echo vtk >> requirements-test-libraries.txt; fi
-          # test_xarray_chunk requires dask in addition to xarray
-          if grep -q xarray requirements-test-libraries.txt; then echo dask >> requirements-test-libraries.txt; fi
           cat requirements-test-libraries.txt
 
       - name: Set up .NET Core for pythonnet tests
@@ -139,7 +118,30 @@ jobs:
 
           # Install hooks-contrib
           pip install -e .
+
+          # Install test libraries
           pip install --prefer-binary -r requirements-test-libraries.txt
+
+          # Additional implied dependencies of test libraries
+
+          # pyqtgraph requires Qt bindings - use PyQt5
+          pip show -qq pyqtgraph && pip install --prefer-binary PyQt5
+
+          # NOTE: specify minimum allowed version for sudachidict-* packages, to prevent pip from installing invalid
+          # SudachiDict_full-0.0.0-py3-none-any.whl due to --prefer-binary switch used with pip install...
+          pip show -qq sudachipy && pip install --prefer-binary "sudachidict-small>=20230927" "sudachidict-core>=20230927" "sudachidict-full>=20230927"
+
+          # pythainlp requires python-crfsuite, but fails to declare it as a requirement.
+          pip show -qq pythainlp && pip install --prefer-binary python-crfsuite
+
+          # tests for various trame-* packages require base trame package as well
+          pip show -qq trame-client trame-code trame-components trame-datagrid trame-deckgl trame-formkit trame-grid-layout trame-iframe trame-keycloak trame-leaflet trame-markdown trame-matplotlib trame-mesh-streamer trame-plotly trame-pvui trame-quasar trame-rca trame-router trame-server trame-simput trame-tauri trame-tweakpane trame-vega trame-vtk trame-vtk3d trame-vtklocal trame-vuetify trame-xterm && pip install --prefer-binary trame
+
+          pip show -qq trame-vtk && pip install --prefer-binary vtk pyvista nest-asyncio trame-vuetify
+          pip show -qq trame-mesh-streamer && pip install --prefer-binary vtk
+
+          # test_xarray_chunk requires dask in addition to xarray
+          pip show -qq xarray && pip install --prefer-binary dask
 
           # Install PyInstaller
           pip install ${{ matrix.pyinstaller }}
