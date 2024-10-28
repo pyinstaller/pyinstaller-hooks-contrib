@@ -1,0 +1,2 @@
+Add hook for ``h3`` to collect its metadata (required with ``h3`` v4.0.0
+and later).
