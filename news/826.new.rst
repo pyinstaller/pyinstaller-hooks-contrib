@@ -1,0 +1,1 @@
+Add hook for ``sv_ttk`` to ensure that files are collected.
