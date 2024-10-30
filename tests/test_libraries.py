@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Copyright (c) 2020 PyInstaller Development Team.
+# Copyright (c) 2024 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
@@ -2254,6 +2254,14 @@ def test_saml2(pyi_builder):
         ac_factory()
     """)
 
+@importorskip('sv_ttk')
+def test_sv_ttk(pyi_builder):
+    pyi_builder.test_source("""
+        import sv_ttk
+
+        # Initialize sv_ttk to ensure it works correctly
+        sv_ttk.initialize()
+    """)
 
 @importorskip('toga')
 def test_toga(pyi_builder):
