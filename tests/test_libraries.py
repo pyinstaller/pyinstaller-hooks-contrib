@@ -2260,7 +2260,7 @@ def test_sv_ttk(pyi_builder):
         import sv_ttk
 
         # Initialize sv_ttk to ensure it works correctly
-        sv_ttk.initialize()
+        sv_ttk.set_theme("dark")
     """)
 
 @importorskip('toga')
