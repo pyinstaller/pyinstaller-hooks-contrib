@@ -2256,6 +2256,7 @@ def test_saml2(pyi_builder):
 
 
 @importorskip('sv_ttk')
+@pytest.mark.skipif(not can_import_module("tkinter"), reason="tkinter cannot be imported.")
 def test_sv_ttk(pyi_builder):
     pyi_builder.test_source("""
         import sv_ttk
