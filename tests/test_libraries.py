@@ -2254,6 +2254,7 @@ def test_saml2(pyi_builder):
         ac_factory()
     """)
 
+
 @importorskip('sv_ttk')
 def test_sv_ttk(pyi_builder):
     pyi_builder.test_source("""
@@ -2262,6 +2263,7 @@ def test_sv_ttk(pyi_builder):
         # Initialize sv_ttk to ensure it works correctly
         sv_ttk.set_theme("dark")
     """)
+
 
 @importorskip('toga')
 def test_toga(pyi_builder):
