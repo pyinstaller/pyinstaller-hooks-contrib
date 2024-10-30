@@ -1,4 +1,4 @@
 Add hook for ``numbers_parser`` to ensure that package's data file is
 collected.
 
-Add hook for ``sv_ttk`` to ensure that tcl files are collected.
+Add hook for ``sv_ttk`` to ensure that files are collected.

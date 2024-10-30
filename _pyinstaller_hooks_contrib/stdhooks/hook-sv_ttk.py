@@ -12,5 +12,5 @@
 
 from PyInstaller.utils.hooks import collect_data_files
 
-# Collect all Tcl files in the sv_ttk package
-datas = collect_data_files(package="sv_ttk", includes=["**/*.tcl"])
+# Collect all files in the sv_ttk package
+datas = collect_data_files(package="sv_ttk")
