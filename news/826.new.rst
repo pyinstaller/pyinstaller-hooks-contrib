@@ -1,1 +1,2 @@
-Add hook for ``sv_ttk`` to ensure that files are collected.
+Add hook for ``sv_ttk`` to ensure that its resources (.tcl files and
+images) are collected.
