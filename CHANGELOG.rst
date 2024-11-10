@@ -1,3 +1,32 @@
+2024.10 (2024-11-10)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``h3`` to collect its metadata (required with ``h3`` v4.0.0
+  and later). (`#825
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/825>`_)
+* Add hook for ``numbers_parser`` to ensure that package's data file is
+  collected. (`#823
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/823>`_)
+* Add hook for ``sv_ttk`` to ensure that its resources (.tcl files and
+  images) are collected. (`#826
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/826>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``falcon`` hook for compatibility with ``falcon`` v4.0.0. (`#820
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/820>`_)
+* Update ``tensorflow`` hook to automatically raise recursion limit to
+  5000 (if not already set to a higher value) in order to avoid recursion
+  limit errors in certain import chains (dependent on build environment
+  and other packages installed in it). (`#825
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/825>`_)
+
+
 2024.9 (2024-10-15)
 -------------------
 

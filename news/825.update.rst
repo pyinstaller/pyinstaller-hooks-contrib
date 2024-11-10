@@ -1,4 +1,0 @@
-Update ``tensorflow`` hook to automatically raise recursion limit to
-5000 (if not already set to a higher value) in order to avoid recursion
-limit errors in certain import chains (dependent on build environment
-and other packages installed in it).
