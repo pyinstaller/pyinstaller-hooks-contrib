@@ -127,7 +127,7 @@ trame-mesh-streamer==0.1.0
 trame-plotly==3.0.2
 trame-pvui==0.1.1
 trame-quasar==0.2.1
-trame-rca==0.5.0
+trame-rca==0.6.0
 trame-router==2.3.0
 trame-server==3.2.3
 trame-simput==2.4.3
