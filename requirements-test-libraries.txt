@@ -47,7 +47,7 @@ h5py==3.12.1; python_version >= '3.9'
 humanize==4.11.0; python_version >= '3.9'
 iminuit==2.30.1; python_version >= '3.9'
 iso639-lang==2.5.1
-kaleido==0.4.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
+kaleido==0.4.1; python_version >= '3.9'
 langdetect==1.0.9
 mariadb==1.1.11; sys_platform != "darwin"
 markdown==3.7
