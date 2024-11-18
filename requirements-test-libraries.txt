@@ -59,7 +59,7 @@ msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= '3.9'
 numba==0.60.0; python_version >= '3.9'
-numcodecs==0.13.1; python_version >= '3.10'
+numcodecs==0.14.0; python_version >= '3.10'
 Office365-REST-Python-Client==2.5.13
 openpyxl==3.1.5
 pandas==2.2.3; python_version >= '3.9'
