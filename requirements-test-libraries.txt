@@ -9,8 +9,8 @@ APScheduler==3.10.4
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.1; python_version >= '3.10'
 boto==2.49.0
-boto3==1.35.57
-botocore==1.35.57
+boto3==1.35.63
+botocore==1.35.63
 branca==0.8.0
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -39,7 +39,7 @@ fiona==1.10.1; sys_platform != 'win32'
 folium==0.18.0
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.151.0
+google-api-python-client==2.153.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==5.0.0; python_version >= '3.9'
@@ -47,9 +47,9 @@ h5py==3.12.1; python_version >= '3.9'
 humanize==4.11.0; python_version >= '3.9'
 iminuit==2.30.1; python_version >= '3.9'
 iso639-lang==2.5.1
-kaleido==0.2.1  # pyup: != 0.2.1.post1  # Contains only an invalid armv7l wheel.
+kaleido==0.4.1; python_version >= '3.9'
 langdetect==1.0.9
-mariadb==1.1.10; sys_platform != "darwin"
+mariadb==1.1.11; sys_platform != "darwin" and python_version >= '3.9'
 markdown==3.7
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
@@ -59,14 +59,14 @@ msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= '3.9'
 numba==0.60.0; python_version >= '3.9'
-numcodecs==0.13.1; python_version >= '3.10'
+numcodecs==0.14.0; python_version >= '3.11'
 Office365-REST-Python-Client==2.5.13
 openpyxl==3.1.5
 pandas==2.2.3; python_version >= '3.9'
-panel==1.5.3; python_version >= '3.10'
+panel==1.5.4; python_version >= '3.10'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.49
+phonenumbers==8.13.50
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.3.6
@@ -111,7 +111,7 @@ tableauhyperapi==0.0.20746
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.4; python_version > '3.8'
 trame==3.7.0
-trame-client==3.4.0
+trame-client==3.5.0
 trame-code==1.0.1
 trame-components==2.4.2
 trame-datagrid==0.2.1
@@ -138,8 +138,8 @@ trame-vega==2.1.1
 # Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 trame-vtk==2.8.12; python_version < '3.13' and (python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64')
 trame-vtk3d==0.1.0
-trame-vtklocal==0.6.2
-trame-vuetify==2.7.1
+trame-vtklocal==0.6.5
+trame-vuetify==2.7.2
 trame-xterm==0.2.1
 Twisted==24.10.0
 tzdata==2024.2
@@ -149,7 +149,7 @@ vtk==9.3.1
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==63.0; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 web3==7.5.0
-websockets==14.0; python_version >= '3.9'
+websockets==14.1; python_version >= '3.9'
 zeep==4.3.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
@@ -164,7 +164,7 @@ python-stdnum==1.20
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.13.0
-great-expectations==1.2.2; python_version >= '3.9' and python_version < '3.13'
+great-expectations==1.2.3; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -177,7 +177,7 @@ minecraft-launcher-lib==6.5
 scikit-learn==1.5.2; python_version >= '3.9'
 scikit-image==0.24.0; python_version >= '3.10'
 customtkinter==5.2.2
-fastparquet==2024.5.0; python_version >= '3.9'
+fastparquet==2024.11.0; python_version >= '3.9'
 librosa==0.10.2.post1
 sympy==1.13.3
 xyzservices==2024.9.0
@@ -227,7 +227,7 @@ xarray==2024.10.0; python_version >= '3.10'
 tables==3.10.1; python_version >= '3.10'
 schwifty==2024.11.0; python_version >= '3.9'
 patool==3.0.3; python_version >= '3.10'
-yapf==0.40.2
+yapf==0.43.0
 xmlschema==3.4.3
 pysaml2==7.5.0; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
@@ -242,7 +242,7 @@ h3==4.1.2
 eccodes==2.38.3; sys_platform == 'darwin' or sys_platform == 'linux'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.24.3; sys_platform == 'linux'
+dbus-fast==2.24.4; sys_platform == 'linux'
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
