@@ -139,7 +139,7 @@ trame-vega==2.1.1
 trame-vtk==2.8.12; python_version < '3.13' and (python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64')
 trame-vtk3d==0.1.0
 trame-vtklocal==0.6.5
-trame-vuetify==2.7.1
+trame-vuetify==2.7.2
 trame-xterm==0.2.1
 Twisted==24.10.0
 tzdata==2024.2
