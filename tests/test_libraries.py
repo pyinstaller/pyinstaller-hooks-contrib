@@ -1487,13 +1487,22 @@ def test_minecraft_launcher_lib(pyi_builder):
 
 
 @importorskip('moviepy')
-def test_moviepy_editor(pyi_builder):
+def test_moviepy(pyi_builder):
     # `moviepy.editor` tries to access the `moviepy.video.fx` and `moviepy.audio.fx` plugins/modules via the
     # `moviepy.video.fx.all` and `moviepy.video.fx.all` modules, which in turn programmatically import and
     # forward all corresponding submodules.
-    pyi_builder.test_source("""
-        import moviepy.editor
-    """)
+    #
+    # `moviepy.editor` was removed in moviepy 2.x, and now all imports go through `moviepy`. The `moviepy.video.fx.all`
+    # and `moviepy.video.fx.all` modules with their programmatic imports seem to be gone as well... So turn this into
+    # a basic import test with 2.x series.
+    if is_module_satisfies('moviepy >= 2.0.0'):
+        pyi_builder.test_source("""
+            import moviepy
+        """)
+    else:
+        pyi_builder.test_source("""
+            import moviepy.editor
+        """)
 
 
 @importorskip('customtkinter')
