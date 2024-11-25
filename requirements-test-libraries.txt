@@ -239,7 +239,7 @@ h3==4.1.2
 
 # eccodes package requires the eccodes shared library provided by the environment (linux distribution, homebrew, or Anaconda).
 # Starting with v2.37.0, binary wheels with bundled shared library are provided for linux and macOS 13+.
-eccodes==2.38.3; sys_platform == 'darwin' or sys_platform == 'linux'
+eccodes==2.39.0; sys_platform == 'darwin' or sys_platform == 'linux'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
 dbus-fast==2.24.4; sys_platform == 'linux'
