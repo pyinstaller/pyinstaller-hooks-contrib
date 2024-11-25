@@ -93,29 +93,33 @@ def test_trimesh(pyi_builder):
 def test_apscheduler(pyi_builder):
     pyi_builder.test_source(
         """
-        import apscheduler
-        import pytz
         import asyncio
+        import datetime
         import random
-        import datetime as dt
+        import time
+
         from apscheduler.schedulers.asyncio import AsyncIOScheduler
-        from apscheduler.triggers.interval import IntervalTrigger
-        loop = asyncio.get_event_loop()
-        async def test_function(data=0):
-            print(dt.datetime.now(), random.randint(0, 100))
-        test_scheduler = AsyncIOScheduler()
-        test_scheduler.add_job(
-            test_function,
-            id="TestJob",
-            trigger=IntervalTrigger(
-                seconds=1,
-                start_date=dt.datetime.now(tz=pytz.UTC)
-            )
-        )
-        test_scheduler.start()
-        loop.run_until_complete(asyncio.sleep(5))
-    """
-    )
+
+
+        def tick():
+            now = datetime.datetime.now(tz=datetime.timezone.utc)
+            value = random.randint(0, 100)
+            print(f"Tick! Current time is: {now}, random value: {value}")
+
+
+        async def main():
+            scheduler = AsyncIOScheduler()
+            scheduler.add_job(tick, "interval", seconds=1)
+            scheduler.start()
+
+            # Run for five seconds
+            start_time = time.time()
+            while time.time() - start_time < 5.0:
+                await asyncio.sleep(0.1)
+
+
+        asyncio.run(main())
+        """)
 
 
 @importorskip('boto')
