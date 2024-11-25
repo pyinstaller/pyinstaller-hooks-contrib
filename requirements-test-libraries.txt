@@ -88,7 +88,8 @@ pyusb==1.2.1
 pyviz-comms==3.0.3
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.7
-pymssql==2.3.2
+# pymssql provides only x86_64 macOS wheels for python 3.8 and 3.10
+pymssql==2.3.2; python_version >= "3.9" and (python_version >= '3.11' or sys_platform != 'darwin' or platform_machine != 'arm64')
 pystray==0.19.5
 pythonnet==3.0.4
 pytz==2024.2
