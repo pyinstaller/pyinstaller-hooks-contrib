@@ -98,6 +98,11 @@ jobs:
       - name: Install brew dependencies
         if: startsWith(matrix.os, 'macos')
         run: |
+          # `pkg-config` is deprecated and superseded by `pkgconf`, but it is still pre-installed on the GitHub Actions
+          # runner. This leads to `brew link` errors when `pkgconf` is installed as part of dependencies. So for now,
+          # manually remove `pkg-config` (and specifically, the problematic `pkg-config@0.29.2`).
+          brew uninstall pkg-config || :
+          brew uninstall pkg-config@0.29.2 || :
           # Install cairo dependencies.
           brew install cairo
           # Install pango dependencies (weasyprint hook).
