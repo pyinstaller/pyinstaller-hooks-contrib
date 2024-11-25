@@ -197,7 +197,7 @@ khmer-nltk==1.6
 python-crfsuite==0.9.11
 pymorphy3==2.0.2
 pymorphy3-dicts-uk==2.4.1.1.1663094765
-sudachipy==0.6.8; python_version < '3.13'
+sudachipy==0.6.9; python_version < '3.13'
 sudachidict-core==20241021; python_version < '3.13'
 sudachidict-small==20241021; python_version < '3.13'
 sudachidict-full==20241021; python_version < '3.13'
