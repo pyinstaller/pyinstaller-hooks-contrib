@@ -53,7 +53,7 @@ mariadb==1.1.11; sys_platform != "darwin" and python_version >= '3.9'
 markdown==3.7
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
-moviepy==1.0.3
+moviepy==2.1.1
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
