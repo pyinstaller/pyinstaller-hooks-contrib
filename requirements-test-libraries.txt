@@ -94,7 +94,7 @@ pymssql==2.3.2; python_version >= "3.9" and (sys_platform != 'darwin' or platfor
 pystray==0.19.5
 pythonnet==3.0.4
 pytz==2024.2
-pyvista==0.44.1
+pyvista==0.44.2
 pyzmq==26.2.0
 PyQt5==5.15.11
 qtmodern==0.2.0
