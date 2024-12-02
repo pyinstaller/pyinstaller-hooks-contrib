@@ -166,7 +166,7 @@ python-stdnum==1.20
 # and libsndfile, respectively.
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
-limits==3.14.1
+limits==3.14.1; python_version >= '3.9'
 great-expectations==1.2.4; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
