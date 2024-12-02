@@ -24,7 +24,7 @@ cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.1; sys_platform != 'win32'
-cryptography==43.0.3
+cryptography==44.0.0
 dash==2.18.2
 dash-bootstrap-components==1.6.0
 dash-uploader==0.6.1
