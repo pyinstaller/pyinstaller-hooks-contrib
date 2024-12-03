@@ -12,6 +12,7 @@
 
 import pytest
 
+from PyInstaller import isolated
 from PyInstaller.utils.tests import importorskip
 
 
@@ -25,6 +26,54 @@ def test_torch(pyi_builder):
         import torch
 
         torch.rand((10, 10)) * torch.rand((10, 10))
+    """)
+
+
+@importorskip('torch')
+def test_torch_cuda_linalg(pyi_builder):
+    # Check that CUDA is available.
+    @isolated.decorate
+    def _check_cuda():
+        import torch
+        return torch.cuda.is_available() and torch.cuda.device_count() > 0
+
+    if not _check_cuda():
+        pytest.skip(reason="CUDA not available.")
+
+    pyi_builder.test_source("""
+        import torch
+
+        # Solve the following system of equations:
+        # x + 2y - 2z = -15
+        # 2x + y - 5z = -21
+        # x - 4y + z = 18
+        #
+        # Solution: x=-1, y=-4, z=3
+
+        cuda_device = torch.device('cuda')
+        print(f"Using device: {cuda_device}")
+
+        A = torch.tensor([
+            [1, 2, -2],
+            [2, 1, -5],
+            [1, -4, 1],
+        ], dtype=torch.float, device=cuda_device)
+
+        b = torch.tensor([
+            [-15],
+            [-21],
+            [18],
+        ], dtype=torch.float, device=cuda_device)
+
+        print(f"A={A}")
+        print(f"b={b}")
+
+        x = torch.linalg.solve(A, b)
+        print(f"x={x}")
+
+        assert x[0] == -1
+        assert x[1] == -4
+        assert x[2] == 3
     """)
 
 
