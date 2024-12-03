@@ -73,6 +73,20 @@ if is_module_satisfies("PyInstaller >= 6.0"):
         logger.info("hook-torch: inferred hidden imports for CUDA libraries: %r", nvidia_hiddenimports)
         hiddenimports += nvidia_hiddenimports
 
+        # On Linux, prevent binary dependency analysis from generating symbolic links for libraries from `torch/lib` to
+        # the top-level application directory. These symbolic links seem to confuse `torch` about location of its shared
+        # libraries (likely because code in one of the libraries looks up the library file's location, but does not
+        # fully resolve it), and prevent it from finding dynamically-loaded libraries in `torch/lib` directory, such as
+        # `torch/lib/libtorch_cuda_linalg.so`. The issue was observed with earlier versions of `torch` builds provided
+        # by https://download.pytorch.org/whl/torch, specifically 1.13.1+cu117, 2.0.1+cu117, and 2.1.2+cu118; later
+        # versions do not seem to be affected. The wheels provided on PyPI do not seem to be affected, either, even
+        # for torch 1.13.1, 2.01, and 2.1.2. However, these symlinks should be not necessary on linux in general, so
+        # there should be no harm in suppressing them for all versions.
+        #
+        # The `bindepend_symlink_suppression` hook attribute requires PyInstaller >= 6.11, and is no-op in earlier
+        # versions.
+        bindepend_symlink_suppression = ['**/torch/lib/*.so*']
+
     # The Windows nightly build for torch 2.3.0 added dependency on MKL. The `mkl` distribution does not provide an
     # importable package, but rather installs the DLLs in <env>/Library/bin directory. Therefore, we cannot write a
     # separate hook for it, and must collect the DLLs here. (Most of these DLLs are missed by PyInstaller's binary
