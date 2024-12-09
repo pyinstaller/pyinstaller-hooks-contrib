@@ -10,4 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-hiddenimports = ['sklearn.tree._utils', ]
+from PyInstaller.utils.hooks import is_module_satisfies
+
+hiddenimports = ['sklearn.tree._utils']
+
+if is_module_satisfies('scikit-learn >= 1.6.0'):
+    hiddenimports += ['sklearn.tree._partitioner']
