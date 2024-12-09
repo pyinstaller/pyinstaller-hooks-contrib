@@ -61,7 +61,7 @@ nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= '3.9'
 numba==0.60.0; python_version >= '3.9'
 numcodecs==0.14.1; python_version >= '3.11'
-Office365-REST-Python-Client==2.5.13
+Office365-REST-Python-Client==2.5.14
 openpyxl==3.1.5
 pandas==2.2.3; python_version >= '3.9'
 panel==1.5.4; python_version >= '3.10'
