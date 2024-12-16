@@ -121,7 +121,7 @@ trame-datagrid==0.2.1
 trame-deckgl==2.0.3
 trame-formkit==0.1.2
 trame-grid-layout==1.0.3
-trame-iframe==1.0.1
+trame-iframe==1.1.1
 trame-keycloak==0.1.1
 trame-leaflet==1.1.1
 trame-markdown==3.0.2
