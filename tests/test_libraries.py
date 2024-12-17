@@ -214,7 +214,9 @@ def test_pylsl(pyi_builder):
     pyi_builder.test_source(
         """
         import pylsl
-        print(pylsl.version.__version__)
+        print(f"version: {pylsl.__version__}")
+        print(f"library version: {pylsl.library_version()}")
+        print(f"library info: {pylsl.library_info()}")
         """)
 
 

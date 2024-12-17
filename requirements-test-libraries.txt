@@ -9,8 +9,8 @@ APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.35.76
-botocore==1.35.76
+boto3==1.35.81
+botocore==1.35.81
 branca==0.8.0
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -36,10 +36,10 @@ eth_utils==5.1.0
 fabric==3.2.2
 falcon==4.0.2
 fiona==1.10.1; sys_platform != 'win32'
-folium==0.18.0
+folium==0.19.2; python_version >= '3.9'
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.154.0
+google-api-python-client==2.155.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==5.1.0; python_version >= '3.9'
@@ -67,7 +67,7 @@ pandas==2.2.3; python_version >= '3.9'
 panel==1.5.4; python_version >= '3.10'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.51
+phonenumbers==8.13.52
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.3.6
@@ -92,7 +92,7 @@ pynput==1.7.7
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
 pymssql==2.3.2; python_version >= "3.9" and (sys_platform != 'darwin' or platform_machine != 'arm64')
 pystray==0.19.5
-pythonnet==3.0.4
+pythonnet==3.0.5
 pytz==2024.2
 # pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 pyvista==0.44.2; python_version < '3.13' and (python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64')
@@ -106,8 +106,8 @@ scipy==1.14.1; python_version >= '3.10'
 sentry-sdk==2.19.2
 shotgun_api3==3.5.1
 slixmpp==1.8.5
-spacy==3.8.2; python_version >= '3.10'
-srsly==2.4.8
+spacy==3.8.3; python_version >= '3.10' and python_version < '3.13'
+srsly==2.5.0; python_version >= "3.9"
 sv-ttk==2.6.0
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.20746
@@ -121,7 +121,7 @@ trame-datagrid==0.2.1
 trame-deckgl==2.0.3
 trame-formkit==0.1.2
 trame-grid-layout==1.0.3
-trame-iframe==1.0.1
+trame-iframe==1.1.1
 trame-keycloak==0.1.1
 trame-leaflet==1.1.1
 trame-markdown==3.0.2
@@ -151,7 +151,7 @@ Unidecode==1.3.8
 vtk==9.4.0; python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64'
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
-weasyprint==63.0; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
+weasyprint==63.1; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 web3==7.6.0
 websockets==14.1; python_version >= '3.9'
 zeep==4.3.1
@@ -168,7 +168,7 @@ python-stdnum==1.20
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.12.1; sys_platform != 'linux'
 limits==3.14.1; python_version >= '3.9'
-great-expectations==1.2.5; python_version >= '3.9' and python_version < '3.13'
+great-expectations==1.2.6; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -179,7 +179,7 @@ exchangelib==5.5.0; python_version >= '3.9'
 NBT==1.5.1
 minecraft-launcher-lib==6.5
 scikit-learn==1.6.0; python_version >= '3.9'
-scikit-image==0.24.0; python_version >= '3.10'
+scikit-image==0.25.0; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.11.0; python_version >= '3.9'
 librosa==0.10.2.post1
@@ -207,7 +207,7 @@ sudachidict-small==20241021; python_version >= '3.9'
 sudachidict-full==20241021;  python_version >= '3.9'
 wxPython==4.2.2; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
-pythainlp==5.0.4
+pythainlp==5.0.5; python_version >= '3.9'
 gmsh==4.13.1
 sspilib==0.2.0
 rlp==4.0.1
@@ -216,7 +216,7 @@ z3c.rml==4.4.0
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 # langchain depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-langchain==0.3.10; python_version >= '3.9' and python_version < '3.13'
+langchain==0.3.12; python_version >= '3.9' and python_version < '3.13'
 seedir==0.5.0
 cel-python==0.1.5
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
@@ -226,7 +226,7 @@ eth-hash==0.7.0
 pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
 comtypes==1.4.8; sys_platform == 'win32'
-opentelemetry-sdk==1.28.2
+opentelemetry-sdk==1.29.0
 xarray==2024.11.0; python_version >= '3.10'
 tables==3.10.1; python_version >= '3.10'
 schwifty==2024.11.0; python_version >= '3.9'
@@ -236,14 +236,14 @@ xmlschema==3.4.3
 pysaml2==7.5.0; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 toga==0.4.8; python_version >= '3.9'
-numbers-parser==4.14.1; python_version >= '3.9'
+numbers-parser==4.14.2; python_version >= '3.9'
 h3==4.1.2
 
 # ------------------- Platform (OS) specifics
 
 # eccodes package requires the eccodes shared library provided by the environment (linux distribution, homebrew, or Anaconda).
 # Starting with v2.37.0, binary wheels with bundled shared library are provided for linux and macOS 13+.
-eccodes==2.39.0; (sys_platform == 'darwin' or sys_platform == 'linux') and python_version < '3.13'
+eccodes==2.39.1; (sys_platform == 'darwin' or sys_platform == 'linux') and python_version < '3.13'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
 dbus-fast==2.24.4; sys_platform == 'linux'
@@ -264,7 +264,7 @@ pywin32-ctypes==0.2.3; sys_platform == 'win32'
 pymediainfo==6.1.0; sys_platform == 'darwin' or sys_platform == 'win32'
 
 # the required library can be installed with "brew install labstreaminglayer/tap/lsl" on macOS, or with "conda install liblsl" on any platform
-pylsl==1.16.2; sys_platform == "darwin"
+pylsl==1.17.6; sys_platform == "darwin" and python_version >= '3.9'
 
 # PyTaskbarProgress only runs on Windows
 PyTaskbarProgress==0.0.8; sys_platform == 'win32'
