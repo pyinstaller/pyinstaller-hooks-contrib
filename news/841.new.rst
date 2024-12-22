@@ -1,0 +1,1 @@
+Add a hook for ``selectolax``, which has a hidden import.
