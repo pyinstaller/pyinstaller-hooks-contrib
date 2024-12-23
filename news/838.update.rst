@@ -1,2 +1,0 @@
-Update ``sklearn.tree`` hook for compatibility with ``scikit-learn`` v1.6.0
-(add ``sklearn.tree._partitioner`` to hidden imports).

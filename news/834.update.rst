@@ -1,7 +1,0 @@
-(Linux) Update ``torch`` hook to suppress creation of symbolic links to
-the top-level application directory for the shared libraries discovered
-during binary dependency analysis in ``torch/lib`` directory. This fixes
-issues with ``libtorch_cuda_linalg.so`` not being found in spite of it
-being collected, as observed with certain ``torch`` builds provided by
-https://download.pytorch.org/whl/torch (e.g., ``1.13.1+cu117``,
-``2.0.1+cu117``, and ``2.1.2+cu118``).

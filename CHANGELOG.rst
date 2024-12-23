@@ -1,3 +1,29 @@
+2024.11 (2024-12-23)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``selectolax`` to collect its data files. (`#841
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/841>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* (Linux) Update ``torch`` hook to suppress creation of symbolic links to
+  the top-level application directory for the shared libraries discovered
+  during binary dependency analysis in ``torch/lib`` directory. This fixes
+  issues with ``libtorch_cuda_linalg.so`` not being found in spite of it
+  being collected, as observed with certain ``torch`` builds provided by
+  https://download.pytorch.org/whl/torch (e.g., ``1.13.1+cu117``,
+  ``2.0.1+cu117``, and ``2.1.2+cu118``). (`#834
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/834>`_)
+* Update ``sklearn.tree`` hook for compatibility with ``scikit-learn`` v1.6.0
+  (add ``sklearn.tree._partitioner`` to hidden imports). (`#838
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/838>`_)
+
+
 2024.10 (2024-11-10)
 --------------------
 
