@@ -2340,6 +2340,7 @@ def test_h3(pyi_builder):
         import h3
     """)
 
+
 @importorskip('selectolax')
 def test_selectolax(pyi_builder):
     pyi_builder.test_source("""
