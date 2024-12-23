@@ -177,7 +177,7 @@ hydra-core==1.3.2
 spiceypy==6.0.0
 exchangelib==5.5.0; python_version >= '3.9'
 NBT==1.5.1
-minecraft-launcher-lib==7.1
+minecraft-launcher-lib==7.1; python_version >= '3.10'
 scikit-learn==1.6.0; python_version >= '3.9'
 scikit-image==0.25.0; python_version >= '3.10'
 customtkinter==5.2.2
