@@ -16,24 +16,20 @@ from pathlib import Path
 import pytest
 
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
-from PyInstaller.utils.hooks import (
-    is_module_satisfies,
-    can_import_module,
-    get_module_attribute,
-)
+from PyInstaller.utils.hooks import is_module_satisfies, can_import_module, get_module_attribute
 from PyInstaller.utils.tests import importorskip, requires, xfail
 
 
-@importorskip("fiona")
+@importorskip('fiona')
 def test_fiona(pyi_builder):
     pyi_builder.test_source(
-        """
+        '''
         import fiona
-        """
+        '''
     )
 
 
-@importorskip("fiona")
+@importorskip('fiona')
 def test_fiona_transform(pyi_builder):
     # Test that fiona in frozen application has access to its projections database. If projection data is unavailable,
     # the transform becomes an identity transform.
@@ -64,27 +60,27 @@ def test_fiona_transform(pyi_builder):
     )
 
 
-@importorskip("jinxed")
+@importorskip('jinxed')
 def test_jinxed(pyi_builder):
     pyi_builder.test_source(
-        """
+        '''
         import jinxed
         jinxed.setupterm('xterm')
         assert jinxed._terminal.TERM.terminfo is jinxed.terminfo.xterm
-        """
+        '''
     )
 
 
 @importorskip("geopandas")
 def test_geopandas(pyi_builder):
     pyi_builder.test_source(
-        """
+        '''
         import geopandas
-        """
+        '''
     )
 
 
-@importorskip("trimesh")
+@importorskip('trimesh')
 def test_trimesh(pyi_builder):
     pyi_builder.test_source(
         """
@@ -93,7 +89,7 @@ def test_trimesh(pyi_builder):
     )
 
 
-@importorskip("apscheduler")
+@importorskip('apscheduler')
 def test_apscheduler(pyi_builder):
     pyi_builder.test_source(
         """
@@ -123,18 +119,17 @@ def test_apscheduler(pyi_builder):
 
 
         asyncio.run(main())
-        """
-    )
+        """)
 
 
-@importorskip("boto")
-@xfail(reason="boto does not fully support Python 3")
+@importorskip('boto')
+@xfail(reason='boto does not fully support Python 3')
 def test_boto(pyi_builder):
-    pyi_builder.test_script("pyi_lib_boto.py")
+    pyi_builder.test_script('pyi_lib_boto.py')
 
 
-@xfail(reason="Issue #1844.")
-@importorskip("boto3")
+@xfail(reason='Issue #1844.')
+@importorskip('boto3')
 def test_boto3(pyi_builder):
     pyi_builder.test_source(
         """
@@ -148,12 +143,11 @@ def test_boto3(pyi_builder):
         # verify all resources
         for resource in session.get_available_resources():
             session.resource(resource)
-        """
-    )
+        """)
 
 
-@xfail(reason="Issue #1844.")
-@importorskip("botocore")
+@xfail(reason='Issue #1844.')
+@importorskip('botocore')
 def test_botocore(pyi_builder):
     pyi_builder.test_source(
         """
@@ -163,17 +157,16 @@ def test_botocore(pyi_builder):
         # verify all services
         for service in session.get_available_services():
             session.create_client(service, region_name='us-west-2')
-        """
-    )
+        """)
 
 
-@xfail(is_darwin, reason="Issue #1895.")
-@importorskip("enchant")
+@xfail(is_darwin, reason='Issue #1895.')
+@importorskip('enchant')
 def test_enchant(pyi_builder):
-    pyi_builder.test_script("pyi_lib_enchant.py")
+    pyi_builder.test_script('pyi_lib_enchant.py')
 
 
-@importorskip("zmq")
+@importorskip('zmq')
 def test_zmq(pyi_builder):
     pyi_builder.test_source(
         """
@@ -182,11 +175,10 @@ def test_zmq(pyi_builder):
         print(zmq.zmq_version())
         # This is a problematic module and might cause some issues.
         import zmq.utils.strtypes
-        """
-    )
+        """)
 
 
-@importorskip("pylint")
+@importorskip('pylint')
 def test_pylint(pyi_builder):
     pyi_builder.test_source(
         """
@@ -200,11 +192,10 @@ def test_pylint(pyi_builder):
 
         from pylint.lint import Run
         Run(['-h'])
-        """
-    )
+        """)
 
 
-@importorskip("markdown")
+@importorskip('markdown')
 def test_markdown(pyi_builder):
     # Markdown uses __import__ed extensions. Make sure these work by
     # trying to use the 'toc' extension, using both short and long format.
@@ -215,11 +206,10 @@ def test_markdown(pyi_builder):
             extensions=['toc']))
         print(markdown.markdown('testing',
             extensions=['markdown.extensions.toc']))
-        """
-    )
+        """)
 
 
-@importorskip("pylsl")
+@importorskip('pylsl')
 def test_pylsl(pyi_builder):
     pyi_builder.test_source(
         """
@@ -227,32 +217,29 @@ def test_pylsl(pyi_builder):
         print(f"version: {pylsl.__version__}")
         print(f"library version: {pylsl.library_version()}")
         print(f"library info: {pylsl.library_info()}")
-        """
-    )
+        """)
 
 
-@importorskip("lxml")
+@importorskip('lxml')
 def test_lxml_isoschematron(pyi_builder):
     pyi_builder.test_source(
         """
         # The import of this module triggers the loading of some
         # required XML files.
         from lxml import isoschematron
-        """
-    )
+        """)
 
 
-@importorskip("openpyxl")
+@importorskip('openpyxl')
 def test_openpyxl(pyi_builder):
     pyi_builder.test_source(
         """
         # Test the hook to openpyxl
         from openpyxl import __version__
-        """
-    )
+        """)
 
 
-@importorskip("pyodbc")
+@importorskip('pyodbc')
 def test_pyodbc(pyi_builder):
     pyi_builder.test_source(
         """
@@ -261,11 +248,10 @@ def test_pyodbc(pyi_builder):
         # to PYTHON_EGG_CACHE directory. PyInstaller should find the binary there and
         # include it with frozen executable.
         import pyodbc
-        """
-    )
+        """)
 
 
-@importorskip("pyttsx")
+@importorskip('pyttsx')
 def test_pyttsx(pyi_builder):
     pyi_builder.test_source(
         """
@@ -276,11 +262,10 @@ def test_pyttsx(pyi_builder):
         engine.say('Sally sells seashells by the seashore.')
         engine.say('The quick brown fox jumped over the lazy dog.')
         engine.runAndWait()
-        """
-    )
+        """)
 
 
-@importorskip("pyttsx3")
+@importorskip('pyttsx3')
 def test_pyttsx3(pyi_builder):
     pyi_builder.test_source("""
         import pyttsx3
@@ -288,12 +273,12 @@ def test_pyttsx3(pyi_builder):
     """)
 
 
-@importorskip("pycparser")
+@importorskip('pycparser')
 def test_pycparser(pyi_builder):
-    pyi_builder.test_script("pyi_lib_pycparser.py")
+    pyi_builder.test_script('pyi_lib_pycparser.py')
 
 
-@importorskip("Crypto")
+@importorskip('Crypto')
 def test_pycrypto(pyi_builder):
     pyi_builder.test_source(
         """
@@ -305,29 +290,27 @@ def test_pycrypto(pyi_builder):
         print('HEX', binascii.hexlify(
             AES.new(b"\\0" * BLOCK_SIZE, AES.MODE_ECB).encrypt(b"\\0" * BLOCK_SIZE)))
         from Crypto.PublicKey import ECC
-        """
-    )
+        """)
 
 
-@importorskip("Cryptodome")
+@importorskip('Cryptodome')
 def test_cryptodome(pyi_builder):
     pyi_builder.test_source(
         """
         from Cryptodome import Cipher
         from Cryptodome.PublicKey import ECC
         print('Cryptodome Cipher Module:', Cipher)
-        """
-    )
+        """)
 
 
-@importorskip("h5py")
+@importorskip('h5py')
 def test_h5py(pyi_builder):
     pyi_builder.test_source("""
         import h5py
         """)
 
 
-@importorskip("unidecode")
+@importorskip('unidecode')
 def test_unidecode(pyi_builder):
     pyi_builder.test_source("""
         from unidecode import unidecode
@@ -337,26 +320,26 @@ def test_unidecode(pyi_builder):
         """)
 
 
-@importorskip("pinyin")
+@importorskip('pinyin')
 def test_pinyin(pyi_builder):
     pyi_builder.test_source("""
         import pinyin
         """)
 
 
-@importorskip("uvloop")
+@importorskip('uvloop')
 @pytest.mark.darwin
 @pytest.mark.linux
 def test_uvloop(pyi_builder):
     pyi_builder.test_source("import uvloop")
 
 
-@importorskip("web3")
+@importorskip('web3')
 def test_web3(pyi_builder):
     pyi_builder.test_source("import web3")
 
 
-@importorskip("phonenumbers")
+@importorskip('phonenumbers')
 def test_phonenumbers(pyi_builder):
     pyi_builder.test_source("""
         import phonenumbers
@@ -369,7 +352,7 @@ def test_phonenumbers(pyi_builder):
         """)
 
 
-@importorskip("pendulum")
+@importorskip('pendulum')
 def test_pendulum(pyi_builder):
     pyi_builder.test_source("""
         import pendulum
@@ -378,7 +361,7 @@ def test_pendulum(pyi_builder):
         """)
 
 
-@importorskip("humanize")
+@importorskip('humanize')
 def test_humanize(pyi_builder):
     pyi_builder.test_source("""
         import humanize
@@ -388,7 +371,7 @@ def test_humanize(pyi_builder):
         """)
 
 
-@importorskip("argon2")
+@importorskip('argon2')
 def test_argon2(pyi_builder):
     pyi_builder.test_source("""
         from argon2 import PasswordHasher
@@ -399,7 +382,7 @@ def test_argon2(pyi_builder):
         """)
 
 
-@importorskip("pytest")
+@importorskip('pytest')
 def test_pytest_runner(pyi_builder):
     """
     Check if pytest runner builds correctly.
@@ -409,52 +392,48 @@ def test_pytest_runner(pyi_builder):
         import pytest
         import sys
         sys.exit(pytest.main(['--help']))
-        """
-    )
+        """)
 
 
-@importorskip("eel")
+@importorskip('eel')
 def test_eel(pyi_builder):
     pyi_builder.test_source("import eel")
 
 
-@importorskip("sentry_sdk")
+@importorskip('sentry_sdk')
 def test_sentry(pyi_builder):
     pyi_builder.test_source(
         """
         import sentry_sdk
         sentry_sdk.init()
-        """
-    )
+        """)
 
 
-@importorskip("iminuit")
+@importorskip('iminuit')
 def test_iminuit(pyi_builder):
     pyi_builder.test_source("""
         from iminuit import Minuit
         """)
 
 
-@importorskip("av")
+@importorskip('av')
 def test_av(pyi_builder):
     pyi_builder.test_source("""
         import av
         """)
 
 
-@importorskip("passlib")
-@xfail(
-    is_linux and is_py39 and not is_module_satisfies("passlib > 1.7.4"),
-    reason="Passlib does not account for crypt() behavior change that "
-    "was introduced in 3.9.x (python #39289).",
-)
+@importorskip('passlib')
+@xfail(is_linux and is_py39 and not is_module_satisfies('passlib > 1.7.4'),
+       reason='Passlib does not account for crypt() behavior change that '
+              'was introduced in 3.9.x (python #39289).')
 def test_passlib(pyi_builder):
     pyi_builder.test_source("""
         import passlib.apache
         """)
 
 
-@importorskip("publicsuffix2")
+@importorskip('publicsuffix2')
 def test_publicsuffix2(pyi_builder):
     pyi_builder.test_source("""
         import publicsuffix2
@@ -462,7 +441,7 @@ def test_publicsuffix2(pyi_builder):
         """)
 
 
-@importorskip("pydivert")
+@importorskip('pydivert')
 def test_pydivert(pyi_builder):
     pyi_builder.test_source("""
         import pydivert
@@ -470,33 +449,27 @@ def test_pydivert(pyi_builder):
         """)
 
 
-@importorskip("statsmodels")
-@pytest.mark.skipif(
-    not is_module_satisfies("statsmodels >= 0.12"),
-    reason="This has only been tested with statsmodels >= 0.12.",
-)
+@importorskip('statsmodels')
+@pytest.mark.skipif(not is_module_satisfies('statsmodels >= 0.12'),
+                    reason='This has only been tested with statsmodels >= 0.12.')
 def test_statsmodels(pyi_builder):
     pyi_builder.test_source("""
         import statsmodels.api as sm
         """)
 
 
-@importorskip("win32ctypes")
-@pytest.mark.skipif(not is_win, reason="pywin32-ctypes is supported only on Windows")
-@pytest.mark.parametrize("submodule", ["win32api", "win32cred", "pywintypes"])
+@importorskip('win32ctypes')
+@pytest.mark.skipif(not is_win, reason='pywin32-ctypes is supported only on Windows')
+@pytest.mark.parametrize('submodule', ['win32api', 'win32cred', 'pywintypes'])
 def test_pywin32ctypes(pyi_builder, submodule):
-    pyi_builder.test_source(
-        """
+    pyi_builder.test_source("""
         from win32ctypes.pywin32 import {0}
-        """.format(submodule)
-    )
+        """.format(submodule))
 
 
-@importorskip("pyproj")
-@pytest.mark.skipif(
-    not is_module_satisfies("pyproj >= 2.1.3"),
-    reason="The test supports only pyproj >= 2.1.3.",
-)
+@importorskip('pyproj')
+@pytest.mark.skipif(not is_module_satisfies('pyproj >= 2.1.3'),
+                    reason='The test supports only pyproj >= 2.1.3.')
 def test_pyproj(pyi_builder):
     pyi_builder.test_source("""
         import pyproj
@@ -514,7 +487,7 @@ def test_pyproj(pyi_builder):
         """)
 
 
-@importorskip("pydantic")
+@importorskip('pydantic')
 def test_pydantic(pyi_builder):
     pyi_builder.test_source("""
         import datetime
@@ -537,7 +510,7 @@ def test_pydantic(pyi_builder):
         """)
 
 
-@requires("google-api-python-client >= 2.0.0")
+@requires('google-api-python-client >= 2.0.0')
 def test_googleapiclient(pyi_builder):
     pyi_builder.test_source("""
         from googleapiclient import discovery, discovery_cache
@@ -555,7 +528,7 @@ def test_googleapiclient(pyi_builder):
         """)
 
 
-@importorskip("eth_typing")
+@importorskip('eth_typing')
 def test_eth_typing(pyi_builder):
     pyi_builder.test_source("""
         import eth_typing
@@ -570,8 +543,8 @@ def test_eth_utils_network(pyi_builder):
     """)
 
 
-@importorskip("plotly")
-@importorskip("pandas")
+@importorskip('plotly')
+@importorskip('pandas')
 def test_plotly(pyi_builder):
     pyi_builder.test_source("""
         import pandas as pd
@@ -584,7 +557,7 @@ def test_plotly(pyi_builder):
 
 
 @pytest.mark.timeout(600)
-@importorskip("dash")
+@importorskip('dash')
 def test_dash(pyi_builder):
     pyi_builder.test_source("""
         import dash
@@ -609,7 +582,7 @@ def test_dash(pyi_builder):
         """)
 
 
-@importorskip("dash_table")
+@importorskip('dash_table')
 def test_dash_table(pyi_builder):
     pyi_builder.test_source("""
         import dash
@@ -624,7 +597,7 @@ def test_dash_table(pyi_builder):
         """)
 
 
-@importorskip("dash_bootstrap_components")
+@importorskip('dash_bootstrap_components')
 def test_dash_bootstrap_components(pyi_builder):
     pyi_builder.test_source("""
         import dash
@@ -636,14 +609,14 @@ def test_dash_bootstrap_components(pyi_builder):
         """)
 
 
-@importorskip("blspy")
+@importorskip('blspy')
 def test_blspy(pyi_builder):
     pyi_builder.test_source("""
         import blspy
         """)
 
 
-@importorskip("flirpy")
+@importorskip('flirpy')
 def test_flirpy(pyi_builder):
     pyi_builder.test_source("""
         from flirpy.camera.lepton import Lepton
@@ -652,7 +625,7 @@ def test_flirpy(pyi_builder):
         """)
 
 
-@importorskip("office365")
+@importorskip('office365')
 def test_office365(pyi_builder):
     pyi_builder.test_source("""
         from office365.runtime.auth.providers.saml_token_provider import SamlTokenProvider
@@ -663,56 +636,56 @@ def test_office365(pyi_builder):
         """)
 
 
-@importorskip("thinc")
+@importorskip('thinc')
 def test_thinc(pyi_builder):
     pyi_builder.test_source("""
         from thinc.backends import numpy_ops
         """)
 
 
-@importorskip("srsly")
+@importorskip('srsly')
 def test_srsly(pyi_builder):
     pyi_builder.test_source("""
         import srsly
         """)
 
 
-@importorskip("spacy")
+@importorskip('spacy')
 def test_spacy(pyi_builder):
     pyi_builder.test_source("""
         import spacy
         """)
 
 
-@importorskip("shotgun_api3")
+@importorskip('shotgun_api3')
 def test_shotgun_api3(pyi_builder):
     pyi_builder.test_source("""
         import shotgun_api3
         """)
 
 
-@importorskip("msoffcrypto")
+@importorskip('msoffcrypto')
 def test_msoffcrypto(pyi_builder):
     pyi_builder.test_source("""
         import msoffcrypto
         """)
 
 
-@importorskip("mariadb")
+@importorskip('mariadb')
 def test_mariadb(pyi_builder):
     pyi_builder.test_source("""
         import mariadb
         """)
 
 
-@importorskip("dash_uploader")
+@importorskip('dash_uploader')
 def test_dash_uploader(pyi_builder):
     pyi_builder.test_source("""
         import dash_uploader
         """)
 
 
-@importorskip("cloudscraper")
+@importorskip('cloudscraper')
 def test_cloudscraper(pyi_builder):
     pyi_builder.test_source("""
         import cloudscraper
@@ -720,7 +693,7 @@ def test_cloudscraper(pyi_builder):
         """)
 
 
-@importorskip("mnemonic")
+@importorskip('mnemonic')
 def test_mnemonic(pyi_builder):
     pyi_builder.test_source("""
         import mnemonic
@@ -728,35 +701,35 @@ def test_mnemonic(pyi_builder):
         """)
 
 
-@importorskip("pynput")
+@importorskip('pynput')
 def test_pynput(pyi_builder):
     pyi_builder.test_source("""
         import pynput
         """)
 
 
-@importorskip("pystray")
+@importorskip('pystray')
 def test_pystray(pyi_builder):
     pyi_builder.test_source("""
         import pystray
         """)
 
 
-@importorskip("rtree")
+@importorskip('rtree')
 def test_rtree(pyi_builder):
     pyi_builder.test_source("""
         import rtree
         """)
 
 
-@importorskip("pingouin")
+@importorskip('pingouin')
 def test_pingouin(pyi_builder):
     pyi_builder.test_source("""
         import pingouin
         """)
 
 
-@importorskip("timezonefinder")
+@importorskip('timezonefinder')
 def test_timezonefinder(pyi_builder):
     pyi_builder.test_source("""
         from timezonefinder import TimezoneFinder
@@ -764,7 +737,7 @@ def test_timezonefinder(pyi_builder):
         """)
 
 
-@importorskip("uvicorn")
+@importorskip('uvicorn')
 def test_uvicorn(pyi_builder):
     pyi_builder.test_source("""
         from uvicorn import lifespan, loops
@@ -788,18 +761,15 @@ def test_swagger_spec_validator(pyi_builder):
         """)
 
 
-@requires("pythonnet < 3.dev")
-@pytest.mark.skipif(
-    not is_win,
-    reason="pythonnet 2 does not support .Net Core, so its only supported by Windows",
-)
+@requires('pythonnet < 3.dev')
+@pytest.mark.skipif(not is_win, reason='pythonnet 2 does not support .Net Core, so its only supported by Windows')
 def test_pythonnet2(pyi_builder):
     pyi_builder.test_source("""
         import clr
         """)
 
 
-@requires("pythonnet >= 3.dev")
+@requires('pythonnet >= 3.dev')
 def test_pythonnet3(pyi_builder):
     pyi_builder.test_source("""
         from clr_loader import get_coreclr
@@ -948,10 +918,8 @@ def test_pypeteer(pyi_builder):
 
 
 @importorskip("tzdata")
-@pytest.mark.skipif(
-    not is_py39 and not can_import_module("importlib_resources"),
-    reason="importlib_resources is required on python < 3.9.",
-)
+@pytest.mark.skipif(not is_py39 and not can_import_module('importlib_resources'),
+                    reason='importlib_resources is required on python < 3.9.')
 def test_tzdata(pyi_builder):
     pyi_builder.test_source("""
         import tzdata.zoneinfo  # hiddenimport
@@ -977,10 +945,8 @@ def test_tzdata(pyi_builder):
 
 
 @importorskip("backports.zoneinfo")
-@pytest.mark.skipif(
-    is_win and not can_import_module("tzdata"),
-    reason="On Windows, backports.zoneinfo requires tzdata.",
-)
+@pytest.mark.skipif(is_win and not can_import_module('tzdata'),
+                    reason='On Windows, backports.zoneinfo requires tzdata.')
 def test_backports_zoneinfo(pyi_builder):
     pyi_builder.test_source("""
         from backports import zoneinfo
@@ -990,10 +956,8 @@ def test_backports_zoneinfo(pyi_builder):
 
 
 @importorskip("zoneinfo")
-@pytest.mark.skipif(
-    is_win and not can_import_module("tzdata"),
-    reason="On Windows, zoneinfo requires tzdata.",
-)
+@pytest.mark.skipif(is_win and not can_import_module('tzdata'),
+                    reason='On Windows, zoneinfo requires tzdata.')
 def test_zoneinfo(pyi_builder):
     pyi_builder.test_source("""
         import zoneinfo
@@ -1037,10 +1001,8 @@ def test_kaleido(pyi_builder):
         """)
 
 
-@pytest.mark.skipif(
-    is_win,
-    reason="On Windows, Cairo dependencies cannot be installed using Chocolatey.",
-)
+@pytest.mark.skipif(is_win,
+                    reason='On Windows, Cairo dependencies cannot be installed using Chocolatey.')
 @importorskip("cairocffi")
 def test_cairocffi(pyi_builder):
     pyi_builder.test_source("""
@@ -1048,10 +1010,8 @@ def test_cairocffi(pyi_builder):
         """)
 
 
-@pytest.mark.skipif(
-    is_win,
-    reason="On Windows, Cairo dependencies cannot be installed using Chocolatey.",
-)
+@pytest.mark.skipif(is_win,
+                    reason='On Windows, Cairo dependencies cannot be installed using Chocolatey.')
 @importorskip("cairosvg")
 def test_cairosvg(pyi_builder):
     pyi_builder.test_source("""
@@ -1085,19 +1045,19 @@ def test_cv2_highgui(pyi_builder):
 
         # Find `GUI: <type>` line in OpenCV build information dump. This is available only in recent OpenCV versions;
         # in earlier versions, we would need to parse all subsequent backend entries, which is out of our scope here.
-        pattern = re.compile(r"$\s*GUI\s*:\s*(?P<gui>\S+)\s*^", re.MULTILINE)
+        pattern = re.compile(r'$\s*GUI\s*:\s*(?P<gui>\S+)\s*^', re.MULTILINE)
         info = cv2.getBuildInformation()
         m = pattern.search(info)
         if not m:
             return None
 
-        return m.group("gui")
+        return m.group('gui')
 
     has_gui = True
     backend = _get_cv2_highgui_backend()
     if backend is None:
         # We could not determine the backend from OpenCV information; fall back to the dist name
-        if is_module_satisfies("opencv-python-headless"):
+        if is_module_satisfies('opencv-python-headless'):
             has_gui = False
     elif backend == "NONE":
         has_gui = False
@@ -1169,42 +1129,42 @@ def test_mimesis(pyi_builder):
         """)
 
 
-@importorskip("orjson")
+@importorskip('orjson')
 def test_orjson(pyi_builder):
     pyi_builder.test_source("""
         import orjson
         """)
 
 
-@importorskip("altair")
+@importorskip('altair')
 def test_altair(pyi_builder):
     pyi_builder.test_source("""
         import altair
         """)
 
 
-@importorskip("fabric")
+@importorskip('fabric')
 def test_fabric(pyi_builder):
     pyi_builder.test_source("""
         import fabric
         """)
 
 
-@importorskip("cassandra")
+@importorskip('cassandra')
 def test_cassandra(pyi_builder):
     pyi_builder.test_source("""
         import cassandra
         """)
 
 
-@importorskip("gitlab")
+@importorskip('gitlab')
 def test_gitlab(pyi_builder):
     pyi_builder.test_source("""
         import gitlab
         """)
 
 
-@importorskip("graphql_query")
+@importorskip('graphql_query')
 def test_graphql_query(pyi_builder):
     pyi_builder.test_source("""
         from graphql_query import Operation, Query
@@ -1214,7 +1174,7 @@ def test_graphql_query(pyi_builder):
         """)
 
 
-@importorskip("shapely")
+@importorskip('shapely')
 def test_shapely(pyi_builder):
     pyi_builder.test_source("""
         from shapely.geometry import Point
@@ -1223,7 +1183,7 @@ def test_shapely(pyi_builder):
         """)
 
 
-@importorskip("lark")
+@importorskip('lark')
 def test_lark(pyi_builder):
     pyi_builder.test_source("""
         import lark
@@ -1234,14 +1194,14 @@ def test_lark(pyi_builder):
     """)
 
 
-@importorskip("stdnum")
+@importorskip('stdnum')
 def test_stdnum_iban(pyi_builder):
     pyi_builder.test_source("""
         import stdnum.iban
     """)
 
 
-@importorskip("numcodecs")
+@importorskip('numcodecs')
 def test_numcodecs(pyi_builder):
     pyi_builder.test_source("""
         # numcodecs uses multiprocessing
@@ -1251,7 +1211,7 @@ def test_numcodecs(pyi_builder):
     """)
 
 
-@importorskip("pypemicro")
+@importorskip('pypemicro')
 def test_pypemicro(pyi_builder):
     pyi_builder.test_source("""
         from pypemicro import PyPemicro
@@ -1259,31 +1219,29 @@ def test_pypemicro(pyi_builder):
     """)
 
 
-@importorskip("sounddevice")
+@importorskip('sounddevice')
 def test_sounddevice(pyi_builder):
     pyi_builder.test_source("""
         import sounddevice
     """)
 
 
-@importorskip("soundfile")
+@importorskip('soundfile')
 def test_soundfile(pyi_builder):
     pyi_builder.test_source("""
         import soundfile
     """)
 
 
-@importorskip("limits")
+@importorskip('limits')
 def test_limits(pyi_builder):
     pyi_builder.test_source("""
         import limits
     """)
 
 
-@pytest.mark.skipif(
-    is_win,
-    reason="On Windows, Weasyprint dependencies cannot be installed using Chocolatey.",
-)
+@pytest.mark.skipif(is_win,
+                    reason='On Windows, Weasyprint dependencies cannot be installed using Chocolatey.')
 @importorskip("weasyprint")
 def test_weasyprint(pyi_builder):
     pyi_builder.test_source("""
@@ -1300,7 +1258,7 @@ def test_great_expectations(pyi_builder):
         """)
 
 
-@importorskip("pyshark")
+@importorskip('pyshark')
 def test_pyshark(pyi_builder):
     pyi_builder.test_source(
         """
@@ -1312,8 +1270,8 @@ def test_pyshark(pyi_builder):
     )
 
 
-@importorskip("PyQt5")
-@importorskip("pyqtgraph")
+@importorskip('PyQt5')
+@importorskip('pyqtgraph')
 def test_pyqtgraph(pyi_builder):
     pyi_builder.test_source(
         """
@@ -1324,8 +1282,8 @@ def test_pyqtgraph(pyi_builder):
     )
 
 
-@importorskip("PyQt5")
-@importorskip("pyqtgraph")
+@importorskip('PyQt5')
+@importorskip('pyqtgraph')
 def test_pyqtgraph_colormap(pyi_builder):
     pyi_builder.test_source(
         """
@@ -1335,8 +1293,8 @@ def test_pyqtgraph_colormap(pyi_builder):
     )
 
 
-@importorskip("PyQt5")
-@importorskip("pyqtgraph")
+@importorskip('PyQt5')
+@importorskip('pyqtgraph')
 def test_pyqtgraph_remote_graphics_view(pyi_builder):
     pyi_builder.test_source(
         """
@@ -1375,13 +1333,9 @@ def test_pyqtgraph_remote_graphics_view(pyi_builder):
     )
 
 
-@importorskip("hydra")
+@importorskip('hydra')
 def test_hydra(pyi_builder, tmpdir):
-    config_file = str(
-        (Path(__file__) / "../data/test_hydra/config.yaml")
-        .resolve(strict=True)
-        .as_posix()
-    )
+    config_file = str((Path(__file__) / '../data/test_hydra/config.yaml').resolve(strict=True).as_posix())
 
     pyi_builder.test_source(
         """
@@ -1400,32 +1354,32 @@ def test_hydra(pyi_builder, tmpdir):
         if __name__ == "__main__":
             my_app()
         """,
-        pyi_args=["--add-data", os.pathsep.join((config_file, "conf"))],
+        pyi_args=['--add-data', os.pathsep.join((config_file, 'conf'))]
     )
 
 
-@importorskip("pywintypes")
+@importorskip('pywintypes')
 def test_pywintypes(pyi_builder):
     pyi_builder.test_source("""
         import pywintypes
         """)
 
 
-@importorskip("pythoncom")
+@importorskip('pythoncom')
 def test_pythoncom(pyi_builder):
     pyi_builder.test_source("""
         import pythoncom
         """)
 
 
-@importorskip("spiceypy")
+@importorskip('spiceypy')
 def test_spiceypy(pyi_builder):
     pyi_builder.test_source("""
         import spiceypy
     """)
 
 
-@importorskip("discid")
+@importorskip('discid')
 def test_discid(pyi_builder):
     pyi_builder.test_source(
         """
@@ -1443,28 +1397,28 @@ def test_discid(pyi_builder):
     )
 
 
-@importorskip("exchangelib")
+@importorskip('exchangelib')
 def test_exchangelib(pyi_builder):
     pyi_builder.test_source("""
         import exchangelib
     """)
 
 
-@importorskip("cftime")
+@importorskip('cftime')
 def test_cftime(pyi_builder):
     pyi_builder.test_source("""
         import cftime
     """)
 
 
-@importorskip("netCDF4")
+@importorskip('netCDF4')
 def test_netcdf4(pyi_builder):
     pyi_builder.test_source("""
         import netCDF4
     """)
 
 
-@importorskip("charset_normalizer")
+@importorskip('charset_normalizer')
 def test_charset_normalizer(pyi_builder):
     pyi_builder.test_source("""
         import base64
@@ -1474,25 +1428,22 @@ def test_charset_normalizer(pyi_builder):
     """)
 
 
-@importorskip("cf_units")
+@importorskip('cf_units')
 def test_cf_units(pyi_builder):
     pyi_builder.test_source("""
         import cf_units
     """)
 
 
-@importorskip("compliance_checker")
+@importorskip('compliance_checker')
 def test_compliance_checker(pyi_builder):
     # The test file - taken from the package's own test data/examples. Use an .nc file instead of .cdl one, because
     # loading the latter requires ncgen utility to be available on the system.
-    pkg_path = get_module_attribute("compliance_checker", "__path__")[0]
-    input_file = Path(pkg_path) / "tests/data/bad-trajectory.nc"
-    assert (
-        input_file.is_file()
-    ), f"Selected test file, {input_file!s} does not exist! Fix the test!"
+    pkg_path = get_module_attribute('compliance_checker', '__path__')[0]
+    input_file = Path(pkg_path) / 'tests/data/bad-trajectory.nc'
+    assert input_file.is_file(), f"Selected test file, {input_file!s} does not exist! Fix the test!"
 
-    pyi_builder.test_source(
-        """
+    pyi_builder.test_source("""
         import os
         import json
 
@@ -1517,29 +1468,27 @@ def test_compliance_checker(pyi_builder):
         # We do not really care about validation results, just that validation finished without raising any exceptions.
         print("Return value:", return_value)
         print("Errors occurred:", errors)
-    """,
-        app_args=[str(input_file)],
-    )
+    """, app_args=[str(input_file)])
 
 
-@importorskip("nbt")
+@importorskip('nbt')
 def test_nbt(pyi_builder):
     pyi_builder.test_source("""
         import nbt
     """)
 
 
-@importorskip("minecraft_launcher_lib")
+@importorskip('minecraft_launcher_lib')
 def test_minecraft_launcher_lib(pyi_builder):
     pyi_builder.test_source(
-        """
+        '''
         import minecraft_launcher_lib
         assert isinstance(minecraft_launcher_lib.utils.get_library_version(), str)
-        """
+        '''
     )
 
 
-@importorskip("moviepy")
+@importorskip('moviepy')
 def test_moviepy(pyi_builder):
     # `moviepy.editor` tries to access the `moviepy.video.fx` and `moviepy.audio.fx` plugins/modules via the
     # `moviepy.video.fx.all` and `moviepy.video.fx.all` modules, which in turn programmatically import and
@@ -1548,7 +1497,7 @@ def test_moviepy(pyi_builder):
     # `moviepy.editor` was removed in moviepy 2.x, and now all imports go through `moviepy`. The `moviepy.video.fx.all`
     # and `moviepy.video.fx.all` modules with their programmatic imports seem to be gone as well... So turn this into
     # a basic import test with 2.x series.
-    if is_module_satisfies("moviepy >= 2.0.0"):
+    if is_module_satisfies('moviepy >= 2.0.0'):
         pyi_builder.test_source("""
             import moviepy
         """)
@@ -1558,14 +1507,14 @@ def test_moviepy(pyi_builder):
         """)
 
 
-@importorskip("customtkinter")
+@importorskip('customtkinter')
 def test_customtkinter(pyi_builder):
     pyi_builder.test_source("""
         import customtkinter
     """)
 
 
-@importorskip("pylibmagic")
+@importorskip('pylibmagic')
 def test_pylibmagic(pyi_builder):
     pyi_builder.test_source("""
         import pylibmagic
@@ -1587,14 +1536,14 @@ def test_pylibmagic(pyi_builder):
     """)
 
 
-@importorskip("fastparquet")
+@importorskip('fastparquet')
 def test_fastparquet(pyi_builder):
     pyi_builder.test_source("""
         import fastparquet
     """)
 
 
-@importorskip("librosa")
+@importorskip('librosa')
 def test_librosa(pyi_builder):
     pyi_builder.test_source("""
         import librosa
@@ -1607,7 +1556,7 @@ def test_librosa(pyi_builder):
     """)
 
 
-@importorskip("librosa")
+@importorskip('librosa')
 def test_librosa_util_function(pyi_builder):
     # Test that functions from `librosa.util` that use `numba` vectorization can be run in frozen application.
     pyi_builder.test_source("""
@@ -1621,21 +1570,21 @@ def test_librosa_util_function(pyi_builder):
     """)
 
 
-@importorskip("sympy")
+@importorskip('sympy')
 def test_sympy(pyi_builder):
     pyi_builder.test_source("""
         import sympy
     """)
 
 
-@importorskip("bokeh")
+@importorskip('bokeh')
 def test_bokeh(pyi_builder):
     pyi_builder.test_source("""
         import bokeh
     """)
 
 
-@importorskip("xyzservices")
+@importorskip('xyzservices')
 def test_xyzservices(pyi_builder):
     pyi_builder.test_source("""
         import xyzservices.providers
@@ -1643,14 +1592,14 @@ def test_xyzservices(pyi_builder):
     """)
 
 
-@importorskip("mistune")
+@importorskip('mistune')
 def test_mistune(pyi_builder):
     pyi_builder.test_source("""
         import mistune
     """)
 
 
-@importorskip("jsonschema")
+@importorskip('jsonschema')
 def test_jsonschema(pyi_builder):
     pyi_builder.test_source("""
         import jsonschema
@@ -1673,14 +1622,14 @@ def test_jsonschema(pyi_builder):
     """)
 
 
-@importorskip("psutil")
+@importorskip('psutil')
 def test_psutil(pyi_builder):
     pyi_builder.test_source("""
         import psutil
     """)
 
 
-@importorskip("litestar")
+@importorskip('litestar')
 def test_litestar(pyi_builder):
     pyi_builder.test_source("""
         from litestar import Litestar, get
@@ -1701,7 +1650,7 @@ def test_litestar(pyi_builder):
     """)
 
 
-@importorskip("lingua")
+@importorskip('lingua')
 def test_lingua_language_detector(pyi_builder):
     pyi_builder.test_source("""
         from lingua import Language, LanguageDetectorBuilder
@@ -1713,7 +1662,7 @@ def test_lingua_language_detector(pyi_builder):
     """)
 
 
-@importorskip("opencc")
+@importorskip('opencc')
 def test_opencc(pyi_builder):
     pyi_builder.test_source("""
         import opencc
@@ -1724,7 +1673,7 @@ def test_opencc(pyi_builder):
     """)
 
 
-@importorskip("jieba")
+@importorskip('jieba')
 def test_jieba(pyi_builder):
     pyi_builder.test_source("""
         import jieba
@@ -1733,7 +1682,7 @@ def test_jieba(pyi_builder):
     """)
 
 
-@importorskip("simplemma")
+@importorskip('simplemma')
 def test_simplemma(pyi_builder):
     pyi_builder.test_source("""
         import simplemma
@@ -1742,7 +1691,7 @@ def test_simplemma(pyi_builder):
     """)
 
 
-@importorskip("wordcloud")
+@importorskip('wordcloud')
 def test_wordcloud(pyi_builder):
     pyi_builder.test_source("""
         import wordcloud
@@ -1751,14 +1700,14 @@ def test_wordcloud(pyi_builder):
     """)
 
 
-@importorskip("eng_to_ipa")
+@importorskip('eng_to_ipa')
 def test_eng_to_ipa(pyi_builder):
     pyi_builder.test_source("""
         import eng_to_ipa
     """)
 
 
-@importorskip("mecab")
+@importorskip('mecab')
 def test_mecab(pyi_builder):
     pyi_builder.test_source("""
         import mecab
@@ -1767,31 +1716,30 @@ def test_mecab(pyi_builder):
     """)
 
 
-@importorskip("khmernltk")
+@importorskip('khmernltk')
 def test_khmernltk(pyi_builder):
     pyi_builder.test_source("""
         import khmernltk
     """)
 
 
-@importorskip("pycrfsuite")
+@importorskip('pycrfsuite')
 def test_pycrfsuite(pyi_builder):
     pyi_builder.test_source("""
         import pycrfsuite
     """)
 
 
-@importorskip("pymorphy3")
+@importorskip('pymorphy3')
 def test_pymorphy3(pyi_builder):
     # Language availability depends on installed packages.
     available_languages = []
-    if can_import_module("pymorphy3_dicts_ru"):
-        available_languages.append("ru")
-    if can_import_module("pymorphy3_dicts_uk"):
-        available_languages.append("uk")
+    if can_import_module('pymorphy3_dicts_ru'):
+        available_languages.append('ru')
+    if can_import_module('pymorphy3_dicts_uk'):
+        available_languages.append('uk')
 
-    pyi_builder.test_source(
-        """
+    pyi_builder.test_source("""
         import sys
         import pymorphy3
 
@@ -1800,15 +1748,13 @@ def test_pymorphy3(pyi_builder):
 
         for language in languages:
             pymorphy3.MorphAnalyzer(lang=language)
-    """,
-        app_args=available_languages,
-    )
+    """, app_args=available_languages)
 
 
-@importorskip("sudachipy")
-@importorskip("sudachidict_small")
-@importorskip("sudachidict_core")
-@importorskip("sudachidict_full")
+@importorskip('sudachipy')
+@importorskip('sudachidict_small')
+@importorskip('sudachidict_core')
+@importorskip('sudachidict_full')
 def test_sudachipy(pyi_builder):
     pyi_builder.test_source("""
         from sudachipy import Dictionary
@@ -1819,28 +1765,28 @@ def test_sudachipy(pyi_builder):
     """)
 
 
-@importorskip("laonlp")
+@importorskip('laonlp')
 def test_laonlp(pyi_builder):
     pyi_builder.test_source("""
         import laonlp
     """)
 
 
-@importorskip("pythainlp")
+@importorskip('pythainlp')
 def test_pythainlp(pyi_builder):
     pyi_builder.test_source("""
         import pythainlp
     """)
 
 
-@importorskip("gmsh")
+@importorskip('gmsh')
 def test_gmsh(pyi_builder):
     pyi_builder.test_source("""
         import gmsh
     """)
 
 
-@importorskip("sspilib")
+@importorskip('sspilib')
 def test_sspilib(pyi_builder):
     pyi_builder.test_source("""
         import sspilib
@@ -1859,21 +1805,21 @@ def test_sspilib(pyi_builder):
     """)
 
 
-@importorskip("rlp")
+@importorskip('rlp')
 def test_rlp(pyi_builder):
     pyi_builder.test_source("""
         import rlp
     """)
 
 
-@importorskip("eth_rlp")
+@importorskip('eth_rlp')
 def test_eth_rlp(pyi_builder):
     pyi_builder.test_source("""
         import eth_rlp
     """)
 
 
-@importorskip("z3c.rml")
+@importorskip('z3c.rml')
 def test_z3c_rml_rml2pdf(pyi_builder):
     pyi_builder.test_source("""
         from z3c.rml import rml2pdf
@@ -1901,7 +1847,7 @@ def test_z3c_rml_rml2pdf(pyi_builder):
     """)
 
 
-@importorskip("freetype")
+@importorskip('freetype')
 def test_pyi_freetype(pyi_builder):
     pyi_builder.test_source("""
         import sys
@@ -1928,7 +1874,7 @@ def test_pyi_freetype(pyi_builder):
     """)
 
 
-@importorskip("vaderSentiment")
+@importorskip('vaderSentiment')
 def test_vadersentiment(pyi_builder):
     pyi_builder.test_source("""
         import vaderSentiment.vaderSentiment
@@ -1936,50 +1882,50 @@ def test_vadersentiment(pyi_builder):
     """)
 
 
-@importorskip("langchain")
+@importorskip('langchain')
 def test_langchain_llm_summarization_checker(pyi_builder):
     pyi_builder.test_source("""
         import langchain.chains.llm_summarization_checker.base
     """)
 
 
-@importorskip("seedir")
+@importorskip('seedir')
 def test_seedir(pyi_builder):
     pyi_builder.test_source("""
         import seedir
     """)
 
 
-@importorskip("PyTaskbar")
-@pytest.mark.skipif(not is_win, reason="PyTaskbar is supported only on Windows")
+@importorskip('PyTaskbar')
+@pytest.mark.skipif(not is_win, reason='PyTaskbar is supported only on Windows')
 def test_PyTaskbar(pyi_builder):
     pyi_builder.test_source("""
             import PyTaskbar
         """)
 
 
-@importorskip("celpy")
+@importorskip('celpy')
 def test_celpy(pyi_builder):
     pyi_builder.test_source("""
         import celpy
     """)
 
 
-@importorskip("pygwalker")
+@importorskip('pygwalker')
 def test_pygwalker(pyi_builder):
     pyi_builder.test_source("""
         import pygwalker
     """)
 
 
-@importorskip("pypylon")
+@importorskip('pypylon')
 def test_pypylon(pyi_builder):
     pyi_builder.test_source("""
         from pypylon import pylon
     """)
 
 
-@importorskip("osgeo")
+@importorskip('osgeo')
 def test_osgeo(pyi_builder):
     pyi_builder.test_source("""
         from osgeo import osr
@@ -1989,7 +1935,7 @@ def test_osgeo(pyi_builder):
     """)
 
 
-@importorskip("falcon")
+@importorskip('falcon')
 def test_falcon(pyi_builder):
     # https://github.com/falconry/falcon/blob/v3.1.3/examples/things.py
     pyi_builder.test_source("""
@@ -1997,7 +1943,7 @@ def test_falcon(pyi_builder):
     """)
 
 
-@importorskip("iso639")
+@importorskip('iso639')
 def test_iso639(pyi_builder):
     pyi_builder.test_source("""
         from iso639 import Lang
@@ -2006,7 +1952,7 @@ def test_iso639(pyi_builder):
 
 
 # Check that `numba.cloudpickle.cloudpickle_fast` is collected even if it is not directly imported anywhere.
-@importorskip("numba")
+@importorskip('numba')
 def test_numba_cloudpickle_fast(pyi_builder):
     pyi_builder.test_source("""
         # Assume the application or its dependencies import numba somewhere.
@@ -2020,7 +1966,7 @@ def test_numba_cloudpickle_fast(pyi_builder):
 
 
 # Check that `cloudpickle.cloudpickle_fast` is collected even if it is not directly imported anywhere.
-@importorskip("cloudpickle")
+@importorskip('cloudpickle')
 def test_cloudpickle_fast(pyi_builder):
     pyi_builder.test_source("""
         # Assume the application or its dependencies import cloudpickle somewhere.
@@ -2034,7 +1980,7 @@ def test_cloudpickle_fast(pyi_builder):
 
 
 # Check if pptx template is included
-@importorskip("pptx")
+@importorskip('pptx')
 def test_pptx(pyi_builder):
     pyi_builder.test_source("""
         import pptx
@@ -2042,7 +1988,7 @@ def test_pptx(pyi_builder):
     """)
 
 
-@importorskip("opentelemetry.sdk")
+@importorskip('opentelemetry.sdk')
 def test_opentelemetry(pyi_builder):
     # Basic tracer example, taken from
     # https://github.com/open-telemetry/opentelemetry-python/blob/main/docs/examples/basic_tracer/basic_trace.py
@@ -2065,7 +2011,7 @@ def test_opentelemetry(pyi_builder):
 
 
 # Basic test for cryptography package
-@importorskip("cryptography")
+@importorskip('cryptography')
 def test_cryptography(pyi_builder):
     pyi_builder.test_source("""
         from cryptography.fernet import Fernet
@@ -2080,7 +2026,7 @@ def test_cryptography(pyi_builder):
     """)
 
 
-@importorskip("xarray")
+@importorskip('xarray')
 def test_xarray(pyi_builder):
     pyi_builder.test_source("""
         import xarray as xr
@@ -2097,10 +2043,8 @@ def test_xarray(pyi_builder):
 
 # Shows that we need to collect `xarray.chunkmanagers` entry point.
 # See: https://github.com/pyinstaller/pyinstaller/issues/8786
-@importorskip("xarray")
-@importorskip(
-    "dask"
-)  # requires dask for default 'dask' chunk manager to become available
+@importorskip('xarray')
+@importorskip('dask')  # requires dask for default 'dask' chunk manager to become available
 def test_xarray_chunk(pyi_builder):
     pyi_builder.test_source("""
         import xarray as xr
@@ -2110,24 +2054,21 @@ def test_xarray_chunk(pyi_builder):
     """)
 
 
-@importorskip("tables")
+@importorskip('tables')
 def test_pytables(pyi_builder):
     # NOTE: run_from_path=True prevents `pyi_builder` from completely clearing the `PATH` environment variable. At the
     # time of writing, `cpu_info` (used by PyTables) raises error if `PATH` is missing from `os.environ`.
-    pyi_builder.test_source(
-        """
+    pyi_builder.test_source("""
         # `tables` uses cpu_info package during initialization, which in turn uses `multiprocessing`, so we need to call
         # `multiprocessing.freeze_support()` before importing `tables`.
         import multiprocessing
         multiprocessing.freeze_support()
 
         import tables
-    """,
-        run_from_path=True,
-    )
+    """, run_from_path=True)
 
 
-@importorskip("schwifty")
+@importorskip('schwifty')
 def test_schwifty(pyi_builder):
     pyi_builder.test_source("""
         import schwifty
@@ -2139,7 +2080,7 @@ def test_schwifty(pyi_builder):
     """)
 
 
-@importorskip("eccodes")
+@importorskip('eccodes')
 def test_eccodes_gribapi(pyi_builder):
     pyi_builder.test_source("""
         import sys
@@ -2183,7 +2124,7 @@ def test_eccodes_gribapi(pyi_builder):
     """)
 
 
-@importorskip("dbus_fast")
+@importorskip('dbus_fast')
 def test_dbus_fast(pyi_builder):
     pyi_builder.test_source("""
         import os
@@ -2223,7 +2164,7 @@ def test_dbus_fast(pyi_builder):
     """)
 
 
-@importorskip("patoolib")
+@importorskip('patoolib')
 def test_patoolib(pyi_builder):
     pyi_builder.test_source("""
         import patoolib
@@ -2244,14 +2185,14 @@ def test_patoolib(pyi_builder):
     """)
 
 
-@importorskip("cmocean")
+@importorskip('cmocean')
 def test_cmocean(pyi_builder):
     pyi_builder.test_source("""
         import cmocean
     """)
 
 
-@importorskip("tzwhere")
+@importorskip('tzwhere')
 def test_tzwhere(pyi_builder):
     pyi_builder.test_source("""
         from tzwhere import tzwhere
@@ -2259,28 +2200,28 @@ def test_tzwhere(pyi_builder):
     """)
 
 
-@importorskip("pydicom")
+@importorskip('pydicom')
 def test_pydicom(pyi_builder):
     pyi_builder.test_source("""
         import pydicom
     """)
 
 
-@importorskip("pyexcel_ods")
+@importorskip('pyexcel_ods')
 def test_pyexcel_ods(pyi_builder):
     pyi_builder.test_source("""
         import pyexcel_ods
     """)
 
 
-@importorskip("itk")
+@importorskip('itk')
 def test_itk(pyi_builder):
     pyi_builder.test_source("""
         import itk
     """)
 
 
-@importorskip("slixmpp")
+@importorskip('slixmpp')
 def test_slixmpp(pyi_builder):
     pyi_builder.test_source("""
         import slixmpp
@@ -2288,7 +2229,7 @@ def test_slixmpp(pyi_builder):
     """)
 
 
-@importorskip("capstone")
+@importorskip('capstone')
 def test_capstone(pyi_builder):
     pyi_builder.test_source("""
         import capstone
@@ -2296,28 +2237,28 @@ def test_capstone(pyi_builder):
     """)
 
 
-@importorskip("yapf")
+@importorskip('yapf')
 def test_yapf(pyi_builder):
     pyi_builder.test_source("""
         import yapf
     """)
 
 
-@importorskip("grapheme")
+@importorskip('grapheme')
 def test_grapheme(pyi_builder):
     pyi_builder.test_source("""
         import grapheme
     """)
 
 
-@importorskip("xmlschema")
+@importorskip('xmlschema')
 def test_xmlschema(pyi_builder):
     pyi_builder.test_source("""
         import xmlschema
     """)
 
 
-@importorskip("saml2")
+@importorskip('saml2')
 def test_saml2(pyi_builder):
     pyi_builder.test_source("""
         # this loads XSD files
@@ -2342,7 +2283,6 @@ def _tkinter_fully_usable():
     @isolated.decorate
     def _create_tkinter_window():
         import tkinter
-
         tkinter.Tk()
 
     try:
@@ -2353,7 +2293,7 @@ def _tkinter_fully_usable():
     return True
 
 
-@importorskip("sv_ttk")
+@importorskip('sv_ttk')
 def test_sv_ttk(pyi_builder):
     if not _tkinter_fully_usable():
         pytest.skip("tkinter is not fully usable.")
@@ -2365,20 +2305,19 @@ def test_sv_ttk(pyi_builder):
     """)
 
 
-@importorskip("toga")
+@importorskip('toga')
 def test_toga(pyi_builder):
     pyi_builder.test_script(
         "pyi_toga_app.py",
-        app_args=["--automatic-shutdown", "5"],
-        pyi_args=["--windowed"] if is_darwin else [],
+        app_args=['--automatic-shutdown', '5'],
+        pyi_args=['--windowed'] if is_darwin else [],
     )
 
 
-@importorskip("numbers_parser")
+@importorskip('numbers_parser')
 def test_numbers_parser(pyi_builder, tmpdir):
     output_filename = tmpdir / "output.numbers"
-    pyi_builder.test_source(
-        """
+    pyi_builder.test_source("""
         import sys
         import numbers_parser
 
@@ -2392,19 +2331,16 @@ def test_numbers_parser(pyi_builder, tmpdir):
         table.write(1, 2, 2000)
         table.write(1, 3, 3000)
         doc.save(output_filename)
-    """,
-        app_args=[str(output_filename)],
-    )
+    """, app_args=[str(output_filename)])
 
 
-@importorskip("h3")
+@importorskip('h3')
 def test_h3(pyi_builder):
     pyi_builder.test_source("""
         import h3
     """)
 
-
-@importorskip("selectolax")
+@importorskip('selectolax')
 def test_selectolax(pyi_builder):
     pyi_builder.test_source("""
         import selectolax
