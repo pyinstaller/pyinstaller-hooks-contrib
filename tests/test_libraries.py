@@ -10,8 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-import os
-from pathlib import Path
+import pathlib
 
 import pytest
 
@@ -462,9 +461,9 @@ def test_statsmodels(pyi_builder):
 @pytest.mark.skipif(not is_win, reason='pywin32-ctypes is supported only on Windows')
 @pytest.mark.parametrize('submodule', ['win32api', 'win32cred', 'pywintypes'])
 def test_pywin32ctypes(pyi_builder, submodule):
-    pyi_builder.test_source("""
-        from win32ctypes.pywin32 import {0}
-        """.format(submodule))
+    pyi_builder.test_source(f"""
+        from win32ctypes.pywin32 import {submodule}
+        """)
 
 
 @importorskip('pyproj')
@@ -1334,8 +1333,8 @@ def test_pyqtgraph_remote_graphics_view(pyi_builder):
 
 
 @importorskip('hydra')
-def test_hydra(pyi_builder, tmpdir):
-    config_file = str((Path(__file__) / '../data/test_hydra/config.yaml').resolve(strict=True).as_posix())
+def test_hydra(pyi_builder):
+    config_file = pathlib.Path(__file__).parent / 'data' / 'test_hydra' / 'config.yaml'
 
     pyi_builder.test_source(
         """
@@ -1354,7 +1353,7 @@ def test_hydra(pyi_builder, tmpdir):
         if __name__ == "__main__":
             my_app()
         """,
-        pyi_args=['--add-data', os.pathsep.join((config_file, 'conf'))]
+        pyi_args=['--add-data', f"{config_file}:conf"]
     )
 
 
@@ -1440,7 +1439,7 @@ def test_compliance_checker(pyi_builder):
     # The test file - taken from the package's own test data/examples. Use an .nc file instead of .cdl one, because
     # loading the latter requires ncgen utility to be available on the system.
     pkg_path = get_module_attribute('compliance_checker', '__path__')[0]
-    input_file = Path(pkg_path) / 'tests/data/bad-trajectory.nc'
+    input_file = pathlib.Path(pkg_path) / 'tests' / 'data' / 'bad-trajectory.nc'
     assert input_file.is_file(), f"Selected test file, {input_file!s} does not exist! Fix the test!"
 
     pyi_builder.test_source("""
@@ -2315,8 +2314,8 @@ def test_toga(pyi_builder):
 
 
 @importorskip('numbers_parser')
-def test_numbers_parser(pyi_builder, tmpdir):
-    output_filename = tmpdir / "output.numbers"
+def test_numbers_parser(pyi_builder, tmp_path):
+    output_filename = tmp_path / "output.numbers"
     pyi_builder.test_source("""
         import sys
         import numbers_parser

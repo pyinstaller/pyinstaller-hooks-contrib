@@ -375,8 +375,8 @@ def test_ultralytics_yolo(pyi_builder):
 @importorskip('onnxruntime')
 @importorskip('onnx')
 @importorskip('torch')
-def test_onnxruntime_gpu_inference(pyi_builder, tmpdir):
-    model_file = tmpdir / "test-model.onnx"
+def test_onnxruntime_gpu_inference(pyi_builder, tmp_path):
+    model_file = tmp_path / "test-model.onnx"
 
     # Build first application: model creation + export (Torch + ONNX)
     pyi_builder.test_source("""

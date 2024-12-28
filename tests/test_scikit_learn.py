@@ -41,6 +41,6 @@ onedir_only = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
     'svm', 'tree', 'discriminant_analysis', 'impute', 'compose'
 ])
 def test_sklearn(pyi_builder, submodule):
-    pyi_builder.test_source("""
-        import sklearn.{0}
-        """.format(submodule))
+    pyi_builder.test_source(f"""
+        import sklearn.{submodule}
+        """)
