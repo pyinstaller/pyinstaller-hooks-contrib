@@ -34,9 +34,9 @@ onedir_only = pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
     'restoration', 'segmentation', 'transform', 'util'
 ])
 def test_skimage(pyi_builder, submodule):
-    pyi_builder.test_source("""
-        import skimage.{0}
-        """.format(submodule))
+    pyi_builder.test_source(f"""
+        import skimage.{submodule}
+        """)
 
 
 # Test the ORB descriptor, which requires the data file with descriptor sample points.
