@@ -1,0 +1,3 @@
+Add hook for ``ruamel.yaml`` to collect its plugins, and ensure that
+plugins' ``__plug_in__`` modules are collected as source .py files
+(which is necessary for their discovery).

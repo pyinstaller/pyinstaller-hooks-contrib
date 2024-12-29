@@ -2345,3 +2345,18 @@ def test_selectolax(pyi_builder):
     pyi_builder.test_source("""
         import selectolax
     """)
+
+
+@importorskip('ruamel.yaml')
+@pytest.mark.skipif(
+    not is_module_satisfies('ruamel.yaml.string'),
+    reason='ruamel.yaml.string plugin is not installed',
+)
+def test_ruamel_yaml_string_plugin(pyi_builder):
+    pyi_builder.test_source("""
+        import ruamel.yaml
+
+        yaml = ruamel.yaml.YAML(typ=['rt', 'string'])
+        data  = dict(abc=42, help=['on', 'its', 'way'])
+        print(yaml.dump_to_string(data))
+    """)
