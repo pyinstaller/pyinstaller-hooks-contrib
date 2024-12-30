@@ -9,8 +9,8 @@ APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.35.86
-botocore==1.35.86
+boto3==1.35.90
+botocore==1.35.90
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -18,7 +18,7 @@ cassandra-driver==3.29.2
 capstone==5.0.3
 cf-units==3.3.0; sys_platform != 'win32' and python_version >= '3.10'
 cftime==1.6.4.post1
-charset_normalizer==3.4.0
+charset_normalizer==3.4.1
 cloudpickle==3.1.0
 cloudscraper==1.2.71
 cmocean==4.0.3
@@ -36,13 +36,13 @@ eth_utils==5.1.0
 fabric==3.2.2
 falcon==4.0.2
 fiona==1.10.1; sys_platform != 'win32'
-folium==0.19.2; python_version >= '3.9'
+folium==0.19.3; python_version >= '3.9'
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
 google-api-python-client==2.156.0
 grapheme==0.6.0
 graphql-query==1.4.0
-python-gitlab==5.2.0; python_version >= '3.9'
+python-gitlab==5.3.0; python_version >= '3.9'
 h5py==3.12.1; python_version >= '3.9'
 humanize==4.11.0; python_version >= '3.9'
 iminuit==2.30.1; python_version >= '3.9'
@@ -80,7 +80,7 @@ pydicom==3.0.1; python_version >= '3.10'
 pyexcelerate==0.12.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != 'win32'
-pylint==3.3.2; python_version >= '3.9'
+pylint==3.3.3; python_version >= '3.9'
 pypemicro==0.1.11
 pyphen==0.17.0; python_version >= '3.9'
 pyppeteer==2.0.0
@@ -105,7 +105,7 @@ sacremoses==0.1.1
 scipy==1.14.1; python_version >= '3.10'
 sentry-sdk==2.19.2
 shotgun_api3==3.5.1
-slixmpp==1.8.5
+slixmpp==1.8.6
 spacy==3.8.3; python_version >= '3.10' and python_version < '3.13'
 srsly==2.5.0; python_version >= "3.9"
 sv-ttk==2.6.0
@@ -113,8 +113,8 @@ swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.20746
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.7; python_version > '3.8'
-trame==3.7.1
-trame-client==3.5.0
+trame==3.7.5; python_version >= '3.9'
+trame-client==3.5.1; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
 trame-datagrid==0.2.1
@@ -133,7 +133,7 @@ trame-pvui==0.1.1
 trame-quasar==0.2.1
 trame-rca==0.6.0
 trame-router==2.3.0
-trame-server==3.2.3
+trame-server==3.2.4; python_version >= '3.9'
 trame-simput==2.5.0
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
@@ -148,7 +148,7 @@ Twisted==24.11.0
 tzdata==2024.2
 Unidecode==1.3.8
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
-vtk==9.4.0; python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64'
+vtk==9.4.1; python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64'
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==63.1; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
@@ -158,7 +158,7 @@ zeep==4.3.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= '3.10'
-orjson==3.10.12
+orjson==3.10.13
 altair==5.5.0; python_version >= '3.9'
 shapely==2.0.6
 lark==1.2.2
@@ -185,7 +185,7 @@ fastparquet==2024.11.0; python_version >= '3.9'
 librosa==0.10.2.post1
 sympy==1.13.3
 xyzservices==2024.9.0
-mistune==3.0.2
+mistune==3.1.0
 pydantic==2.10.4
 jsonschema==4.23.0
 psutil==6.1.1
