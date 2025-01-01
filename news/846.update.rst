@@ -1,0 +1,6 @@
+Revise the search for OpenSSL shared library and ``ossl-modules`` directory
+in the ``cryptography`` hook, in order to mitigate issues with unrelated
+copies of OpenSSL ending up being pulled into the build. Most notably,
+the hook should not be searching for OpenSSL shared library when
+``cryptography`` PyPI wheel is installed, because those ship with
+extensions that are statically linked against OpenSSL.

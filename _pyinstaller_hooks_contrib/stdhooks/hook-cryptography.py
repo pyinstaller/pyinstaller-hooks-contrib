@@ -50,52 +50,57 @@ for ext in compat.EXTENSION_SUFFIXES:
         binaries.append((f, 'cryptography'))
 
 
-# Check if cryptography was built with support for OpenSSL >= 3.0.0. In that case, we might need to collect external
-# OpenSSL modules, if OpenSSL was built with modules support. It seems the best indication of this is the presence
-# of ossl-modules directory next to the OpenSSL shared library.
+# Check if `cryptography` is dynamically linked against OpenSSL >= 3.0.0. In that case, we might need to collect
+# external OpenSSL modules, if OpenSSL was built with modules support. It seems the best indication of this is the
+# presence of `ossl-modules` directory next to the OpenSSL shared library.
+#
+# NOTE: PyPI wheels ship with extensions statically linked against OpenSSL, so this is mostly catering alternative
+# installation methods (Anaconda on all OSes, Homebrew on macOS, various linux distributions).
 try:
     @isolated.decorate
     def _check_cryptography_openssl3():
+        # Check if OpenSSL 3 is used.
         from cryptography.hazmat.backends.openssl.backend import backend
         openssl_version = backend.openssl_version_number()
-        return openssl_version >= 0x30000000
+        if openssl_version < 0x30000000:
+            return False, None
 
-    uses_openssl3 = _check_cryptography_openssl3()
+        # Obtain path to the bindings module for binary dependency analysis. Under older versions of cryptography,
+        # this was a separate `_openssl` module; in contemporary versions, it is `_rust` module.
+        try:
+            import cryptography.hazmat.bindings._openssl as bindings_module
+        except ImportError:
+            import cryptography.hazmat.bindings._rust as bindings_module
+
+        return True, str(bindings_module.__file__)
+
+    uses_openssl3, bindings_module = _check_cryptography_openssl3()
 except Exception:
     logger.warning(
         "hook-cryptography: failed to determine whether cryptography is using OpenSSL >= 3.0.0", exc_info=True
     )
-    uses_openssl3 = False
+    uses_openssl3, bindings_module = False, None
 
 if uses_openssl3:
-    # Determine location of OpenSSL shared library.
+    # Determine location of OpenSSL shared library, provided that extension module is dynamically linked against it.
     # This requires the new PyInstaller.bindepend API from PyInstaller >= 6.0.
     openssl_lib = None
     if is_module_satisfies("PyInstaller >= 6.0"):
         from PyInstaller.depend import bindepend
 
         if compat.is_win:
-            # Resolve the given library name; first, search the python library directory for python-provided OpenSSL.
-            lib_name = 'libssl-3-x64.dll' if compat.is_64bits else 'libssl-3.dll'
-            openssl_lib = bindepend.resolve_library_path(lib_name, search_paths=[compat.base_prefix])
+            SSL_LIB_NAME = 'libssl-3-x64.dll' if compat.is_64bits else 'libssl-3.dll'
         elif compat.is_darwin:
-            # First, attempt to resolve using only {sys.base_prefix}/lib - `bindepend.resolve_library_path` uses
-            # standard dyld search semantics and uses the given search paths as fallback (and would therefore
-            # favor Homebrew-provided version of the library).
-            lib_name = 'libssl.3.dylib'
-            base_prefix_lib_dir = os.path.join(compat.base_prefix, 'lib')
-            openssl_lib = bindepend._resolve_library_path_in_search_paths(lib_name, search_paths=[base_prefix_lib_dir])
-            if openssl_lib is None:
-                openssl_lib = bindepend.resolve_library_path(lib_name, search_paths=[base_prefix_lib_dir])
+            SSL_LIB_NAME = 'libssl.3.dylib'
         else:
-            # Linux and other POSIX systems
-            lib_name = 'libssl.so.3'
-            openssl_lib = bindepend.resolve_library_path(lib_name)
-            if openssl_lib is None and compat.is_musl:
-                # Work-around for bug in `bindepend.resolve_library_path` in PyInstaller 6.x, <= 6.6; for search without
-                # ldconfig cache (for example, with musl libc on Alpine linux), we need library name without suffix.
-                lib_name = 'libssl'
-                openssl_lib = bindepend.resolve_library_path(lib_name)
+            SSL_LIB_NAME = 'libssl.so.3'
+
+        linked_libs = bindepend.get_imports(bindings_module)
+        openssl_lib = [
+            # Compare the basename of lib_name, because lib_fullpath is None if we fail to resolve the library.
+            lib_fullpath for lib_name, lib_fullpath in linked_libs if os.path.basename(lib_name) == SSL_LIB_NAME
+        ]
+        openssl_lib = openssl_lib[0] if openssl_lib else None
     else:
         logger.warning(
             "hook-cryptography: full support for cryptography + OpenSSL >= 3.0.0 requires PyInstaller >= 6.0"
@@ -103,7 +108,7 @@ if uses_openssl3:
 
     # Check for presence of ossl-modules directory next to the OpenSSL shared library.
     if openssl_lib:
-        logger.debug("hook-cryptography: OpenSSL shared library location: %r", openssl_lib)
+        logger.info("hook-cryptography: cryptography uses dynamically-linked OpenSSL: %r", openssl_lib)
 
         openssl_lib_dir = pathlib.Path(openssl_lib).parent
 
@@ -123,3 +128,5 @@ if uses_openssl3:
         if ossl_modules_dir.is_dir():
             logger.debug("hook-cryptography: collecting OpenSSL modules directory: %r", str(ossl_modules_dir))
             binaries.append((str(ossl_modules_dir), 'ossl-modules'))
+    else:
+        logger.info("hook-cryptography: cryptography does not seem to be using dynamically linked OpenSSL.")
