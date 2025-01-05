@@ -469,3 +469,24 @@ def test_onnxruntime_gpu_inference(pyi_builder, tmp_path):
 
             assert (z == x + y).all()
     """, app_name="model_test", app_args=[str(model_file)])
+
+
+# Basic test for Segment Anything Model 2 (SAM 2)
+@importorskip('torch')
+@importorskip('sam2')
+def test_sam2(pyi_builder):
+    pyi_builder.test_source("""
+        from sam2.build_sam import build_sam2
+        from sam2.sam2_image_predictor import SAM2ImagePredictor
+
+        # No checkpoint data (= untrained model), since we would have to download it.
+        checkpoint = None
+
+        # Run on CPU to make test applicable to all OSes (default device is CUDA).
+        device = 'cpu'
+
+        model_cfg = "configs/sam2.1/sam2.1_hiera_t.yaml"
+        predictor = SAM2ImagePredictor(build_sam2(model_cfg, checkpoint, device=device))
+
+        print(predictor)
+    """)
