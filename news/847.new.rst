@@ -1,0 +1,1 @@
+Add hook for ``sam2`` (Segment Anything Model 2).
