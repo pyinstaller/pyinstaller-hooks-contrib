@@ -12,7 +12,8 @@
 
 import pytest
 
-from PyInstaller.utils.tests import importorskip
+from PyInstaller import isolated
+from PyInstaller.utils.tests import importorskip, requires
 
 
 # Run the tests in onedir mode only
@@ -490,3 +491,34 @@ def test_sam2(pyi_builder):
 
         print(predictor)
     """)
+
+
+# Check that backends are properly collected with triton >= 3.0.0
+@requires('triton >= 3.0.0')
+def test_triton_backends(pyi_builder, tmp_path):
+    # Get the list of backends in unfrozen python
+    @isolated.decorate
+    def _get_triton_backends():
+        import triton.backends
+        return sorted(list(triton.backends.backends.keys()))
+
+    backends_unfrozen = _get_triton_backends()
+    print(f"Unfrozen backends: {backends_unfrozen}")
+
+    # Obtain list of backends in frozen application.
+    output_file = tmp_path / "output.txt"
+
+    pyi_builder.test_source("""
+        import sys
+        import triton.backends
+
+        with open(sys.argv[1], 'w') as fp:
+            for backend_name in triton.backends.backends.keys():
+                print(f"{backend_name}", file=fp)
+    """, app_args=[str(output_file)])
+
+    with open(output_file, "r") as fp:
+        backends_frozen = sorted(line.strip() for line in fp)
+    print(f"Frozen backends: {backends_frozen}")
+
+    assert backends_frozen == backends_unfrozen
