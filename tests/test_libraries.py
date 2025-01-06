@@ -1112,6 +1112,48 @@ def test_pygraphviz_bundled_programs(pyi_builder):
         """)
 
 
+@importorskip("pygraphviz")
+def test_pygraphviz_functional(pyi_builder, tmp_path):
+    # Functional test for pygraphviz that tries to use different programs and output formats to ensure that graphviz
+    # programs and plugins are properly collected.
+    pyi_builder.test_source("""
+        import sys
+        import os
+        import pygraphviz as pgv
+
+        output_dir = sys.argv[1] if len(sys.argv) >= 2 else '.'
+
+        print("Setting up graph...")
+        G = pgv.AGraph(strict=False, directed=True)
+
+        # Set default node attributes
+        G.graph_attr["label"] = "Name of graph"
+        G.node_attr["shape"] = "circle"
+        G.edge_attr["color"] = "red"
+
+        G.add_node("a")
+        G.add_edge("b", "c")  # add edge (and the nodes)
+
+        print("Dumping graph to string...")
+        s = G.string()
+        print(s)
+
+        print("Test layout with default program (= neato)")
+        G.layout()
+
+        print("Test layout with 'dot' program")
+        G.layout(prog="dot")
+
+        print("Writing previously positioned graph to PNG file...")
+        G.draw(os.path.join(output_dir, "file.png"))
+
+        print("Using 'circo' to position, writing PS file...")
+        G.draw(os.path.join(output_dir, "file.ps"), prog="circo")
+
+        print("Done!")
+        """, app_args=[str(tmp_path)])
+
+
 @importorskip("pypsexec")
 def test_pypsexec(pyi_builder):
     pyi_builder.test_source("""
