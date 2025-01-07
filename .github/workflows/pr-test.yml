@@ -119,6 +119,14 @@ jobs:
           # Requires by pygraphviz
           brew install graphviz
 
+          # On macos-14 arm64 runners, Homebrew is installed in /opt/homebrew instead of /usr/local prefix, and
+          # its headers and shared libraries are not in the default search path. Add them by setting CPPFLAGS
+          # and LDFLAGS. This is required by `pygraphviz`.
+          if [ "$(brew --prefix)" = "/opt/homebrew" ]; then
+              echo "CPPFLAGS=-I/opt/homebrew/include${CPPFLAGS+ ${CPPFLAGS}}" >> $GITHUB_ENV
+              echo "LDFLAGS=-L/opt/homebrew/lib${LDFLAGS+ ${LDFLAGS}}" >> $GITHUB_ENV
+          fi
+
       - name: Install dependencies
         shell: bash
         run: |
