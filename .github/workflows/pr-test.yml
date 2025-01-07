@@ -94,6 +94,8 @@ jobs:
             libxinerama1 libgomp1
           # Required by PyGObject (dependency of toga/toga-gtk)
           sudo apt-get install -y gir1.2-gtk-3.0 libgirepository1.0-dev
+          # Required by pygraphviz
+          sudo apt-get install -y graphviz graphviz-dev
 
       - name: Install brew dependencies
         if: startsWith(matrix.os, 'macos')
@@ -114,6 +116,8 @@ jobs:
           # This one is required by eccodes (binary wheels with bundled eccodes
           # library are provided only for macOS 13+).
           brew install eccodes
+          # Requires by pygraphviz
+          brew install graphviz
 
       - name: Install dependencies
         shell: bash
