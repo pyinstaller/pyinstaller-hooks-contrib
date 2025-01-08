@@ -10,6 +10,8 @@
 # SPDX-License-Identifier GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import copy_metadata
+from PyInstaller.utils.hooks import copy_metadata, is_module_satisfies
 
-datas = copy_metadata('prettytable')
+# Starting with v3.12.0, `prettytable` does not query its version from metadata.
+if is_module_satisfies('prettytable < 3.12.0'):
+    datas = copy_metadata('prettytable')
