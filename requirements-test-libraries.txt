@@ -1,5 +1,5 @@
-# Backport of importlib.resources for python 3.8 and earlier.
-importlib_resources==6.5.2; python_version < '3.9'
+# Backport of importlib.resources for python 3.8; last version that supports python 3.8 is v6.4.5.
+importlib_resources==6.4.5; python_version < '3.9'  # pyup: ignore
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
