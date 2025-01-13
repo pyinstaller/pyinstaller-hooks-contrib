@@ -9,10 +9,11 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 #-----------------------------------------------------------------------------
-"""
-Collects in-repo dask.yaml and dask-schema.yaml data files.
-"""
 
 from PyInstaller.utils.hooks import collect_data_files
 
-datas = collect_data_files('dask', includes=['*.yml', '*.yaml'])
+# Collect data files:
+#  - dask.yaml
+#  - dask-schema.yaml
+#  - widgets/templates/*.html.j2 (but avoid collecting files from `widgets/tests/templates`!)
+datas = collect_data_files('dask', includes=['*.yml', '*.yaml', 'widgets/templates/*.html.j2'])
