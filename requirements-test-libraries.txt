@@ -55,7 +55,7 @@ markdown==3.7
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 # moviepy depends on imageio-ffmpeg, which does not provide binary wheels for arm64 macOS
-moviepy==2.1.1; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
+moviepy==2.1.2; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
