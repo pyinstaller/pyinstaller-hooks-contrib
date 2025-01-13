@@ -114,7 +114,7 @@ swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.20746
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.7; python_version > '3.8'
-trame==3.7.5; python_version >= '3.9'
+trame==3.7.6; python_version >= '3.9'
 trame-client==3.5.1; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
