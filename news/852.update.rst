@@ -1,0 +1,3 @@
+Update ``dask`` hook to collect template files from ``dask/widgets/templates``
+directory; these file become mandatory when using ``dask.array`` and
+``jinja2`` is available.

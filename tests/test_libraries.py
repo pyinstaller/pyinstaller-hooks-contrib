@@ -2095,6 +2095,18 @@ def test_xarray_chunk(pyi_builder):
     """)
 
 
+# Test that we can import `dask.array` when `jinja2` is also available. In this case, `dask.array.core` ends up loading
+# template files from `dask.widgets.templates`. Requires `numpy` (or `dask[array]`) for `dask.array` to be importable,
+# and `jinja2` (`dask[diagnostics]`) for template files to become mandatory.
+@importorskip('dask')
+@importorskip('jinja2')
+@importorskip('numpy')
+def test_dask_array(pyi_builder):
+    pyi_builder.test_source("""
+        import dask.array
+    """)
+
+
 @importorskip('tables')
 def test_pytables(pyi_builder):
     # NOTE: run_from_path=True prevents `pyi_builder` from completely clearing the `PATH` environment variable. At the
