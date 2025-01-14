@@ -10,7 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import copy_metadata, collect_submodules
+from PyInstaller.utils.hooks import collect_submodules
 
-datas = copy_metadata('fsspec')
 hiddenimports = collect_submodules('fsspec')
