@@ -2078,7 +2078,6 @@ def test_xarray(pyi_builder):
             dims=("x", "y"),
             coords={"x": [10, 20]},
         )
-        data_zarr = data.to_zarr()
         print(data)
     """)
 
@@ -2386,6 +2385,23 @@ def test_numbers_parser(pyi_builder, tmp_path):
         table.write(1, 3, 3000)
         doc.save(output_filename)
     """, app_args=[str(output_filename)])
+
+
+@importorskip('zarr')
+@importorskip('xarray')
+def test_xarray_to_zarr(pyi_builder):
+    pyi_builder.test_source("""
+        import xarray as xr
+        import numpy as np
+
+        data = xr.DataArray(
+            np.random.randn(2, 3),
+            dims=("x", "y"),
+            coords={"x": [10, 20]},
+        )
+        data_zarr = data.to_zarr()
+        print(data)
+    """)
 
 
 @importorskip('h3')
