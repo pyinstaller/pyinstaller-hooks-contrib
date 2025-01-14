@@ -2386,6 +2386,50 @@ def test_numbers_parser(pyi_builder, tmp_path):
         doc.save(output_filename)
     """, app_args=[str(output_filename)])
 
+@importorskip('intake')
+def test_intake(pyi_builder):
+    pyi_builder.test_source("""
+        import sys
+        import intake
+        
+        # TODO: change my version when updating the requirements
+        assert intake.__version__ == '2.0.7', f"Expected intake version 2.0.7, got {intake.__version__}"
+        assert isinstance(intake.Catalog(), intake.Catalog), "Failed to create intake Catalog"
+        
+        # core registry plugins check
+        plugins = intake.registry
+        assert plugins is not None, "Plugin registry is None"
+        plugins = set(plugins)
+        expected_core_plugins = {'jsonfiles', 'ndzarr', 'yaml_files_cat', 'textfiles', 'yaml_file_cat', 'tiled_cat', 'csv'}
+        available_plugins = set(plugins)
+        assert expected_core_plugins.issubset(available_plugins), \
+            f"Missing core plugins. Expected at least {expected_core_plugins}, got {available_plugins}"
+        
+        # driver plugin imports availibility check
+        plugin_patterns = {
+            'intake_xarray': ['xarray', 'netcdf', 'zarr'],
+            'intake_parquet': ['parquet'],
+            'intake_sql': ['sql'],
+            'intake_elasticsearch': ['elasticsearch'],
+            'intake_spark': ['spark'],
+            'intake_accumulo': ['accumulo'],
+            'intake_solr': ['solr'],
+            'intake_geopandas': ['geopandas'],
+            'intake_mongo': ['mongo']
+        }
+        for plugin_name, patterns in plugin_patterns.items():
+            try:
+                __import__(plugin_name)
+                found_drivers = any(
+                    any(pattern in driver.lower() for pattern in patterns)
+                    for driver in plugins
+                )
+                if not found_drivers:
+                    print(f"Warning: {plugin_name} imported but no matching drivers found in registry")
+            except ImportError:
+                continue
+    """)
+
 
 @importorskip('h3')
 def test_h3(pyi_builder):
