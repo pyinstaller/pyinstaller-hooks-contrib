@@ -2400,34 +2400,17 @@ def test_intake_basic_func(pyi_builder):
 
 
 @importorskip('intake')
+@importorskip('xarray')
 def test_intake_driver_plugins(pyi_builder):
+    """Tests for availability of only intake-xarray drivers in registry."""
     pyi_builder.test_source("""
         import intake
-        plugins = intake.registry
-        # driver plugin imports availibility check
-        plugin_patterns = {
-            'intake_xarray': ['xarray', 'netcdf', 'zarr'],
-            'intake_parquet': ['parquet'],
-            'intake_sql': ['sql'],
-            'intake_elasticsearch': ['elasticsearch'],
-            'intake_spark': ['spark'],
-            'intake_accumulo': ['accumulo'],
-            'intake_solr': ['solr'],
-            'intake_geopandas': ['geopandas'],
-            'intake_mongo': ['mongo']
-        }
-
-        for plugin_name, patterns in plugin_patterns.items():
-            try:
-                __import__(plugin_name)
-                found_drivers = any(
-                    any(pattern in driver.lower() for pattern in patterns)
-                    for driver in plugins
-                )
-                if not found_drivers:
-                    print(f"Warning: {plugin_name} imported but no matching drivers found in registry")
-            except ImportError:
-                continue
+        expected_drivers = ['xarray', 'netcdf', 'zarr']
+        installed_drivers = intake.registry
+        assert any(driver in installed_drivers for driver in expected_drivers), (
+            f"None of the expected drivers {expected_drivers} found in intake registry. "
+            f"Available drivers: {installed_drivers}"
+        )
     """)
 
 
