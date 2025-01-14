@@ -1,2 +1,1 @@
-Add hook for ``intake`` to ensure that package's data and 
-binaries of the drivers plugin are collected.
+Add hook for ``intake`` to ensure that package's metadata and plugins are collected.

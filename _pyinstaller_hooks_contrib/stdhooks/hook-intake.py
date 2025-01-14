@@ -15,13 +15,6 @@ from PyInstaller.utils.hooks import copy_metadata, collect_submodules, is_module
 hiddenimports = collect_submodules('intake')
 datas = copy_metadata('intake')
 
-# Attention: Since PyInstaller basically process the modules that are
-# imported in the code, and in the case of intake, when the plugin's
-# drivers are installed, they are automatically get used via the main
-# intake module. So, we need to check if the plugin's driver is installed
-# and then process it in PyInstaller construction procedure to get the
-# hidden imports and datas of the plugin.
-
 # List of all intake available plugins with their
 # module names on https://github.com/orgs/intake/repositories?type=all
 OPTIONAL_PLUGINS = [
