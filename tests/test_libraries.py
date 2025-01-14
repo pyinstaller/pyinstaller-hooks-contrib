@@ -14,6 +14,7 @@ import pathlib
 
 import pytest
 
+from PyInstaller import isolated
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
 from PyInstaller.utils.hooks import is_module_satisfies, can_import_module, get_module_attribute
 from PyInstaller.utils.tests import importorskip, requires, xfail
@@ -2388,30 +2389,43 @@ def test_numbers_parser(pyi_builder, tmp_path):
 
 
 @importorskip('intake')
-def test_intake_basic_func(pyi_builder):
+def test_intake(pyi_builder):
     pyi_builder.test_source("""
-        import sys
         import intake
 
-        # TODO: change my version when updating the requirements
-        assert intake.__version__ == '2.0.7', f"Expected intake version 2.0.7, got {intake.__version__}"
-        assert isinstance(intake.Catalog(), intake.Catalog), "Failed to create intake Catalog"
+        print(f"intake version: {intake.__version__}")
+        catalog = intake.Catalog()
     """)
 
 
 @importorskip('intake')
-@importorskip('xarray')
-def test_intake_driver_plugins(pyi_builder):
-    """Tests for availability of only intake-xarray drivers in registry."""
-    pyi_builder.test_source("""
+def test_intake_plugins(pyi_builder, tmp_path):
+    # Get the list of plugins in unfrozen python
+    @isolated.decorate
+    def _get_intake_plugins():
         import intake
-        expected_drivers = ['xarray', 'netcdf', 'zarr']
-        installed_drivers = intake.registry
-        assert any(driver in installed_drivers for driver in expected_drivers), (
-            f"None of the expected drivers {expected_drivers} found in intake registry. "
-            f"Available drivers: {installed_drivers}"
-        )
-    """)
+        return sorted(list(intake.registry))
+
+    plugins_unfrozen = _get_intake_plugins()
+    print(f"Unfrozen plugins: {plugins_unfrozen}")
+
+    # Obtain list of plugins in frozen application.
+    output_file = tmp_path / "output.txt"
+
+    pyi_builder.test_source("""
+        import sys
+        import intake
+
+        with open(sys.argv[1], 'w') as fp:
+            for plugin in intake.registry:
+                print(f"{plugin}", file=fp)
+    """, app_args=[str(output_file)])
+
+    with open(output_file, "r") as fp:
+        plugins_frozen = sorted(line.strip() for line in fp)
+    print(f"Frozen plugins: {plugins_frozen}")
+
+    assert plugins_frozen == plugins_unfrozen
 
 
 @importorskip('h3')

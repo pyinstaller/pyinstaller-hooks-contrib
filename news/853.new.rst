@@ -1,1 +1,1 @@
-Add hook for ``intake`` to ensure that package's metadata and plugins are collected.
+Add hook for ``intake`` to collect its plugins (registered via the ``intake.drivers`` entry-point).
