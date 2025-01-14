@@ -2402,6 +2402,7 @@ def test_intake_basic_func(pyi_builder):
 @importorskip('intake')
 def test_intake_core_plugins(pyi_builder):
     pyi_builder.test_source("""
+        import intake
         # core registry plugins check
         plugins = intake.registry
         assert plugins is not None, "Plugin registry is None"
@@ -2418,6 +2419,8 @@ def test_intake_core_plugins(pyi_builder):
 @importorskip('intake')
 def test_intake_driver_plugins(pyi_builder):
     pyi_builder.test_source("""
+        import intake
+        plugins = intake.registry
         # driver plugin imports availibility check
         plugin_patterns = {
             'intake_xarray': ['xarray', 'netcdf', 'zarr'],
