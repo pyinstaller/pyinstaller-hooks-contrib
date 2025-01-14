@@ -164,7 +164,7 @@ jobs:
           pip install ${{ matrix.pyinstaller }}
 
       - name: Run tests
-        run: pytest -v
+        run: pytest -v -s
 
       # Conditionally enable slow tests, so that they are ran only if
       # their corresponding packages are explicitly installed but not
