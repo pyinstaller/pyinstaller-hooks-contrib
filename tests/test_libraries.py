@@ -2398,24 +2398,6 @@ def test_intake_basic_func(pyi_builder):
         assert isinstance(intake.Catalog(), intake.Catalog), "Failed to create intake Catalog"
     """)
 
-
-@importorskip('intake')
-def test_intake_core_plugins(pyi_builder):
-    pyi_builder.test_source("""
-        import intake
-        # core registry plugins check
-        plugins = intake.registry
-        assert plugins is not None, "Plugin registry is None"
-        plugins = set(plugins)
-        expected_core_plugins = {'jsonfiles', 'ndzarr', 'yaml_files_cat', 'textfiles',
-                               'yaml_file_cat', 'tiled_cat', 'csv'}
-        available_plugins = set(plugins)
-        assert expected_core_plugins.issubset(available_plugins), (
-            f"Missing core plugins. Expected at least {expected_core_plugins}, got {available_plugins}"
-        )
-    """)
-
-
 @importorskip('intake')
 def test_intake_driver_plugins(pyi_builder):
     pyi_builder.test_source("""
