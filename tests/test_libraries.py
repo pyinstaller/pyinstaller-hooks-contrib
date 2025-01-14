@@ -2387,6 +2387,33 @@ def test_numbers_parser(pyi_builder, tmp_path):
     """, app_args=[str(output_filename)])
 
 
+@importorskip('fsspec')
+def test_fsspec(pyi_builder):
+    pyi_builder.test_source("""
+        import fsspec
+
+        # test mem fs via write and read sample txt file
+        mem = fsspec.filesystem('memory')
+        with mem.open('test.txt', 'w') as f:
+            f.write('PyInstaller bundled me, with no argument pass my test!')
+        with mem.open('test.txt', 'r') as f:
+            content = f.read()
+        assert content == 'PyInstaller bundled me, with no argument pass my test!', \
+            f"fs forgot what you wrote!"
+
+        # test local fs
+        local = fsspec.filesystem('file')
+        # basic functionality
+        files = local.ls('.')
+        assert len(files) >= 0
+
+        # test fs registry
+        registry = fsspec.available_protocols()
+        assert 'memory' in registry
+        assert 'file' in registry
+    """)
+
+
 @importorskip('h3')
 def test_h3(pyi_builder):
     pyi_builder.test_source("""
