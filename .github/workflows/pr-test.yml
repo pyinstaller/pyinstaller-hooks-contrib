@@ -160,6 +160,9 @@ jobs:
           # test_xarray_chunk requires dask in addition to xarray
           pip show -qq xarray && pip install --prefer-binary dask
 
+          # Install additional intake plugins for test_intake_plugins
+          pip show -qq intake && pip install --prefer-binary intake-xarray
+
           # Install PyInstaller
           pip install ${{ matrix.pyinstaller }}
 

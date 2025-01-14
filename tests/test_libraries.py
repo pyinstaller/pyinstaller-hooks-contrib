@@ -14,6 +14,7 @@ import pathlib
 
 import pytest
 
+from PyInstaller import isolated
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
 from PyInstaller.utils.hooks import is_module_satisfies, can_import_module, get_module_attribute
 from PyInstaller.utils.tests import importorskip, requires, xfail
@@ -2385,6 +2386,46 @@ def test_numbers_parser(pyi_builder, tmp_path):
         table.write(1, 3, 3000)
         doc.save(output_filename)
     """, app_args=[str(output_filename)])
+
+
+@importorskip('intake')
+def test_intake(pyi_builder):
+    pyi_builder.test_source("""
+        import intake
+
+        print(f"intake version: {intake.__version__}")
+        catalog = intake.Catalog()
+    """)
+
+
+@importorskip('intake')
+def test_intake_plugins(pyi_builder, tmp_path):
+    # Get the list of plugins in unfrozen python
+    @isolated.decorate
+    def _get_intake_plugins():
+        import intake
+        return sorted(list(intake.registry))
+
+    plugins_unfrozen = _get_intake_plugins()
+    print(f"Unfrozen plugins: {plugins_unfrozen}")
+
+    # Obtain list of plugins in frozen application.
+    output_file = tmp_path / "output.txt"
+
+    pyi_builder.test_source("""
+        import sys
+        import intake
+
+        with open(sys.argv[1], 'w') as fp:
+            for plugin in intake.registry:
+                print(f"{plugin}", file=fp)
+    """, app_args=[str(output_file)])
+
+    with open(output_file, "r") as fp:
+        plugins_frozen = sorted(line.strip() for line in fp)
+    print(f"Frozen plugins: {plugins_frozen}")
+
+    assert plugins_frozen == plugins_unfrozen
 
 
 @importorskip('h3')
