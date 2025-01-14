@@ -2078,6 +2078,7 @@ def test_xarray(pyi_builder):
             dims=("x", "y"),
             coords={"x": [10, 20]},
         )
+        data_zarr = data.to_zarr()
         print(data)
     """)
 
@@ -2385,22 +2386,6 @@ def test_numbers_parser(pyi_builder, tmp_path):
         table.write(1, 3, 3000)
         doc.save(output_filename)
     """, app_args=[str(output_filename)])
-
-
-@importorskip('zarr')
-def test_zarr(pyi_builder):
-    pyi_builder.test_source("""
-        import zarr
-        import numpy as np
-
-        # minimalist test via an array to check if zarr lib is working
-        z = zarr.zeros((10, 10), chunks=(5, 5))
-
-        z[0:5, 0:5] = np.ones((5, 5))
-
-        data = z[0:5, 0:5]
-        assert (data == np.ones((5, 5))).all()
-    """)
 
 
 @importorskip('h3')
