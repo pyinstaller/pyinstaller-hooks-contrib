@@ -238,7 +238,7 @@ pysaml2==7.5.0; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 toga==0.4.8; python_version >= '3.9'
 numbers-parser==4.14.2; python_version >= '3.9'
-zarr==3.0.0; python_version >= '3.9'
+zarr==3.0.0; python_version >= '3.11'
 h3==4.1.2
 selectolax==0.3.27
  ruamel.yaml.string==0.1.1
