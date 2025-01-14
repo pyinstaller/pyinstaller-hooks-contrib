@@ -2398,6 +2398,7 @@ def test_intake_basic_func(pyi_builder):
         assert isinstance(intake.Catalog(), intake.Catalog), "Failed to create intake Catalog"
     """)
 
+
 @importorskip('intake')
 def test_intake_driver_plugins(pyi_builder):
     pyi_builder.test_source("""
