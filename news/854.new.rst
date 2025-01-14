@@ -1,0 +1,2 @@
+Add hook for ``zarr`` to ensure that package's metadata and 
+plugins of the drivers plugin are collected.
