@@ -12,6 +12,5 @@
 
 from PyInstaller.utils.hooks import copy_metadata, collect_submodules
 
-# Collect everything for intake
 datas = copy_metadata('zarr')
 hiddenimports = collect_submodules('zarr')
