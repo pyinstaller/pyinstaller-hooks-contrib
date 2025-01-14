@@ -2388,7 +2388,7 @@ def test_numbers_parser(pyi_builder, tmp_path):
 
 
 @importorskip('intake')
-def test_intake(pyi_builder):
+def test_intake_basic_func(pyi_builder):
     pyi_builder.test_source("""
         import sys
         import intake
@@ -2396,7 +2396,12 @@ def test_intake(pyi_builder):
         # TODO: change my version when updating the requirements
         assert intake.__version__ == '2.0.7', f"Expected intake version 2.0.7, got {intake.__version__}"
         assert isinstance(intake.Catalog(), intake.Catalog), "Failed to create intake Catalog"
+    """)
 
+
+@importorskip('intake')
+def test_intake_core_plugins(pyi_builder):
+    pyi_builder.test_source("""
         # core registry plugins check
         plugins = intake.registry
         assert plugins is not None, "Plugin registry is None"
@@ -2407,7 +2412,12 @@ def test_intake(pyi_builder):
         assert expected_core_plugins.issubset(available_plugins), (
             f"Missing core plugins. Expected at least {expected_core_plugins}, got {available_plugins}"
         )
+    """)
 
+
+@importorskip('intake')
+def test_intake_driver_plugins(pyi_builder):
+    pyi_builder.test_source("""
         # driver plugin imports availibility check
         plugin_patterns = {
             'intake_xarray': ['xarray', 'netcdf', 'zarr'],
