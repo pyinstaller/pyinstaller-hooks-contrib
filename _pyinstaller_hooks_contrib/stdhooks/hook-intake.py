@@ -12,17 +12,16 @@
 
 from PyInstaller.utils.hooks import collect_all, is_module_satisfies
 
-_ , datas, hiddenimports = collect_all('intake')
+_, datas, hiddenimports = collect_all('intake')
 
-
-# Attention: Since PyInstaller basically process the modules that are 
-# imported in the code, and in the case of intake, when the plugin's 
-# drivers are installed, they are automatically get used via the main 
-# intake module. So, we need to check if the plugin's driver is installed 
-# and then process it in PyInstaller construction procedure to get the 
+# Attention: Since PyInstaller basically process the modules that are
+# imported in the code, and in the case of intake, when the plugin's
+# drivers are installed, they are automatically get used via the main
+# intake module. So, we need to check if the plugin's driver is installed
+# and then process it in PyInstaller construction procedure to get the
 # hidden imports and datas of the plugin.
 
-# List of all intake available plugins with their 
+# List of all intake available plugins with their
 # module names on https://github.com/orgs/intake/repositories?type=all
 OPTIONAL_PLUGINS = {
     'intake-xarray': {
@@ -101,6 +100,6 @@ OPTIONAL_PLUGINS = {
 
 for plugin_info in OPTIONAL_PLUGINS.values():
     if is_module_satisfies(plugin_info['import_name']):
-        binaries ,plugin_datas, plugin_imports = collect_all(plugin_info['import_name'])
+        binaries, plugin_datas, plugin_imports = collect_all(plugin_info['import_name'])
         datas.extend(plugin_datas)
         hiddenimports.extend(plugin_imports)
