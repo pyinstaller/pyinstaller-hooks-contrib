@@ -14,6 +14,7 @@ import pathlib
 
 import pytest
 
+from PyInstaller import isolated
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
 from PyInstaller.utils.hooks import is_module_satisfies, can_import_module, get_module_attribute
 from PyInstaller.utils.tests import importorskip, requires, xfail
@@ -2388,30 +2389,50 @@ def test_numbers_parser(pyi_builder, tmp_path):
 
 
 @importorskip('fsspec')
-def test_fsspec(pyi_builder):
-    pyi_builder.test_source("""
+def test_fsspec_protocols(pyi_builder, tmp_path):
+    # Get the list of working protocols in unfrozen python
+    @isolated.decorate
+    def _get_working_fsspec_protocols():
         import fsspec
 
-        # test mem fs via write and read sample txt file
-        mem = fsspec.filesystem('memory')
-        with mem.open('test.txt', 'w') as f:
-            f.write('PyInstaller bundled me, with no argument pass my test!')
-        with mem.open('test.txt', 'r') as f:
-            content = f.read()
-        assert content == 'PyInstaller bundled me, with no argument pass my test!', \
-            f"fs forgot what you wrote!"
+        working_protocols = []
+        for protocol in fsspec.available_protocols():
+            try:
+                fsspec.get_filesystem_class(protocol)
+                working_protocols.append(protocol)
+            except ImportError:
+                pass
 
-        # test local fs
-        local = fsspec.filesystem('file')
-        # basic functionality
-        files = local.ls('.')
-        assert len(files) >= 0
+        return sorted(working_protocols)
 
-        # test fs registry
-        registry = fsspec.available_protocols()
-        assert 'memory' in registry
-        assert 'file' in registry
-    """)
+    protocols_unfrozen = _get_working_fsspec_protocols()
+    print(f"Unfrozen protocols: {protocols_unfrozen}")
+
+    # Obtain list of working protocols in frozen application.
+    output_file = tmp_path / "output.txt"
+
+    pyi_builder.test_source("""
+        import sys
+        import fsspec
+
+        working_protocols = []
+        for protocol in fsspec.available_protocols():
+            try:
+                obj = fsspec.get_filesystem_class(protocol)
+                working_protocols.append(protocol)
+            except ImportError:
+                pass
+
+        with open(sys.argv[1], 'w') as fp:
+            for protocol in working_protocols:
+                print(f"{protocol}", file=fp)
+    """, app_args=[str(output_file)])
+
+    with open(output_file, "r") as fp:
+        protocols_frozen = sorted(line.strip() for line in fp)
+    print(f"Frozen protocols: {protocols_frozen}")
+
+    assert protocols_frozen == protocols_unfrozen
 
 
 @importorskip('h3')
