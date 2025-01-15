@@ -1,0 +1,2 @@
+Add hook for ``fsspec`` to collect the package's submodules 
+and ensure the protocol plugins are working.

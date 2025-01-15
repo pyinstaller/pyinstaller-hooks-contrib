@@ -2388,6 +2388,53 @@ def test_numbers_parser(pyi_builder, tmp_path):
     """, app_args=[str(output_filename)])
 
 
+@importorskip('fsspec')
+def test_fsspec_protocols(pyi_builder, tmp_path):
+    # Get the list of working protocols in unfrozen python
+    @isolated.decorate
+    def _get_working_fsspec_protocols():
+        import fsspec
+
+        working_protocols = []
+        for protocol in fsspec.available_protocols():
+            try:
+                fsspec.get_filesystem_class(protocol)
+                working_protocols.append(protocol)
+            except ImportError:
+                pass
+
+        return sorted(working_protocols)
+
+    protocols_unfrozen = _get_working_fsspec_protocols()
+    print(f"Unfrozen protocols: {protocols_unfrozen}")
+
+    # Obtain list of working protocols in frozen application.
+    output_file = tmp_path / "output.txt"
+
+    pyi_builder.test_source("""
+        import sys
+        import fsspec
+
+        working_protocols = []
+        for protocol in fsspec.available_protocols():
+            try:
+                obj = fsspec.get_filesystem_class(protocol)
+                working_protocols.append(protocol)
+            except ImportError:
+                pass
+
+        with open(sys.argv[1], 'w') as fp:
+            for protocol in working_protocols:
+                print(f"{protocol}", file=fp)
+    """, app_args=[str(output_file)])
+
+    with open(output_file, "r") as fp:
+        protocols_frozen = sorted(line.strip() for line in fp)
+    print(f"Frozen protocols: {protocols_frozen}")
+
+    assert protocols_frozen == protocols_unfrozen
+
+
 @importorskip('zarr')
 @importorskip('xarray')
 def test_xarray_to_zarr(pyi_builder):
