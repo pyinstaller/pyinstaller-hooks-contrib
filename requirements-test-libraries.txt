@@ -1,5 +1,5 @@
-# Backport of importlib.resources for python 3.8 and earlier.
-importlib_resources==6.4.5; python_version < '3.9'
+# Backport of importlib.resources for python 3.8; last version that supports python 3.8 is v6.4.5.
+importlib_resources==6.4.5; python_version < '3.9'  # pyup: ignore
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
@@ -9,8 +9,8 @@ APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.35.90
-botocore==1.35.90
+boto3==1.35.97
+botocore==1.35.97
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -37,13 +37,13 @@ eth_utils==5.1.0
 fabric==3.2.2
 falcon==4.0.2
 fiona==1.10.1; sys_platform != 'win32'
-folium==0.19.3; python_version >= '3.9'
+folium==0.19.4; python_version >= '3.9'
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.156.0
+google-api-python-client==2.158.0
 grapheme==0.6.0
 graphql-query==1.4.0
-python-gitlab==5.3.0; python_version >= '3.9'
+python-gitlab==5.3.1; python_version >= '3.9'
 h5py==3.12.1; python_version >= '3.9'
 humanize==4.11.0; python_version >= '3.9'
 iminuit==2.30.1; python_version >= '3.9'
@@ -55,7 +55,7 @@ markdown==3.7
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 # moviepy depends on imageio-ffmpeg, which does not provide binary wheels for arm64 macOS
-moviepy==2.1.1; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
+moviepy==2.1.2; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
@@ -86,7 +86,7 @@ pypemicro==0.1.11
 pyphen==0.17.0; python_version >= '3.9'
 pyppeteer==2.0.0
 pyqtgraph==0.13.7; python_version >= "3.9"
-pyusb==1.2.1
+pyusb==1.3.1; python_version >= "3.9"
 pyviz-comms==3.0.3
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.7
@@ -103,7 +103,7 @@ qtmodern==0.2.0
 Rtree==1.3.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
-scipy==1.14.1; python_version >= '3.10'
+scipy==1.15.1; python_version >= '3.10'
 sentry-sdk==2.19.2
 shotgun_api3==3.5.1
 slixmpp==1.8.6
@@ -114,7 +114,7 @@ swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.20746
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.7; python_version > '3.8'
-trame==3.7.5; python_version >= '3.9'
+trame==3.7.6; python_version >= '3.9'
 trame-client==3.5.1; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
@@ -134,16 +134,16 @@ trame-pvui==0.1.1
 trame-quasar==0.2.1
 trame-rca==0.6.0
 trame-router==2.3.0
-trame-server==3.2.4; python_version >= '3.9'
-trame-simput==2.5.0
+trame-server==3.3.0; python_version >= '3.9'
+trame-simput==2.5.1
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
 trame-vega==2.1.1
 # Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 trame-vtk==2.8.12; python_version < '3.13' and (python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64')
 trame-vtk3d==0.1.0
-trame-vtklocal==0.6.5
-trame-vuetify==2.7.2
+trame-vtklocal==0.6.9; python_version >= '3.9'
+trame-vuetify==2.8.0; python_version >= '3.9'
 trame-xterm==0.2.1
 Twisted==24.11.0
 tzdata==2024.2
@@ -159,7 +159,7 @@ zeep==4.3.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= '3.10'
-orjson==3.10.13
+orjson==3.10.14
 altair==5.5.0; python_version >= '3.9'
 shapely==2.0.6
 lark==1.2.2
@@ -167,8 +167,8 @@ python-stdnum==1.20
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
 sounddevice==0.5.1; sys_platform != 'linux'
-soundfile==0.12.1; sys_platform != 'linux'
-limits==3.14.1; python_version >= '3.9'
+soundfile==0.13.0; sys_platform != 'linux'
+limits==4.0.0; python_version >= '3.9'
 great-expectations==1.3.0; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
@@ -179,7 +179,7 @@ spiceypy==6.0.0
 exchangelib==5.5.0; python_version >= '3.9'
 NBT==1.5.1
 minecraft-launcher-lib==7.1; python_version >= '3.10'
-scikit-learn==1.6.0; python_version >= '3.9'
+scikit-learn==1.6.1; python_version >= '3.9'
 scikit-image==0.25.0; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.11.0; python_version >= '3.9'
@@ -187,7 +187,7 @@ librosa==0.10.2.post1
 sympy==1.13.3
 xyzservices==2024.9.0
 mistune==3.1.0
-pydantic==2.10.4
+pydantic==2.10.5
 jsonschema==4.23.0
 psutil==6.1.1
 litestar==2.13.0; python_version < '3.13'
@@ -202,7 +202,7 @@ khmer-nltk==1.6
 python-crfsuite==0.9.11
 pymorphy3==2.0.2
 pymorphy3-dicts-uk==2.4.1.1.1663094765
-sudachipy==0.6.9; python_version >= '3.9'
+sudachipy==0.6.10; python_version >= '3.9'
 sudachidict-core==20241021; python_version >= '3.9'
 sudachidict-small==20241021; python_version >= '3.9'
 sudachidict-full==20241021;  python_version >= '3.9'
@@ -228,8 +228,8 @@ pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
 comtypes==1.4.8; sys_platform == 'win32'
 opentelemetry-sdk==1.29.0
-xarray==2024.11.0; python_version >= '3.10'
-tables==3.10.1; python_version >= '3.10'
+xarray==2025.1.1; python_version >= '3.10'
+tables==3.10.2; python_version >= '3.11'
 schwifty==2024.11.0; python_version >= '3.9'
 patool==3.1.0; python_version >= '3.10'
 yapf==0.43.0
@@ -239,6 +239,7 @@ pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 toga==0.4.8; python_version >= '3.9'
 numbers-parser==4.14.2; python_version >= '3.9'
 fsspec==2024.12.0; python_version >= '3.9'
+intake==2.0.7; python_version >= '3.9'
 h3==4.1.2
 selectolax==0.3.27
  ruamel.yaml.string==0.1.1

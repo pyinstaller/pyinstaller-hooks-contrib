@@ -2435,6 +2435,46 @@ def test_fsspec_protocols(pyi_builder, tmp_path):
     assert protocols_frozen == protocols_unfrozen
 
 
+@importorskip('intake')
+def test_intake(pyi_builder):
+    pyi_builder.test_source("""
+        import intake
+
+        print(f"intake version: {intake.__version__}")
+        catalog = intake.Catalog()
+    """)
+
+
+@importorskip('intake')
+def test_intake_plugins(pyi_builder, tmp_path):
+    # Get the list of plugins in unfrozen python
+    @isolated.decorate
+    def _get_intake_plugins():
+        import intake
+        return sorted(list(intake.registry))
+
+    plugins_unfrozen = _get_intake_plugins()
+    print(f"Unfrozen plugins: {plugins_unfrozen}")
+
+    # Obtain list of plugins in frozen application.
+    output_file = tmp_path / "output.txt"
+
+    pyi_builder.test_source("""
+        import sys
+        import intake
+
+        with open(sys.argv[1], 'w') as fp:
+            for plugin in intake.registry:
+                print(f"{plugin}", file=fp)
+    """, app_args=[str(output_file)])
+
+    with open(output_file, "r") as fp:
+        plugins_frozen = sorted(line.strip() for line in fp)
+    print(f"Frozen plugins: {plugins_frozen}")
+
+    assert plugins_frozen == plugins_unfrozen
+
+
 @importorskip('h3')
 def test_h3(pyi_builder):
     pyi_builder.test_source("""
