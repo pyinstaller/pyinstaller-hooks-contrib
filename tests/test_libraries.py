@@ -2433,6 +2433,8 @@ def test_fsspec_protocols(pyi_builder, tmp_path):
     print(f"Frozen protocols: {protocols_frozen}")
 
     assert protocols_frozen == protocols_unfrozen
+
+
 @importorskip('zarr')
 @importorskip('xarray')
 def test_xarray_to_zarr(pyi_builder):
