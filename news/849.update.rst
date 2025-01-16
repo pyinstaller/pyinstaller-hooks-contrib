@@ -1,3 +1,0 @@
-Rewrite ``pygraphviz`` hook to fix discovery and collection of ``graphviz``
-files under various Linux distributions, in Anaconda environments
-(Windows, Linux, and macOS), and msys2 environments (Windows).

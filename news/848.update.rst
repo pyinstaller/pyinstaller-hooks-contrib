@@ -1,3 +1,0 @@
-Update ``triton`` hook for compatibility with ``triton`` >= 3.0.0; the
-hook should now collect backend-specific modules and data files from
-``triton.backends``.

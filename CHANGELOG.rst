@@ -1,3 +1,50 @@
+2025.0 (2025-01-16)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``fsspec`` to collect the package's submodules
+  and ensure the protocol plugins are working. (`#856
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/856>`_)
+* Add hook for ``intake`` to collect its plugins (registered via the
+  ``intake.drivers`` entry-point). (`#853
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/853>`_)
+* Add hook for ``ruamel.yaml`` to collect its plugins, and ensure that
+  plugins' ``__plug_in__`` modules are collected as source .py files
+  (which is necessary for their discovery). (`#844
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/844>`_)
+* Add hook for ``sam2`` (Segment Anything Model 2). (`#847
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/847>`_)
+* Add hook for ``zarr`` to collect the package's metadata. (`#855
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/855>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Revise the search for OpenSSL shared library and ``ossl-modules`` directory
+  in the ``cryptography`` hook, in order to mitigate issues with unrelated
+  copies of OpenSSL ending up being pulled into the build. Most notably,
+  the hook should not be searching for OpenSSL shared library when
+  ``cryptography`` PyPI wheel is installed, because those ship with
+  extensions that are statically linked against OpenSSL. (`#846
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/846>`_)
+* Rewrite ``pygraphviz`` hook to fix discovery and collection of ``graphviz``
+  files under various Linux distributions, in Anaconda environments
+  (Windows, Linux, and macOS), and msys2 environments (Windows). (`#849
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/849>`_)
+* Update ``dask`` hook to collect template files from
+  ``dask/widgets/templates``
+  directory; these file become mandatory when using ``dask.array`` and
+  ``jinja2`` is available. (`#852
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/852>`_)
+* Update ``triton`` hook for compatibility with ``triton`` >= 3.0.0; the
+  hook should now collect backend-specific modules and data files from
+  ``triton.backends``. (`#848
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/848>`_)
+
+
 2024.11 (2024-12-23)
 --------------------
 

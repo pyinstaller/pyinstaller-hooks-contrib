@@ -1,1 +1,0 @@
-Add hook for ``intake`` to collect its plugins (registered via the ``intake.drivers`` entry-point).
