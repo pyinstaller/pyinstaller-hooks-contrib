@@ -1,0 +1,2 @@
+Update ``numba`` hook for compatibility with upcoming 0.61 release (based
+on 0.61.0rc2).
