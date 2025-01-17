@@ -1993,6 +1993,33 @@ def test_iso639(pyi_builder):
     """)
 
 
+# Basic JIT test with numba
+@importorskip('numba')
+def test_numba_jit(pyi_builder):
+    pyi_builder.test_source("""
+        import numba
+
+        @numba.jit
+        def f(x, y):
+            return x + y
+
+        assert f(1, 2) == 3
+    """)
+
+
+# Basic import test with new type system enabled (numba >= 0.61).
+# Ideally, we would repeat the above `test_numba_jit`, but at the time of writing (numba 0.61.0rc2) it does not seem to
+# work even when unfrozen.
+@importorskip('numba')
+@pytest.mark.skipif(not is_module_satisfies('numba >= 0.61.0rc1'), reason="Requires numba >= 0.61.0.")
+def test_numba_new_type_system(pyi_builder):
+    pyi_builder.test_source("""
+        import os
+        os.environ['NUMBA_USE_LEGACY_TYPE_SYSTEM'] = '0'
+        import numba
+    """)
+
+
 # Check that `numba.cloudpickle.cloudpickle_fast` is collected even if it is not directly imported anywhere.
 @importorskip('numba')
 def test_numba_cloudpickle_fast(pyi_builder):
