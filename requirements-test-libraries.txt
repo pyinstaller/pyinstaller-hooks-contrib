@@ -83,7 +83,7 @@ pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != 'win32'
 pylint==3.3.3; python_version >= '3.9'
 pypemicro==0.1.11
-pyphen==0.17.0; python_version >= '3.9'
+pyphen==0.17.2; python_version >= '3.9'
 pyppeteer==2.0.0
 pyqtgraph==0.13.7; python_version >= "3.9"
 pyusb==1.3.1; python_version >= "3.9"
