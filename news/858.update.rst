@@ -1,0 +1,1 @@
+Update ``numcodecs`` hook for compatibility with ``numcodecs`` v0.15.0.
