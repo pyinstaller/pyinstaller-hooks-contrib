@@ -252,7 +252,7 @@ selectolax==0.3.27
 eccodes==2.39.1; (sys_platform == 'darwin' or sys_platform == 'linux') and python_version < '3.13'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.30.2; sys_platform == 'linux'
+dbus-fast==2.30.2; sys_platform == 'linux' and python_version >= '3.9'
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
