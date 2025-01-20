@@ -108,7 +108,7 @@ sentry-sdk==2.20.0
 shotgun_api3==3.5.1
 slixmpp==1.8.6
 spacy==3.8.4; python_version >= '3.10' and python_version < '3.13'
-srsly==2.5.0; python_version >= "3.9"
+srsly==2.5.1; python_version >= "3.9"
 sv-ttk==2.6.0
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.20746
