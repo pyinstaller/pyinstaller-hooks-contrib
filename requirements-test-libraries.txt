@@ -223,7 +223,7 @@ cel-python==0.1.5
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
 # pygwalker also depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
 pygwalker==0.4.9.13; python_version < '3.13'
-eth-hash==0.7.0
+eth-hash==0.7.1
 pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
 comtypes==1.4.8; sys_platform == 'win32'
