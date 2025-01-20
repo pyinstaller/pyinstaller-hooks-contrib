@@ -111,7 +111,7 @@ spacy==3.8.4; python_version >= '3.10' and python_version < '3.13'
 srsly==2.5.1; python_version >= "3.9"
 sv-ttk==2.6.0
 swagger-spec-validator==3.0.4
-tableauhyperapi==0.0.20746
+tableauhyperapi==0.0.21200
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.7; python_version > '3.8'
 trame==3.7.6; python_version >= '3.9'
