@@ -9,26 +9,26 @@ APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.35.97
-botocore==1.35.97
+boto3==1.36.2
+botocore==1.36.2
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
 cassandra-driver==3.29.2
-capstone==5.0.3
+capstone==5.0.5
 cf-units==3.3.0; sys_platform != 'win32' and python_version >= '3.10'
 cftime==1.6.4.post1
 charset_normalizer==3.4.1
-cloudpickle==3.1.0
+cloudpickle==3.1.1
 cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.1.1; sys_platform != 'win32'
 cryptography==44.0.0
 dash==2.18.2
-dash-bootstrap-components==1.6.0
+dash-bootstrap-components==1.7.1; python_version >= '3.9'
 dash-uploader==0.6.1
-dask[array,diagnostics]==2024.12.1; python_version >= '3.10'
+dask[array,diagnostics]==2025.1.0; python_version >= '3.10'
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
@@ -40,7 +40,7 @@ fiona==1.10.1; sys_platform != 'win32'
 folium==0.19.4; python_version >= '3.9'
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.158.0
+google-api-python-client==2.159.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==5.3.1; python_version >= '3.9'
@@ -68,7 +68,7 @@ pandas==2.2.3; python_version >= '3.9'
 panel==1.5.5; python_version >= '3.10'
 passlib==1.7.4
 pendulum==3.0.0
-phonenumbers==8.13.52
+phonenumbers==8.13.53
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.3.6
@@ -83,11 +83,11 @@ pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != 'win32'
 pylint==3.3.3; python_version >= '3.9'
 pypemicro==0.1.11
-pyphen==0.17.0; python_version >= '3.9'
+pyphen==0.17.2; python_version >= '3.9'
 pyppeteer==2.0.0
 pyqtgraph==0.13.7; python_version >= "3.9"
 pyusb==1.3.1; python_version >= "3.9"
-pyviz-comms==3.0.3
+pyviz-comms==3.0.4
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.7.7
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
@@ -104,14 +104,14 @@ Rtree==1.3.0
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.15.1; python_version >= '3.10'
-sentry-sdk==2.19.2
+sentry-sdk==2.20.0
 shotgun_api3==3.5.1
 slixmpp==1.8.6
-spacy==3.8.3; python_version >= '3.10' and python_version < '3.13'
-srsly==2.5.0; python_version >= "3.9"
+spacy==3.8.4; python_version >= '3.10' and python_version < '3.13'
+srsly==2.5.1; python_version >= "3.9"
 sv-ttk==2.6.0
 swagger-spec-validator==3.0.4
-tableauhyperapi==0.0.20746
+tableauhyperapi==0.0.21200
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.7; python_version > '3.8'
 trame==3.7.6; python_version >= '3.9'
@@ -153,13 +153,13 @@ vtk==9.4.1; python_version >= '3.9' or sys_platform != 'darwin' or platform_mach
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==63.1; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
-web3==7.6.1
+web3==7.7.0
 websockets==14.1; python_version >= '3.9'
 zeep==4.3.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= '3.10'
-orjson==3.10.14
+orjson==3.10.15
 altair==5.5.0; python_version >= '3.9'
 shapely==2.0.6
 lark==1.2.2
@@ -168,12 +168,12 @@ python-stdnum==1.20
 # and libsndfile, respectively.
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.13.0; sys_platform != 'linux'
-limits==4.0.0; python_version >= '3.9'
-great-expectations==1.3.0; python_version >= '3.9' and python_version < '3.13'
+limits==4.0.1; python_version >= '3.9'
+great-expectations==1.3.2; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
-opencv-python==4.10.0.84
+opencv-python==4.11.0.86
 hydra-core==1.3.2
 spiceypy==6.0.0
 exchangelib==5.5.0; python_version >= '3.9'
@@ -185,7 +185,7 @@ customtkinter==5.2.2
 fastparquet==2024.11.0; python_version >= '3.9'
 librosa==0.10.2.post1
 sympy==1.13.3
-xyzservices==2024.9.0
+xyzservices==2025.1.0
 mistune==3.1.0
 pydantic==2.10.5
 jsonschema==4.23.0
@@ -223,7 +223,7 @@ cel-python==0.1.5
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
 # pygwalker also depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
 pygwalker==0.4.9.13; python_version < '3.13'
-eth-hash==0.7.0
+eth-hash==0.7.1
 pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
 comtypes==1.4.8; sys_platform == 'win32'
@@ -239,8 +239,8 @@ pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 toga==0.4.8; python_version >= '3.9'
 numbers-parser==4.14.2; python_version >= '3.9'
 fsspec==2024.12.0; python_version >= '3.9'
-zarr==3.0.0; python_version >= '3.11'
-intake==2.0.7; python_version >= '3.9'
+zarr==3.0.1; python_version >= '3.11'
+intake==2.0.8; python_version >= '3.9'
 h3==4.1.2
 selectolax==0.3.27
  ruamel.yaml.string==0.1.1
@@ -252,7 +252,7 @@ selectolax==0.3.27
 eccodes==2.39.1; (sys_platform == 'darwin' or sys_platform == 'linux') and python_version < '3.13'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.24.4; sys_platform == 'linux'
+dbus-fast==2.30.2; sys_platform == 'linux' and python_version >= '3.9'
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
