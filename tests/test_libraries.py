@@ -2546,3 +2546,10 @@ def test_ruamel_yaml_string_plugin(pyi_builder):
         data  = dict(abc=42, help=['on', 'its', 'way'])
         print(yaml.dump_to_string(data))
     """)
+
+
+@importorskip('pypdfium2')
+def test_pypdfium2(pyi_builder):
+    pyi_builder.test_source("""
+        import pypdfium2
+    """)
