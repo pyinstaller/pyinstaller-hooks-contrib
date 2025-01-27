@@ -33,7 +33,7 @@ dask[array,diagnostics]==2025.1.0; python_version >= '3.10'
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
 eth_typing==5.0.1
-eth_utils==5.1.0
+eth_utils==5.2.0
 fabric==3.2.2
 falcon==4.0.2
 fiona==1.10.1; sys_platform != 'win32'
