@@ -155,7 +155,7 @@ vtk==9.4.1; python_version >= '3.9' or sys_platform != 'darwin' or platform_mach
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==63.1; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 web3==7.7.0
-websockets==14.1; python_version >= '3.9'
+websockets==14.2; python_version >= '3.9'
 zeep==4.3.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
