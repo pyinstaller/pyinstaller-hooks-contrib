@@ -1,3 +1,23 @@
+2025.1 (2025-01-31)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hooks for ``pypdfium2`` and ``pypdfium2_raw``. (`#860
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/860>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``numba`` hook for compatibility with ``numba`` v0.61.0. (`#857
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/857>`_)
+* Update ``numcodecs`` hook for compatibility with ``numcodecs`` v0.15.0.
+  (`#858
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/858>`_)
+
+
 2025.0 (2025-01-16)
 -------------------
 

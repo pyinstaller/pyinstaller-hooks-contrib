@@ -1,1 +1,0 @@
-Add hooks for ``pypdfium2`` and ``pypdfium2_raw``.

@@ -1,1 +1,0 @@
-Update ``numba`` hook for compatibility with ``numba`` v0.61.0.
