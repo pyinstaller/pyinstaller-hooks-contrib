@@ -187,7 +187,7 @@ fastparquet==2024.11.0; python_version >= '3.9'
 librosa==0.10.2.post1
 sympy==1.13.3
 xyzservices==2025.1.0
-mistune==3.1.0
+mistune==3.1.1
 pydantic==2.10.6
 jsonschema==4.23.0
 psutil==6.1.1
