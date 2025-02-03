@@ -95,7 +95,7 @@ pynput==1.7.7
 pymssql==2.3.2; python_version >= "3.9" and (sys_platform != 'darwin' or platform_machine != 'arm64')
 pystray==0.19.5
 pythonnet==3.0.5
-pytz==2024.2
+pytz==2025.1
 # pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 pyvista==0.44.2; python_version < '3.13' and (python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64')
 pyzmq==26.2.0
