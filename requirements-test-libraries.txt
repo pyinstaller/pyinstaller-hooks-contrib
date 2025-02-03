@@ -242,7 +242,7 @@ numbers-parser==4.14.2; python_version >= '3.9'
 fsspec==2025.2.0; python_version >= '3.9'
 zarr==3.0.2; python_version >= '3.11'
 intake==2.0.8; python_version >= '3.9'
-h3==4.1.2
+h3==4.2.1
 selectolax==0.3.27
  ruamel.yaml.string==0.1.1
 
