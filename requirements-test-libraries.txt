@@ -213,7 +213,7 @@ pythainlp==5.0.5; python_version >= '3.9'
 gmsh==4.13.1
 sspilib==0.2.0
 rlp==4.1.0
-eth-rlp==2.1.0
+eth-rlp==2.2.0
 z3c.rml==4.4.0
 freetype-py==2.5.1
 vaderSentiment==3.3.2
