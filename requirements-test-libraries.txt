@@ -7,10 +7,10 @@ av==14.1.0; python_version >= '3.9'
 adbutils==2.8.0
 APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
-bokeh==3.6.2; python_version >= '3.10'
+bokeh==3.6.3; python_version >= '3.10'
 boto==2.49.0
-boto3==1.36.11
-botocore==1.36.11
+boto3==1.36.16
+botocore==1.36.16
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -61,7 +61,7 @@ msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= '3.9'
 numba==0.61.0; python_version >= '3.10'
-numcodecs==0.15.0; python_version >= '3.11'
+numcodecs==0.15.1; python_version >= '3.11'
 Office365-REST-Python-Client==2.5.14
 openpyxl==3.1.5
 pandas==2.2.3; python_version >= '3.9'
@@ -115,7 +115,7 @@ swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.21200
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.8; python_version > '3.8'
-trame==3.7.6; python_version >= '3.9'
+trame==3.8.0; python_version >= '3.9'
 trame-client==3.5.2; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
@@ -133,15 +133,15 @@ trame-mesh-streamer==0.1.0; python_version < '3.13' and (python_version >= '3.9'
 trame-plotly==3.0.2
 trame-pvui==0.1.1
 trame-quasar==0.2.1
-trame-rca==1.1.0; python_version >= '3.9'
+trame-rca==1.1.1; python_version >= '3.9'
 trame-router==2.3.0
 trame-server==3.3.0; python_version >= '3.9'
 trame-simput==2.5.1
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
 trame-vega==2.1.1
-# Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-trame-vtk==2.8.12; python_version < '3.13' and (python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64')
+# Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet.
+trame-vtk==2.8.15; python_version >= '3.9' and python_version < '3.13'
 trame-vtk3d==0.1.0
 trame-vtklocal==0.6.9; python_version >= '3.9'
 trame-vuetify==2.8.1; python_version >= '3.9'
@@ -154,7 +154,7 @@ vtk==9.4.1; python_version >= '3.9' or sys_platform != 'darwin' or platform_mach
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==64.0; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
-web3==7.7.0
+web3==7.8.0
 websockets==14.2; python_version >= '3.9'
 zeep==4.3.1
 pypsexec==0.3.0
@@ -170,7 +170,7 @@ python-stdnum==1.20
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.13.1; sys_platform != 'linux'
 limits==4.0.1; python_version >= '3.9'
-great-expectations==1.3.4; python_version >= '3.9' and python_version < '3.13'
+great-expectations==1.3.5; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -212,13 +212,13 @@ laonlp==1.2.0
 pythainlp==5.0.5; python_version >= '3.9'
 gmsh==4.13.1
 sspilib==0.2.0
-rlp==4.0.1
-eth-rlp==2.1.0
+rlp==4.1.0
+eth-rlp==2.2.0
 z3c.rml==4.4.0
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 # langchain depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-langchain==0.3.17; python_version >= '3.9' and python_version < '3.13'
+langchain==0.3.18; python_version >= '3.9' and python_version < '3.13'
 seedir==0.5.0
 cel-python==0.1.5
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
@@ -227,8 +227,8 @@ pygwalker==0.4.9.13; python_version < '3.13'
 eth-hash==0.7.1
 pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
-comtypes==1.4.8; sys_platform == 'win32'
-opentelemetry-sdk==1.29.0
+comtypes==1.4.10; sys_platform == 'win32'
+opentelemetry-sdk==1.30.0
 xarray==2025.1.2; python_version >= '3.10'
 tables==3.10.2; python_version >= '3.11'
 schwifty==2025.1.0; python_version >= '3.9'
@@ -237,7 +237,7 @@ yapf==0.43.0
 xmlschema==3.4.3
 pysaml2==7.5.0; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
-toga==0.4.8; python_version >= '3.9'
+toga==0.4.9; python_version >= '3.9'
 numbers-parser==4.14.2; python_version >= '3.9'
 fsspec==2025.2.0; python_version >= '3.9'
 zarr==3.0.2; python_version >= '3.11'
@@ -253,7 +253,7 @@ selectolax==0.3.27
 eccodes==2.39.2; (sys_platform == 'darwin' or sys_platform == 'linux') and python_version < '3.13'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.32.0; sys_platform == 'linux' and python_version >= '3.9'
+dbus-fast==2.33.0; sys_platform == 'linux' and python_version >= '3.9'
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
