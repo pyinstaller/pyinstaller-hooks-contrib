@@ -20,7 +20,7 @@ from PyInstaller.utils.hooks import collect_data_files, logger
 datas = collect_data_files('gribapi')
 
 # Collect the eccodes shared library. Starting with eccodes 2.37.0, binary wheels with bundled shared library are
-# provided for linux and macOS.
+# provided for linux and macOS, and since 2.39.0, also for Windows.
 
 
 # NOTE: custom isolated function is used here instead of `get_module_attribute('gribapi.bindings', 'library_path')`
@@ -71,7 +71,7 @@ if library_path:
     package_parent_path = pathlib.PurePath(package_path).parent
 
     if package_parent_path in library_parent_path.parents:
-        # Should end up being `eccodes.libs` on Linux, and `eccodes/.dylib` on macOS).
+        # Should end up being `eccodes.libs` on Linux, `eccodes/.dylib` on macOS, and `eccodes` on Windows.
         dest_dir = str(library_parent_path.relative_to(package_parent_path))
     else:
         # External copy; collect into top-level application directory.
