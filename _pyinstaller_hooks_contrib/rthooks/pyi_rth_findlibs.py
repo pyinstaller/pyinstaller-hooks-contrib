@@ -20,7 +20,14 @@ def _pyi_rthook():
     import os
     import ctypes.util
 
-    import findlibs
+    # findlibs v0.1.0 broke compatibility with python < 3.10; due to incompatible typing annotation, attempting to
+    # import the package raises `TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'`. Gracefully
+    # handle this situation by making this run-time hook no-op, in order to avoid crashing the frozen program even
+    # if it would never end up importing/using `findlibs`.
+    try:
+        import findlibs
+    except TypeError:
+        return
 
     _orig_find = getattr(findlibs, 'find', None)
 
