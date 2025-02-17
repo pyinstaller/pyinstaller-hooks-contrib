@@ -28,7 +28,7 @@ cryptography==44.0.1
 dash==2.18.2
 dash-bootstrap-components==1.7.1; python_version >= '3.9'
 dash-uploader==0.6.1
-dask[array,diagnostics]==2025.1.0; python_version >= '3.10'
+dask[diagnostics,array]==2025.2.0; python_version >= '3.10'
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
