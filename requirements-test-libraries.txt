@@ -268,7 +268,7 @@ pydivert==2.1.0; sys_platform == 'win32'
 pywin32-ctypes==0.2.3; sys_platform == 'win32'
 
 # pymediainfo on linux does not bundle mediainfo shared library, and requires system one.
-pymediainfo==7.0.1; sys_platform == 'darwin' or sys_platform == 'win32'
+pymediainfo==7.0.1; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version >= '3.9'
 
 # the required library can be installed with "brew install labstreaminglayer/tap/lsl" on macOS, or with "conda install liblsl" on any platform
 pylsl==1.17.6; sys_platform == "darwin" and python_version >= '3.9'
