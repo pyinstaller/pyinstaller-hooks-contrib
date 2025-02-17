@@ -32,6 +32,8 @@ dask[diagnostics,array]==2025.2.0; python_version >= '3.10'
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
 discid==1.2.0; sys_platform != 'win32'
+# eccodes does not provide macOS binary wheels for python 3.8
+eccodes==2.40.0; sys_platform != 'darwin' or python_version >= '3.9'
 eth_typing==5.0.1
 eth_utils==5.2.0
 fabric==3.2.2
@@ -247,10 +249,6 @@ selectolax==0.3.27
  ruamel.yaml.string==0.1.1
 
 # ------------------- Platform (OS) specifics
-
-# eccodes package requires the eccodes shared library provided by the environment (linux distribution, homebrew, or Anaconda).
-# Starting with v2.37.0, binary wheels with bundled shared library are provided for linux and macOS 13+.
-eccodes==2.39.2; (sys_platform == 'darwin' or sys_platform == 'linux') and python_version < '3.13'
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
 dbus-fast==2.33.0; sys_platform == 'linux' and python_version >= '3.9'
