@@ -1,0 +1,6 @@
+Update the ``findlibs`` run-time hook to gracefully handle ``TypeError``
+when using ``findlibs`` v0.1.0 with python < 3.10. This prevents the
+frozen application from crashing on the run-time hook when the main
+code might never end up using/importing ``findlibs`` at all (for example,
+``gribapi`` module from ``eccodes`` when binary wheel with bundled
+shared libraries is used).
