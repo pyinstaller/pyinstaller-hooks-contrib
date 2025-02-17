@@ -190,7 +190,7 @@ xyzservices==2025.1.0
 mistune==3.1.1
 pydantic==2.10.6
 jsonschema==4.23.0
-psutil==6.1.1
+psutil==7.0.0
 litestar==2.13.0; python_version < '3.13'
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
