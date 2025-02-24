@@ -49,7 +49,7 @@ python-gitlab==5.6.0; python_version >= '3.9'
 h5py==3.13.0; python_version >= '3.9'
 humanize==4.12.1; python_version >= '3.9'
 iminuit==2.30.1; python_version >= '3.9'
-iso639-lang==2.6.0
+iso639-lang==2.6.0; python_version >= '3.9'
 kaleido==0.4.2; python_version >= '3.9'
 langdetect==1.0.9
 mariadb==1.1.12; sys_platform != "darwin" and python_version >= '3.9'
