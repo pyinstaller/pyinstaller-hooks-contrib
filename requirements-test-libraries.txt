@@ -240,7 +240,7 @@ xmlschema==3.4.3
 pysaml2==7.5.2; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 toga==0.4.9; python_version >= '3.9'
-numbers-parser==4.14.2; python_version >= '3.9'
+numbers-parser==4.14.4; python_version >= '3.9'
 fsspec==2025.2.0; python_version >= '3.9'
 zarr==3.0.3; python_version >= '3.11'
 intake==2.0.8; python_version >= '3.9'
