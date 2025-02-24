@@ -9,8 +9,8 @@ APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.3; python_version >= '3.10'
 boto==2.49.0
-boto3==1.36.21
-botocore==1.36.21
+boto3==1.36.26
+botocore==1.36.26
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -34,7 +34,7 @@ dask[diagnostics,array]==2025.2.0; python_version >= '3.10'
 discid==1.2.0; sys_platform != 'win32'
 # eccodes does not provide macOS binary wheels for python 3.8
 eccodes==2.40.0; sys_platform != 'darwin' or python_version >= '3.9'
-eth_typing==5.0.1
+eth_typing==5.2.0
 eth_utils==5.2.0
 fabric==3.2.2
 falcon==4.0.2
@@ -46,10 +46,10 @@ google-api-python-client==2.161.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==5.6.0; python_version >= '3.9'
-h5py==3.12.1; python_version >= '3.9'
-humanize==4.12.0; python_version >= '3.9'
+h5py==3.13.0; python_version >= '3.9'
+humanize==4.12.1; python_version >= '3.9'
 iminuit==2.30.1; python_version >= '3.9'
-iso639-lang==2.5.1
+iso639-lang==2.6.0; python_version >= '3.9'
 kaleido==0.4.2; python_version >= '3.9'
 langdetect==1.0.9
 mariadb==1.1.12; sys_platform != "darwin" and python_version >= '3.9'
@@ -155,7 +155,7 @@ Unidecode==1.3.8
 vtk==9.4.1; python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64'
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
-weasyprint==64.0; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
+weasyprint==64.1; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 web3==7.8.0
 websockets==15.0; python_version >= '3.9'
 zeep==4.3.1
@@ -172,7 +172,7 @@ python-stdnum==1.20
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.13.1; sys_platform != 'linux'
 limits==4.0.1; python_version >= '3.9'
-great-expectations==1.3.6; python_version >= '3.9' and python_version < '3.13'
+great-expectations==1.3.7; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -183,13 +183,13 @@ exchangelib==5.5.0; python_version >= '3.9'
 NBT==1.5.1
 minecraft-launcher-lib==7.1; python_version >= '3.10'
 scikit-learn==1.6.1; python_version >= '3.9'
-scikit-image==0.25.1; python_version >= '3.10'
+scikit-image==0.25.2; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.11.0; python_version >= '3.9'
 librosa==0.10.2.post1
 sympy==1.13.3
 xyzservices==2025.1.0
-mistune==3.1.1
+mistune==3.1.2
 pydantic==2.10.6
 jsonschema==4.23.0
 psutil==7.0.0
@@ -203,7 +203,7 @@ eng-to-ipa==0.0.2
 python-mecab-ko==1.3.7
 khmer-nltk==1.6
 python-crfsuite==0.9.11
-pymorphy3==2.0.2
+pymorphy3==2.0.3
 pymorphy3-dicts-uk==2.4.1.1.1663094765
 sudachipy==0.6.10; python_version >= '3.9'
 sudachidict-core==20250129; python_version >= '3.9'
@@ -220,7 +220,7 @@ z3c.rml==4.4.0
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 # langchain depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-langchain==0.3.18; python_version >= '3.9' and python_version < '3.13'
+langchain==0.3.19; python_version >= '3.9' and python_version < '3.13'
 seedir==0.5.0
 cel-python==0.2.0
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
@@ -237,15 +237,15 @@ schwifty==2025.1.0; python_version >= '3.9'
 patool==3.1.3; python_version >= '3.10'
 yapf==0.43.0
 xmlschema==3.4.3
-pysaml2==7.5.0; python_version >= '3.9'
+pysaml2==7.5.2; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 toga==0.4.9; python_version >= '3.9'
-numbers-parser==4.14.2; python_version >= '3.9'
+numbers-parser==4.14.4; python_version >= '3.9'
 fsspec==2025.2.0; python_version >= '3.9'
-zarr==3.0.3; python_version >= '3.11'
+zarr==3.0.4; python_version >= '3.11'
 intake==2.0.8; python_version >= '3.9'
 h3==4.2.1
-selectolax==0.3.27
+selectolax==0.3.28
  ruamel.yaml.string==0.1.1
 
 # ------------------- Platform (OS) specifics
