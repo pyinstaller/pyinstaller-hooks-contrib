@@ -1,0 +1,2 @@
+Add hook for ``tkinterdnd2`` (>= 0.4.0) that collects shared library and
+.tcl files from platform-specific sub-directory under ``tkinterdnd2/tkdnd``.

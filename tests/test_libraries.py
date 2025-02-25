@@ -2386,6 +2386,39 @@ def test_sv_ttk(pyi_builder):
     """)
 
 
+@importorskip('tkinterdnd2')
+def test_tkinterdnd2(pyi_builder):
+    if not _tkinter_fully_usable():
+        pytest.skip("tkinter is not fully usable.")
+    pyi_builder.test_source("""
+        import tkinter
+        import tkinterdnd2
+
+        root = tkinterdnd2.TkinterDnD.Tk()
+
+        list_box = tkinter.Listbox(root)
+        list_box.insert(1, "drag files here")
+
+        list_box.drop_target_register(tkinterdnd2.DND_FILES)
+        list_box.dnd_bind('<<Drop>>', lambda e: list_box.insert(tkinter.END, e.data))
+
+        list_box.pack()
+
+        def shutdown_timer_callback():
+            print("Shutting down!")
+            root.destroy()
+
+        shutdown_interval = 1000  # ms
+        print(f"Starting shutdown timer ({shutdown_interval} ms)...")
+        root.after(shutdown_interval, shutdown_timer_callback)
+
+        print("Entering main loop...")
+        root.mainloop()
+
+        print("Done!")
+    """)
+
+
 @importorskip('toga')
 def test_toga(pyi_builder):
     pyi_builder.test_script(
