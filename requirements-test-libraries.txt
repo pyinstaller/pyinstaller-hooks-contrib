@@ -3,14 +3,14 @@ importlib_resources==6.4.5; python_version < '3.9'  # pyup: ignore
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==14.1.0; python_version >= '3.9'
+av==14.2.0; python_version >= '3.9'
 adbutils==2.8.0
 APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.3; python_version >= '3.10'
 boto==2.49.0
-boto3==1.36.26
-botocore==1.36.26
+boto3==1.37.4
+botocore==1.37.4
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -23,8 +23,8 @@ cloudpickle==3.1.1
 cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
-compliance-checker==5.1.1; sys_platform != 'win32'
-cryptography==44.0.1
+compliance-checker==5.1.2; sys_platform != 'win32' and python_version >= '3.10'
+cryptography==44.0.2
 dash==2.18.2
 dash-bootstrap-components==1.7.1; python_version >= '3.9'
 dash-uploader==0.6.1
@@ -39,10 +39,10 @@ eth_utils==5.2.0
 fabric==3.2.2
 falcon==4.0.2
 fiona==1.10.1; sys_platform != 'win32'
-folium==0.19.4; python_version >= '3.9'
+folium==0.19.5; python_version >= '3.9'
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.161.0
+google-api-python-client==2.162.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==5.6.0; python_version >= '3.9'
@@ -92,7 +92,7 @@ pyqtgraph==0.13.7; python_version >= "3.9"
 pyusb==1.3.1; python_version >= "3.9"
 pyviz-comms==3.0.4
 pyvjoy==1.0.1; sys_platform == 'win32'
-pynput==1.7.7
+pynput==1.7.8
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
 pymssql==2.3.2; python_version >= "3.9" and (sys_platform != 'darwin' or platform_machine != 'arm64')
 pystray==0.19.5
@@ -109,7 +109,7 @@ sacremoses==0.1.1
 scipy==1.15.2; python_version >= '3.10'
 sentry-sdk==2.22.0
 shotgun_api3==3.5.1
-slixmpp==1.8.6
+slixmpp==1.9.0; python_version >= "3.9"
 spacy==3.8.4; python_version >= '3.10' and python_version < '3.13'
 srsly==2.5.1; python_version >= "3.9"
 sv-ttk==2.6.0
@@ -117,9 +117,9 @@ swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.21408
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.8; python_version > '3.8'
-tkinterdnd2==0.4.2
+tkinterdnd2==0.4.3
 trame==3.8.0; python_version >= '3.9'
-trame-client==3.5.2; python_version >= '3.9'
+trame-client==3.6.0; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
 trame-datagrid==0.2.1
@@ -173,7 +173,7 @@ python-stdnum==1.20
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.13.1; sys_platform != 'linux'
 limits==4.0.1; python_version >= '3.9'
-great-expectations==1.3.7; python_version >= '3.9' and python_version < '3.13'
+great-expectations==1.3.8; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.18.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -194,7 +194,7 @@ mistune==3.1.2
 pydantic==2.10.6
 jsonschema==4.23.0
 psutil==7.0.0
-litestar==2.13.0; python_version < '3.13'
+litestar==2.15.1; python_version < '3.13'
 lingua-language-detector==2.0.2; python_version >= '3.8'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -212,7 +212,7 @@ sudachidict-small==20250129; python_version >= '3.9'
 sudachidict-full==20250129;  python_version >= '3.9'
 wxPython==4.2.2; sys_platform == 'darwin' or sys_platform == 'win32'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
-pythainlp==5.0.5; python_version >= '3.9'
+pythainlp==5.1.0; python_version >= '3.9'
 gmsh==4.13.1
 sspilib==0.2.0
 rlp==4.1.0
@@ -226,7 +226,7 @@ seedir==0.5.0
 cel-python==0.2.0
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
 # pygwalker also depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-pygwalker==0.4.9.13; python_version < '3.13'
+pygwalker==0.4.9.14; python_version < '3.13'
 eth-hash==0.7.1
 pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
@@ -235,7 +235,7 @@ opentelemetry-sdk==1.30.0
 xarray==2025.1.2; python_version >= '3.10'
 tables==3.10.2; python_version >= '3.11'
 schwifty==2025.1.0; python_version >= '3.9'
-patool==3.1.3; python_version >= '3.10'
+patool==4.0.0; python_version >= '3.10'
 yapf==0.43.0
 xmlschema==3.4.3
 pysaml2==7.5.2; python_version >= '3.9'
@@ -252,7 +252,7 @@ selectolax==0.3.28
 # ------------------- Platform (OS) specifics
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.33.0; sys_platform == 'linux' and python_version >= '3.9'
+dbus-fast==2.34.0; sys_platform == 'linux' and python_version >= '3.9'
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
