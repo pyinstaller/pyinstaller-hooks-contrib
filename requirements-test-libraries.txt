@@ -128,7 +128,7 @@ trame-formkit==0.1.2
 trame-grid-layout==1.0.3
 trame-iframe==1.1.1
 trame-keycloak==0.1.1
-trame-leaflet==1.2.4
+trame-leaflet==1.2.4; python_version >= '3.9'
 trame-markdown==3.0.2
 trame-matplotlib==2.0.3
 # Our trame-mesh-streamer test also depends on vtk, which is not available for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
