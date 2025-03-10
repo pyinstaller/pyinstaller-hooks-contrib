@@ -138,7 +138,7 @@ trame-pvui==0.1.1
 trame-quasar==0.2.1
 trame-rca==1.2.0; python_version >= '3.9'
 trame-router==2.3.0
-trame-server==3.3.0; python_version >= '3.9'
+trame-server==3.4.0; python_version >= '3.9'
 trame-simput==2.5.1
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
