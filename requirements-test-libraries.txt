@@ -9,7 +9,7 @@ APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 bokeh==3.6.3; python_version >= '3.10'
 boto==2.49.0
-boto3==1.37.4
+boto3==1.37.9
 botocore==1.37.4
 branca==0.8.1
 cairocffi==1.7.1
