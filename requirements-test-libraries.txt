@@ -221,7 +221,7 @@ z3c.rml==4.4.0
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 # langchain depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-langchain==0.3.19; python_version >= '3.9' and python_version < '3.13'
+langchain==0.3.20; python_version >= '3.9' and python_version < '3.13'
 seedir==0.5.0
 cel-python==0.2.0
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
