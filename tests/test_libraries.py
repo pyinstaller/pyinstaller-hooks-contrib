@@ -2462,11 +2462,16 @@ def test_fsspec_protocols(pyi_builder, tmp_path):
                 working_protocols.append(protocol)
             except ImportError:
                 pass
+            except Exception:
+                # Work around for fsspec/filesystem_spec#1805
+                pass
 
         return sorted(working_protocols)
 
     protocols_unfrozen = _get_working_fsspec_protocols()
     print(f"Unfrozen protocols: {protocols_unfrozen}")
+
+    assert protocols_unfrozen, "No working protocols found!"
 
     # Obtain list of working protocols in frozen application.
     output_file = tmp_path / "output.txt"
@@ -2481,6 +2486,9 @@ def test_fsspec_protocols(pyi_builder, tmp_path):
                 obj = fsspec.get_filesystem_class(protocol)
                 working_protocols.append(protocol)
             except ImportError:
+                pass
+            except Exception:
+                # Work-around for fsspec/filesystem_spec#1805
                 pass
 
         with open(sys.argv[1], 'w') as fp:
