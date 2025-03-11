@@ -103,7 +103,7 @@ pyvista==0.44.2; python_version < '3.13' and (python_version >= '3.9' or sys_pla
 pyzmq==26.2.1
 PyQt5==5.15.11
 qtmodern==0.2.0
-Rtree==1.3.0
+Rtree==1.4.0; python_version >= '3.9'
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.15.2; python_version >= '3.10'

@@ -34,7 +34,13 @@ else:
     binaries = collect_dynamic_libs('rtree')
 
     # With rtree >= 1.1.0, Linux PyPI wheels place the shared library in a `Rtree.libs` top-level directory.
+    # In rtree 1.4.0, the directory was renamed to `rtree.libs`
     if compat.is_linux:
         _, rtree_dir = get_package_paths('rtree')
-        rtree_libs_dir = pathlib.Path(rtree_dir).parent / 'Rtree.libs'
-        binaries += [(str(lib_file), 'Rtree.libs') for lib_file in rtree_libs_dir.glob("libspatialindex*.so*")]
+        for candidate_dir_name in ('rtree.libs', 'Rtree.libs'):
+            rtree_libs_dir = pathlib.Path(rtree_dir).parent / candidate_dir_name
+            if not rtree_libs_dir.is_dir():
+                continue
+            binaries += [
+                (str(lib_file), candidate_dir_name) for lib_file in rtree_libs_dir.glob("libspatialindex*.so*")
+            ]

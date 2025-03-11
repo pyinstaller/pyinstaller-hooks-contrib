@@ -1,0 +1,2 @@
+Update ``rtree`` hook for compatibility with ``rtree`` 1.4.0 (renamed
+shared library directory in Linux PyPI wheels).
