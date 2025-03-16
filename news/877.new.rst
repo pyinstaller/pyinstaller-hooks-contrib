@@ -1,0 +1,2 @@
+Add hook for ``distributed`` package (i.e., ``dask.distributed``) to
+collect its data files and modules from ``distributed.http``.
