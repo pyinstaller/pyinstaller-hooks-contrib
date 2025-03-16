@@ -2135,6 +2135,35 @@ def test_dask_array(pyi_builder):
     """)
 
 
+# Basic test for dask's `distributed` package, based on quickstart example from their documentation.
+@importorskip('distributed')
+def test_dask_distributed(pyi_builder):
+    pyi_builder.test_source("""
+        import multiprocessing
+        from dask.distributed import Client
+
+        def process():
+            client = Client()
+
+            def square(x):
+                return x ** 2
+
+            def neg(x):
+                return -x
+
+            A = client.map(square, range(10))
+            B = client.map(neg, A)
+
+            total = client.submit(sum, B)
+            return total.result()
+
+        if __name__ == '__main__':
+            multiprocessing.freeze_support()
+            result = process()
+            assert result == -285
+    """)
+
+
 @importorskip('tables')
 def test_pytables(pyi_builder):
     # NOTE: run_from_path=True prevents `pyi_builder` from completely clearing the `PATH` environment variable. At the
