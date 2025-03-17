@@ -22,7 +22,7 @@ jobs:
       matrix:
         python-version: ['3.8', '3.9', '3.10', '3.11', '3.12', '3.13']
         pyinstaller: ["https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
-        os: ["macos-13", "macos-14", "ubuntu-22.04", "windows-latest"]
+        os: ["macos-13", "macos-14", "ubuntu-24.04", "windows-latest"]
       fail-fast: false
 
     env:
@@ -93,7 +93,10 @@ jobs:
           sudo apt-get install -y libglu1 libgl1 libxrender1 libxcursor1 libxft2 \
             libxinerama1 libgomp1
           # Required by PyGObject (dependency of toga/toga-gtk)
-          sudo apt-get install -y gir1.2-gtk-3.0 libgirepository1.0-dev
+          sudo apt-get install -y gir1.2-gtk-3.0 \
+            libcairo2-dev \
+            libgirepository1.0-dev gir1.2-girepository-2.0 \
+            libgirepository-2.0-dev gir1.2-girepository-3.0
           # Required by pygraphviz
           sudo apt-get install -y graphviz graphviz-dev
 
