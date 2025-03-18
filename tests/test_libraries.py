@@ -2624,6 +2624,7 @@ def test_pypdfium2(pyi_builder):
         import pypdfium2
     """)
 
+
 @importorskip('dateutil')
 def test_dateutil(pyi_builder):
     pyi_builder.test_source("""
