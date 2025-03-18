@@ -125,9 +125,13 @@ if is_module_satisfies("PyInstaller >= 6.0"):
 
                 # Go over files, and match DLLs in <env>/Library/bin directory
                 for dist_file in dist.files:
-                    if not dist_file.match('../../Library/bin/*.dll'):
-                        continue
+                    # NOTE: `importlib_metadata.PackagePath.match()` does not seem to properly normalize the separator,
+                    # and on Windows, RECORD can apparently end up with entries that use either Windows or POSIX-style
+                    # separators (see pyinstaller/pyinstaller-hooks-contrib#879). This is why we first resolve the
+                    # file's location (which yields a `pathlib.Path` instance), and perform matching on resolved path.
                     dll_file = dist.locate_file(dist_file).resolve()
+                    if not dll_file.match('**/Library/bin/*.dll'):
+                        continue
                     mkl_binaries.append((str(dll_file), '.'))
 
             logger.info(
