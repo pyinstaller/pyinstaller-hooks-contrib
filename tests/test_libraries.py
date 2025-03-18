@@ -2623,3 +2623,12 @@ def test_pypdfium2(pyi_builder):
     pyi_builder.test_source("""
         import pypdfium2
     """)
+
+
+@importorskip('dateutil')
+def test_dateutil(pyi_builder):
+    pyi_builder.test_source("""
+        from dateutil.zoneinfo import getzoneinfofile_stream
+
+        assert getzoneinfofile_stream()
+    """)
