@@ -1,0 +1,2 @@
+Update ``h5py`` hook to handle Debian's ``python3-h5py`` distribution of
+``h5py``.

@@ -13,4 +13,6 @@
 Hook for http://pypi.python.org/pypi/h5py/
 """
 
-hiddenimports = ['h5py._proxy', 'h5py.utils', 'h5py.defs', 'h5py.h5ac']
+from PyInstaller.utils.hooks import collect_submodules
+
+hiddenimports = collect_submodules("h5py", lambda x: "tests" not in x)
