@@ -1,0 +1,2 @@
+Update ``pyproj`` hook to handle non pip/PyPI distributions' devendoring its
+data directory.
