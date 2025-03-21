@@ -27,7 +27,7 @@ def _setup_pyqtgraph_multiprocess_hook():
         # Load as module; this requires --hiddenimport pyqtgraph.multiprocess.bootstrap
         try:
             mod_name = 'pyqtgraph.multiprocess.bootstrap'
-            mod = __import__(mod_name)
+            mod = __import__(mod_name).multiprocess.bootstrap
             bootstrap_co = mod.__loader__.get_code(mod_name)
         except Exception:
             bootstrap_co = None
