@@ -40,3 +40,17 @@ else:
         # Validate the version
         if packaging.version.parse(importlib_metadata.version("importlib-metadata")) < packaging.version.parse("4.6"):
             raise ImportlibMetadataError()
+
+
+# Back-port of `PyInstaller.utils.hooks.get_installer_for_dist` from PyInstaller > 6.12, made available here for
+# compatibility with older PyInstaller versions.
+def get_installer_for_dist(dist_name: str):
+    try:
+        dist = importlib_metadata.distribution(dist_name)
+        installer_text = dist.read_text('INSTALLER')
+        if installer_text is not None:
+            return installer_text.strip()
+    except importlib_metadata.PackageNotFoundError:
+        pass
+
+    return None
