@@ -26,9 +26,9 @@ def _setup_pyqtgraph_multiprocess_hook():
     if len(sys.argv) == 2 and sys.argv[1] == os.path.join(sys._MEIPASS, 'pyqtgraph', 'multiprocess', 'bootstrap.py'):
         # Load as module; this requires --hiddenimport pyqtgraph.multiprocess.bootstrap
         try:
-            mod_name = 'pyqtgraph.multiprocess.bootstrap'
-            mod = __import__(mod_name)
-            bootstrap_co = mod.__loader__.get_code(mod_name)
+            import importlib.util
+            spec = importlib.util.find_spec("pyqtgraph.multiprocess.bootstrap")
+            bootstrap_co = spec.loader.get_code("pyqtgraph.multiprocess.bootstrap")
         except Exception:
             bootstrap_co = None
 
@@ -37,6 +37,7 @@ def _setup_pyqtgraph_multiprocess_hook():
             sys.exit(0)
 
         # Load from file; requires pyqtgraph/multiprocess/bootstrap.py collected as data file
+        # This is obsolete for PyInstaller >= v6.10.0
         bootstrap_file = os.path.join(sys._MEIPASS, 'pyqtgraph', 'multiprocess', 'bootstrap.py')
         if os.path.isfile(bootstrap_file):
             with open(bootstrap_file, 'r') as fp:
