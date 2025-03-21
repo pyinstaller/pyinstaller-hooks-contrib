@@ -1,0 +1,4 @@
+Backport ``PyInstaller.utils.hooks.get_installer_for_dist`` hook utility
+function as ``_pyinstaller_hooks_contrib.compat.get_installer_for_dist``;
+update hooks for ``enchant`` and ``rtree`` to use this new utility function
+to query the installer type directly via dist name.
