@@ -13,17 +13,14 @@
 import pathlib
 
 from PyInstaller import compat
-from PyInstaller.utils.hooks import collect_dynamic_libs, get_installer, get_package_paths
+from PyInstaller.utils.hooks import collect_dynamic_libs, get_package_paths
+from _pyinstaller_hooks_contrib.compat import get_installer_for_dist
 
 
-# Query the installer of the `rtree` package; in PyInstaller prior to 6.0, this might raise an exception, whereas in
-# later versions, None is returned.
-try:
-    package_installer = get_installer('rtree')
-except Exception:
-    package_installer = None
+# Query the installer of the `rtree` distribution.
+installer = get_installer_for_dist('rtree')
 
-if package_installer == 'conda':
+if installer == 'conda':
     from PyInstaller.utils.hooks import conda
 
     # In Anaconda-packaged `rtree`, `libspatialindex` and `libspatialindex_c` shared libs are packaged in a separate

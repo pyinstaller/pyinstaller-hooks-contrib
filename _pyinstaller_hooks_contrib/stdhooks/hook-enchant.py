@@ -18,8 +18,8 @@ Tested with PyEnchant 1.6.6.
 import os
 
 from PyInstaller.compat import is_darwin
-from PyInstaller.utils.hooks import exec_statement, collect_data_files, \
-    collect_dynamic_libs, get_installer
+from PyInstaller.utils.hooks import exec_statement, collect_data_files, collect_dynamic_libs
+from _pyinstaller_hooks_contrib.compat import get_installer_for_dist
 
 # TODO Add Linux support
 # Collect first all files that were installed directly into pyenchant
@@ -42,7 +42,7 @@ if is_darwin:
         print(e._name)
     """).strip()
 
-    installer = get_installer('enchant')
+    installer = get_installer_for_dist('pyenchant')
     if installer != 'pip':
         # Note: Name of detected enchant library is 'libenchant.dylib'. However, it
         #       is just symlink to 'libenchant.1.dylib'.
