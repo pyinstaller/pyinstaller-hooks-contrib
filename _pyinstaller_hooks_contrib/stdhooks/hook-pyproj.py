@@ -40,7 +40,7 @@ if hasattr(sys, 'real_prefix'):  # check if in a virtual environment
 else:
     root_path = sys.prefix
 
-# - conda-specific
+# Repackagers may de-vendor the proj data directory (Conda, Debian)
 if is_win:
     tgt_proj_data = os.path.join('Library', 'share', 'proj')
     src_proj_data = os.path.join(root_path, 'Library', 'share', 'proj')
@@ -49,13 +49,12 @@ else:  # both linux and darwin
     tgt_proj_data = os.path.join('share', 'proj')
     src_proj_data = os.path.join(root_path, 'share', 'proj')
 
-if is_conda:
-    if os.path.exists(src_proj_data):
-        datas.append((src_proj_data, tgt_proj_data))
-    else:
-        from PyInstaller.utils.hooks import logger
-        logger.warning("Datas for pyproj not found at:\n{}".format(src_proj_data))
+if os.path.exists(src_proj_data):
+    datas.append((src_proj_data, tgt_proj_data))
     # A runtime hook defines the path for `PROJ_LIB`
+elif is_conda:
+    from PyInstaller.utils.hooks import logger
+    logger.warning("Datas for pyproj not found at:\n{}".format(src_proj_data))
 
 # With pyproj 3.4.0, we need to collect package's metadata due to `importlib.metadata.version(__package__)` call in
 # `__init__.py`. This change was reverted in subsequent releases of pyproj, so we collect metadata only for 3.4.0.
