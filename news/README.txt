@@ -38,15 +38,3 @@ You add the following file into the "news" directory, called "9480.new.rst".
     Add a hook for ``foobar``, which has a hidden import.
 
 Done! The changelog entry has been added, and your PR is ready for review.
-
-
-Test Suite
------------
-
-To run the test suite, install dependencies in root:
-* pip install -r requirements-test.txt
-* pip3 install -e .
-
-Then run the test suite in root:
-* If using Windows, run: `python -m PyInstaller.utils.run_tests`
-* If using Linux, run: `python3 -m PyInstaller.utils.run_tests`
