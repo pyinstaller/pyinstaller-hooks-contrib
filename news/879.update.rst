@@ -1,3 +1,0 @@
-Fix path matching for MKL DLLs in ``torch`` hook to work with either
-POSIX-style or Windows-style separators, as either can appear in the
-metadata's RECORD entries.

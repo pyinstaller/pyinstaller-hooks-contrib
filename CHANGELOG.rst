@@ -1,3 +1,59 @@
+2025.2 (2025-03-23)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``distributed`` package (i.e., ``dask.distributed``) to
+  collect its data files and modules from ``distributed.http``. (`#877
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/877>`_)
+* Add hook for ``niquests``. (`#888
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/888>`_)
+* Add hook for ``python-dateutil`` to collect data files from the package.
+  (`#881
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/881>`_)
+* Add hook for ``tkinterdnd2`` (>= 0.4.0) that collects shared library and
+  .tcl files from platform-specific sub-directory under ``tkinterdnd2/tkdnd``.
+  (`#868
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/868>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix ``pyqtgraph.multiprocess`` in combination with PyInstaller >= v6.10.0.
+  (`#886
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/886>`_)
+* Fix path matching for MKL DLLs in ``torch`` hook to work with either
+  POSIX-style or Windows-style separators, as either can appear in the
+  metadata's RECORD entries. (`#879
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/879>`_)
+* Update ``h5py`` hook to handle Debian's ``python3-h5py`` distribution of
+  ``h5py``. (`#873
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/873>`_)
+* Update ``pyproj`` hook to handle non pip/PyPI distributions' devendoring its
+  data directory. (`#873
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/873>`_)
+* Update ``rtree`` hook for compatibility with ``rtree`` 1.4.0 (renamed
+  shared library directory in Linux PyPI wheels). (`#875
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/875>`_)
+* Update ``toga`` hook for compatibility with ``toga`` v0.5.0. Due to
+  refactor of the main module that introduced lazy import of package's
+  submodules, we now need to explicitly collect the said submodules using
+  the ``collect_submodules`` helper. (`#878
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/878>`_)
+* Update hook for ``travertino`` to explicitly collect the package's metadata
+  in order to fix compatibility with ``travertino`` v0.5.0. (`#878
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/878>`_)
+* Update the ``findlibs`` run-time hook to gracefully handle ``TypeError``
+  when using ``findlibs`` v0.1.0 with python < 3.10. This prevents the
+  frozen application from crashing on the run-time hook when the main
+  code might never end up using/importing ``findlibs`` at all (for example,
+  ``gribapi`` module from ``eccodes`` when binary wheel with bundled
+  shared libraries is used). (`#865
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/865>`_)
+
+
 2025.1 (2025-01-31)
 -------------------
 

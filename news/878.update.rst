@@ -1,2 +1,0 @@
-Update hook for ``travertino`` to explicitly collect the package's metadata
-in order to fix compatibility with ``travertino`` v0.5.0.

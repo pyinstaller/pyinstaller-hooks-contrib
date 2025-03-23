@@ -1,1 +1,0 @@
-Fix ``pyqtgraph.multiprocess`` in combination with PyInstaller >= v6.10.0.

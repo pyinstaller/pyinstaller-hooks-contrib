@@ -1,4 +1,0 @@
-Update ``toga`` hook for compatibility with ``toga`` v0.5.0. Due to
-refactor of the main module that introduced lazy import of package's
-submodules, we now need to explicitly collect the said submodules using
-the ``collect_submodules`` helper.
