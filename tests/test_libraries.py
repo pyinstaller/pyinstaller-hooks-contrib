@@ -2632,3 +2632,34 @@ def test_dateutil(pyi_builder):
 
         assert getzoneinfofile_stream()
     """)
+
+
+@importorskip('niquests')
+def test_niquests(pyi_builder):
+    pyi_builder.test_source("""
+        import niquests
+
+        try:
+            with niquests.Session() as s:
+                s.get("http://tarpit/timeout", timeout=0.001)
+        except (niquests.ConnectionError, niquests.Timeout):
+            pass
+
+        try:
+            with niquests.Session(disable_http1=True) as s:
+                s.get("http://tarpit/timeout", timeout=0.001)
+        except (niquests.ConnectionError, niquests.Timeout):
+            pass
+
+        try:
+            with niquests.Session(disable_http1=True, disable_http2=True) as s:
+                s.get("https://tarpit/timeout", timeout=0.001)
+        except (niquests.ConnectionError, niquests.Timeout):
+            pass
+
+        try:
+            with niquests.Session() as s:
+                s.get("sse://tarpit/timeout", timeout=0.001)
+        except (niquests.ConnectionError, niquests.Timeout):
+            pass
+    """)
