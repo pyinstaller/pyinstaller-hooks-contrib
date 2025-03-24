@@ -245,7 +245,7 @@ pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 toga==0.5.0; python_version >= '3.9'
 numbers-parser==4.14.4; python_version >= '3.9'
 fsspec==2025.3.0; python_version >= '3.9'
-zarr==3.0.5; python_version >= '3.11'
+zarr==3.0.6; python_version >= '3.11'
 intake==2.0.8; python_version >= '3.9'
 h3==4.2.2
 selectolax==0.3.28
