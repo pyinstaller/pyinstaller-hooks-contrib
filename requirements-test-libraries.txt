@@ -16,7 +16,7 @@ branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
 cassandra-driver==3.29.2
-capstone==5.0.5
+capstone==5.0.6
 cf-units==3.3.0; sys_platform != 'win32' and python_version >= '3.10'
 cftime==1.6.4.post1
 charset_normalizer==3.4.1
