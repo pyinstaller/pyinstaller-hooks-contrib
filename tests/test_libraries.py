@@ -580,14 +580,13 @@ def test_dash(pyi_builder):
         """)
 
 
-@importorskip('dash_table')
+@importorskip('dash')
 def test_dash_table(pyi_builder):
     pyi_builder.test_source("""
         import dash
-        import dash_table
 
         app = dash.Dash(__name__)
-        app.layout = dash_table.DataTable(
+        app.layout = dash.dash_table.DataTable(
             id='table',
             columns=[{'name': 'a', 'id': 'a'}, {'name': 'b', 'id': 'b'}],
             data=[{'a': 1, 'b': 2}, {'a': 3, 'b': 4}],
@@ -595,6 +594,7 @@ def test_dash_table(pyi_builder):
         """)
 
 
+@importorskip('dash')
 @importorskip('dash_bootstrap_components')
 def test_dash_bootstrap_components(pyi_builder):
     pyi_builder.test_source("""
