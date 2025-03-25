@@ -561,15 +561,13 @@ def test_plotly(pyi_builder):
 def test_dash(pyi_builder):
     pyi_builder.test_source("""
         import dash
-        import dash_core_components as dcc
-        import dash_html_components as html
         from dash.dependencies import Input, Output
 
         app = dash.Dash(__name__)
-        app.layout = html.Div(
+        app.layout = dash.html.Div(
             [
-                dcc.Input(id='input_text', type='text', placeholder='input type text'),
-                html.Div(id='out-all-types'),
+                dash.dcc.Input(id='input_text', type='text', placeholder='input type text'),
+                dash.html.Div(id='out-all-types'),
             ]
         )
 
@@ -582,14 +580,13 @@ def test_dash(pyi_builder):
         """)
 
 
-@importorskip('dash_table')
+@importorskip('dash')
 def test_dash_table(pyi_builder):
     pyi_builder.test_source("""
         import dash
-        import dash_table
 
         app = dash.Dash(__name__)
-        app.layout = dash_table.DataTable(
+        app.layout = dash.dash_table.DataTable(
             id='table',
             columns=[{'name': 'a', 'id': 'a'}, {'name': 'b', 'id': 'b'}],
             data=[{'a': 1, 'b': 2}, {'a': 3, 'b': 4}],
@@ -597,15 +594,15 @@ def test_dash_table(pyi_builder):
         """)
 
 
+@importorskip('dash')
 @importorskip('dash_bootstrap_components')
 def test_dash_bootstrap_components(pyi_builder):
     pyi_builder.test_source("""
         import dash
         import dash_bootstrap_components as dbc
-        import dash_html_components as html
 
         app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-        alert = dbc.Alert([html.H4('Well done!', className='alert-heading')])
+        alert = dbc.Alert([dash.html.H4('Well done!', className='alert-heading')])
         """)
 
 
