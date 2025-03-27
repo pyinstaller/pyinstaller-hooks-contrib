@@ -2660,3 +2660,10 @@ def test_niquests(pyi_builder):
         except (niquests.ConnectionError, niquests.Timeout):
             pass
     """)
+
+
+@importorskip('emoji')
+def test_vadersentiment(pyi_builder):
+    pyi_builder.test_source("""
+        import emoji
+    """)

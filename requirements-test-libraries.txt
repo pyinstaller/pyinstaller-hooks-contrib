@@ -251,6 +251,7 @@ h3==4.2.2
 selectolax==0.3.28
 ruamel.yaml.string==0.1.1
 niquests==3.13.1
+emoji==2.14.1
 
 # ------------------- Platform (OS) specifics
 
