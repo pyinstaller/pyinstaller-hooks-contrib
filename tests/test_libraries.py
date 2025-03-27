@@ -2663,7 +2663,7 @@ def test_niquests(pyi_builder):
 
 
 @importorskip('emoji')
-def test_vadersentiment(pyi_builder):
+def test_emoji(pyi_builder):
     pyi_builder.test_source("""
         import emoji
     """)
