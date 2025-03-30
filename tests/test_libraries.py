@@ -2706,3 +2706,51 @@ def test_urllib3_future(pyi_builder):
         except urllib3_future.exceptions.HTTPError:
             pass
     """)
+
+
+@importorskip('black')
+def test_black(pyi_builder):
+    pyi_builder.test_source("""
+        import black
+
+        mode = black.Mode(
+            target_versions=set(),  # auto-detect
+            line_length=120,
+        )
+
+        code = "print ('hello, world') "
+        print("Original code: {code!r}")
+
+        reformatted_code = black.format_file_contents(
+            code,
+            fast=False,
+            mode=mode,
+        )
+        print("Reformatted code: {code!r}")
+
+        # Try reformatting again - this should raise black.NothingChanged
+        try:
+            reformatted_code2 = black.format_file_contents(
+                reformatted_code,
+                fast=False,
+                mode=mode,
+            )
+        except black.NothingChanged:
+            pass
+        else:
+            raise RuntimeError("black.NothingChanged exception was not raised!")
+    """)
+
+
+@importorskip('blib2to3')
+def test_black_blib2to3_pygram(pyi_builder):
+    pyi_builder.test_source("""
+        import blib2to3.pygram
+    """)
+
+
+@importorskip('blib2to3')
+def test_black_blib2to3_pytree(pyi_builder):
+    pyi_builder.test_source("""
+        import blib2to3.pytree
+    """)
