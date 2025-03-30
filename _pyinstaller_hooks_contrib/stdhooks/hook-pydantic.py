@@ -23,11 +23,12 @@ else:
     # ('True'), while in PyInstaller 5.x and later, the actual value is returned (True).
     is_compiled = get_module_attribute('pydantic', 'compiled') in {'True', True}
 
+# Collect submodules from pydantic; even if the package is not compiled, contemporary versions (2.11.1 at the time
+# of writing) contain redirections and programmatic imports.
+hiddenimports = collect_submodules('pydantic')
+
 if is_compiled:
-    # Compiled version; we need to manually collect the submodules from
-    # pydantic...
-    hiddenimports = collect_submodules('pydantic')
-    # ... as well as the following modules from the standard library
+    # In compiled version, we need to collect the following modules from the standard library.
     hiddenimports += [
         'colorsys',
         'dataclasses',
