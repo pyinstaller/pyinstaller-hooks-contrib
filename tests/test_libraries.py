@@ -2754,3 +2754,41 @@ def test_black_blib2to3_pytree(pyi_builder):
     pyi_builder.test_source("""
         import blib2to3.pytree
     """)
+
+
+@importorskip('frictionless')
+def test_frictionless(pyi_builder, tmp_path):
+    # Example CSV file, taken from upstream example at
+    # https://framework.frictionlessdata.io/docs/getting-started.html
+    csv_file = tmp_path / "example.csv"
+    csv_file.write_text("\n".join([
+        "id,name,,name"
+        "1,english"
+        "1,english"
+        ""
+        "2,german,1,2,3"
+    ]))
+
+    pyi_builder.test_source("""
+        import sys
+        import pprint
+
+        import frictionless
+
+        filename = sys.argv[1]
+
+        # frictionless.describe()
+        print("Testing frictionless.describe...")
+        output = frictionless.describe(filename)
+        pprint.pprint(output)
+
+        # frictionless.extract()
+        print("Testing frictionless.extract...")
+        output = frictionless.extract(filename)
+        pprint.pprint(output)
+
+        # frictionless.validate()
+        print("Testing frictionless.validate...")
+        output = frictionless.validate(filename)
+        pprint.pprint(output)
+    """, app_args=[str(csv_file)])

@@ -1,0 +1,2 @@
+Add hook for ``frictionless`` to collect package's data files, and
+programmatically imported modules from ``frictionless.plugins``.

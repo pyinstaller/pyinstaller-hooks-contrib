@@ -43,6 +43,7 @@ fabric==3.2.2
 falcon==4.0.2
 fiona==1.10.1; sys_platform != 'win32'
 folium==0.19.5; python_version >= '3.9'
+frictionless==5.18.1
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
 google-api-python-client==2.166.0
