@@ -2667,3 +2667,31 @@ def test_emoji(pyi_builder):
     pyi_builder.test_source("""
         import emoji
     """)
+
+
+# Basic test for urllib3 - either from urllib3 or urllib3-future
+@importorskip('urllib3')
+def test_urllib3(pyi_builder):
+    pyi_builder.test_source("""
+        import urllib3
+
+        http = urllib3.PoolManager()
+        try:
+            resp = http.request("GET", "https://localhost/robots.txt")
+        except urllib3.exceptions.HTTPError:
+            pass
+    """)
+
+
+# Basic test for urllib3_future from urllib3-future
+@importorskip('urllib3_future')
+def test_urllib3_future(pyi_builder):
+    pyi_builder.test_source("""
+        import urllib3_future
+
+        http = urllib3_future.PoolManager()
+        try:
+            resp = http.request("GET", "https://localhost/robots.txt")
+        except urllib3_future.exceptions.HTTPError:
+            pass
+    """)
