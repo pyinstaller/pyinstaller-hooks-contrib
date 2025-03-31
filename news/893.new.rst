@@ -1,0 +1,3 @@
+Add hooks for ``urllib3`` and ``urllib3_future`` to handle indirect
+imports made by the ``urllib3-future`` implementation of the ``urllib3``
+package and its own ``urllib3_future`` package.
