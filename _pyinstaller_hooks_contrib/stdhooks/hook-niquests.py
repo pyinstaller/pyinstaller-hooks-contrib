@@ -12,9 +12,4 @@
 
 from PyInstaller.utils.hooks import collect_submodules
 
-
-hiddenimports = [
-    *collect_submodules("niquests"),
-    *collect_submodules("urllib3"),
-    *collect_submodules("urllib3_future"),
-]
+hiddenimports = collect_submodules("niquests")
