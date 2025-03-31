@@ -149,7 +149,7 @@ trame-vega==2.1.1
 trame-vtk==2.8.15; python_version >= '3.9' and python_version < '3.13'
 trame-vtk3d==0.1.0
 trame-vtklocal==0.7.1; python_version >= '3.9'
-trame-vuetify==2.8.1; python_version >= '3.9'
+trame-vuetify==2.9.0; python_version >= '3.9'
 trame-xterm==0.2.1
 Twisted==24.11.0
 tzdata==2025.2
