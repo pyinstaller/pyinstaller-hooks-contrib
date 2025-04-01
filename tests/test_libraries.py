@@ -891,6 +891,13 @@ def test_adbutils(pyi_builder):
             """)
 
 
+@importorskip("apkutils")
+def test_apkutils(pyi_builder):
+    pyi_builder.test_source("""
+        from apkutils import APK
+    """)
+
+
 @importorskip("pymediainfo")
 def test_pymediainfo(pyi_builder):
     pyi_builder.test_source("""
