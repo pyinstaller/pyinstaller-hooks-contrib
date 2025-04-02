@@ -627,9 +627,13 @@ def test_office365(pyi_builder):
     pyi_builder.test_source("""
         from office365.runtime.auth.providers.saml_token_provider import SamlTokenProvider
 
-        SamlTokenProvider._prepare_request_from_template('FederatedSAML.xml', {})
-        SamlTokenProvider._prepare_request_from_template('RST2.xml', {})
-        SamlTokenProvider._prepare_request_from_template('SAML.xml', {})
+        provider = SamlTokenProvider("https://example.com", "bob", "bob's password", "")
+        parameters = dict.fromkeys(["auth_url", "message_id", "username", "password", "created", "expires",
+                                    "issuer", "serviceTokenUrl", "assertion_node"], "")
+
+        provider._prepare_request_from_template("FederatedSAML.xml", parameters)
+        provider._prepare_request_from_template("RST2.xml", parameters)
+        provider._prepare_request_from_template("SAML.xml", parameters)
         """)
 
 
@@ -889,6 +893,13 @@ def test_adbutils(pyi_builder):
         pyi_builder.test_source("""
             from adbutils._utils import get_adb_exe; get_adb_exe()
             """)
+
+
+@importorskip("apkutils")
+def test_apkutils(pyi_builder):
+    pyi_builder.test_source("""
+        from apkutils import APK
+    """)
 
 
 @importorskip("pymediainfo")

@@ -231,6 +231,8 @@ cel-python==0.2.0
 # pygwalker also depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
 pygwalker==0.4.9.14; python_version < '3.13'
 eth-hash==0.7.1
+# apkutils depends on lxml which doesn't support Python 3.8 on macOS arm64
+apkutils==2.0.0; python_version >= '3.9' or (sys_platform != 'darwin' or platform_machine != 'arm64')
 pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
 comtypes==1.4.10; sys_platform == 'win32'
