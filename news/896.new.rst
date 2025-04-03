@@ -1,0 +1,2 @@
+Add hooks for all submodules of ``vtkmodules`` package, which is
+installed by the ``vtk`` dist (currently targeting v9.4.2).
