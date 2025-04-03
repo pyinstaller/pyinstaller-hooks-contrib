@@ -194,3 +194,13 @@ jobs:
       - name: Run slow tests (scikit-image)
         if: ${{ steps.check-scikit-image.outputs.AVAILABLE == 'yes' }}
         run: pytest -v -m slow -k skimage
+
+      - name: Check if slow tests are required (vtk)
+        id: check-vtk
+        shell: bash
+        run: |
+          grep -E "^vtk==" requirements-test-libraries.txt && echo "AVAILABLE=yes" >> $GITHUB_OUTPUT || echo "AVAILABLE=no" >> $GITHUB_OUTPUT
+
+      - name: Run slow tests (vtk)
+        if: ${{ steps.check-vtk.outputs.AVAILABLE == 'yes' }}
+        run: pytest -v -m slow -k test_vtkmodules
