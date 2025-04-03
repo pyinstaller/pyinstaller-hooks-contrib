@@ -14,7 +14,7 @@ from PyInstaller.utils.hooks import copy_metadata
 
 # This hook was written for `gcloud` - https://pypi.org/project/gcloud
 # Suppress package-not-found errors when the hook is triggered by `gcloud` namespace package from `gcloud-aio-*` and
-# `gcloud-rest-*˙ dists (https://github.com/talkiq/gcloud-aio).
+# `gcloud-rest-*` dists (https://github.com/talkiq/gcloud-aio).
 try:
     datas = copy_metadata('gcloud')
 except Exception:
