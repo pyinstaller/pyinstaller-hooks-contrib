@@ -11,8 +11,8 @@ backports.zoneinfo==0.2.1; python_version < '3.9'
 black==25.1.0; python_version >= '3.9'
 bokeh==3.7.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.37.23
-botocore==1.37.23
+boto3==1.37.28
+botocore==1.37.28
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -27,7 +27,7 @@ cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.2.0; sys_platform != 'win32' and python_version >= '3.10'
 cryptography==44.0.2
-dash==3.0.1
+dash==3.0.2
 dash-bootstrap-components==2.0.0; python_version >= '3.9'
 dash-uploader==0.6.1
 dask[distributed,diagnostics,array]==2025.3.0; python_version >= '3.10'
@@ -52,7 +52,7 @@ graphql-query==1.4.0
 python-gitlab==5.6.0; python_version >= '3.9'
 h5py==3.13.0; python_version >= '3.9'
 humanize==4.12.2; python_version >= '3.9'
-iminuit==2.30.1; python_version >= '3.9'
+iminuit==2.31.1; python_version >= '3.9'
 iso639-lang==2.6.0; python_version >= '3.9'
 kaleido==0.4.2; python_version >= '3.9'
 langdetect==1.0.9
@@ -67,7 +67,7 @@ msoffcrypto-tool==5.4.2
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= '3.9'
 numba==0.61.0; python_version >= '3.10'
-numcodecs==0.15.1; python_version >= '3.11'
+numcodecs==0.16.0; python_version >= '3.11'
 Office365-REST-Python-Client==2.6.1
 openpyxl==3.1.5
 pandas==2.2.3; python_version >= '3.9'
@@ -105,17 +105,17 @@ pythonnet==3.0.5
 pytz==2025.2
 # pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 pyvista==0.44.2; python_version < '3.13' and (python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64')
-pyzmq==26.3.0
+pyzmq==26.4.0
 PyQt5==5.15.11
 qtmodern==0.2.0
 Rtree==1.4.0; python_version >= '3.9'
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.15.2; python_version >= '3.10'
-sentry-sdk==2.25.0
+sentry-sdk==2.25.1
 shotgun_api3==3.5.1
 slixmpp==1.10.0; python_version >= "3.9"
-spacy==3.8.4; python_version >= '3.10' and python_version < '3.13'
+spacy==3.8.5; python_version >= '3.9' and python_version < '3.13'
 srsly==2.5.1; python_version >= "3.9"
 sv-ttk==2.6.0
 swagger-spec-validator==3.0.4
@@ -141,23 +141,23 @@ trame-mesh-streamer==0.1.0; python_version < '3.13' and (python_version >= '3.9'
 trame-plotly==3.1.0
 trame-pvui==0.1.1
 trame-quasar==0.2.1
-trame-rca==1.2.0; python_version >= '3.9'
+trame-rca==2.0.2; python_version >= '3.9'
 trame-router==2.3.0
 trame-server==3.4.0; python_version >= '3.9'
-trame-simput==2.5.1
+trame-simput==2.5.2
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
 trame-vega==2.1.1
 # Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet.
 trame-vtk==2.8.15; python_version >= '3.9' and python_version < '3.13'
 trame-vtk3d==0.1.0
-trame-vtklocal==0.7.1; python_version >= '3.9'
-trame-vuetify==2.9.0; python_version >= '3.9'
+trame-vtklocal==0.8.0; python_version >= '3.9'
+trame-vuetify==3.0.0; python_version >= '3.9'
 trame-xterm==0.2.1
 Twisted==24.11.0
 tzdata==2025.2
 Unidecode==1.3.8
-urllib3-future==2.12.914
+urllib3-future==2.12.915
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
 vtk==9.4.2; python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64'
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
@@ -171,15 +171,15 @@ pypsexec==0.3.0
 mimesis==18.0.0; python_version >= '3.10'
 orjson==3.10.16; python_version >= '3.9'
 altair==5.5.0; python_version >= '3.9'
-shapely==2.0.7
+shapely==2.1.0; python_version >= '3.10'
 lark==1.2.2
 python-stdnum==1.20
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.13.1; sys_platform != 'linux'
-limits==4.4.1; python_version >= '3.10'
-great-expectations==1.3.12; python_version >= '3.9' and python_version < '3.13'
+limits==4.6; python_version >= '3.10'
+great-expectations==1.3.13; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.19.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -197,10 +197,10 @@ librosa==0.11.0
 sympy==1.13.3
 xyzservices==2025.1.0
 mistune==3.1.3
-pydantic==2.11.1; python_version >= '3.9'
+pydantic==2.11.2; python_version >= '3.9'
 jsonschema==4.23.0
 psutil==7.0.0
-litestar==2.15.1; python_version < '3.13'
+litestar==2.15.2; python_version < '3.13'
 lingua-language-detector==2.1.0; python_version >= '3.10'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -227,12 +227,12 @@ z3c.rml==4.4.0
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 # langchain depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-langchain==0.3.22; python_version >= '3.9' and python_version < '3.13'
+langchain==0.3.23; python_version >= '3.9' and python_version < '3.13'
 seedir==0.5.0
 cel-python==0.2.0
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
 # pygwalker also depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-pygwalker==0.4.9.14; python_version < '3.13'
+pygwalker==0.4.9.15; python_version < '3.13'
 eth-hash==0.7.1
 # apkutils depends on lxml which doesn't support Python 3.8 on macOS arm64
 apkutils==2.0.0; python_version >= '3.9' or (sys_platform != 'darwin' or platform_machine != 'arm64')
@@ -262,7 +262,7 @@ emoji==2.14.1
 # ------------------- Platform (OS) specifics
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.43.0; sys_platform == 'linux' and python_version >= '3.9'
+dbus-fast==2.44.1; sys_platform == 'linux' and python_version >= '3.9'
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.2.2; sys_platform == 'darwin' or sys_platform == 'win32'
