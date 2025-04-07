@@ -623,6 +623,7 @@ def test_trame_router(pyi_builder):
 
 
 @importorskip("trame_rca")
+@importorskip("vtkmodules")
 def test_trame_rca(pyi_builder):
     pyi_builder.test_source("""
         import asyncio
