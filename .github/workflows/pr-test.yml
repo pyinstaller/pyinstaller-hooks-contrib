@@ -159,6 +159,7 @@ jobs:
 
           pip show -qq trame-vtk && pip install --prefer-binary vtk pyvista nest-asyncio trame-vuetify
           pip show -qq trame-mesh-streamer && pip install --prefer-binary vtk
+          pip show -qq trame-rca && pip install --prefer-binary vtk
 
           # test_xarray_chunk requires dask in addition to xarray
           pip show -qq xarray && pip install --prefer-binary dask
