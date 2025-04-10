@@ -1,0 +1,1 @@
+Add hooks for ``tkinterweb``, to collect data files, and ``tkinterweb-tkhtml``, to collect extra data files and binaries.

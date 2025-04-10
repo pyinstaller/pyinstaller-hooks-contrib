@@ -258,6 +258,8 @@ selectolax==0.3.28
 ruamel.yaml.string==0.1.1
 niquests==3.14.0
 emoji==2.14.1
+tkinterweb==4.3.0
+tkinterweb-tkhtml==1.0
 
 # ------------------- Platform (OS) specifics
 
