@@ -2828,8 +2828,6 @@ def test_pandera(pyi_builder):
 
 @importorskip('tkinterweb')
 def test_tkinterweb(pyi_builder):
-    # Simple TkinterWeb test script
-    # This also tests TkinterWeb-Tkhtml behind the scenes
     pyi_builder.test_source("""
         import tkinter
         import tkinterweb
@@ -2843,4 +2841,22 @@ def test_tkinterweb(pyi_builder):
                             <p>Hello Again!</p> \
                             <select><option>Hi...</option></select>"
                             )
+    """)
+
+
+@importorskip('tkinterweb_tkhtml')
+def test_tkinterweb_tkhtml(pyi_builder):
+    pyi_builder.test_source("""
+        import tkinter
+        import tkinterweb_tkhtml
+
+        root = tkinter.Tk()
+
+        folder = tkinterweb_tkhtml.get_tkhtml_folder()
+        tkinterweb_tkhtml.load_tkhtml(root, folder)
+    
+        frame = tkinter.Widget(root, "html")
+
+        # Load a test string
+        frame.tk.call(frame._w, "parse", "<p>Hello, World!</p>")
     """)
