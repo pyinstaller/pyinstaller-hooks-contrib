@@ -2854,7 +2854,7 @@ def test_tkinterweb_tkhtml(pyi_builder):
 
         folder = tkinterweb_tkhtml.get_tkhtml_folder()
         tkinterweb_tkhtml.load_tkhtml(root, folder)
-    
+
         frame = tkinter.Widget(root, "html")
 
         # Load a test string
