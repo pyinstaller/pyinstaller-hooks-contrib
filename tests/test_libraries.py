@@ -2824,3 +2824,39 @@ def test_pandera(pyi_builder):
         validated_df = schema(df)
         print(validated_df)
     """)
+
+
+@importorskip('tkinterweb')
+def test_tkinterweb(pyi_builder):
+    pyi_builder.test_source("""
+        import tkinter
+        import tkinterweb
+
+        root = tkinter.Tk()
+        frame = tkinterweb.HtmlFrame(root, messages_enabled=False)
+
+        # Load a test string that uses all files that should have been bundled
+        frame.load_html(
+                            "<img src='this path doesn't exist' alt='Hello, World!'/> \
+                            <p>Hello Again!</p> \
+                            <select><option>Hi...</option></select>"
+                            )
+    """)
+
+
+@importorskip('tkinterweb_tkhtml')
+def test_tkinterweb_tkhtml(pyi_builder):
+    pyi_builder.test_source("""
+        import tkinter
+        import tkinterweb_tkhtml
+
+        root = tkinter.Tk()
+
+        folder = tkinterweb_tkhtml.get_tkhtml_folder()
+        tkinterweb_tkhtml.load_tkhtml(root, folder)
+
+        frame = tkinter.Widget(root, "html")
+
+        # Load a test string
+        frame.tk.call(frame._w, "parse", "<p>Hello, World!</p>")
+    """)
