@@ -260,6 +260,7 @@ niquests==3.14.0
 emoji==2.14.1
 tkinterweb==4.3.0
 tkinterweb-tkhtml==1.0
+pandas_flavor==0.7.0
 
 # ------------------- Platform (OS) specifics
 
