@@ -984,6 +984,17 @@ def test_panel(pyi_builder):
         """)
 
 
+@importorskip("pandas_flavor")
+def test_pandas_flavor(pyi_builder):
+    pyi_builder.test_source("""
+        from pandas_flavor import register_dataframe_accessor
+
+        @register_dataframe_accessor("dummy")
+        class DummyAccessor:
+            pass
+    """)
+
+
 @importorskip("pyviz_comms")
 def test_pyviz_comms(pyi_builder):
     pyi_builder.test_source("""

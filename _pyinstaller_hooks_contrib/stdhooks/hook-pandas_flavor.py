@@ -10,6 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+from PyInstaller.utils.hooks import is_module_satisfies
+
 # As of version 0.3.0, pandas_flavor uses lazy loader to import `register` and `xarray` sub-modules. In earlier
-# versions, these used to be imported directly.
-hiddenimports = ['pandas_flavor.register', 'pandas_flavor.xarray']
+# versions, these used to be imported directly. This was removed in 0.7.0.
+if is_module_satisfies("pandas_flavor >= 0.3.0, < 0.7.0"):
+    hiddenimports = ['pandas_flavor.register', 'pandas_flavor.xarray']
