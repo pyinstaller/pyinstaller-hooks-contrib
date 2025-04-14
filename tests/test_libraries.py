@@ -2871,3 +2871,10 @@ def test_tkinterweb_tkhtml(pyi_builder):
         # Load a test string
         frame.tk.call(frame._w, "parse", "<p>Hello, World!</p>")
     """)
+
+
+@importorskip('narwhals')
+def test_narwhals(pyi_builder):
+    pyi_builder.test_source("""
+        import narwhals
+    """)
