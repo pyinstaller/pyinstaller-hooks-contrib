@@ -1,3 +1,0 @@
-Update hook for ``pydantic`` to always collect submodules from the package,
-in order to properly handle redirections and programmatic imports found
-in contemporary versions of ``pydantic``.

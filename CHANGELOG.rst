@@ -1,3 +1,43 @@
+2025.3 (2025-04-16)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``apkutils`` which requries to collect its XML file. (`#894
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/894>`_)
+* Add hook for ``emoji``. (`#891
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/891>`_)
+* Add hook for ``frictionless`` to collect package's data files, and
+  programmatically imported modules from ``frictionless.plugins``. (`#897
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/897>`_)
+* Add hook for ``narwhals`` to collect metadata for ``typing-extensions``,
+  which is required starting with ``narwhals`` v1.35.0. (`#901
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/901>`_)
+* Add hooks for ``black`` and ``blikb2to3`` packages from the ``black``
+  dist to collect hidden imports and data files. (`#897
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/897>`_)
+* Add hooks for ``tkinterweb``, to collect data files, and
+  ``tkinterweb-tkhtml``, to collect extra data files and binaries. (`#899
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/899>`_)
+* Add hooks for ``urllib3`` and ``urllib3_future`` to handle indirect
+  imports made by the ``urllib3-future`` implementation of the ``urllib3``
+  package and its own ``urllib3_future`` package. (`#893
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/893>`_)
+* Add hooks for all submodules of ``vtkmodules`` package, which is
+  installed by the ``vtk`` dist (currently targeting v9.4.2). (`#896
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/896>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update hook for ``pydantic`` to always collect submodules from the package,
+  in order to properly handle redirections and programmatic imports found
+  in contemporary versions of ``pydantic``. (`#897
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/897>`_)
+
+
 2025.2 (2025-03-23)
 -------------------
 

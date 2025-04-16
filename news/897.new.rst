@@ -1,2 +1,0 @@
-Add hooks for ``black`` and ``blikb2to3`` packages from the ``black``
-dist to collect hidden imports and data files.

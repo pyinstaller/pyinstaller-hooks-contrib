@@ -1,2 +1,0 @@
-Add hook for ``narwhals`` to collect metadata for ``typing-extensions``,
-which is required starting with ``narwhals`` v1.35.0.
