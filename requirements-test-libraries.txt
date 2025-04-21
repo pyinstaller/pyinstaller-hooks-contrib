@@ -12,7 +12,7 @@ black==25.1.0; python_version >= '3.9'
 bokeh==3.7.2; python_version >= '3.10'
 boto==2.49.0
 boto3==1.37.37
-botocore==1.37.33
+botocore==1.37.37
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
