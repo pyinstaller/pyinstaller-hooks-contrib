@@ -38,7 +38,7 @@ discid==1.2.0; sys_platform != 'win32'
 # eccodes does not provide macOS binary wheels for python 3.8
 eccodes==2.41.0; sys_platform != 'darwin' or python_version >= '3.9'
 eth_typing==5.2.1
-eth_utils==5.2.0
+eth_utils==5.3.0
 fabric==3.2.2
 falcon==4.0.2
 fiona==1.10.1; sys_platform != 'win32'
