@@ -11,8 +11,8 @@ backports.zoneinfo==0.2.1; python_version < '3.9'
 black==25.1.0; python_version >= '3.9'
 bokeh==3.7.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.37.37
-botocore==1.37.37
+boto3==1.38.3; python_version >= '3.9'
+botocore==1.38.3; python_version >= '3.9'
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -27,10 +27,10 @@ cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.2.0; sys_platform != 'win32' and python_version >= '3.10'
 cryptography==44.0.2
-dash==3.0.3
+dash==3.0.4
 dash-bootstrap-components==2.0.2; python_version >= '3.9'
 dash-uploader==0.6.1
-dask[distributed,diagnostics,array]==2025.3.0; python_version >= '3.10'
+dask[array,distributed,diagnostics]==2025.4.1; python_version >= '3.10'
 python-dateutil==2.9.0.post0
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively.
@@ -46,7 +46,7 @@ folium==0.19.5; python_version >= '3.9'
 frictionless==5.18.1
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.167.0
+google-api-python-client==2.168.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==5.6.0; python_version >= '3.9'
@@ -64,7 +64,7 @@ markdown==3.8; python_version >= '3.9'
 moviepy==2.1.2; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==1.35.0
+narwhals==1.37.0
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= '3.9'
 numba==0.61.2; python_version >= '3.10'
@@ -72,11 +72,11 @@ numcodecs==0.16.0; python_version >= '3.11'
 Office365-REST-Python-Client==2.6.1
 openpyxl==3.1.5
 pandas==2.2.3; python_version >= '3.9'
-panel==1.6.2; python_version >= '3.10'
+panel==1.6.3; python_version >= '3.10'
 pandera==0.23.1; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.1.0; python_version >= '3.9'
-phonenumbers==9.0.3
+phonenumbers==9.0.4
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.3.7; python_version >= '3.9'
@@ -113,7 +113,7 @@ Rtree==1.4.0; python_version >= '3.9'
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.15.2; python_version >= '3.10'
-sentry-sdk==2.26.1
+sentry-sdk==2.27.0
 shotgun_api3==3.5.1
 slixmpp==1.10.0; python_version >= "3.9"
 spacy==3.8.5; python_version >= '3.9' and python_version < '3.13'
@@ -124,8 +124,8 @@ tableauhyperapi==0.0.21408
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.9; python_version > '3.8'
 tkinterdnd2==0.4.3
-trame==3.8.2; python_version >= '3.9'
-trame-client==3.7.1; python_version >= '3.9'
+trame==3.9.0; python_version >= '3.9'
+trame-client==3.8.0; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
 trame-datagrid==0.2.1
@@ -142,7 +142,7 @@ trame-mesh-streamer==0.1.0; python_version < '3.13' and (python_version >= '3.9'
 trame-plotly==3.1.0
 trame-pvui==0.1.1
 trame-quasar==0.2.1
-trame-rca==2.1.0; python_version >= '3.9'
+trame-rca==2.1.2; python_version >= '3.9'
 trame-router==2.3.0
 trame-server==3.4.0; python_version >= '3.9'
 trame-simput==2.5.2
@@ -157,8 +157,8 @@ trame-vuetify==3.0.1; python_version >= '3.9'
 trame-xterm==0.2.1
 Twisted==24.11.0
 tzdata==2025.2
-Unidecode==1.3.8
-urllib3-future==2.12.918
+Unidecode==1.4.0
+urllib3-future==2.12.919
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
 vtk==9.4.2; python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64'
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
@@ -179,8 +179,8 @@ python-stdnum==1.20
 # and libsndfile, respectively.
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.13.1; sys_platform != 'linux'
-limits==5.0.0; python_version >= '3.10'
-great-expectations==1.4.0; python_version >= '3.9' and python_version < '3.13'
+limits==5.1.0; python_version >= '3.10'
+great-expectations==1.4.2; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.19.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -195,8 +195,8 @@ scikit-image==0.25.2; python_version >= '3.10'
 customtkinter==5.2.2
 fastparquet==2024.11.0; python_version >= '3.9'
 librosa==0.11.0
-sympy==1.13.3
-xyzservices==2025.1.0
+sympy==1.14.0; python_version >= '3.9'
+xyzservices==2025.4.0
 mistune==3.1.3
 pydantic==2.11.3; python_version >= '3.9'
 jsonschema==4.23.0
@@ -228,7 +228,7 @@ z3c.rml==5.0; python_version >= '3.9'
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 # langchain depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-langchain==0.3.23; python_version >= '3.9' and python_version < '3.13'
+langchain==0.3.24; python_version >= '3.9' and python_version < '3.13'
 seedir==0.5.0
 cel-python==0.2.0
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
@@ -250,7 +250,7 @@ xmlschema==4.0.1; python_version >= '3.9'
 pysaml2==7.5.2; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
 toga==0.5.0; python_version >= '3.9'
-numbers-parser==4.14.4; python_version >= '3.9'
+numbers-parser==4.15.1; python_version >= '3.9'
 fsspec==2025.3.2; python_version >= '3.9'
 zarr==3.0.7; python_version >= '3.11'
 intake==2.0.8; python_version >= '3.9'
