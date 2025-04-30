@@ -1,0 +1,1 @@
+``usb`` hook: fix shared library collection on Windows.
