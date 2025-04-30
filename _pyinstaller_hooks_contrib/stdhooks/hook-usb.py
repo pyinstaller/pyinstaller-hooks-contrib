@@ -41,15 +41,16 @@ if not skip_pyusb_discovery:
         usb.core.find()
         # get the backend symbols which have been added (loaded)
         backends = set(dir(usb.backend)) - backend_contents_before_discovery
-        # gather the libraries from the loaded backends
-        backend_lib_basenames = []
         for usblib in [getattr(usb.backend, be)._lib for be in backends]:
             if usblib is not None:
-                # OSX returns the full path, Linux only the filename.
-                # save the basename and reconstruct the path after gathering.
-                backend_lib_basenames.append(os.path.basename(usblib._name))
-        # try to resolve the library names to absolute paths.
-        binaries = _resolveCtypesImports(backend_lib_basenames)
+                if os.path.isabs(usblib._name):
+                    binaries.append((os.path.basename(usblib._name), usblib._name, "BINARY"))
+                else:
+                    # OSX returns the full path, Linux only the filename.
+                    # try to resolve the library names to absolute paths.
+                    backend_lib_full_paths = _resolveCtypesImports([os.path.basename(usblib._name)])
+                    if backend_lib_full_paths:
+                        binaries.append(backend_lib_full_paths[0])
     except (ValueError, usb.core.USBError) as exc:
         logger.warning("%s", exc)
 
@@ -75,9 +76,12 @@ if not binaries:
     for candidate in libusb_candidates:
         libname = ctypes.util.find_library(candidate)
         if libname is not None:
-            backend_library_basenames.append(os.path.basename(libname))
-    if backend_library_basenames:
-        binaries = _resolveCtypesImports(backend_library_basenames)
+            if os.path.isabs(libname):
+                binaries.append((os.path.basename(libname), libname, "BINARY"))
+            else:
+                backend_lib_full_paths = _resolveCtypesImports([os.path.basename(libname)])
+                if backend_lib_full_paths:
+                    binaries.append(backend_lib_full_paths[0])
 
 # Validate and normalize the first found usb library.
 if binaries:
