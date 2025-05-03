@@ -1,3 +1,0 @@
-Fix error in ``narwhals`` hook when ``typing-extensions`` is not available
-in the build environment (neither stand-alone version is installed
-nor it is provided as part of ``setuptools``).

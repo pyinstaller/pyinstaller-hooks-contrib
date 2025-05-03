@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-__version__ = '2025.3'
+__version__ = '2025.4'
 __maintainer__ = 'Legorooj, bwoodsend'
 __uri__ = 'https://github.com/pyinstaller/pyinstaller-hooks-contrib'
 

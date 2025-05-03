@@ -1,3 +1,15 @@
+2025.4 (2025-05-03)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix error in ``narwhals`` hook when ``typing-extensions`` is not available
+  in the build environment (neither stand-alone version is installed
+  nor it is provided as part of ``setuptools``). (`#908
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/908>`_)
+
+
 2025.3 (2025-04-16)
 -------------------
 
