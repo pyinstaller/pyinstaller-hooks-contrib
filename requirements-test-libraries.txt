@@ -125,7 +125,7 @@ thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.9; python_version > '3.8'
 tkinterdnd2==0.4.3
 trame==3.9.0; python_version >= '3.9'
-trame-client==3.8.0; python_version >= '3.9'
+trame-client==3.8.1; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
 trame-datagrid==0.2.1
