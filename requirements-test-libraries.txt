@@ -3,7 +3,7 @@ importlib_resources==6.4.5; python_version < '3.9'  # pyup: ignore
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==14.2.0; python_version >= '3.9'
+av==14.3.0; python_version >= '3.9'
 # adbutils does not provide arm64 macOS wheels.
 adbutils==2.8.7; sys_platform != 'darwin' or platform_machine != 'arm64'
 APScheduler==3.11.0
@@ -11,8 +11,8 @@ backports.zoneinfo==0.2.1; python_version < '3.9'
 black==25.1.0; python_version >= '3.9'
 bokeh==3.7.2; python_version >= '3.10'
 boto==2.49.0
-boto3==1.38.3; python_version >= '3.9'
-botocore==1.38.3; python_version >= '3.9'
+boto3==1.38.8; python_version >= '3.9'
+botocore==1.38.8; python_version >= '3.9'
 branca==0.8.1
 cairocffi==1.7.1
 CairoSVG==2.7.1
@@ -20,13 +20,13 @@ cassandra-driver==3.29.2
 capstone==5.0.6
 cf-units==3.3.0; sys_platform != 'win32' and python_version >= '3.10'
 cftime==1.6.4.post1
-charset_normalizer==3.4.1
+charset_normalizer==3.4.2
 cloudpickle==3.1.1
 cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
-compliance-checker==5.2.0; sys_platform != 'win32' and python_version >= '3.10'
-cryptography==44.0.2
+compliance-checker==5.3.0; sys_platform != 'win32' and python_version >= '3.10'
+cryptography==44.0.3
 dash==3.0.4
 dash-bootstrap-components==2.0.2; python_version >= '3.9'
 dash-uploader==0.6.1
@@ -46,12 +46,12 @@ folium==0.19.5; python_version >= '3.9'
 frictionless==5.18.1
 ffpyplayer==4.5.2
 geopandas==1.0.1; sys_platform != 'win32' and python_version >= '3.9'
-google-api-python-client==2.168.0
+google-api-python-client==2.169.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==5.6.0; python_version >= '3.9'
 h5py==3.13.0; python_version >= '3.9'
-humanize==4.12.2; python_version >= '3.9'
+humanize==4.12.3; python_version >= '3.9'
 iminuit==2.31.1; python_version >= '3.9'
 iso639-lang==2.6.0; python_version >= '3.9'
 kaleido==0.4.2; python_version >= '3.9'
@@ -64,7 +64,7 @@ markdown==3.8; python_version >= '3.9'
 moviepy==2.1.2; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==1.37.0
+narwhals==1.38.0
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= '3.9'
 numba==0.61.2; python_version >= '3.10'
@@ -89,7 +89,7 @@ pydicom==3.0.1; python_version >= '3.10'
 pyexcelerate==0.12.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != 'win32'
-pylint==3.3.6; python_version >= '3.9'
+pylint==3.3.7; python_version >= '3.9'
 pypdfium2==4.30.1
 pypemicro==0.1.11
 pyphen==0.17.2; python_version >= '3.9'
@@ -100,7 +100,7 @@ pyviz-comms==3.0.4
 pyvjoy==1.0.1; sys_platform == 'win32'
 pynput==1.8.1
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
-pymssql==2.3.2; python_version >= "3.9" and (sys_platform != 'darwin' or platform_machine != 'arm64')
+pymssql==2.3.4; python_version >= "3.9" and (sys_platform != 'darwin' or platform_machine != 'arm64')
 pystray==0.19.5
 pythonnet==3.0.5
 pytz==2025.2
@@ -120,12 +120,12 @@ spacy==3.8.5; python_version >= '3.9' and python_version < '3.13'
 srsly==2.5.1; python_version >= "3.9"
 sv-ttk==2.6.0
 swagger-spec-validator==3.0.4
-tableauhyperapi==0.0.21408
+tableauhyperapi==0.0.22106
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.9; python_version > '3.8'
 tkinterdnd2==0.4.3
 trame==3.9.0; python_version >= '3.9'
-trame-client==3.8.0; python_version >= '3.9'
+trame-client==3.8.1; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
 trame-datagrid==0.2.1
@@ -158,19 +158,19 @@ trame-xterm==0.2.1
 Twisted==24.11.0
 tzdata==2025.2
 Unidecode==1.4.0
-urllib3-future==2.12.919
+urllib3-future==2.12.920
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
 vtk==9.4.2; python_version >= '3.9' or sys_platform != 'darwin' or platform_machine != 'arm64'
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==65.1; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
-web3==7.10.0
+web3==7.11.0
 websockets==15.0.1; python_version >= '3.9'
 zeep==4.3.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= '3.10'
-orjson==3.10.16; python_version >= '3.9'
+orjson==3.10.18; python_version >= '3.9'
 altair==5.5.0; python_version >= '3.9'
 shapely==2.1.0; python_version >= '3.10'
 lark==1.2.2
@@ -198,10 +198,10 @@ librosa==0.11.0
 sympy==1.14.0; python_version >= '3.9'
 xyzservices==2025.4.0
 mistune==3.1.3
-pydantic==2.11.3; python_version >= '3.9'
+pydantic==2.11.4; python_version >= '3.9'
 jsonschema==4.23.0
 psutil==7.0.0
-litestar==2.15.2; python_version < '3.13'
+litestar==2.16.0; python_version < '3.13'
 lingua-language-detector==2.1.0; python_version >= '3.10'
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -221,14 +221,14 @@ wxPython==4.2.3; (sys_platform == 'darwin' or sys_platform == 'win32') and pytho
 laonlp==1.2.0
 pythainlp==5.1.1; python_version >= '3.9'
 gmsh==4.13.1
-sspilib==0.3.0; python_version >= '3.9'
+sspilib==0.3.1; python_version >= '3.9'
 rlp==4.1.0
 eth-rlp==2.2.0
 z3c.rml==5.0; python_version >= '3.9'
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 # langchain depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-langchain==0.3.24; python_version >= '3.9' and python_version < '3.13'
+langchain==0.3.25; python_version >= '3.9' and python_version < '3.13'
 seedir==0.5.0
 cel-python==0.2.0
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
@@ -241,10 +241,10 @@ pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
 comtypes==1.4.10; sys_platform == 'win32'
 opentelemetry-sdk==1.32.1
-xarray==2025.3.1; python_version >= '3.10'
+xarray==2025.4.0; python_version >= '3.10'
 tables==3.10.2; python_version >= '3.11'
 schwifty==2025.1.0; python_version >= '3.9'
-patool==4.0.0; python_version >= '3.10'
+patool==4.0.1; python_version >= '3.10'
 yapf==0.43.0
 xmlschema==4.0.1; python_version >= '3.9'
 pysaml2==7.5.2; python_version >= '3.9'
@@ -255,7 +255,7 @@ fsspec==2025.3.2; python_version >= '3.9'
 zarr==3.0.7; python_version >= '3.11'
 intake==2.0.8; python_version >= '3.9'
 h3==4.2.2
-selectolax==0.3.28
+selectolax==0.3.29
 ruamel.yaml.string==0.1.1
 niquests==3.14.0
 emoji==2.14.1
