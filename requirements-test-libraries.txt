@@ -120,7 +120,7 @@ spacy==3.8.5; python_version >= '3.9' and python_version < '3.13'
 srsly==2.5.1; python_version >= "3.9"
 sv-ttk==2.6.0
 swagger-spec-validator==3.0.4
-tableauhyperapi==0.0.21408
+tableauhyperapi==0.0.22106
 thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.9; python_version > '3.8'
 tkinterdnd2==0.4.3
