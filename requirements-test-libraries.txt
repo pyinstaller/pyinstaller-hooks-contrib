@@ -3,7 +3,7 @@ importlib_resources==6.4.5; python_version < '3.9'  # pyup: ignore
 
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==14.2.0; python_version >= '3.9'
+av==14.3.0; python_version >= '3.9'
 # adbutils does not provide arm64 macOS wheels.
 adbutils==2.8.7; sys_platform != 'darwin' or platform_machine != 'arm64'
 APScheduler==3.11.0
