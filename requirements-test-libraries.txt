@@ -255,7 +255,7 @@ fsspec==2025.3.2; python_version >= '3.9'
 zarr==3.0.7; python_version >= '3.11'
 intake==2.0.8; python_version >= '3.9'
 h3==4.2.2
-selectolax==0.3.28
+selectolax==0.3.29
 ruamel.yaml.string==0.1.1
 niquests==3.14.0
 emoji==2.14.1
