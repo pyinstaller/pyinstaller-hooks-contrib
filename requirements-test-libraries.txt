@@ -249,7 +249,7 @@ yapf==0.43.0
 xmlschema==4.0.1; python_version >= '3.9'
 pysaml2==7.5.2; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
-toga==0.5.0; python_version >= '3.9'
+toga==0.5.1; python_version >= '3.9'
 numbers-parser==4.15.1; python_version >= '3.9'
 fsspec==2025.3.2; python_version >= '3.9'
 zarr==3.0.7; python_version >= '3.11'
