@@ -219,7 +219,7 @@ sudachidict-small==20250129; python_version >= '3.9'
 sudachidict-full==20250129;  python_version >= '3.9'
 wxPython==4.2.3; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version >= '3.9'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
-pythainlp==5.1.1; python_version >= '3.9'
+pythainlp==5.1.2; python_version >= '3.9'
 gmsh==4.13.1
 sspilib==0.3.1; python_version >= '3.9'
 rlp==4.1.0
