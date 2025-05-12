@@ -152,7 +152,7 @@ trame-vega==2.1.1
 # Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet.
 trame-vtk==2.8.15; python_version >= '3.9' and python_version < '3.13'
 trame-vtk3d==0.1.0
-trame-vtklocal==0.8.0; python_version >= '3.9'
+trame-vtklocal==0.10.0; python_version >= '3.9'
 trame-vuetify==3.0.1; python_version >= '3.9'
 trame-xterm==0.2.1
 Twisted==24.11.0
