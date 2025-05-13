@@ -5,17 +5,19 @@ importlib_resources==6.4.5; python_version < '3.9'  # pyup: ignore
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==14.3.0; python_version >= '3.9'
 # adbutils does not provide arm64 macOS wheels.
-adbutils==2.8.7; sys_platform != 'darwin' or platform_machine != 'arm64'
+adbutils==2.8.9; sys_platform != 'darwin' or platform_machine != 'arm64'
 APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < '3.9'
 black==25.1.0; python_version >= '3.9'
-bokeh==3.7.2; python_version >= '3.10'
+bokeh==3.7.3; python_version >= '3.10'
 boto==2.49.0
-boto3==1.38.8; python_version >= '3.9'
-botocore==1.38.8; python_version >= '3.9'
+boto3==1.38.13; python_version >= '3.9'
+botocore==1.38.13; python_version >= '3.9'
 branca==0.8.1
 cairocffi==1.7.1
-CairoSVG==2.7.1
+# On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
+# installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
+CairoSVG==2.8.0; (sys_platform != 'darwin' or platform_machine != 'arm64') and python_version >= '3.9'
 cassandra-driver==3.29.2
 capstone==5.0.6
 cf-units==3.3.0; sys_platform != 'win32' and python_version >= '3.10'
@@ -64,22 +66,22 @@ markdown==3.8; python_version >= '3.9'
 moviepy==2.1.2; python_version >= '3.9' and (sys_platform != 'darwin' or platform_machine != 'arm64')
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==1.38.0
+narwhals==1.39.0
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= '3.9'
 numba==0.61.2; python_version >= '3.10'
 numcodecs==0.16.0; python_version >= '3.11'
-Office365-REST-Python-Client==2.6.1
+Office365-REST-Python-Client==2.6.2
 openpyxl==3.1.5
 pandas==2.2.3; python_version >= '3.9'
 panel==1.6.3; python_version >= '3.10'
 pandera==0.23.1; python_version >= '3.9'
 passlib==1.7.4
 pendulum==3.1.0; python_version >= '3.9'
-phonenumbers==9.0.4
+phonenumbers==9.0.5
 pingouin==0.5.5
 pinyin==0.4.0
-platformdirs==4.3.7; python_version >= '3.9'
+platformdirs==4.3.8; python_version >= '3.9'
 plotly==6.0.1
 publicsuffix2==2.20191221
 pycparser==2.22
@@ -105,15 +107,15 @@ pystray==0.19.5
 pythonnet==3.0.5
 pytz==2025.2
 # pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-pyvista==0.45.0; python_version >= '3.9'
+pyvista==0.45.1; python_version >= '3.9'
 pyzmq==26.4.0
 PyQt5==5.15.11
 qtmodern==0.2.0
 Rtree==1.4.0; python_version >= '3.9'
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
-scipy==1.15.2; python_version >= '3.10'
-sentry-sdk==2.27.0
+scipy==1.15.3; python_version >= '3.10'
+sentry-sdk==2.28.0
 shotgun_api3==3.5.1
 slixmpp==1.10.0; python_version >= "3.9"
 spacy==3.8.5; python_version >= '3.9' and python_version < '3.13'
@@ -125,7 +127,7 @@ thinc==9.1.1; python_version >= '3.9'
 timezonefinder==6.5.9; python_version > '3.8'
 tkinterdnd2==0.4.3
 trame==3.9.0; python_version >= '3.9'
-trame-client==3.8.1; python_version >= '3.9'
+trame-client==3.9.0; python_version >= '3.9'
 trame-code==1.0.1
 trame-components==2.4.2
 trame-datagrid==0.2.1
@@ -152,7 +154,7 @@ trame-vega==2.1.1
 # Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet.
 trame-vtk==2.8.15; python_version >= '3.9' and python_version < '3.13'
 trame-vtk3d==0.1.0
-trame-vtklocal==0.8.0; python_version >= '3.9'
+trame-vtklocal==0.10.0; python_version >= '3.9'
 trame-vuetify==3.0.1; python_version >= '3.9'
 trame-xterm==0.2.1
 Twisted==24.11.0
@@ -174,13 +176,13 @@ orjson==3.10.18; python_version >= '3.9'
 altair==5.5.0; python_version >= '3.9'
 shapely==2.1.0; python_version >= '3.10'
 lark==1.2.2
-python-stdnum==1.20
+python-stdnum==2.0
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
 sounddevice==0.5.1; sys_platform != 'linux'
 soundfile==0.13.1; sys_platform != 'linux'
 limits==5.1.0; python_version >= '3.10'
-great-expectations==1.4.2; python_version >= '3.9' and python_version < '3.13'
+great-expectations==1.4.3; python_version >= '3.9' and python_version < '3.13'
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.19.0; python_version >= '3.9' and python_version < '3.13' and (sys_platform != 'darwin' or platform_machine == 'arm64')
 pyshark==0.6.0
@@ -219,7 +221,7 @@ sudachidict-small==20250129; python_version >= '3.9'
 sudachidict-full==20250129;  python_version >= '3.9'
 wxPython==4.2.3; (sys_platform == 'darwin' or sys_platform == 'win32') and python_version >= '3.9'  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
-pythainlp==5.1.1; python_version >= '3.9'
+pythainlp==5.1.2; python_version >= '3.9'
 gmsh==4.13.1
 sspilib==0.3.1; python_version >= '3.9'
 rlp==4.1.0
@@ -240,7 +242,7 @@ apkutils==2.0.0; python_version >= '3.9' or (sys_platform != 'darwin' or platfor
 pypylon==4.1.0; python_version >= '3.9'
 python-pptx==1.0.2
 comtypes==1.4.10; sys_platform == 'win32'
-opentelemetry-sdk==1.32.1
+opentelemetry-sdk==1.33.0
 xarray==2025.4.0; python_version >= '3.10'
 tables==3.10.2; python_version >= '3.11'
 schwifty==2025.1.0; python_version >= '3.9'
@@ -249,7 +251,7 @@ yapf==0.43.0
 xmlschema==4.0.1; python_version >= '3.9'
 pysaml2==7.5.2; python_version >= '3.9'
 pysaml2==7.3.0; python_version < '3.9'  # pyup: ignore
-toga==0.5.0; python_version >= '3.9'
+toga==0.5.1; python_version >= '3.9'
 numbers-parser==4.15.1; python_version >= '3.9'
 fsspec==2025.3.2; python_version >= '3.9'
 zarr==3.0.7; python_version >= '3.11'
