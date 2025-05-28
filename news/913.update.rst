@@ -1,0 +1,1 @@
+``usb`` hook: added support for the find_library callback function.
