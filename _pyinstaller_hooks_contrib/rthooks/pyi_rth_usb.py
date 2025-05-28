@@ -9,6 +9,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #-----------------------------------------------------------------------------
 
+
 import ctypes
 import glob
 import os
@@ -32,13 +33,22 @@ def get_load_func(type, candidates):
 
         library = None
         for candidate in candidates:
-            # Do linker's path lookup work to force load bundled copy.
-            if os.name == 'posix' and sys.platform == 'darwin':
-                libs = glob.glob("%s/%s*.dylib*" % (exec_path, candidate))
-            elif sys.platform == 'win32' or sys.platform == 'cygwin':
-                libs = glob.glob("%s\\%s*.dll" % (exec_path, candidate))
+
+            # Find a list of library files that match 'candidate'.
+            if find_library:
+                # Caller provides a function that lookup lib path by candidate name.
+                lib_path = find_library(candidate)
+                libs = [lib_path] if lib_path else []
             else:
-                libs = glob.glob("%s/%s*.so*" % (exec_path, candidate))
+                # No find_library callback function, we look at the default location.
+                if os.name == 'posix' and sys.platform == 'darwin':
+                    libs = glob.glob("%s/%s*.dylib*" % (exec_path, candidate))
+                elif sys.platform == 'win32' or sys.platform == 'cygwin':
+                    libs = glob.glob("%s\\%s*.dll" % (exec_path, candidate))
+                else:
+                    libs = glob.glob("%s/%s*.so*" % (exec_path, candidate))
+
+            # Do linker's path lookup work to force load bundled copy.
             for libname in libs:
                 try:
                     # NOTE: libusb01 is using CDLL under win32.
