@@ -1,0 +1,2 @@
+Have the ``_load_library`` override installed by the ``usb`` run-time
+hook honor the passed ``find_library`` argument.
