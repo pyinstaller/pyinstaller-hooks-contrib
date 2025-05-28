@@ -1,1 +1,2 @@
-``usb`` hook: added support for the find_library callback function.
+Have the ``_load_library`` override installed by the ``usb`` run-time
+hook honor the passed ``find_library`` argument.
