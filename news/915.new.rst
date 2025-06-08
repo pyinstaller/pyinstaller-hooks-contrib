@@ -1,0 +1,8 @@
+Extend hooks for ``slearn`` to fix compatibility with ``scikit-learn``
+v1.7.0; add hooks for ``sklearn.externals.array_api_compat.cupy``,
+``sklearn.externals.array_api_compat.dask.array``,
+``sklearn.externals.array_api_compat.numpy``, and
+``sklearn.externals.array_api_compat.torch`` that specify hidden imports
+for corresponding ``.linalg`` and ``.fft`` sub-modules, which are
+imported with using ``__import__()`` function and programmatically-generated
+names.
