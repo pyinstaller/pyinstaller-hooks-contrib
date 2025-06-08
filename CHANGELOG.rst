@@ -1,3 +1,30 @@
+2025.5 (2025-06-08)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Extend hooks for ``slearn`` to fix compatibility with ``scikit-learn``
+  v1.7.0; add hooks for ``sklearn.externals.array_api_compat.cupy``,
+  ``sklearn.externals.array_api_compat.dask.array``,
+  ``sklearn.externals.array_api_compat.numpy``, and
+  ``sklearn.externals.array_api_compat.torch`` that specify hidden imports
+  for corresponding ``.linalg`` and ``.fft`` sub-modules, which are
+  imported with using ``__import__()`` function and programmatically-generated
+  names. (`#915
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/915>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* ``usb`` hook: fix shared library collection on Windows. (`#906
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/906>`_)
+* Have the ``_load_library`` override installed by the ``usb`` run-time
+  hook honor the passed ``find_library`` argument. (`#913
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/913>`_)
+
+
 2025.4 (2025-05-03)
 -------------------
 
