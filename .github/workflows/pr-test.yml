@@ -170,6 +170,60 @@ jobs:
           # Install PyInstaller
           pip install ${{ matrix.pyinstaller }}
 
+      # PyTaskbar 0.1.0 does not ship TaskBarLib.tlb with its wheels anymore (in contrast
+      # to earlier releases under the PyTaskbarProgress name); apparently users are supposed
+      # to download it separately and copy it to their project's directory. Copying to the
+      # package's directory also seems to work, and is what our hook is expecting. So until
+      # we see  what directions subsequent releases take, download and install the file.
+      # Applicable only to Windows (PyTaskbar is available only for Windows).
+      - name: Download and install TLB for PyTaskbar
+        if: startsWith(matrix.os, 'windows')
+        shell: python
+        run: |
+          import importlib.metadata
+          import importlib.util
+          import os
+          import sys
+          import urllib.request
+
+          import packaging.version
+
+          # Check if PyTaskbar is available, and at >= 0.1.0 version.
+          try:
+              version = importlib.metadata.version('PyTaskbar')
+          except importlib.metadata.PackageNotFoundError:
+              print("PyTaskbar dist not found.")
+              sys.exit()  # N/A
+
+          print(f"PyTaskbar version: {version}")
+
+          version = packaging.version.parse(version)
+          if version < packaging.version.parse("0.1.0"):
+              print("PyTaskbar version is lower than 0.1.0.")
+              sys.exit()
+
+          # Determine package's path - attempting to import the package might raise
+          # missing library error, so look up the spec and module's search location
+          # in it.
+          spec = importlib.util.find_spec('PyTaskbar')
+          if spec is None:
+              print("PyTaskbar spec not found.")
+              sys.exit()
+          location = spec.submodule_search_locations[0]
+          print(f"Package location: {location}")
+
+          # Check if the .tlb file already exists
+          tlb_file = os.path.join(location, 'TaskbarLib.tlb')
+          if os.path.isfile(tlb_file):
+              print(f"TLB file already exists.")
+              sys.exit()
+
+          # Download the .tlb file from GitHub releases
+          tlb_url = f"https://github.com/N3RDIUM/PyTaskbar/releases/download/{version}/TaskbarLib.tlb"
+          print(f"Downloading TLB file from: {tlb_url}")
+
+          urllib.request.urlretrieve(tlb_url, tlb_file)
+
       - name: Run tests
         run: pytest -v
 
