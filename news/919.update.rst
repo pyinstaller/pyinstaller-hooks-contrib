@@ -1,0 +1,1 @@
+Update ``plotly`` hook for compatibility with ``plotly`` 6.2.0.

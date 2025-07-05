@@ -194,6 +194,10 @@ _module_dependencies = {
         'vtkmodules.vtkIOImage',
         'vtkmodules.vtkIOXML',
     ],
+    'vtkmodules.vtkIOAvmesh': [
+        'vtkmodules.vtkCommonExecutionModel',
+        'vtkmodules.vtkIOCore',
+    ],
     'vtkmodules.vtkIOCGNSReader': [
         'vtkmodules.vtkCommonExecutionModel',
     ],
@@ -285,6 +289,7 @@ _module_dependencies = {
     ],
     'vtkmodules.vtkIOImport': [
         'vtkmodules.vtkCommonExecutionModel',
+        'vtkmodules.vtkIOCore',
         'vtkmodules.vtkRenderingCore',
     ],
     'vtkmodules.vtkIOImage': [
@@ -295,6 +300,9 @@ _module_dependencies = {
         'vtkmodules.vtkCommonExecutionModel',
         'vtkmodules.vtkIOLegacy',
         'vtkmodules.vtkIOXML',
+    ],
+    'vtkmodules.vtkIOLANLX3D': [
+        'vtkmodules.vtkCommonExecutionModel',
     ],
     'vtkmodules.vtkIOLSDyna': [
         'vtkmodules.vtkCommonExecutionModel',
@@ -479,6 +487,10 @@ _module_dependencies = {
         'vtkmodules.vtkCommonExecutionModel',
         'vtkmodules.vtkRenderingCore',
     ],
+    'vtkmodules.vtkRenderingGridAxes': [
+        'vtkmodules.vtkChartsCore',
+        'vtkmodules.vtkRenderingCore',
+    ],
     'vtkmodules.vtkRenderingGL2PSOpenGL2': [
         'vtkmodules.vtkRenderingOpenGL2',
     ],
@@ -555,6 +567,10 @@ _module_dependencies = {
         'vtkmodules.vtkImagingColor',
         'vtkmodules.vtkIOXML',
         'vtkmodules.vtkRenderingCore',
+    ],
+    'vtkmodules.vtkTestingSerialization': [
+        'vtkmodules.vtkCommonDataModel',
+        'vtkmodules.vtkSerializationManager',
     ],
     'vtkmodules.vtkViewsContext2D': [
         'vtkmodules.vtkRenderingCore',
