@@ -289,6 +289,7 @@ _module_dependencies = {
     ],
     'vtkmodules.vtkIOImport': [
         'vtkmodules.vtkCommonExecutionModel',
+        'vtkmodules.vtkIOCore',
         'vtkmodules.vtkRenderingCore',
     ],
     'vtkmodules.vtkIOImage': [
