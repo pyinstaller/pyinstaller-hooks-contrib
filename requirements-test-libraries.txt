@@ -52,7 +52,7 @@ h5py==3.14.0; python_version >= "3.9"
 humanize==4.12.3; python_version >= "3.9"
 iminuit==2.31.1; python_version >= "3.9"
 iso639-lang==2.6.1; python_version >= "3.9"
-kaleido==1.0.0; python_version >= "3.9"
+kaleido==0.4.2; python_version >= "3.9"
 langdetect==1.0.9
 mariadb==1.1.12; sys_platform != "darwin" and python_version >= "3.9"
 markdown==3.8.2; python_version >= "3.9"
@@ -235,7 +235,7 @@ cel-python==0.3.0; python_version >= "3.9"
 pygwalker==0.4.9.15; python_version < "3.13"
 eth-hash==0.7.1
 apkutils==2.0.2; python_version >= "3.10"
-pypylon==4.2.0; python_version >= "3.9"
+pypylon==4.1.0; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.11; sys_platform == "win32"
 opentelemetry-sdk==1.34.1; python_version >= "3.9"
