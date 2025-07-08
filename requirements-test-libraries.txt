@@ -52,7 +52,7 @@ h5py==3.14.0; python_version >= "3.9"
 humanize==4.12.3; python_version >= "3.9"
 iminuit==2.31.1; python_version >= "3.9"
 iso639-lang==2.6.1; python_version >= "3.9"
-kaleido==0.4.2; python_version >= "3.9"
+kaleido==1.0.0; python_version >= "3.9"
 langdetect==1.0.9
 mariadb==1.1.12; sys_platform != "darwin" and python_version >= "3.9"
 markdown==3.8.2; python_version >= "3.9"
@@ -62,19 +62,19 @@ markdown==3.8.2; python_version >= "3.9"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==1.45.0; python_version >= "3.9"
+narwhals==1.46.0; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= "3.9"
 numba==0.61.2; python_version >= "3.10"
 numcodecs==0.16.1; python_version >= "3.11"
 Office365-REST-Python-Client==2.6.2
 openpyxl==3.1.5
-pandas==2.3.0; python_version >= "3.9"
+pandas==2.3.1; python_version >= "3.9"
 panel==1.7.2; python_version >= "3.10"
 pandera==0.24.0; python_version >= "3.9"
 passlib==1.7.4
 pendulum==3.1.0; python_version >= "3.9"
-phonenumbers==9.0.8
+phonenumbers==9.0.9
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.3.8; python_version >= "3.9"
@@ -143,7 +143,7 @@ trame-pvui==0.1.1
 trame-quasar==0.2.1
 trame-rca==2.1.3; python_version >= "3.9"
 trame-router==2.3.0
-trame-server==3.4.2; python_version >= "3.9"
+trame-server==3.5.0; python_version >= "3.9"
 trame-simput==2.6.0
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
@@ -179,11 +179,11 @@ python-stdnum==2.1
 sounddevice==0.5.2; sys_platform != "linux"
 soundfile==0.13.1; sys_platform != "linux"
 limits==5.4.0; python_version >= "3.10"
-great-expectations==1.4.3; python_version >= "3.9" and python_version < "3.13"
+great-expectations==1.5.4; python_version >= "3.9" and python_version < "3.13"
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.19.0; python_version >= "3.9" and python_version < "3.13" and (sys_platform != "darwin" or platform_machine == "arm64")
-pyshark==0.6.0
-opencv-python==4.11.0.86
+pyshark==0.6
+opencv-python==4.12.0.88
 hydra-core==1.3.2
 spiceypy==6.0.1; python_version >= "3.10"
 exchangelib==5.5.1; python_version >= "3.9"
@@ -236,7 +236,7 @@ pygwalker==0.4.9.15; python_version < "3.13"
 eth-hash==0.7.1
 # apkutils depends on lxml which doesn't support Python 3.8 on macOS arm64
 apkutils==2.0.1; python_version >= "3.9" or (sys_platform != "darwin" or platform_machine != "arm64")
-pypylon==4.1.0; python_version >= "3.9"
+pypylon==4.2.0; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.11; sys_platform == "win32"
 opentelemetry-sdk==1.34.1; python_version >= "3.9"
