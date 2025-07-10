@@ -2879,6 +2879,7 @@ def test_narwhals(pyi_builder):
         import narwhals
     """)
 
+
 @importorskip('pynng')
 def test_pynng(pyi_builder):
     pyi_builder.test_source("""
