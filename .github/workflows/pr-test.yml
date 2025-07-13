@@ -115,7 +115,9 @@ jobs:
           # Install libdiscid (dependency of discid python package).
           brew install libdiscid
           # Install lsl library for pylsl
-          brew install labstreaminglayer/tap/lsl
+          # TODO: switch back to labstreaminglayer/tap/lsl once labstreaminglayer/homebrew-tap#1 is merged
+          #brew install labstreaminglayer/tap/lsl
+          brew install rokm/labstreaminglayer-tap/lsl
           # This one is required by eccodes (binary wheels with bundled eccodes
           # library are provided only for macOS 13+).
           brew install eccodes
