@@ -11,7 +11,7 @@
 # ------------------------------------------------------------------
 
 from PyInstaller import compat
-from PyInstaller.utils.hooks import collect_submodules, copy_metadata, is_module_satisfies
+from PyInstaller.utils.hooks import collect_data_files, collect_submodules, copy_metadata, is_module_satisfies
 
 hiddenimports = []
 
@@ -38,3 +38,7 @@ excludedimports = ["setuptools_scm"]
 # submodules via `collect_submodules`...
 if is_module_satisfies("toga >= 0.5.0"):
     hiddenimports += collect_submodules("toga")
+
+# Starting with `toga` 0.5.2, we need to collect .pyi files.
+if is_module_satisfies("toga >= 0.5.2"):
+    datas += collect_data_files("toga")
