@@ -1,3 +1,33 @@
+2025.6 (2025-07-14)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``pynng``, which has a hidden import. (`#922
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/922>`_)
+* Add hook for ``torchao`` to collect its source .py files for TorchScript/JIT.
+  (`#917
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/917>`_)
+* Add hooks for new modules that were introduced in ``vtk`` 9.5.0:
+  ``vtkmodules.vtkIOAvmesh``, ``vtkmodules.vtkIOLANLX3D``,
+  ``vtkmodules.vtkRenderingGridAxes``, and
+  ``vtkmodules.vtkTestingSerialization``. (`#919
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/919>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``plotly`` hook for compatibility with ``plotly`` 6.2.0. (`#919
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/919>`_)
+* Update ``pylsl`` hook for compatibility with ``pylsl`` >= 1.17.0. (`#924
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/924>`_)
+* Update ``toga`` hook for compatibility with ``toga`` 0.5.2: ensure that
+  ``toga/__init__.pyi``  file is collected. (`#923
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/923>`_)
+
+
 2025.5 (2025-06-08)
 -------------------
 

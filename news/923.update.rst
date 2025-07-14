@@ -1,2 +1,0 @@
-Update ``toga`` hook for compatibility with ``toga`` 0.5.2: ensure that
-``toga/__init__.pyi``  file is collected.
