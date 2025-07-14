@@ -213,10 +213,25 @@ def test_markdown(pyi_builder):
 def test_pylsl(pyi_builder):
     pyi_builder.test_source(
         """
+        import pathlib
         import pylsl
+
         print(f"version: {pylsl.__version__}")
         print(f"library version: {pylsl.library_version()}")
         print(f"library info: {pylsl.library_info()}")
+
+        # Ensure that bundled shared library is used
+        try:
+            from pylsl.lib import lib as cdll  # pylsl >= 0.17.0
+        except ImportError:
+            from pylsl.pylsl import lib as cdll  # older versions
+
+        print(f"cdll: {cdll}")
+        pkg_path = pathlib.Path(pylsl.__file__).parent.resolve()
+        cdll_path = pathlib.Path(cdll._name).resolve()
+        print(f"pkg_path: {pkg_path}")
+        print(f"cdll_path: {cdll_path}")
+        assert pkg_path in cdll_path.parents, "Loaded shared library is not the bundled one!"
         """)
 
 
