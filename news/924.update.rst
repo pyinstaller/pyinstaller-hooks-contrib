@@ -1,0 +1,1 @@
+Update ``pylsl`` hook for compatibility with ``pylsl`` >= 1.17.0.

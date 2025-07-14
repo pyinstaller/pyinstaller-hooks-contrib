@@ -15,18 +15,19 @@ from PyInstaller.utils.hooks import logger, isolated
 
 
 def find_library():
+    # Try importing pylsl - this will fail if the shared library is unavailable.
     try:
-        # the import will fail it the library cannot be found
-        from pylsl import pylsl
+        import pylsl  # noqa: F401
+    except Exception:
+        return None
 
-        # the find_liblsl_libraries() is a generator function that yields multiple possibilities
-        for libfile in pylsl.find_liblsl_libraries():
-            if libfile:
-                break
-    except (ImportError, ModuleNotFoundError, RuntimeError) as error:
-        print(error)
-        libfile = None
-    return libfile
+    # Return the path to shared library that is used by pylsl.
+    try:
+        from pylsl.lib import lib as cdll  # pylsl >= 0.17.0
+    except ImportError:
+        from pylsl.pylsl import lib as cdll  # older versions
+
+    return cdll._name
 
 
 # whenever a hook needs to load a 3rd party library, it needs to be done in an isolated subprocess
