@@ -10,4 +10,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-hiddenimports = ['sklearn.utils._cython_blas', ]
+from PyInstaller.utils.hooks import is_module_satisfies
+
+hiddenimports = ['sklearn.utils._cython_blas']
+
+# As of scikit-learn 1.7.1, the `sklearn.utils._isfinite` extension started to depend on newly-introduced
+# `sklearn._cyutility`.
+if is_module_satisfies('scikit-learn >= 1.7.1'):
+    hiddenimports += ['sklearn._cyutility']
