@@ -13,17 +13,7 @@
 Spacy contains hidden imports and data files which are needed to import it
 """
 
-import sys
-
-from PyInstaller.utils.hooks import collect_data_files, collect_submodules, logger
+from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 
 datas = collect_data_files("spacy")
 hiddenimports = collect_submodules("spacy")
-
-# Automatically raise recursion limit to ensure it is at least 5000; this attempts to mitigate recursion limit errors
-# caused by some import chains that involve spacy, but also depend on the build environment (i.e., other packages
-# installed in it).
-new_limit = 5000
-if sys.getrecursionlimit() < new_limit:
-    logger.info("hook-spacy: raising recursion limit to %d", new_limit)
-    sys.setrecursionlimit(new_limit)
