@@ -10,8 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-import sys
-
 from _pyinstaller_hooks_contrib.compat import importlib_metadata
 from packaging.version import Version
 
@@ -24,14 +22,6 @@ from PyInstaller.utils.hooks import (
     is_module_satisfies,
     logger,
 )
-
-# Automatically raise recursion limit to ensure it is at least 5000; this attempts to mitigate recursion limit errors
-# caused by some import chains that involve tensorflow, but also depend on the build environment (i.e., other packages
-# installed in it).
-new_limit = 5000
-if sys.getrecursionlimit() < new_limit:
-    logger.info("hook-tensorflow: raising recursion limit to %d", new_limit)
-    sys.setrecursionlimit(new_limit)
 
 # Determine the name of `tensorflow` dist; this is available under different names (releases vs. nightly, plus build
 # variants). We need to determine the dist that we are dealing with, so we can query its version and metadata.
