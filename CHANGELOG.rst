@@ -1,3 +1,18 @@
+2025.7 (2025-07-22)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Automatically raise the recursion limit to at least 5000 when the
+  ``_pyinstaller_hooks_contrib`` module is loaded, rather than raising
+  the recursion limit on per-hook basis. (`#925
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/925>`_)
+* Update ``sklearn`` hooks for compatibility with ``scikit-learn`` 1.7.1.
+  (`#925
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/925>`_)
+
+
 2025.6 (2025-07-14)
 -------------------
 

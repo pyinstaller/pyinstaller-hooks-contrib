@@ -1,3 +1,0 @@
-Automatically raise the recursion limit to at least 5000 when the
-``_pyinstaller_hooks_contrib`` module is loaded, rather than raising
-the recursion limit on per-hook basis.

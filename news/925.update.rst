@@ -1,1 +1,0 @@
-Update ``sklearn`` hooks for compatibility with ``scikit-learn`` 1.7.1.
