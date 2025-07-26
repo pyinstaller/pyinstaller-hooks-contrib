@@ -1,0 +1,3 @@
+`shapely` hook: extend the search for `geos_c` DLL to also look for an
+alternative name with `lib` prefix (i.e., `libgeos_c`), which is used
+in `MSYS2` environment.
