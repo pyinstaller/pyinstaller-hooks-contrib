@@ -42,7 +42,7 @@ if compat.is_win:
     original_path = os.environ['PATH']
     try:
         os.environ['PATH'] = os.pathsep.join(lib_paths)
-        dll_path = find_library('geos_c')
+        dll_path = find_library('geos_c') or find_library('libgeos_c')
     finally:
         os.environ['PATH'] = original_path
     if dll_path is not None:
