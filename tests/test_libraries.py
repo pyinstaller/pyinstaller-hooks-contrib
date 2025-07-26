@@ -2900,3 +2900,14 @@ def test_pynng(pyi_builder):
     pyi_builder.test_source("""
         import pynng
     """)
+
+
+@importorskip('uuid6')
+def test_uuid6(pyi_builder):
+    pyi_builder.test_source("""
+        import uuid6
+
+        my_uuid = uuid6.uuid6()
+        print(my_uuid)
+        assert my_uuid < uuid6.uuid6()
+    """)
