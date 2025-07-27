@@ -1,2 +1,0 @@
-Add hook for ``uuid6``, which, starting with version 2025.0.1, requires
-its metadata to be collected.

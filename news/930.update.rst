@@ -1,5 +1,0 @@
-Update the run-time hook for ``findlibs`` for improved compatibility
-with ``findlibs`` > 1.0.0; avoid providing a default value for
-``pkg_name`` argument in our ``findlibs.find()`` override, and instead
-forward the original value (i.e., ``None``) to the original ``find()``
-implementation.

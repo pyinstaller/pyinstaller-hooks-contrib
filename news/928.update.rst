@@ -1,6 +1,0 @@
-Adjust the value of automatically-raised recursion limit (which :issue:`925`
-set at 5000); for Windows builds of python 3.8 - 3.10 and python
-3.9 available under Cygwin, the value needs to be lowered to 1900, as
-higher values lead to python interpreter crash in scenarios when recursion
-level actually approaches the limit (for example, the recursion limit
-test in the main PyInstaller repository).

@@ -1,3 +1,40 @@
+2025.8 (2025-07-27)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``uuid6``, which, starting with version 2025.0.1, requires
+  its metadata to be collected. (`#929
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/929>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* `shapely` hook: extend the search for `geos_c` DLL to also look for an
+  alternative name with `lib` prefix (i.e., `libgeos_c`), which is used
+  in `MSYS2` environment. (`#927
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/927>`_)
+* Adjust the value of automatically-raised recursion limit (which :issue:`925`
+  set at 5000); for Windows builds of python 3.8 - 3.10 and python
+  3.9 available under Cygwin, the value needs to be lowered to 1900, as
+  higher values lead to python interpreter crash in scenarios when recursion
+  level actually approaches the limit (for example, the recursion limit
+  test in the main PyInstaller repository). (`#928
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/928>`_)
+* Update ``gribapi`` hook for compatibility with ``eccodes`` 2.43.0; add
+  hooks for ``eccodeslib``, ``eckitlib``, and ``fckitlib``, which now
+  provide the bundled shared libraries on non-Windows systems. (`#930
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/930>`_)
+* Update the run-time hook for ``findlibs`` for improved compatibility
+  with ``findlibs`` > 1.0.0; avoid providing a default value for
+  ``pkg_name`` argument in our ``findlibs.find()`` override, and instead
+  forward the original value (i.e., ``None``) to the original ``find()``
+  implementation. (`#930
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/930>`_)
+
+
 2025.7 (2025-07-22)
 -------------------
 
