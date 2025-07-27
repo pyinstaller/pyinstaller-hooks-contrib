@@ -1,0 +1,3 @@
+Update ``gribapi`` hook for compatibility with ``eccodes`` 2.43.0; add
+hooks for ``eccodeslib``, ``eckitlib``, and ``fckitlib``, which now
+provide the bundled shared libraries on non-Windows systems.
