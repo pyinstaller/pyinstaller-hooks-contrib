@@ -41,6 +41,7 @@ def get_eccodes_library_path():
 
 
 binaries = []
+hiddenimports = []
 
 try:
     library_path, package_path = get_eccodes_library_path()
@@ -81,3 +82,8 @@ if library_path:
         "hook-gribapi: collecting eccodes shared library %r to destination directory %r", library_path, dest_dir
     )
     binaries.append((library_path, dest_dir))
+
+    # If the shared library is available in the stand-alone `eccodeslib` package, add this package to to hidden imports,
+    # so that `findlibs.find()` can import it and query its `__file__` attribute.
+    if 'eccodeslib' in library_parent_path.parts:
+        hiddenimports += ['eccodeslib']
