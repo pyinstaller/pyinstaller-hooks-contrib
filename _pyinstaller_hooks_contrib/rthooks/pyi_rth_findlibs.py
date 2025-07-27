@@ -31,8 +31,7 @@ def _pyi_rthook():
 
     _orig_find = getattr(findlibs, 'find', None)
 
-    def _pyi_find(lib_name, pkg_name=None):
-        pkg_name = pkg_name or lib_name
+    def _pyi_find(lib_name, *args, **kwargs):
         extension = findlibs.EXTENSIONS.get(sys.platform, ".so")
 
         # First check sys._MEIPASS
@@ -48,7 +47,7 @@ def _pyi_rthook():
 
         # Finally, fall back to original implementation
         if _orig_find is not None:
-            return _orig_find(lib_name, pkg_name)
+            return _orig_find(lib_name, *args, **kwargs)
 
         return None
 
