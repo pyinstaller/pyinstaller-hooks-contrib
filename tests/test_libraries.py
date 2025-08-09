@@ -2854,6 +2854,8 @@ def test_pandera(pyi_builder):
 
 @importorskip('tkinterweb')
 def test_tkinterweb(pyi_builder):
+    # NOTE: run_from_path=True prevents `pyi_builder` from completely clearing the `PATH` environment variable. At the
+    # time of writing, `tkinterweb_tkhtml` v1.1.2 raises error if `PATH` is missing from `os.environ`.
     pyi_builder.test_source("""
         import tkinter
         import tkinterweb
@@ -2863,11 +2865,11 @@ def test_tkinterweb(pyi_builder):
 
         # Load a test string that uses all files that should have been bundled
         frame.load_html(
-                            "<img src='this path doesn't exist' alt='Hello, World!'/> \
-                            <p>Hello Again!</p> \
-                            <select><option>Hi...</option></select>"
-                            )
-    """)
+            "<img src='this path doesn't exist' alt='Hello, World!'/>"
+            "<p>Hello Again!</p>"
+            "<select><option>Hi...</option></select>"
+        )
+    """, run_from_path=True)
 
 
 @importorskip('tkinterweb_tkhtml')
