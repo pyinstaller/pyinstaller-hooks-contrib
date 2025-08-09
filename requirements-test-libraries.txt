@@ -262,8 +262,8 @@ selectolax==0.3.32; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
 niquests==3.14.1
 emoji==2.14.1
-tkinterweb==4.3.1
-tkinterweb-tkhtml==1.0
+tkinterweb==4.4.4
+tkinterweb-tkhtml==1.1.4
 pandas_flavor==0.7.0
 
 # ------------------- Platform (OS) specifics
