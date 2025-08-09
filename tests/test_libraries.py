@@ -2874,20 +2874,22 @@ def test_tkinterweb(pyi_builder):
 
 @importorskip('tkinterweb_tkhtml')
 def test_tkinterweb_tkhtml(pyi_builder):
+    # See comment in `test_tkinterweb` as to why `run_from_path=True` is required.
     pyi_builder.test_source("""
         import tkinter
         import tkinterweb_tkhtml
 
         root = tkinter.Tk()
 
-        folder = tkinterweb_tkhtml.get_tkhtml_folder()
-        tkinterweb_tkhtml.load_tkhtml(root, folder)
+        tkhtml_file, tkhtml_version, experimental = tkinterweb_tkhtml.get_tkhtml_file(None, False)
+        print(f"Loading tkhtml version {tkhtml_version!r}: {tkhtml_file!r}")
+        tkinterweb_tkhtml.load_tkhtml_file(root, tkhtml_file)
 
         frame = tkinter.Widget(root, "html")
 
         # Load a test string
         frame.tk.call(frame._w, "parse", "<p>Hello, World!</p>")
-    """)
+    """, run_from_path=True)
 
 
 @importorskip('narwhals')
