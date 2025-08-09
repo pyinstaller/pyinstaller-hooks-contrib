@@ -225,7 +225,7 @@ jobs:
           urllib.request.urlretrieve(tlb_url, tlb_file)
 
       - name: Run tests
-        run: pytest -v
+        run: pytest -v -n logical
 
       # Conditionally enable slow tests, so that they are ran only if
       # their corresponding packages are explicitly installed but not
@@ -238,7 +238,7 @@ jobs:
 
       - name: Run slow tests (scikit-learn)
         if: ${{ steps.check-scikit-learn.outputs.AVAILABLE == 'yes' }}
-        run: pytest -v -m slow -k sklearn
+        run: pytest -v -n logical -m slow -k sklearn
 
       - name: Check if slow tests are required (scikit-image)
         id: check-scikit-image
@@ -248,7 +248,7 @@ jobs:
 
       - name: Run slow tests (scikit-image)
         if: ${{ steps.check-scikit-image.outputs.AVAILABLE == 'yes' }}
-        run: pytest -v -m slow -k skimage
+        run: pytest -v -n logical -m slow -k skimage
 
       - name: Check if slow tests are required (vtk)
         id: check-vtk
@@ -258,4 +258,4 @@ jobs:
 
       - name: Run slow tests (vtk)
         if: ${{ steps.check-vtk.outputs.AVAILABLE == 'yes' }}
-        run: pytest -v -m slow -k test_vtkmodules
+        run: pytest -v -n logical -m slow -k test_vtkmodules
