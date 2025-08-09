@@ -153,4 +153,4 @@ jobs:
           pip install https://github.com/pyinstaller/pyinstaller/archive/develop.zip
 
       - name: Run tests
-        run: pytest -v ${{ inputs.pytest_args }}
+        run: pytest -v -n logical ${{ inputs.pytest_args }}
