@@ -8,8 +8,8 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==25.1.0; python_version >= "3.9"
 bokeh==3.7.3; python_version >= "3.10"
 boto==2.49.0
-boto3==1.40.2; python_version >= "3.9"
-botocore==1.40.2; python_version >= "3.9"
+boto3==1.40.7; python_version >= "3.9"
+botocore==1.40.7; python_version >= "3.9"
 branca==0.8.1
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -19,13 +19,13 @@ cassandra-driver==3.29.2
 capstone==5.0.6
 cf-units==3.3.0; sys_platform != "win32" and python_version >= "3.10"
 cftime==1.6.4.post1
-charset_normalizer==3.4.2
+charset_normalizer==3.4.3
 cloudpickle==3.1.1
 cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.3.0; sys_platform != "win32" and python_version >= "3.10"
-cryptography==45.0.5
+cryptography==45.0.6
 dash==3.2.0
 dash-bootstrap-components==2.0.3; python_version >= "3.9"
 dash-uploader==0.6.1
@@ -39,13 +39,13 @@ eccodes==2.43.0; python_version >= "3.10"
 eth_typing==5.2.1
 eth_utils==5.3.0
 fabric==3.2.2
-falcon==4.0.2
+falcon==4.1.0
 fiona==1.10.1; sys_platform != "win32"
 folium==0.20.0; python_version >= "3.9"
 frictionless==5.18.1
 ffpyplayer==4.5.3; python_version >= "3.9"
 geopandas==1.1.1; sys_platform != "win32" and python_version >= "3.10"
-google-api-python-client==2.177.0
+google-api-python-client==2.178.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==6.2.0; python_version >= "3.9"
@@ -63,7 +63,7 @@ markdown==3.8.2; python_version >= "3.9"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==2.0.1; python_version >= "3.9"
+narwhals==2.1.1; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= "3.9"
 numba==0.61.2; python_version >= "3.10"
@@ -75,7 +75,7 @@ panel==1.7.5; python_version >= "3.10"
 pandera==0.25.0; python_version >= "3.9"
 passlib==1.7.4
 pendulum==3.1.0; python_version >= "3.9"
-phonenumbers==9.0.10
+phonenumbers==9.0.11
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.3.8; python_version >= "3.9"
@@ -88,7 +88,7 @@ pydicom==3.0.1; python_version >= "3.10"
 pyexcelerate==0.13.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != "win32"
-pylint==3.3.7; python_version >= "3.9"
+pylint==3.3.8; python_version >= "3.9"
 pypdfium2==4.30.0
 pypemicro==0.1.11
 pyphen==0.17.2; python_version >= "3.9"
@@ -105,7 +105,7 @@ pystray==0.19.5
 pythonnet==3.0.5
 pytz==2025.2
 # pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-pyvista==0.45.3; python_version >= "3.9"
+pyvista==0.46.1; python_version >= "3.9"
 pyzmq==27.0.1
 PyQt5==5.15.11
 qtmodern==0.2.0
@@ -123,7 +123,7 @@ sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.22502
 thinc==9.1.1; python_version >= "3.9"
-timezonefinder==7.0.1; python_version > "3.8"
+timezonefinder==8.0.0; python_version > "3.8"
 tkinterdnd2==0.4.3
 trame==3.11.0; python_version >= "3.9"
 trame-client==3.9.2; python_version >= "3.9"
@@ -145,7 +145,7 @@ trame-pvui==0.1.1
 trame-quasar==0.2.1
 trame-rca==2.1.3; python_version >= "3.9"
 trame-router==2.3.0
-trame-server==3.5.0; python_version >= "3.9"
+trame-server==3.6.0; python_version >= "3.9"
 trame-simput==2.6.0
 trame-tauri==0.6.2
 trame-tweakpane==0.1.3
@@ -153,13 +153,13 @@ trame-vega==2.1.1
 # Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet.
 trame-vtk==2.9.1; python_version >= "3.9" and python_version < "3.13"
 trame-vtk3d==0.1.0
-trame-vtklocal==0.14.0; python_version >= "3.9"
+trame-vtklocal==0.14.1; python_version >= "3.9"
 trame-vuetify==3.0.2; python_version >= "3.9"
 trame-xterm==0.2.1
 Twisted==25.5.0
 tzdata==2025.2
 Unidecode==1.4.0
-urllib3-future==2.13.901
+urllib3-future==2.13.903
 uuid6==2025.0.1; python_version >= "3.9"
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
 vtk==9.5.0; python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64"
@@ -172,7 +172,7 @@ zeep==4.3.1
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= "3.10"
-orjson==3.11.1; python_version >= "3.9"
+orjson==3.11.2; python_version >= "3.9"
 altair==5.5.0; python_version >= "3.9"
 shapely==2.1.1; python_version >= "3.10"
 lark==1.2.2
@@ -181,8 +181,8 @@ python-stdnum==2.1
 # and libsndfile, respectively.
 sounddevice==0.5.2; sys_platform != "linux"
 soundfile==0.13.1; sys_platform != "linux"
-limits==5.4.0; python_version >= "3.10"
-great-expectations==1.5.7; python_version >= "3.9" and python_version < "3.13"
+limits==5.5.0; python_version >= "3.10"
+great-expectations==1.5.8; python_version >= "3.9" and python_version < "3.13"
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.19.0; python_version >= "3.9" and python_version < "3.13" and (sys_platform != "darwin" or platform_machine == "arm64")
 # pyshark depends on lxml which doesn't support Python 3.8 on macOS arm64
@@ -204,7 +204,7 @@ mistune==3.1.3
 pydantic==2.11.7; python_version >= "3.9"
 jsonschema==4.25.0; python_version >= "3.9"
 psutil==7.0.0
-litestar==2.16.0; python_version < "3.13"
+litestar==2.17.0; python_version < "3.13"
 lingua-language-detector==2.1.1; python_version >= "3.10"
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -257,10 +257,10 @@ numbers-parser==4.15.1; python_version >= "3.9"
 fsspec==2025.7.0; python_version >= "3.9"
 zarr==3.1.1; python_version >= "3.11"
 intake==2.0.8; python_version >= "3.9"
-h3==4.3.0
-selectolax==0.3.32; python_version >= "3.9"
+h3==4.3.1
+selectolax==0.3.33; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
-niquests==3.14.1
+niquests==3.15.0
 emoji==2.14.1
 tkinterweb==4.4.4
 tkinterweb-tkhtml==1.1.4
