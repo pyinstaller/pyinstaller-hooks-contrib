@@ -253,7 +253,7 @@ yapf==0.43.0
 xmlschema==4.1.0; python_version >= "3.9"
 pysaml2==7.5.2; python_version >= "3.9"
 toga==0.5.2; python_version >= "3.9"
-numbers-parser==4.16.1; python_version >= "3.9"
+numbers-parser==4.15.1; python_version >= "3.9"
 fsspec==2025.7.0; python_version >= "3.9"
 zarr==3.1.1; python_version >= "3.11"
 intake==2.0.8; python_version >= "3.9"
