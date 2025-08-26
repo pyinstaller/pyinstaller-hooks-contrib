@@ -8,8 +8,8 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==25.1.0; python_version >= "3.9"
 bokeh==3.7.3; python_version >= "3.10"
 boto==2.49.0
-boto3==1.40.11; python_version >= "3.9"
-botocore==1.40.11; python_version >= "3.9"
+boto3==1.40.16; python_version >= "3.9"
+botocore==1.40.16; python_version >= "3.9"
 branca==0.8.1
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -27,7 +27,7 @@ cmocean==4.0.3
 compliance-checker==5.3.0; sys_platform != "win32" and python_version >= "3.10"
 cryptography==45.0.6
 dash==3.2.0
-dash-bootstrap-components==2.0.3; python_version >= "3.9"
+dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
 dask[array,diagnostics,distributed]==2025.7.0; python_version >= "3.10"
 python-dateutil==2.9.0.post0
@@ -70,7 +70,7 @@ numba==0.61.2; python_version >= "3.10"
 numcodecs==0.16.2; python_version >= "3.11"
 Office365-REST-Python-Client==2.6.2
 openpyxl==3.1.5
-pandas==2.3.1; python_version >= "3.9"
+pandas==2.3.2; python_version >= "3.9"
 panel==1.7.5; python_version >= "3.10"
 pandera==0.26.0; python_version >= "3.9"
 passlib==1.7.4
@@ -105,8 +105,8 @@ pystray==0.19.5
 pythonnet==3.0.5
 pytz==2025.2
 # pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-pyvista==0.46.1; python_version >= "3.9"
-pyzmq==27.0.1
+pyvista==0.46.2; python_version >= "3.9"
+pyzmq==27.0.2
 PyQt5==5.15.11
 qtmodern==0.2.0
 Rtree==1.4.1; python_version >= "3.9"
@@ -125,8 +125,8 @@ tableauhyperapi==0.0.22502
 thinc==9.1.1; python_version >= "3.9"
 timezonefinder==8.0.0; python_version > "3.8"
 tkinterdnd2==0.4.3
-trame==3.11.0; python_version >= "3.9"
-trame-client==3.9.2; python_version >= "3.9"
+trame==3.12.0; python_version >= "3.9"
+trame-client==3.10.1; python_version >= "3.9"
 trame-code==1.0.2
 trame-components==2.5.0
 trame-datagrid==0.2.2
@@ -159,7 +159,7 @@ trame-xterm==0.2.1
 Twisted==25.5.0
 tzdata==2025.2
 Unidecode==1.4.0
-urllib3-future==2.13.903
+urllib3-future==2.13.905
 uuid6==2025.0.1; python_version >= "3.9"
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
 vtk==9.5.0; python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64"
@@ -253,7 +253,7 @@ yapf==0.43.0
 xmlschema==4.1.0; python_version >= "3.9"
 pysaml2==7.5.2; python_version >= "3.9"
 toga==0.5.2; python_version >= "3.9"
-numbers-parser==4.15.1; python_version >= "3.9"
+numbers-parser==4.16.2; python_version >= "3.9"
 fsspec==2025.7.0; python_version >= "3.9"
 zarr==3.1.1; python_version >= "3.11"
 intake==2.0.8; python_version >= "3.9"
