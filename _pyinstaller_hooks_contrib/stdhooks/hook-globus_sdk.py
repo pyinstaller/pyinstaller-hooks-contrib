@@ -13,5 +13,5 @@
 from PyInstaller.utils.hooks import collect_data_files, collect_submodules, copy_metadata
 
 datas = copy_metadata("globus_sdk")
-datas += collect_data_files("globus_sdk", includes=["__init__.pyi"])
+datas += collect_data_files("globus_sdk")
 hiddenimports = collect_submodules("globus_sdk")
