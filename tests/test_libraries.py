@@ -2915,3 +2915,17 @@ def test_uuid6(pyi_builder):
         print(my_uuid)
         assert my_uuid < uuid6.uuid6()
     """)
+
+
+@importorskip("globus_sdk")
+def test_globus_sdk(pyi_builder):
+    pyi_builder.test_source("""
+        from globus_sdk import (
+            ClientCredentialsAuthorizer,
+            ConfidentialAppAuthClient,
+            IterableTransferResponse,
+            TransferAPIError,
+            TransferClient,
+            TransferData,
+        )
+    """)
