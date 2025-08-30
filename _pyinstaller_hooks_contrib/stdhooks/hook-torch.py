@@ -22,7 +22,7 @@ from PyInstaller.utils.hooks import (
 )
 
 if is_module_satisfies("PyInstaller >= 6.0"):
-    from PyInstaller.compat import is_linux, is_win
+    from PyInstaller import compat
     from PyInstaller.utils.hooks import PY_DYLIB_PATTERNS
 
     module_collection_mode = "pyz+py"
@@ -52,7 +52,7 @@ if is_module_satisfies("PyInstaller >= 6.0"):
     # other hand, use CUDA libraries provided by nvidia-* packages. Due to all possible combinations (CUDA libs from
     # nvidia-* packages, torch-bundled CUDA libs, CPU-only CUDA libs) we do not add hidden imports directly, but instead
     # attempt to infer them from requirements listed in the `torch` metadata.
-    if is_linux:
+    if compat.is_linux:
         def _infer_nvidia_hiddenimports():
             import packaging.requirements
             from _pyinstaller_hooks_contrib.compat import importlib_metadata
@@ -91,53 +91,81 @@ if is_module_satisfies("PyInstaller >= 6.0"):
     # importable package, but rather installs the DLLs in <env>/Library/bin directory. Therefore, we cannot write a
     # separate hook for it, and must collect the DLLs here. (Most of these DLLs are missed by PyInstaller's binary
     # dependency analysis due to being dynamically loaded at run-time).
-    if is_win:
+    if compat.is_win:
         def _collect_mkl_dlls():
-            import packaging.requirements
-            from _pyinstaller_hooks_contrib.compat import importlib_metadata
-
-            # Check if torch depends on `mkl`
-            dist = importlib_metadata.distribution("torch")
-            requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]
-            requirements = [req.name for req in requirements if req.marker is None or req.marker.evaluate()]
-            if 'mkl' not in requirements:
-                logger.info('hook-torch: this torch build does not depend on MKL...')
-                return []  # This torch build does not depend on MKL
-
-            # Find requirements of mkl - this should yield `intel-openmp` and `tbb`, which install DLLs in the same
-            # way as `mkl`.
-            try:
-                dist = importlib_metadata.distribution("mkl")
-            except importlib_metadata.PackageNotFoundError:
-                return []  # For some reason, `mkl` distribution is unavailable.
-            requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]
-            requirements = [req.name for req in requirements if req.marker is None or req.marker.evaluate()]
-
-            requirements = ['mkl'] + requirements
-
-            mkl_binaries = []
-            logger.info('hook-torch: collecting DLLs from MKL and its dependencies: %r', requirements)
-            for requirement in requirements:
+            # Determine if torch is packaged by Anaconda or not. Ideally, we would use our `get_installer()` hook
+            # utility function to check if installer is `conda`. However, it seems that some builds (e.g., those from
+            # `pytorch` and `nvidia` channels) provide legacy metadata in form of .egg-info directory, which does not
+            # include an INSTALLER file. So instead, search the conda metadata for a conda distribution/package that
+            # provides a `torch` importable package, if any.
+            conda_torch_dist = None
+            if compat.is_conda:
+                from PyInstaller.utils.hooks import conda_support
                 try:
-                    dist = importlib_metadata.distribution(requirement)
+                    conda_torch_dist = conda_support.package_distribution('torch')
+                except ModuleNotFoundError:
+                    conda_torch_dist = None
+
+            if conda_torch_dist:
+                # Anaconda-packaged torch
+                if 'mkl' not in conda_torch_dist.dependencies:
+                    logger.info('hook-torch: this torch build (Anaconda package) does not depend on MKL...')
+                    return []
+
+                logger.info('hook-torch: collecting DLLs from MKL and its dependencies (Anaconda packages)')
+                mkl_binaries = conda_support.collect_dynamic_libs('mkl', dependencies=True)
+            else:
+                # Non-Anaconda torch (e.g., PyPI wheel)
+                import packaging.requirements
+                from _pyinstaller_hooks_contrib.compat import importlib_metadata
+
+                # Check if torch depends on `mkl`
+                dist = importlib_metadata.distribution("torch")
+                requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]
+                requirements = [req.name for req in requirements if req.marker is None or req.marker.evaluate()]
+                if 'mkl' not in requirements:
+                    logger.info('hook-torch: this torch build does not depend on MKL...')
+                    return []
+
+                # Find requirements of mkl - this should yield `intel-openmp` and `tbb`, which install DLLs in the same
+                # way as `mkl`.
+                try:
+                    dist = importlib_metadata.distribution("mkl")
                 except importlib_metadata.PackageNotFoundError:
-                    continue
+                    return []  # For some reason, `mkl` distribution is unavailable.
+                requirements = [packaging.requirements.Requirement(req) for req in dist.requires or []]
+                requirements = [req.name for req in requirements if req.marker is None or req.marker.evaluate()]
 
-                # Go over files, and match DLLs in <env>/Library/bin directory
-                for dist_file in dist.files:
-                    # NOTE: `importlib_metadata.PackagePath.match()` does not seem to properly normalize the separator,
-                    # and on Windows, RECORD can apparently end up with entries that use either Windows or POSIX-style
-                    # separators (see pyinstaller/pyinstaller-hooks-contrib#879). This is why we first resolve the
-                    # file's location (which yields a `pathlib.Path` instance), and perform matching on resolved path.
-                    dll_file = dist.locate_file(dist_file).resolve()
-                    if not dll_file.match('**/Library/bin/*.dll'):
+                requirements = ['mkl'] + requirements
+
+                mkl_binaries = []
+                logger.info('hook-torch: collecting DLLs from MKL and its dependencies: %r', requirements)
+                for requirement in requirements:
+                    try:
+                        dist = importlib_metadata.distribution(requirement)
+                    except importlib_metadata.PackageNotFoundError:
                         continue
-                    mkl_binaries.append((str(dll_file), '.'))
 
-            logger.info(
-                'hook-torch: found MKL DLLs: %r',
-                sorted([os.path.basename(src_name) for src_name, dest_name in mkl_binaries])
-            )
+                    # Go over files, and match DLLs in <env>/Library/bin directory
+                    for dist_file in dist.files:
+                        # NOTE: `importlib_metadata.PackagePath.match()` does not seem to properly normalize the
+                        # separator, and on Windows, RECORD can apparently end up with entries that use either Windows
+                        # or POSIX-style separators (see pyinstaller/pyinstaller-hooks-contrib#879). This is why we
+                        # first resolve the file's location (which yields a `pathlib.Path` instance), and perform
+                        # matching on resolved path.
+                        dll_file = dist.locate_file(dist_file).resolve()
+                        if not dll_file.match('**/Library/bin/*.dll'):
+                            continue
+                        mkl_binaries.append((str(dll_file), '.'))
+
+            if mkl_binaries:
+                logger.info(
+                    'hook-torch: found MKL DLLs: %r',
+                    sorted([os.path.basename(src_name) for src_name, dest_name in mkl_binaries])
+                )
+            else:
+                logger.info('hook-torch: no MKL DLLs found.')
+
             return mkl_binaries
 
         try:
