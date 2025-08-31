@@ -108,6 +108,12 @@ jobs:
           # manually remove `pkg-config` (and specifically, the problematic `pkg-config@0.29.2`).
           brew uninstall pkg-config || :
           brew uninstall pkg-config@0.29.2 || :
+          # At the time of writing (end of August 2025), GHA macOS runner images started to pin CMake 3.31.6 via custom
+          # tap due to CMake 4.0 not being fully backwards compatible. However, this seems to be preventing us from
+          # installing `lsl`, which errors out with:
+          # Error: cmake is already installed from local/pinned!
+          # Please `brew uninstall cmake` first."
+          brew uninstall cmake || :
           # Install cairo dependencies.
           brew install cairo
           # Install pango dependencies (weasyprint hook).
