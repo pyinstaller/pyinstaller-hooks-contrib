@@ -20,24 +20,19 @@ if is_module_satisfies("pythonnet"):
     # pythonnet requires both clr.pyd and Python.Runtime.dll, but the latter isn't found by PyInstaller.
     import ctypes.util
     from PyInstaller.log import logger
-
-    try:
-        import importlib.metadata as importlib_metadata
-    except ImportError:
-        import importlib_metadata
+    from _pyinstaller_hooks_contrib.compat import importlib_metadata
 
     collected_runtime_files = []
 
     # Try finding Python.Runtime.dll via distribution's file list
-    dist_files = importlib_metadata.files('pythonnet')
-    if dist_files is not None:
-        runtime_dll_files = [f for f in dist_files if f.match('Python.Runtime.dll')]
-        if len(runtime_dll_files) == 1:
-            runtime_dll_file = runtime_dll_files[0]
-            collected_runtime_files = [(runtime_dll_file.locate(), runtime_dll_file.parent.as_posix())]
-            logger.debug("hook-clr: Python.Runtime.dll discovered via metadata.")
-        elif len(runtime_dll_files) > 1:
-            logger.warning("hook-clr: multiple instances of Python.Runtime.dll listed in metadata - cannot resolve.")
+    dist_files = importlib_metadata.files('pythonnet') or []
+    runtime_dll_files = [f for f in dist_files if f.match('Python.Runtime.dll')]
+    if len(runtime_dll_files) == 1:
+        runtime_dll_file = runtime_dll_files[0]
+        collected_runtime_files = [(runtime_dll_file.locate(), runtime_dll_file.parent.as_posix())]
+        logger.debug("hook-clr: Python.Runtime.dll discovered via metadata.")
+    elif len(runtime_dll_files) > 1:
+        logger.warning("hook-clr: multiple instances of Python.Runtime.dll listed in metadata - cannot resolve.")
 
     # Fall back to the legacy way
     if not collected_runtime_files:
