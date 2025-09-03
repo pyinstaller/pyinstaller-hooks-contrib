@@ -20,7 +20,7 @@ def _find_mypyc_module():
         dist = importlib_metadata.distribution("black")
     except importlib_metadata.PackageNotFoundError:
         return []
-    return [entry.name.split('.')[0] for entry in dist.files if '__mypyc' in entry.name]
+    return [entry.name.split('.')[0] for entry in (dist.files or []) if '__mypyc' in entry.name]
 
 
 hiddenimports = [

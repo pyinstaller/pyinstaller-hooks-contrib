@@ -1,0 +1,4 @@
+Harden ``blib2to3`` and ``torch`` hooks against missing ``RECORD`` in
+the corresponding distributions' metadata, which would lead to a
+``'NoneType' object is not iterable`` error when the hook tries to iterate
+over distribution's file list.
