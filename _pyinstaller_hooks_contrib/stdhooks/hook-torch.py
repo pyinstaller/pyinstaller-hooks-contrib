@@ -147,7 +147,7 @@ if is_module_satisfies("PyInstaller >= 6.0"):
                         continue
 
                     # Go over files, and match DLLs in <env>/Library/bin directory
-                    for dist_file in dist.files:
+                    for dist_file in (dist.files or []):
                         # NOTE: `importlib_metadata.PackagePath.match()` does not seem to properly normalize the
                         # separator, and on Windows, RECORD can apparently end up with entries that use either Windows
                         # or POSIX-style separators (see pyinstaller/pyinstaller-hooks-contrib#879). This is why we
