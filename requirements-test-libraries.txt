@@ -2,14 +2,14 @@
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==15.1.0; python_version >= "3.9"
 # adbutils does not provide arm64 macOS wheels.
-adbutils==2.10.1; sys_platform != "darwin" or platform_machine != "arm64"
+adbutils==2.10.2; sys_platform != "darwin" or platform_machine != "arm64"
 APScheduler==3.11.0
 backports.zoneinfo==0.2.1; python_version < "3.9"
 black==25.1.0; python_version >= "3.9"
 bokeh==3.8.0; python_version >= "3.10"
 boto==2.49.0
-boto3==1.40.21; python_version >= "3.9"
-botocore==1.40.21; python_version >= "3.9"
+boto3==1.40.26; python_version >= "3.9"
+botocore==1.40.26; python_version >= "3.9"
 branca==0.8.1
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -24,8 +24,8 @@ cloudpickle==3.1.1
 cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
-compliance-checker==5.3.0; sys_platform != "win32" and python_version >= "3.10"
-cryptography==45.0.6
+compliance-checker==5.4.1; sys_platform != "win32" and python_version >= "3.10"
+cryptography==45.0.7
 dash==3.2.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
@@ -45,7 +45,7 @@ folium==0.20.0; python_version >= "3.9"
 frictionless==5.18.1
 ffpyplayer==4.5.3; python_version >= "3.9"
 geopandas==1.1.1; sys_platform != "win32" and python_version >= "3.10"
-google-api-python-client==2.179.0
+google-api-python-client==2.181.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==6.3.0; python_version >= "3.9"
@@ -53,17 +53,17 @@ h5py==3.14.0; python_version >= "3.9"
 humanize==4.13.0; python_version >= "3.9"
 iminuit==2.31.1; python_version >= "3.9"
 iso639-lang==2.6.3; python_version >= "3.9"
-kaleido==0.4.2; python_version >= "3.9"
+kaleido==1.0.0; python_version >= "3.9"
 langdetect==1.0.9
 mariadb==1.1.13; sys_platform != "darwin" and python_version >= "3.9"
-markdown==3.8.2; python_version >= "3.9"
+markdown==3.9; python_version >= "3.9"
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 # moviepy depends on imageio-ffmpeg, which does not provide binary wheels for arm64 macOS
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==2.2.0; python_version >= "3.9"
+narwhals==2.4.0; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= "3.9"
 numba==0.61.2; python_version >= "3.10"
@@ -106,17 +106,17 @@ pythonnet==3.0.5
 pytz==2025.2
 # pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 pyvista==0.46.3; python_version >= "3.9"
-pyzmq==27.0.2
+pyzmq==27.1.0
 PyQt5==5.15.11
 qtmodern==0.2.0
 Rtree==1.4.1; python_version >= "3.9"
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.16.1; python_version >= "3.11"
-sentry-sdk==2.35.1
+sentry-sdk==2.37.0
 # shotgun-api3 is currently incompatible with python >= 3.12...
 shotgun_api3==3.8.5; python_version < "3.12"
-slixmpp==1.10.0; python_version >= "3.9"
+slixmpp==1.11.0; python_version >= "3.9"
 spacy==3.8.7; python_version >= "3.9" and python_version < "3.13"
 srsly==2.5.1; python_version >= "3.9"
 sv-ttk==2.6.1; python_version >= "3.9"
@@ -223,8 +223,8 @@ sudachidict-full==20250825; python_version >= "3.9"
 wxPython==4.2.3; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
 pythainlp==5.1.2; python_version >= "3.9"
-gmsh==4.14.0
-sspilib==0.3.1; python_version >= "3.9"
+gmsh==4.14.1
+sspilib==0.4.0; python_version >= "3.9"
 rlp==4.1.0
 eth-rlp==2.2.0
 z3c.rml==5.0; python_version >= "3.9"
@@ -245,7 +245,7 @@ pypylon==4.2.0; python_version >= "3.9" and (sys_platform != "darwin" or platfor
 python-pptx==1.0.2
 comtypes==1.4.12; sys_platform == "win32"
 opentelemetry-sdk==1.36.0; python_version >= "3.9"
-xarray==2025.8.0; python_version >= "3.11"
+xarray==2025.9.0; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
 schwifty==2025.7.0; python_version >= "3.9"
 patool==4.0.1; python_version >= "3.10"
@@ -254,7 +254,7 @@ xmlschema==4.1.0; python_version >= "3.9"
 pysaml2==7.5.2; python_version >= "3.9"
 toga==0.5.2; python_version >= "3.9"
 numbers-parser==4.16.2; python_version >= "3.9"
-fsspec==2025.7.0; python_version >= "3.9"
+fsspec==2025.9.0; python_version >= "3.9"
 zarr==3.1.2; python_version >= "3.11"
 intake==2.0.8; python_version >= "3.9"
 h3==4.3.1
@@ -265,7 +265,7 @@ emoji==2.14.1
 tkinterweb==4.4.4
 tkinterweb-tkhtml==1.1.4
 pandas_flavor==0.7.0
-globus-sdk==3.62.0
+globus-sdk==3.63.0
 
 # ------------------- Platform (OS) specifics
 
