@@ -29,7 +29,7 @@ cryptography==45.0.7
 dash==3.2.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
-dask[diagnostics,array,distributed]==2025.9.0; python_version >= "3.10"
+dask[array,diagnostics,distributed]==2025.9.0; python_version >= "3.10"
 python-dateutil==2.9.0.post0
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively; on arm64, the Homebrew is
@@ -63,7 +63,7 @@ markdown==3.9; python_version >= "3.9"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==2.4.0; python_version >= "3.9"
+narwhals==2.5.0; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= "3.9"
 numba==0.61.2; python_version >= "3.10"
@@ -126,7 +126,7 @@ thinc==9.1.1; python_version >= "3.9"
 timezonefinder==8.0.0; python_version > "3.8"
 tkinterdnd2==0.4.3
 trame==3.12.0; python_version >= "3.9"
-trame-client==3.10.1; python_version >= "3.9"
+trame-client==3.10.2; python_version >= "3.9"
 trame-code==1.0.2
 trame-components==2.5.0
 trame-datagrid==0.2.2
@@ -147,14 +147,14 @@ trame-rca==2.1.3; python_version >= "3.9"
 trame-router==2.3.0
 trame-server==3.6.0; python_version >= "3.9"
 trame-simput==2.6.0
-trame-tauri==0.6.2
+trame-tauri==1.0.2; python_version >= "3.9"
 trame-tweakpane==0.1.3
 trame-vega==2.1.1
 # Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet.
 trame-vtk==2.9.1; python_version >= "3.9" and python_version < "3.13"
 trame-vtk3d==0.1.0
 trame-vtklocal==0.15.2; python_version >= "3.9"
-trame-vuetify==3.0.2; python_version >= "3.9"
+trame-vuetify==3.0.3; python_version >= "3.9"
 trame-xterm==0.2.1
 Twisted==25.5.0
 tzdata==2025.2
@@ -168,7 +168,7 @@ vtk==9.5.1; python_version >= "3.9" or sys_platform != "darwin" or platform_mach
 weasyprint==66.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 web3==7.13.0
 websockets==15.0.1; python_version >= "3.9"
-zeep==4.3.1
+zeep==4.3.2
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= "3.10"
@@ -244,7 +244,7 @@ apkutils==2.0.2; python_version >= "3.10"
 pypylon==4.2.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine == "arm64")
 python-pptx==1.0.2
 comtypes==1.4.12; sys_platform == "win32"
-opentelemetry-sdk==1.36.0; python_version >= "3.9"
+opentelemetry-sdk==1.37.0; python_version >= "3.9"
 xarray==2025.9.0; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
 schwifty==2025.7.0; python_version >= "3.9"
@@ -273,7 +273,7 @@ globus-sdk==3.63.0
 dbus-fast==2.44.3; sys_platform == "linux" and python_version >= "3.9"
 
 # PyEnchant only pre-builds macOS and Windows
-pyenchant==3.2.2; sys_platform == "darwin" or sys_platform == "win32"
+pyenchant==3.3.0; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
 
 # uvloop does not currently support Windows.
 uvloop==0.21.0; sys_platform != "win32"
