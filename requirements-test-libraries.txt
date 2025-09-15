@@ -29,7 +29,7 @@ cryptography==45.0.7
 dash==3.2.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
-dask[array,diagnostics,distributed]==2025.7.0; python_version >= "3.10"
+dask[diagnostics,array,distributed]==2025.9.0; python_version >= "3.10"
 python-dateutil==2.9.0.post0
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively; on arm64, the Homebrew is
