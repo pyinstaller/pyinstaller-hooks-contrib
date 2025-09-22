@@ -123,7 +123,7 @@ sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.23135
 thinc==9.1.1; python_version >= "3.9"
-timezonefinder==8.0.0; python_version > "3.8"
+timezonefinder==8.1.0; python_version > "3.8"
 tkinterdnd2==0.4.3
 trame==3.12.0; python_version >= "3.9"
 trame-client==3.10.2; python_version >= "3.9"
