@@ -162,7 +162,7 @@ Unidecode==1.4.0
 urllib3-future==2.13.909
 uuid6==2025.0.1; python_version >= "3.9"
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
-vtk==9.5.1; python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64"
+vtk==9.5.2; python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64"
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==66.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
