@@ -66,7 +66,7 @@ msoffcrypto-tool==5.4.2
 narwhals==2.5.0; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= "3.9"
-numba==0.61.2; python_version >= "3.10"
+numba==0.62.0; python_version >= "3.10"
 numcodecs==0.16.2; python_version >= "3.11"
 Office365-REST-Python-Client==2.6.2
 openpyxl==3.1.5
