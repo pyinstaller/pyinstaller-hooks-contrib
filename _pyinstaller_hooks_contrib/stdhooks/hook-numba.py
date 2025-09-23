@@ -31,7 +31,8 @@ if is_module_satisfies("numba >= 0.59.0"):
 # loaded. All of these seem to be loaded when `numba` is imported, so there is no need for finer granularity. Also,
 # as the config value might be manipulated at run-time (e.g., via environment variable), we need to collect both old
 # and new module variants.
-if is_module_satisfies("numba >= 0.61.0rc1"):
+# numba 0.62 reverted the change, removing the new type system.
+if is_module_satisfies("numba >= 0.61.0rc1, < 0.62.0rc1"):
     # NOTE: `numba.core.typing` is also referenced indirectly via `_RedirectSubpackage`, but we do not need a
     # hidden import entry for it, because we have entries for its submodules.
     modules_old = [

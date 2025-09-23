@@ -1,0 +1,2 @@
+Update ``numba`` hook for changes made in ``numba`` v0.62.0 (i.e., removal
+of the new type system that was previously introduced in v0.61 series).
