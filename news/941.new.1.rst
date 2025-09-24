@@ -1,1 +1,0 @@
-Add hook for ``pointcept`` to collect its source .py files for TorchScript/JIT.

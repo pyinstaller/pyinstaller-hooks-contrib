@@ -1,3 +1,0 @@
-Update ``torch`` hook to check whether ``torch`` is installed via
-Anaconda ``pytorch`` package, and collect DLLs from Anaconda ``mkl``
-package and its dependencies, if necessary.

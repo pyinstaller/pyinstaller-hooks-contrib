@@ -1,3 +1,37 @@
+2025.9 (2025-09-24)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``cumm`` to ensure that header files from ``cumm/include``
+  directory are collected. (`#941
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/941>`_)
+* Add hook for ``globus_sdk`` package. (`#940
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/940>`_)
+* Add hook for ``pointcept`` to collect its source .py files for
+  TorchScript/JIT. (`#941
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/941>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Harden ``blib2to3`` and ``torch`` hooks against missing ``RECORD`` in
+  the corresponding distributions' metadata, which would lead to a
+  ``'NoneType' object is not iterable`` error when the hook tries to iterate
+  over distribution's file list. (`#942
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/942>`_)
+* Update ``numba`` hook for changes made in ``numba`` v0.62.0 (i.e., removal
+  of the new type system that was previously introduced in v0.61 series).
+  (`#949
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/949>`_)
+* Update ``torch`` hook to check whether ``torch`` is installed via
+  Anaconda ``pytorch`` package, and collect DLLs from Anaconda ``mkl``
+  package and its dependencies, if necessary. (`#941
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/941>`_)
+
+
 2025.8 (2025-07-27)
 -------------------
 

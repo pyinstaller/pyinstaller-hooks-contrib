@@ -12,7 +12,7 @@
 
 import sys
 
-__version__ = '2025.8'
+__version__ = '2025.9'
 __maintainer__ = 'Legorooj, bwoodsend'
 __uri__ = 'https://github.com/pyinstaller/pyinstaller-hooks-contrib'
 

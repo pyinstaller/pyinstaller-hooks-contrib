@@ -1,2 +1,0 @@
-Add hook for ``cumm`` to ensure that header files from ``cumm/include``
-directory are collected.
