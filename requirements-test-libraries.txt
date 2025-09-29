@@ -175,7 +175,7 @@ pypsexec==0.3.0
 mimesis==18.0.0; python_version >= "3.10"
 orjson==3.11.3; python_version >= "3.9"
 altair==5.5.0; python_version >= "3.9"
-shapely==2.1.1; python_version >= "3.10"
+shapely==2.1.2; python_version >= "3.10"
 lark==1.2.2
 python-stdnum==2.1
 # On linux, sounddevice and soundfile use system-provided libportaudio
