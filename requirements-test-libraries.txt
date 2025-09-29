@@ -63,11 +63,11 @@ markdown==3.9; python_version >= "3.9"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==2.5.0; python_version >= "3.9"
+narwhals==2.6.0; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.2; python_version >= "3.9"
 numba==0.62.1; python_version >= "3.10"
-numcodecs==0.16.2; python_version >= "3.11"
+numcodecs==0.16.3; python_version >= "3.11"
 Office365-REST-Python-Client==2.6.2
 openpyxl==3.1.5
 pandas==2.3.2; python_version >= "3.9"
@@ -159,7 +159,7 @@ trame-xterm==0.2.1
 Twisted==25.5.0
 tzdata==2025.2
 Unidecode==1.4.0
-urllib3-future==2.13.909
+urllib3-future==2.14.900
 uuid6==2025.0.1; python_version >= "3.9"
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
 vtk==9.5.2; python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64"
@@ -176,7 +176,7 @@ mimesis==18.0.0; python_version >= "3.10"
 orjson==3.11.3; python_version >= "3.9"
 altair==5.5.0; python_version >= "3.9"
 shapely==2.1.2; python_version >= "3.10"
-lark==1.2.2
+lark==1.3.0
 python-stdnum==2.1
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
@@ -248,7 +248,7 @@ comtypes==1.4.12; sys_platform == "win32"
 opentelemetry-sdk==1.37.0; python_version >= "3.9"
 xarray==2025.9.0; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
-schwifty==2025.7.0; python_version >= "3.9"
+schwifty==2025.9.0; python_version >= "3.9"
 patool==4.0.1; python_version >= "3.10"
 yapf==0.43.0
 xmlschema==4.1.0; python_version >= "3.9"
@@ -259,14 +259,14 @@ fsspec==2025.9.0; python_version >= "3.9"
 zarr==3.1.3; python_version >= "3.11"
 intake==2.0.8; python_version >= "3.9"
 h3==4.3.1
-selectolax==0.3.34; python_version >= "3.9"
+selectolax==0.4.0; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
 niquests==3.15.2
 emoji==2.15.0
 tkinterweb==4.4.4
 tkinterweb-tkhtml==1.1.4
 pandas_flavor==0.7.0
-globus-sdk==3.63.0
+globus-sdk==3.64.0
 
 # ------------------- Platform (OS) specifics
 
