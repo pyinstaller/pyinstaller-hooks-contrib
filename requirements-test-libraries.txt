@@ -190,7 +190,7 @@ tensorflow==2.20.0; python_version >= "3.9" and python_version < "3.13" and (sys
 pyshark==0.6; python_version >= "3.9" or (sys_platform != "darwin" or platform_machine != "arm64")
 opencv-python==4.12.0.88
 hydra-core==1.3.2
-spiceypy==6.0.3; python_version >= "3.10"
+spiceypy==7.0.0; python_version >= "3.10"
 exchangelib==5.5.1; python_version >= "3.9"
 NBT==1.5.1
 minecraft-launcher-lib==7.1; python_version >= "3.10"
