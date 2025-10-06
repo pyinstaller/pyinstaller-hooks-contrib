@@ -45,7 +45,7 @@ folium==0.20.0; python_version >= "3.9"
 frictionless==5.18.1
 ffpyplayer==4.5.3; python_version >= "3.9"
 geopandas==1.1.1; sys_platform != "win32" and python_version >= "3.10"
-google-api-python-client==2.183.0
+google-api-python-client==2.184.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==6.4.0; python_version >= "3.9"
