@@ -205,7 +205,7 @@ mistune==3.1.4
 pydantic==2.11.10; python_version >= "3.9"
 jsonschema==4.25.1; python_version >= "3.9"
 psutil==7.1.0
-litestar==2.17.0; python_version < "3.13"
+litestar==2.18.0; python_version < "3.13"
 lingua-language-detector==2.1.1; python_version >= "3.10"
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
