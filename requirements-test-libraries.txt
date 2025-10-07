@@ -241,8 +241,7 @@ cel-python==0.4.0; python_version >= "3.9" and python_version < "3.13"
 pygwalker==0.4.9.15; python_version < "3.13"
 eth-hash==0.7.1
 apkutils==2.0.2; python_version >= "3.10"
-# macOS wheels for pypylon 4.2.0 require macOS 14+, so it cannot be installed on macos-13 runner (which is x86_64).
-pypylon==4.2.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine == "arm64")
+pypylon==4.2.0; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.12; sys_platform == "win32"
 opentelemetry-sdk==1.37.0; python_version >= "3.9"
