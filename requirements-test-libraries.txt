@@ -102,7 +102,7 @@ pynput==1.8.1
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
 pymssql==2.3.7; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 pystray==0.19.5
-pythonnet==3.0.5
+pythonnet==3.0.5; python_version < "3.14"
 pytz==2025.2
 # pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 pyvista==0.46.3; python_version >= "3.9"
@@ -117,8 +117,9 @@ sentry-sdk==2.40.0
 # shotgun-api3 is currently incompatible with python >= 3.12...
 shotgun_api3==3.8.5; python_version < "3.12"
 slixmpp==1.11.0; python_version >= "3.9"
-spacy==3.8.7; python_version >= "3.9" and python_version < "3.13"
-srsly==2.5.1; python_version >= "3.9"
+# spacy depends on thinc, which in turn depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
+spacy==3.8.7; python_version >= "3.10" and python_version < "3.14"
+srsly==2.5.1; python_version >= "3.9" and python_version < "3.14"
 sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.23135
@@ -138,8 +139,8 @@ trame-keycloak==0.1.1
 trame-leaflet==1.2.4; python_version >= "3.9"
 trame-markdown==3.1.0
 trame-matplotlib==2.0.3
-# Our trame-mesh-streamer test also depends on vtk, which is not available for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-trame-mesh-streamer==0.1.0; python_version < "3.13" and (python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64")
+# Our trame-mesh-streamer test also depends on vtk, which is not available for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
+trame-mesh-streamer==0.1.0; python_version < "3.14" and (python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64")
 trame-plotly==3.1.0
 trame-pvui==0.1.1
 trame-quasar==0.2.1
@@ -150,8 +151,8 @@ trame-simput==2.6.1; python_version >= "3.9"
 trame-tauri==1.0.2; python_version >= "3.9"
 trame-tweakpane==0.1.3
 trame-vega==2.1.1
-# Our trame-vtk test also depends on vtk, which is not available for python 3.13 yet.
-trame-vtk==2.10.0; python_version >= "3.9" and python_version < "3.13"
+# Our trame-vtk test also depends on vtk, which is not available for python 3.14 yet.
+trame-vtk==2.10.0; python_version >= "3.9" and python_version < "3.14"
 trame-vtk3d==0.1.0
 trame-vtklocal==0.15.2; python_version >= "3.9"
 trame-vuetify==3.1.0; python_version >= "3.9"
@@ -185,7 +186,7 @@ soundfile==0.13.1; sys_platform != "linux"
 limits==5.6.0; python_version >= "3.10"
 great-expectations==1.6.3; python_version >= "3.9" and python_version < "3.13"
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
-tensorflow==2.20.0; python_version >= "3.9" and python_version < "3.13" and (sys_platform != "darwin" or platform_machine == "arm64")
+tensorflow==2.20.0; python_version >= "3.9" and python_version < "3.14" and (sys_platform != "darwin" or platform_machine == "arm64")
 # pyshark depends on lxml which doesn't support Python 3.8 on macOS arm64
 pyshark==0.6; python_version >= "3.9" or (sys_platform != "darwin" or platform_machine != "arm64")
 opencv-python==4.12.0.88
@@ -205,7 +206,7 @@ mistune==3.1.4
 pydantic==2.11.10; python_version >= "3.9"
 jsonschema==4.25.1; python_version >= "3.9"
 psutil==7.1.0
-litestar==2.18.0; python_version < "3.13"
+litestar==2.18.0; python_version < "3.14"
 lingua-language-detector==2.1.1; python_version >= "3.10"
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
@@ -231,11 +232,11 @@ eth-rlp==2.2.0
 z3c.rml==5.0; python_version >= "3.9"
 freetype-py==2.5.1
 vaderSentiment==3.3.2
-# langchain depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
-langchain==0.3.27; python_version >= "3.9" and python_version < "3.13"
+# At time of writing, the type annotations used by lanchain do not seem to be compatible with python 3.14.
+langchain==0.3.27; python_version >= "3.9" and python_version < "3.14"
 seedir==0.5.1
-# Starting with v0.4.0, cel-python depends on google-re2, which does not provide binary wheels for python 3.13.
-cel-python==0.4.0; python_version >= "3.9" and python_version < "3.13"
+# Starting with v0.4.0, cel-python depends on google-re2, which does not provide binary wheels for python 3.14.
+cel-python==0.4.0; python_version >= "3.9" and python_version < "3.14"
 # pygwalker depends on quickjs, which at the time of writing (v1.19.4) cannot be built under python 3.13.
 # pygwalker also depends on numpy<2.0.0, which does not have binary wheels for python 3.13.
 pygwalker==0.4.9.15; python_version < "3.13"
