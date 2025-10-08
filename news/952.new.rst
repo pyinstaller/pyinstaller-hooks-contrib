@@ -1,0 +1,3 @@
+Add hook for ``duckdb`` to ensure that ``inspect`` module is collected
+(might end up missing with python < 3.10 otherwise), and that the
+package's metadata is collected for ``duckdb`` >= 1.4.0.

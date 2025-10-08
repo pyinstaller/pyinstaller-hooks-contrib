@@ -2936,3 +2936,19 @@ def test_globus_sdk(pyi_builder):
             TransferData,
         )
     """)
+
+
+@importorskip('duckdb')
+def test_duckdb(pyi_builder):
+    pyi_builder.test_source("""
+        import duckdb
+
+        # NOTE: do not try to show the results via `.show()` method
+        # or using `print()`, as it uses characters that are incompatible
+        # with encoding used on Windows for redirected stdout/stderr!
+        r1 = duckdb.sql("SELECT 42 AS i")
+        print(f"r1: {r1.fetchall()}")
+
+        r2 = duckdb.sql("SELECT i * 2 AS k FROM r1")
+        print(f"r2: {r2.fetchall()}")
+    """)
