@@ -108,7 +108,10 @@ def test_apscheduler(pyi_builder):
 
 
         async def main():
-            scheduler = AsyncIOScheduler()
+            # Specify the timezone to use, to make the test invariant to TZ environment variable (which might be set
+            # to UCT0 or GMT+12, which is valid but not supported by `tzlocal` that is used by `apscheduler` behind the
+            # scenes.
+            scheduler = AsyncIOScheduler(timezone=datetime.timezone.utc)
             scheduler.add_job(tick, "interval", seconds=1)
             scheduler.start()
 
