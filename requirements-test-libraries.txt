@@ -255,7 +255,7 @@ schwifty==2025.9.0; python_version >= "3.9"
 patool==4.0.1; python_version >= "3.10"
 yapf==0.43.0
 xmlschema==4.1.0; python_version >= "3.9"
-pysaml2==7.5.3; python_version >= "3.9"
+pysaml2==7.5.4; python_version >= "3.9"
 toga==0.5.2; python_version >= "3.9"
 numbers-parser==4.16.2; python_version >= "3.9"
 fsspec==2025.9.0; python_version >= "3.9"
