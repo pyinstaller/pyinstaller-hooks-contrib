@@ -1,6 +1,6 @@
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==16.0.1; python_version >= "3.9"
+av==16.0.1; python_version >= "3.10"
 # adbutils does not provide arm64 macOS wheels.
 adbutils==2.10.2; sys_platform != "darwin" or platform_machine != "arm64"
 APScheduler==3.11.0
@@ -50,7 +50,7 @@ google-api-python-client==2.184.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==6.4.0; python_version >= "3.9"
-h5py==3.15.0; python_version >= "3.9"
+h5py==3.15.0; python_version >= "3.10"
 humanize==4.13.0; python_version >= "3.9"
 iminuit==2.31.1; python_version >= "3.9"
 iso639-lang==2.6.3; python_version >= "3.9"
@@ -79,7 +79,7 @@ pendulum==3.1.0; python_version >= "3.9"
 phonenumbers==9.0.16
 pingouin==0.5.5
 pinyin==0.4.0
-platformdirs==4.5.0; python_version >= "3.9"
+platformdirs==4.5.0; python_version >= "3.10"
 plotly==6.3.1
 publicsuffix2==2.20191221
 pycparser==2.23
@@ -89,7 +89,7 @@ pydicom==3.0.1; python_version >= "3.10"
 pyexcelerate==0.13.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != "win32"
-pylint==4.0.0; python_version >= "3.9"
+pylint==4.0.0; python_version >= "3.10"
 pypdfium2==4.30.0
 pypemicro==0.1.11
 pyphen==0.17.2; python_version >= "3.9"
@@ -247,7 +247,7 @@ eth-hash==0.7.1
 apkutils==2.0.2; python_version >= "3.10"
 pypylon==4.2.0; python_version >= "3.9"
 python-pptx==1.0.2
-comtypes==1.4.13; sys_platform == "win32"
+comtypes==1.4.13; sys_platform == "win32" and python_version >= "3.9"
 opentelemetry-sdk==1.37.0; python_version >= "3.9"
 xarray==2025.10.1; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
