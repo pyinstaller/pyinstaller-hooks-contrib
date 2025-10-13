@@ -1,6 +1,6 @@
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==15.1.0; python_version >= "3.9"
+av==16.0.1; python_version >= "3.10"
 # adbutils does not provide arm64 macOS wheels.
 adbutils==2.10.2; sys_platform != "darwin" or platform_machine != "arm64"
 APScheduler==3.11.0
@@ -8,8 +8,8 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==25.9.0; python_version >= "3.9"
 bokeh==3.8.0; python_version >= "3.10"
 boto==2.49.0
-boto3==1.40.45; python_version >= "3.9"
-botocore==1.40.45; python_version >= "3.9"
+boto3==1.40.51; python_version >= "3.9"
+botocore==1.40.51; python_version >= "3.9"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -18,7 +18,7 @@ CairoSVG==2.8.2; (sys_platform != "darwin" or platform_machine != "arm64") and p
 cassandra-driver==3.29.2
 capstone==5.0.6
 cf-units==3.3.0; sys_platform != "win32" and python_version >= "3.10"
-cftime==1.6.4.post1
+cftime==1.6.5; python_version >= "3.10"
 charset_normalizer==3.4.3
 cloudpickle==3.1.1
 cloudscraper==1.2.71
@@ -50,13 +50,13 @@ google-api-python-client==2.184.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==6.4.0; python_version >= "3.9"
-h5py==3.14.0; python_version >= "3.9"
+h5py==3.15.0; python_version >= "3.10"
 humanize==4.13.0; python_version >= "3.9"
 iminuit==2.31.1; python_version >= "3.9"
 iso639-lang==2.6.3; python_version >= "3.9"
 kaleido==1.1.0; python_version >= "3.9"
 langdetect==1.0.9
-mariadb==1.1.13; sys_platform != "darwin" and python_version >= "3.9"
+mariadb==1.1.14; sys_platform != "darwin" and python_version >= "3.9"
 markdown==3.9; python_version >= "3.9"
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
@@ -64,22 +64,22 @@ markdown==3.9; python_version >= "3.9"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==2.7.0; python_version >= "3.9"
+narwhals==2.8.0; python_version >= "3.9"
 nest-asyncio==1.6.0
-netCDF4==1.7.2; python_version >= "3.9"
+netCDF4==1.7.3; python_version >= "3.10"
 numba==0.62.1; python_version >= "3.10"
 numcodecs==0.16.3; python_version >= "3.11"
 Office365-REST-Python-Client==2.6.2
 openpyxl==3.1.5
 pandas==2.3.3; python_version >= "3.9"
-panel==1.8.1; python_version >= "3.10"
+panel==1.8.2; python_version >= "3.10"
 pandera==0.26.1; python_version >= "3.9"
 passlib==1.7.4
 pendulum==3.1.0; python_version >= "3.9"
-phonenumbers==9.0.15
+phonenumbers==9.0.16
 pingouin==0.5.5
 pinyin==0.4.0
-platformdirs==4.4.0; python_version >= "3.9"
+platformdirs==4.5.0; python_version >= "3.10"
 plotly==6.3.1
 publicsuffix2==2.20191221
 pycparser==2.23
@@ -89,7 +89,7 @@ pydicom==3.0.1; python_version >= "3.10"
 pyexcelerate==0.13.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != "win32"
-pylint==3.3.9; python_version >= "3.9"
+pylint==4.0.0; python_version >= "3.10"
 pypdfium2==4.30.0
 pypemicro==0.1.11
 pyphen==0.17.2; python_version >= "3.9"
@@ -101,7 +101,7 @@ pyvjoy==1.0.1; sys_platform == "win32"
 pynng==0.8.1
 pynput==1.8.1
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
-pymssql==2.3.7; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
+pymssql==2.3.8; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 pystray==0.19.5
 pythonnet==3.0.5; python_version < "3.14"
 pytz==2025.2
@@ -114,7 +114,7 @@ Rtree==1.4.1; python_version >= "3.9"
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.16.2; python_version >= "3.11"
-sentry-sdk==2.40.0
+sentry-sdk==2.41.0
 # shotgun-api3 is currently incompatible with python >= 3.12...
 shotgun_api3==3.8.5; python_version < "3.12"
 slixmpp==1.11.0; python_version >= "3.9"
@@ -129,41 +129,41 @@ tableauhyperapi==0.0.23135
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
 timezonefinder==8.1.0; python_version > "3.8"
 tkinterdnd2==0.4.3
-trame==3.12.0; python_version >= "3.9"
-trame-client==3.11.1; python_version >= "3.9"
-trame-code==1.0.2
-trame-components==2.5.0
-trame-datagrid==0.2.2
-trame-deckgl==2.0.3
-trame-formkit==0.1.2
-trame-grid-layout==1.0.3
-trame-iframe==1.1.1
-trame-keycloak==0.1.1
-trame-leaflet==1.2.4; python_version >= "3.9"
-trame-markdown==3.1.0
-trame-matplotlib==2.0.3
+trame==3.12.0; python_version >= "3.9" and python_version < "3.14"
+trame-client==3.11.2; python_version >= "3.9" and python_version < "3.14"
+trame-code==1.0.2; python_version < "3.14"
+trame-components==2.5.0; python_version < "3.14"
+trame-datagrid==0.2.2; python_version < "3.14"
+trame-deckgl==2.0.3; python_version < "3.14"
+trame-formkit==0.1.2; python_version < "3.14"
+trame-grid-layout==1.0.3; python_version < "3.14"
+trame-iframe==1.1.1; python_version < "3.14"
+trame-keycloak==0.1.1; python_version < "3.14"
+trame-leaflet==1.2.4; python_version >= "3.9" and python_version < "3.14"
+trame-markdown==3.1.0; python_version < "3.14"
+trame-matplotlib==2.0.3; python_version < "3.14"
 # Our trame-mesh-streamer test also depends on vtk, which is not available for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 trame-mesh-streamer==0.1.0; python_version < "3.14" and (python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64")
-trame-plotly==3.1.0
-trame-pvui==0.1.1
-trame-quasar==0.2.1
-trame-rca==2.2.0; python_version >= "3.9"
-trame-router==2.3.0
-trame-server==3.6.3; python_version >= "3.9"
-trame-simput==2.6.1; python_version >= "3.9"
-trame-tauri==1.0.2; python_version >= "3.9"
-trame-tweakpane==0.1.3
-trame-vega==2.1.1
+trame-plotly==3.1.0; python_version < "3.14"
+trame-pvui==0.1.1; python_version < "3.14"
+trame-quasar==0.2.1; python_version < "3.14"
+trame-rca==2.2.0; python_version >= "3.9" and python_version < "3.14"
+trame-router==2.3.0; python_version < "3.14"
+trame-server==3.6.3; python_version >= "3.9" and python_version < "3.14"
+trame-simput==2.6.2; python_version >= "3.9" and python_version < "3.14"
+trame-tauri==1.0.2; python_version >= "3.9" and python_version < "3.14"
+trame-tweakpane==0.1.3; python_version < "3.14"
+trame-vega==2.1.1; python_version < "3.14"
 # Our trame-vtk test also depends on vtk, which is not available for python 3.14 yet.
 trame-vtk==2.10.0; python_version >= "3.9" and python_version < "3.14"
-trame-vtk3d==0.1.0
-trame-vtklocal==0.15.2; python_version >= "3.9"
-trame-vuetify==3.1.0; python_version >= "3.9"
-trame-xterm==0.2.1
+trame-vtk3d==0.1.0; python_version < "3.14"
+trame-vtklocal==0.15.2; python_version >= "3.9" and python_version < "3.14"
+trame-vuetify==3.1.0; python_version >= "3.9" and python_version < "3.14"
+trame-xterm==0.2.1; python_version < "3.14" and python_version < "3.14"
 Twisted==25.5.0
 tzdata==2025.2
 Unidecode==1.4.0
-urllib3-future==2.14.902
+urllib3-future==2.14.904
 uuid6==2025.0.1; python_version >= "3.9"
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
 vtk==9.5.2; python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64"
@@ -187,7 +187,7 @@ python-stdnum==2.1
 sounddevice==0.5.2; sys_platform != "linux"
 soundfile==0.13.1; sys_platform != "linux"
 limits==5.6.0; python_version >= "3.10"
-great-expectations==1.6.3; python_version >= "3.9" and python_version < "3.13"
+great-expectations==1.7.0; python_version >= "3.9" and python_version < "3.13"
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.20.0; python_version >= "3.9" and python_version < "3.14" and (sys_platform != "darwin" or platform_machine == "arm64")
 # pyshark depends on lxml which doesn't support Python 3.8 on macOS arm64
@@ -195,7 +195,7 @@ pyshark==0.6; python_version >= "3.9" or (sys_platform != "darwin" or platform_m
 opencv-python==4.12.0.88
 hydra-core==1.3.2
 spiceypy==7.0.0; python_version >= "3.10"
-exchangelib==5.5.1; python_version >= "3.9"
+exchangelib==5.6.0; python_version >= "3.10"
 NBT==1.5.1
 minecraft-launcher-lib==7.1; python_version >= "3.10"
 scikit-learn==1.7.2; python_version >= "3.10"
@@ -206,7 +206,7 @@ librosa==0.11.0
 sympy==1.14.0; python_version >= "3.9"
 xyzservices==2025.4.0
 mistune==3.1.4
-pydantic==2.11.10; python_version >= "3.9"
+pydantic==2.12.0; python_version >= "3.9"
 jsonschema==4.25.1; python_version >= "3.9"
 psutil==7.1.0
 litestar==2.18.0; python_version < "3.14"
@@ -219,7 +219,7 @@ eng-to-ipa==0.0.2
 python-mecab-ko==1.3.7
 khmer-nltk==1.6
 python-crfsuite==0.9.11
-pymorphy3==2.0.5
+pymorphy3==2.0.6
 pymorphy3-dicts-uk==2.4.1.1.1663094765
 sudachipy==0.6.10; python_version >= "3.9"
 sudachidict-core==20250825; python_version >= "3.9"
@@ -232,7 +232,7 @@ gmsh==4.14.1
 sspilib==0.4.0; python_version >= "3.9"
 rlp==4.1.0
 eth-rlp==2.2.0
-z3c.rml==5.0; python_version >= "3.9"
+z3c.rml==5.0.1; python_version >= "3.9"
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 # At time of writing, the type annotations used by lanchain do not seem to be compatible with python 3.14.
@@ -247,15 +247,15 @@ eth-hash==0.7.1
 apkutils==2.0.2; python_version >= "3.10"
 pypylon==4.2.0; python_version >= "3.9"
 python-pptx==1.0.2
-comtypes==1.4.12; sys_platform == "win32"
+comtypes==1.4.13; sys_platform == "win32" and python_version >= "3.9"
 opentelemetry-sdk==1.37.0; python_version >= "3.9"
-xarray==2025.10.0; python_version >= "3.11"
+xarray==2025.10.1; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
 schwifty==2025.9.0; python_version >= "3.9"
 patool==4.0.1; python_version >= "3.10"
 yapf==0.43.0
 xmlschema==4.1.0; python_version >= "3.9"
-pysaml2==7.5.3; python_version >= "3.9"
+pysaml2==7.5.4; python_version >= "3.9"
 toga==0.5.2; python_version >= "3.9"
 numbers-parser==4.16.2; python_version >= "3.9"
 fsspec==2025.9.0; python_version >= "3.9"
@@ -269,7 +269,7 @@ emoji==2.15.0
 tkinterweb==4.4.4
 tkinterweb-tkhtml==1.1.4
 pandas_flavor==0.7.0
-globus-sdk==3.65.0
+globus-sdk==4.0.1
 
 # ------------------- Platform (OS) specifics
 
