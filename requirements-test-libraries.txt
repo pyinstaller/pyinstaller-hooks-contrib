@@ -247,7 +247,7 @@ eth-hash==0.7.1
 apkutils==2.0.2; python_version >= "3.10"
 pypylon==4.2.0; python_version >= "3.9"
 python-pptx==1.0.2
-comtypes==1.4.12; sys_platform == "win32"
+comtypes==1.4.13; sys_platform == "win32"
 opentelemetry-sdk==1.37.0; python_version >= "3.9"
 xarray==2025.10.0; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
