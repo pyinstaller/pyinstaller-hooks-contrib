@@ -101,7 +101,7 @@ pyvjoy==1.0.1; sys_platform == "win32"
 pynng==0.8.1
 pynput==1.8.1
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
-pymssql==2.3.7; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
+pymssql==2.3.8; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 pystray==0.19.5
 pythonnet==3.0.5; python_version < "3.14"
 pytz==2025.2
