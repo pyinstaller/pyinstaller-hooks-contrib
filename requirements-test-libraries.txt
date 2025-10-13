@@ -129,37 +129,37 @@ tableauhyperapi==0.0.23135
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
 timezonefinder==8.1.0; python_version > "3.8"
 tkinterdnd2==0.4.3
-trame==3.12.0; python_version >= "3.9"
-trame-client==3.11.2; python_version >= "3.9"
-trame-code==1.0.2
-trame-components==2.5.0
-trame-datagrid==0.2.2
-trame-deckgl==2.0.3
-trame-formkit==0.1.2
-trame-grid-layout==1.0.3
-trame-iframe==1.1.1
-trame-keycloak==0.1.1
-trame-leaflet==1.2.4; python_version >= "3.9"
-trame-markdown==3.1.0
-trame-matplotlib==2.0.3
+trame==3.12.0; python_version >= "3.9" and python_version < "3.14"
+trame-client==3.11.2; python_version >= "3.9" and python_version < "3.14"
+trame-code==1.0.2; python_version < "3.14"
+trame-components==2.5.0; python_version < "3.14"
+trame-datagrid==0.2.2; python_version < "3.14"
+trame-deckgl==2.0.3; python_version < "3.14"
+trame-formkit==0.1.2; python_version < "3.14"
+trame-grid-layout==1.0.3; python_version < "3.14"
+trame-iframe==1.1.1; python_version < "3.14"
+trame-keycloak==0.1.1; python_version < "3.14"
+trame-leaflet==1.2.4; python_version >= "3.9" and python_version < "3.14"
+trame-markdown==3.1.0; python_version < "3.14"
+trame-matplotlib==2.0.3; python_version < "3.14"
 # Our trame-mesh-streamer test also depends on vtk, which is not available for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 trame-mesh-streamer==0.1.0; python_version < "3.14" and (python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64")
-trame-plotly==3.1.0
-trame-pvui==0.1.1
-trame-quasar==0.2.1
-trame-rca==2.2.0; python_version >= "3.9"
-trame-router==2.3.0
-trame-server==3.6.3; python_version >= "3.9"
-trame-simput==2.6.2; python_version >= "3.9"
-trame-tauri==1.0.2; python_version >= "3.9"
-trame-tweakpane==0.1.3
-trame-vega==2.1.1
+trame-plotly==3.1.0; python_version < "3.14"
+trame-pvui==0.1.1; python_version < "3.14"
+trame-quasar==0.2.1; python_version < "3.14"
+trame-rca==2.2.0; python_version >= "3.9" and python_version < "3.14"
+trame-router==2.3.0; python_version < "3.14"
+trame-server==3.6.3; python_version >= "3.9" and python_version < "3.14"
+trame-simput==2.6.2; python_version >= "3.9" and python_version < "3.14"
+trame-tauri==1.0.2; python_version >= "3.9" and python_version < "3.14"
+trame-tweakpane==0.1.3; python_version < "3.14"
+trame-vega==2.1.1; python_version < "3.14"
 # Our trame-vtk test also depends on vtk, which is not available for python 3.14 yet.
 trame-vtk==2.10.0; python_version >= "3.9" and python_version < "3.14"
-trame-vtk3d==0.1.0
-trame-vtklocal==0.15.2; python_version >= "3.9"
-trame-vuetify==3.1.0; python_version >= "3.9"
-trame-xterm==0.2.1
+trame-vtk3d==0.1.0; python_version < "3.14"
+trame-vtklocal==0.15.2; python_version >= "3.9" and python_version < "3.14"
+trame-vuetify==3.1.0; python_version >= "3.9" and python_version < "3.14"
+trame-xterm==0.2.1; python_version < "3.14" and python_version < "3.14"
 Twisted==25.5.0
 tzdata==2025.2
 Unidecode==1.4.0
