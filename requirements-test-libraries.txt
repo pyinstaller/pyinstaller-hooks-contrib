@@ -1,6 +1,6 @@
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==15.1.0; python_version >= "3.9"
+av==16.0.1; python_version >= "3.9"
 # adbutils does not provide arm64 macOS wheels.
 adbutils==2.10.2; sys_platform != "darwin" or platform_machine != "arm64"
 APScheduler==3.11.0
