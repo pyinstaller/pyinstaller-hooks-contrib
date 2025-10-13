@@ -269,7 +269,7 @@ emoji==2.15.0
 tkinterweb==4.4.4
 tkinterweb-tkhtml==1.1.4
 pandas_flavor==0.7.0
-globus-sdk==3.65.0
+globus-sdk==4.0.1
 
 # ------------------- Platform (OS) specifics
 
