@@ -2952,3 +2952,43 @@ def test_duckdb(pyi_builder):
         r2 = duckdb.sql("SELECT i * 2 AS k FROM r1")
         print(f"r2: {r2.fetchall()}")
     """)
+
+
+@importorskip('dateparser')
+def test_dateparser(pyi_builder):
+    pyi_builder.test_source("""
+        import datetime
+        import os
+        import sys
+
+        import dateparser
+
+        # The test tries to print the date strings it is testing, and some of them contain Unicode characters. On
+        # Windows, when stdout is redirected (for example, by pytest to capture the output), stdout is configured
+        # to use system locale encoding. So for this to work, we need to force it into utf-8 mode.
+        if os.name == "nt" and sys.stdout.encoding != "utf-8":
+            sys.stdout.reconfigure(encoding="utf-8")
+
+        # Couple of examples from dateparser's "Basic Usage"
+        test_cases = (
+            ('12/12/12', datetime.datetime(2012, 12, 12, 0, 0)),
+            ('Fri, 12 Dec 2014 10:55:50', datetime.datetime(2014, 12, 12, 10, 55, 50)),
+            # Spanish (Tuesday 21 October 2014)
+            ('Martes 21 de Octubre de 2014', datetime.datetime(2014, 10, 21, 0, 0)),
+            # French (11 December 2014 at 09:00)
+            ('Le 11 Décembre 2014 à 09:00', datetime.datetime(2014, 12, 11, 9, 0)),
+            # Russian (13 January 2015 at 13:34)
+            ('13 января 2015 г. в 13:34', datetime.datetime(2015, 1, 13, 13, 34)),
+            # Thai (1 October 2005, 1:00 AM)
+            ('1 เดือนตุลาคม 2005, 1:00 AM', datetime.datetime(2005, 10, 1, 1, 0))
+        )
+
+        for date_string, expected_result in test_cases:
+            print(f"Parsing string: {date_string!r}")
+            print(f"Expected: {expected_result}")
+            dt = dateparser.parse(date_string)
+            print(f"Result:   {dt}")
+
+            assert dt == expected_result
+            print("")
+    """)
