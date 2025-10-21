@@ -171,7 +171,8 @@ vtk==9.5.2; python_version >= "3.9" or sys_platform != "darwin" or platform_mach
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==66.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
-web3==7.14.0
+# web3 indirectly depends on ckzg, which does not yet provide python 3.14 wheels, and fails to build from sdist on Windows.
+web3==7.14.0; python_version < "3.14" or sys_platform != "win32"
 websockets==15.0.1; python_version >= "3.9"
 # zeep depends on lxml which doesn't support Python 3.8 on macOS arm64
 zeep==4.3.2; python_version >= "3.9" or (sys_platform != "darwin" or platform_machine != "arm64")
