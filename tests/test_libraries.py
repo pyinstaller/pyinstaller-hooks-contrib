@@ -1961,10 +1961,52 @@ def test_vadersentiment(pyi_builder):
     """)
 
 
-@importorskip('langchain')
+@requires('langchain < 1.0')
 def test_langchain_llm_summarization_checker(pyi_builder):
     pyi_builder.test_source("""
         import langchain.chains.llm_summarization_checker.base
+    """)
+
+
+# In langchain 1.0.0, the old API was moved into langchain-classic package.
+@requires('langchain-classic >= 1.0')
+def test_langchain_classic_llm_summarization_checker(pyi_builder):
+    pyi_builder.test_source("""
+        import langchain_classic.chains.llm_summarization_checker.base
+    """)
+
+
+@requires('langchain >= 1.0')
+@requires('langchain-ollama')
+def test_langchain_with_ollama(pyi_builder):
+    pyi_builder.test_source("""
+        import time
+
+        import httpx  # for httpx.ConnectError
+        from langchain.chat_models import init_chat_model
+
+        model = init_chat_model("ollama:gemma3:1b")  # requires langchain-ollama
+
+        try:
+            start_time = time.time()
+            print("Invoking model...")
+            response = model.invoke("What is LangChain?")
+            elapsed = time.time() - start_time
+            print(f"Answer took {elapsed:.1f} seconds:")
+        except httpx.ConnectError:
+            # Gracefully handle the situation where local instance of ollama is not running - this should be the usual
+            # case with this test running on PyInstaller's CI.
+            #
+            # If you want to set up a local instance for complete test, see:
+            # https://github.com/ollama/ollama?tab=readme-ov-file#ollama
+            print("Local instance of ollama does not seem to be running - exiting!")
+            raise SystemExit(0)
+
+        for block in response.content_blocks:
+            if block["type"] == "reasoning":
+                print(block.get("reasoning"))
+            elif block["type"] == "text":
+                print(block.get("text"))
     """)
 
 
