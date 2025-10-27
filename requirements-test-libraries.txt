@@ -53,7 +53,7 @@ graphql-query==1.4.0
 python-gitlab==6.5.0; python_version >= "3.9"
 h5py==3.15.1; python_version >= "3.10"
 humanize==4.14.0; python_version >= "3.10"
-iminuit==2.31.1; python_version >= "3.9"
+iminuit==2.31.3; python_version >= "3.9"
 iso639-lang==2.6.3; python_version >= "3.9"
 kaleido==1.1.0; python_version >= "3.9"
 langdetect==1.0.9
@@ -91,7 +91,7 @@ pyexcelerate==0.13.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != "win32"
 pylint==4.0.2; python_version >= "3.10"
-pypdfium2==4.30.1
+pypdfium2==5.0.0
 pypemicro==0.1.11
 pyphen==0.17.2; python_version >= "3.9"
 pyppeteer==2.0.0
@@ -124,7 +124,7 @@ spacy==3.8.7; python_version >= "3.10" and python_version < "3.14"
 srsly==2.5.1; python_version >= "3.9" and python_version < "3.14"
 sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
-tableauhyperapi==0.0.23135
+tableauhyperapi==0.0.23576
 # thinc depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
@@ -230,7 +230,7 @@ sudachidict-full==20250825; python_version >= "3.9"
 wxPython==4.2.3; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
 pythainlp==5.1.2; python_version >= "3.9"
-gmsh==4.14.1
+gmsh==4.15.0
 sspilib==0.4.0; python_version >= "3.9"
 rlp==4.1.0
 eth-rlp==2.2.0
@@ -271,7 +271,7 @@ emoji==2.15.0
 tkinterweb==4.7.0
 tkinterweb-tkhtml==2.0.0
 pandas_flavor==0.7.0
-globus-sdk==4.0.1
+globus-sdk==4.1.0
 
 # ------------------- Platform (OS) specifics
 
