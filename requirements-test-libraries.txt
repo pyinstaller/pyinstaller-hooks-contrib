@@ -77,7 +77,7 @@ panel==1.8.2; python_version >= "3.10"
 pandera==0.26.1; python_version >= "3.9"
 passlib==1.7.4
 pendulum==3.1.0; python_version >= "3.9"
-phonenumbers==9.0.16
+phonenumbers==9.0.17
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.5.0; python_version >= "3.10"
