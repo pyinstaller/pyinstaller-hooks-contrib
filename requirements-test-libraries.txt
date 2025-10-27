@@ -179,7 +179,7 @@ zeep==4.3.2; python_version >= "3.9" or (sys_platform != "darwin" or platform_ma
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= "3.10"
-orjson==3.11.3; python_version >= "3.9"
+orjson==3.11.4; python_version >= "3.9"
 altair==5.5.0; python_version >= "3.9"
 shapely==2.1.2; python_version >= "3.10"
 lark==1.3.0
