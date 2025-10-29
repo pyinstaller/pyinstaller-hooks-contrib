@@ -3093,3 +3093,17 @@ def test_nicegui(pyi_builder):
             asyncio.run(test_button_click())
             print('Test passed.')
     """)
+
+
+@importorskip("pyecharts")
+def test_pyecharts(pyi_builder):
+    pyi_builder.test_source("""
+        import pyecharts
+
+        assert pyecharts.__version__ is not None
+        bar = pyecharts.charts.Bar()
+        bar.add_xaxis(["shirts", "cardigans", "chiffons", "trousers", "heels", "socks"])
+        bar.add_yaxis("Merchant A", [5, 20, 36, 10, 75, 90])
+        html = bar.render_embed()
+        assert "Merchant A" in html
+    """)
