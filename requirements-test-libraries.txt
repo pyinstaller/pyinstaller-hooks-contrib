@@ -88,6 +88,7 @@ pycparser==2.23
 pycryptodome==3.23.0
 pycryptodomex==3.23.0
 pydicom==3.0.1; python_version >= "3.10"
+pyecharts==2.0.9;
 pyexcelerate==0.13.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != "win32"
