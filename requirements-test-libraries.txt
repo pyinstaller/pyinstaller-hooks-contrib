@@ -208,7 +208,7 @@ customtkinter==5.2.2
 fastparquet==2024.11.0; python_version >= "3.9"
 librosa==0.11.0
 sympy==1.14.0; python_version >= "3.9"
-xyzservices==2025.4.0
+xyzservices==2025.10.0
 mistune==3.1.4
 pydantic==2.12.3; python_version >= "3.9"
 jsonschema==4.25.1; python_version >= "3.9"
