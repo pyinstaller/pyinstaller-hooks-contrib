@@ -20,7 +20,7 @@ capstone==5.0.6
 cf-units==3.3.0; sys_platform != "win32" and python_version >= "3.10"
 cftime==1.6.5; python_version >= "3.10"
 charset_normalizer==3.4.4
-cloudpickle==3.1.1
+cloudpickle==3.1.2
 cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
