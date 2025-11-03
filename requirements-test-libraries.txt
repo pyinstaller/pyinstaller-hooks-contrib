@@ -108,8 +108,8 @@ pymssql==2.3.8; python_version >= "3.9" and (sys_platform != "darwin" or platfor
 pystray==0.19.5
 pythonnet==3.0.5; python_version < "3.14"
 pytz==2025.2
-# pyvista depends on vtk, which does not provide wheels for python 3.13 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-pyvista==0.46.4; python_version >= "3.9"
+# pyvista depends on vtk, which does not provide wheels for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
+pyvista==0.46.4; python_version >= "3.9" and python_version < "3.14"
 pyzmq==27.1.0
 PyQt5==5.15.11
 qtmodern==0.2.0
