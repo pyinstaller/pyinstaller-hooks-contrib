@@ -29,7 +29,7 @@ cryptography==46.0.3
 dash==3.2.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
-dask[array,diagnostics,distributed]==2025.10.0; python_version >= "3.10"
+dask[array,diagnostics,distributed]==2025.11.0; python_version >= "3.10"
 python-dateutil==2.9.0.post0
 dateparser==1.2.2
 # discid requires libdiscid to be provided by the system.
