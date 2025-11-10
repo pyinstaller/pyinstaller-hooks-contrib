@@ -58,7 +58,7 @@ iso639-lang==2.6.3; python_version >= "3.9"
 kaleido==1.2.0; python_version >= "3.9"
 langdetect==1.0.9
 mariadb==1.1.14; sys_platform != "darwin" and python_version >= "3.9"
-markdown==3.10; python_version >= "3.9"
+markdown==3.10; python_version >= "3.10"
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 # moviepy depends on imageio-ffmpeg, which does not provide binary wheels for arm64 macOS
