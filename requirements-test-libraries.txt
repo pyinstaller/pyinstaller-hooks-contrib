@@ -160,7 +160,7 @@ trame-vega==2.1.1; python_version < "3.14"
 # Our trame-vtk test also depends on vtk, which is not available for python 3.14 yet.
 trame-vtk==2.10.0; python_version >= "3.9" and python_version < "3.14"
 trame-vtk3d==0.1.0; python_version < "3.14"
-trame-vtklocal==0.15.2; python_version >= "3.9" and python_version < "3.14"
+trame-vtklocal==0.15.3; python_version >= "3.9" and python_version < "3.14"
 trame-vuetify==3.1.0; python_version >= "3.9" and python_version < "3.14"
 trame-xterm==0.2.1; python_version < "3.14" and python_version < "3.14"
 Twisted==25.5.0
