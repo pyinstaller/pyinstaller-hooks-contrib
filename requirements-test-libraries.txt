@@ -278,7 +278,7 @@ globus-sdk==4.1.0
 # ------------------- Platform (OS) specifics
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.44.5; sys_platform == "linux" and python_version >= "3.9"
+dbus-fast==2.45.1; sys_platform == "linux" and python_version >= "3.9"
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.3.0; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
