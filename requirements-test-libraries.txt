@@ -225,10 +225,11 @@ khmer-nltk==1.6
 python-crfsuite==0.9.11
 pymorphy3==2.0.6
 pymorphy3-dicts-uk==2.4.1.1.1663094765
-sudachipy==0.6.10; python_version >= "3.9"
-sudachidict-core==20251022; python_version >= "3.9"
-sudachidict-small==20251022; python_version >= "3.9"
-sudachidict-full==20251022; python_version >= "3.9"
+# SudachiPy 0.6.10 does not provide wheels for python 3.14 yet.
+sudachipy==0.6.10; python_version >= "3.9" and python_version < "3.14"
+sudachidict-core==20251022; python_version >= "3.9" and python_version < "3.14"
+sudachidict-small==20251022; python_version >= "3.9" and python_version < "3.14"
+sudachidict-full==20251022; python_version >= "3.9" and python_version < "3.14"
 wxPython==4.2.4; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.2.0
 pythainlp==5.1.2; python_version >= "3.9"
