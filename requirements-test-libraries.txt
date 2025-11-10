@@ -65,7 +65,7 @@ markdown==3.10; python_version >= "3.9"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==2.10.1; python_version >= "3.9"
+narwhals==2.11.0; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.3; python_version >= "3.10"
 nicegui==3.2.0; python_version >= "3.9"
