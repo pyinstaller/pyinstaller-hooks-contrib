@@ -226,7 +226,7 @@ python-crfsuite==0.9.11
 pymorphy3==2.0.6
 pymorphy3-dicts-uk==2.4.1.1.1663094765
 sudachipy==0.6.10; python_version >= "3.9"
-sudachidict-core==20250825; python_version >= "3.9"
+sudachidict-core==20251022; python_version >= "3.9"
 sudachidict-small==20250825; python_version >= "3.9"
 sudachidict-full==20250825; python_version >= "3.9"
 wxPython==4.2.4; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"  # PyPI provides binary wheels for Windows and macOS
