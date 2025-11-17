@@ -59,8 +59,12 @@ jobs:
           dotnet-version: '6.x'
 
       # Install MariaDB Connector/C from official MariaDB Community Server
-      # repository. The version shipped with ubuntu-20.04 is too old for
+      # repository; the version shipped with ubuntu may be too old for
       # the "mariadb" python package.
+      #
+      # NOTE: the default mariadb-server-version used to be 12.rolling,
+      # but that was unavailable on 2025-11-18, so we are now (temporarily?)
+      # using 11.roling.
       - name: Install MariaDB Connector/C
         if: startsWith(matrix.os, 'ubuntu')
         run: |
@@ -69,7 +73,7 @@ jobs:
           wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
           echo "923eea378be2c129adb4d191f01162c1fe5473f1114d7586f096b5f6b9874efe  mariadb_repo_setup" | sha256sum -c -
           chmod +x mariadb_repo_setup
-          sudo ./mariadb_repo_setup --skip-maxscale
+          sudo ./mariadb_repo_setup --skip-maxscale --mariadb-server-version=11.rolling
           sudo apt-get install -y libmariadb3 libmariadb-dev
 
       - name: Install apt dependencies
