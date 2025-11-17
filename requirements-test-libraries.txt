@@ -2,14 +2,14 @@
 # TODO: Add most of the libraries we have hooks for, and write tests
 av==16.0.1; python_version >= "3.10"
 # adbutils does not provide arm64 macOS wheels.
-adbutils==2.11.0; sys_platform != "darwin" or platform_machine != "arm64"
+adbutils==2.12.0; sys_platform != "darwin" or platform_machine != "arm64"
 APScheduler==3.11.1
 backports.zoneinfo==0.2.1; python_version < "3.9"
 black==25.11.0; python_version >= "3.9"
 bokeh==3.8.1; python_version >= "3.10"
 boto==2.49.0
-boto3==1.40.70; python_version >= "3.9"
-botocore==1.40.70; python_version >= "3.9"
+boto3==1.40.75; python_version >= "3.9"
+botocore==1.40.75; python_version >= "3.9"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -26,7 +26,7 @@ cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.4.2; sys_platform != "win32" and python_version >= "3.10"
 cryptography==46.0.3
-dash==3.2.0
+dash==3.3.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
 dask[array,diagnostics,distributed]==2025.11.0; python_version >= "3.10"
@@ -36,7 +36,7 @@ dateparser==1.2.2
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 discid==1.3.0; sys_platform != "win32" and (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.9"
-duckdb==1.4.1; python_version >= "3.9"
+duckdb==1.4.2; python_version >= "3.9"
 eccodes==2.44.0; python_version >= "3.10"
 eth_typing==5.2.1
 eth_utils==5.3.1
@@ -65,10 +65,10 @@ markdown==3.10; python_version >= "3.10"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==5.4.2
-narwhals==2.11.0; python_version >= "3.9"
+narwhals==2.12.0; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.3; python_version >= "3.10"
-nicegui==3.2.0; python_version >= "3.9"
+nicegui==3.3.1; python_version >= "3.9"
 numba==0.62.1; python_version >= "3.10"
 numcodecs==0.16.3; python_version >= "3.11"
 Office365-REST-Python-Client==2.6.2
@@ -82,7 +82,7 @@ phonenumbers==9.0.18
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.5.0; python_version >= "3.10"
-plotly==6.4.0
+plotly==6.5.0
 publicsuffix2==2.20191221
 pycparser==2.23
 pycryptodome==3.23.0
@@ -92,12 +92,12 @@ pyecharts==2.0.9;
 pyexcelerate==0.13.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != "win32"
-pylint==4.0.2; python_version >= "3.10"
+pylint==4.0.3; python_version >= "3.10"
 pypdfium2==5.0.0
 pypemicro==0.1.11
 pyphen==0.17.2; python_version >= "3.9"
 pyppeteer==2.0.0
-pyqtgraph==0.13.7; python_version >= "3.9"
+pyqtgraph==0.14.0; python_version >= "3.10"
 pyusb==1.3.1; python_version >= "3.9"
 pyviz-comms==3.0.6
 pyvjoy==1.0.1; sys_platform == "win32"
@@ -117,13 +117,13 @@ Rtree==1.4.1; python_version >= "3.9"
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.16.3; python_version >= "3.11"
-sentry-sdk==2.43.0
+sentry-sdk==2.44.0
 # shotgun-api3 is currently incompatible with python >= 3.12...
-shotgun_api3==3.8.5; python_version < "3.12"
+shotgun_api3==3.9.0; python_version < "3.12"
 slixmpp==1.12.0; python_version >= "3.10"
 # spacy depends on thinc, which in turn depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
-spacy==3.8.8; python_version >= "3.10" and python_version < "3.14"
-srsly==2.5.1; python_version >= "3.9" and python_version < "3.14"
+spacy==3.8.11; python_version >= "3.10" and python_version < "3.14"
+srsly==2.5.2; python_version >= "3.9" and python_version < "3.14"
 sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.23576
@@ -166,7 +166,7 @@ trame-xterm==0.2.1; python_version < "3.14" and python_version < "3.14"
 Twisted==25.5.0
 tzdata==2025.2
 Unidecode==1.4.0
-urllib3-future==2.14.906
+urllib3-future==2.14.907
 uuid6==2025.0.1; python_version >= "3.9"
 # vtk provides arm64 macOS binary wheels only for python >= 3.9.
 vtk==9.5.2; python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64"
@@ -182,7 +182,7 @@ pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==18.0.0; python_version >= "3.10"
 orjson==3.11.4; python_version >= "3.9"
-altair==5.5.0; python_version >= "3.9"
+altair==6.0.0; python_version >= "3.9"
 shapely==2.1.2; python_version >= "3.10"
 lark==1.3.1
 python-stdnum==2.1
@@ -240,7 +240,7 @@ eth-rlp==2.2.0
 z3c.rml==5.0.1; python_version >= "3.9"
 freetype-py==2.5.1
 vaderSentiment==3.3.2
-langchain==1.0.5; python_version >= "3.10"
+langchain==1.0.7; python_version >= "3.10"
 langchain-classic==1.0.0; python_version >= "3.10"
 seedir==0.5.1
 # Starting with v0.4.0, cel-python depends on google-re2, which does not provide binary wheels for python 3.14.
@@ -254,7 +254,7 @@ pypylon==4.2.0; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.13; sys_platform == "win32" and python_version >= "3.9"
 opentelemetry-sdk==1.38.0; python_version >= "3.9"
-xarray==2025.10.1; python_version >= "3.11"
+xarray==2025.11.0; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
 schwifty==2025.9.0; python_version >= "3.9"
 patool==4.0.2; python_version >= "3.11"
@@ -267,7 +267,7 @@ fsspec==2025.10.0; python_version >= "3.9"
 zarr==3.1.3; python_version >= "3.11"
 intake==2.0.8; python_version >= "3.9"
 h3==4.3.1
-selectolax==0.4.0; python_version >= "3.9"
+selectolax==0.4.3; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
 niquests==3.15.2
 emoji==2.15.0
@@ -279,7 +279,7 @@ globus-sdk==4.1.0
 # ------------------- Platform (OS) specifics
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==2.45.1; sys_platform == "linux" and python_version >= "3.9"
+dbus-fast==3.1.2; sys_platform == "linux" and python_version >= "3.10"
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.3.0; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
