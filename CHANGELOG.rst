@@ -1,3 +1,33 @@
+2025.10 (2025-11-22)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``dateparser`` to collect the data file that was introduced
+  in ``dateparser`` v.1.2.2. (`#958
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/958>`_)
+* Add hook for ``duckdb`` to ensure that ``inspect`` module is collected
+  (might end up missing with python < 3.10 otherwise), and that the
+  package's metadata is collected for ``duckdb`` >= 1.4.0. (`#952
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/952>`_)
+* Add hook for ``nicegui`` to collect the data files of the package. (`#962
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/962>`_)
+* Add hook for ``psycopg_binary`` (binary installation Psycopg 3) to ensure
+  that ``psycopg_binary._uuid`` module is collected, in order to prevent
+  missing-module error when working with data of UUID data type. (`#956
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/956>`_)
+* Add hook for ``pyecharts`` to collect the data files of the package. (`#963
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/963>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``langchain`` hooks for ``langchain`` v.1.0.x. (`#960
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/960>`_)
+
+
 2025.9 (2025-09-24)
 -------------------
 

@@ -1,1 +1,0 @@
-Add hook for ``pyecharts`` to collect the data files of the package.

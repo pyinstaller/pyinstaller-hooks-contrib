@@ -1,3 +1,0 @@
-Add hook for ``psycopg_binary`` (binary installation Psycopg 3) to ensure
-that ``psycopg_binary._uuid`` module is collected, in order to prevent
-missing-module error when working with data of UUID data type.

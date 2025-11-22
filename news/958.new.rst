@@ -1,2 +1,0 @@
-Add hook for ``dateparser`` to collect the data file that was introduced
-in ``dateparser`` v.1.2.2.
