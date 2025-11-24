@@ -71,9 +71,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y wget apt-transport-https
           wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-          echo "923eea378be2c129adb4d191f01162c1fe5473f1114d7586f096b5f6b9874efe  mariadb_repo_setup" | sha256sum -c -
+          echo "7a3e1610fee91347e198214e3672a6d3932ccbbf67905d9e892e9255baaec292  mariadb_repo_setup" | sha256sum -c -
           chmod +x mariadb_repo_setup
-          sudo ./mariadb_repo_setup --skip-maxscale --mariadb-server-version=11.rolling
+          sudo ./mariadb_repo_setup --skip-maxscale
           sudo apt-get install -y libmariadb3 libmariadb-dev
 
       - name: Install apt dependencies
