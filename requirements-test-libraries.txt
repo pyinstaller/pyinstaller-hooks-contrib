@@ -92,7 +92,7 @@ pyecharts==2.0.9;
 pyexcelerate==0.13.0
 pyexcel_ods==0.6.0
 pylibmagic==0.5.0; sys_platform != "win32"
-pylint==4.0.3; python_version >= "3.10"
+pylint==4.0.4; python_version >= "3.10"
 pypdfium2==5.1.0
 pypemicro==0.1.11
 pyphen==0.17.2; python_version >= "3.9"
