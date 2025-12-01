@@ -118,8 +118,8 @@ sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.16.3; python_version >= "3.11"
 sentry-sdk==2.46.0
-# shotgun-api3 is currently incompatible with python >= 3.12...
-shotgun_api3==3.9.1; python_version < "3.12"
+# shotgun-api3 is currently incompatible with python >= 3.13...
+shotgun_api3==3.9.1; python_version >= "3.9" and python_version < "3.13"
 slixmpp==1.12.0; python_version >= "3.10"
 # spacy depends on thinc, which in turn depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 spacy==3.8.11; python_version >= "3.10" and python_version < "3.14"
