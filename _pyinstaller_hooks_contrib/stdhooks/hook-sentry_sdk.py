@@ -37,4 +37,4 @@ if hasattr(si, '_AUTO_ENABLING_INTEGRATIONS'):
 print(json.dumps(integrations))
 """
 
-hiddenimports.extend(json.loads(exec_statement(statement)))
+if statement_result := exec_statement(statement): hiddenimports.extend(json.loads(statement_result))
