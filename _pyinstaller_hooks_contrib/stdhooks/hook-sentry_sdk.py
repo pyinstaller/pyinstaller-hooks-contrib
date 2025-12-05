@@ -9,32 +9,31 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
-import json
-from PyInstaller.utils.hooks import exec_statement
 
-hiddenimports = ["sentry_sdk.integrations.stdlib",
-                 "sentry_sdk.integrations.excepthook",
-                 "sentry_sdk.integrations.dedupe",
-                 "sentry_sdk.integrations.atexit",
-                 "sentry_sdk.integrations.modules",
-                 "sentry_sdk.integrations.argv",
-                 "sentry_sdk.integrations.logging",
-                 "sentry_sdk.integrations.threading"]
+from PyInstaller import isolated
 
-statement = """
-import json
-import sentry_sdk.integrations as si
+hiddenimports = [
+    "sentry_sdk.integrations.stdlib",
+    "sentry_sdk.integrations.excepthook",
+    "sentry_sdk.integrations.dedupe",
+    "sentry_sdk.integrations.atexit",
+    "sentry_sdk.integrations.modules",
+    "sentry_sdk.integrations.argv",
+    "sentry_sdk.integrations.logging",
+    "sentry_sdk.integrations.threading",
+]
 
-integrations = []
-if hasattr(si, '_AUTO_ENABLING_INTEGRATIONS'):
+
+@isolated.decorate
+def _get_integration_modules():
+    import sentry_sdk.integrations as si
+
     # _AUTO_ENABLING_INTEGRATIONS is a list of strings with default enabled integrations
     # https://github.com/getsentry/sentry-python/blob/c6b6f2086b58ffc674df5c25a600b8a615079fb5/sentry_sdk/integrations/__init__.py#L54-L66
+    integrations = getattr(si, '_AUTO_ENABLING_INTEGRATIONS', [])
 
-    def make_integration_name(integration_name: str):
-        return integration_name.rsplit(".", maxsplit=1)[0]
+    # The list contains fully-qualified class names; turn them into module names by removing the last component.
+    return [integration_name.rsplit('.', maxsplit=1)[0] for integration_name in integrations]
 
-    integrations.extend(map(make_integration_name, si._AUTO_ENABLING_INTEGRATIONS))
-print(json.dumps(integrations))
-"""
 
-hiddenimports.extend(json.loads(exec_statement(statement)))
+hiddenimports += _get_integration_modules()

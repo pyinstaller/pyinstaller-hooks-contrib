@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 #-----------------------------------------------------------------------------
 """
-PyWin32 package 'win32com' extends it's __path__ attribute with win32comext
+PyWin32 package 'win32com' extends its __path__ attribute with win32comext
 directory and thus PyInstaller is not able to find modules in it. For example
 module 'win32com.shell' is in reality 'win32comext.shell'.
 
@@ -21,21 +21,25 @@ module 'win32com.shell' is in reality 'win32comext.shell'.
 
 import os
 
-from PyInstaller.utils.hooks import logger, exec_statement
-from PyInstaller.compat import is_win, is_cygwin
+from PyInstaller import compat
+from PyInstaller import isolated
+from PyInstaller.utils.hooks import logger
+
+
+@isolated.decorate
+def _get_win32com_file():
+    try:
+        import win32com
+        return win32com.__file__
+    except Exception:
+        return None
 
 
 def pre_safe_import_module(api):
-    if not (is_win or is_cygwin):
+    if not compat.is_win or compat.is_cygwin:
         return
-    win32com_file = exec_statement(
-        """
-        try:
-            from win32com import __file__
-            print(__file__)
-        except Exception:
-            pass
-        """).strip()
+
+    win32com_file = _get_win32com_file()
     if not win32com_file:
         logger.debug('win32com: module not available')
         return  # win32com unavailable

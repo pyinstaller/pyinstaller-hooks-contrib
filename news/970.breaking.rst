@@ -1,0 +1,9 @@
+The hooks for following modules/packages have been ported to ``PyInstaller.isolated``
+framework and therefore require PyInstaller >= 5.0:
+- ``win32com``
+- ``wx.lib.activex``
+- ``enchant``
+- ``sentry_sdk``
+- ``ffpyplayer``
+If you are still using PyInstaller 4.x and any of these packages, make sure to
+pin an older version of ``pyinstaller-hooks-contrib``.

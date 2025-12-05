@@ -10,7 +10,18 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import exec_statement
+from PyInstaller import isolated
 
-# This needed because comtypes wx.lib.activex generates some stuff.
-exec_statement("import wx.lib.activex")
+
+# This is necessary because on first import, `wx.lib.activex` generates .tlb file for `comtypes`, unless running in a
+# frozen application (in which case, the .tlb file is expected to exist already). So if we are building in a completely
+# clean python environment (for example, in a CI/CD pipeline), we need to ensure that .tlb file is generated.
+@isolated.decorate
+def _ensure_tlb_file_exists():
+    try:
+        import wx.lib.activex  # noqa: F401
+    except Exception:
+        pass
+
+
+_ensure_tlb_file_exists()
