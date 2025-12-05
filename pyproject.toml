@@ -34,3 +34,8 @@
 		directory = "tests"
 		name = "Test-suite and Continuous Integration"
 		showcontent = true
+
+	[[tool.towncrier.type]]
+		directory = "breaking"
+		name = "Incompatible Changes"
+		showcontent = true
