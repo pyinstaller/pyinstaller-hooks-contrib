@@ -234,7 +234,7 @@ wxPython==4.2.4; (sys_platform == "darwin" or sys_platform == "win32") and pytho
 laonlp==1.2.0
 pythainlp==5.1.2; python_version >= "3.9"
 gmsh==4.15.0
-sspilib==0.4.0; python_version >= "3.9"
+sspilib==0.5.0; python_version >= "3.9"
 rlp==4.1.0
 eth-rlp==2.2.0
 z3c.rml==5.0.1; python_version >= "3.9"
