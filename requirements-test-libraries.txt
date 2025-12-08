@@ -161,7 +161,7 @@ trame-vega==2.1.1; python_version < "3.14"
 trame-vtk==2.10.0; python_version >= "3.9" and python_version < "3.14"
 trame-vtk3d==0.1.0; python_version < "3.14"
 trame-vtklocal==0.15.4; python_version >= "3.9" and python_version < "3.14"
-trame-vuetify==3.1.0; python_version >= "3.9" and python_version < "3.14"
+trame-vuetify==3.2.0; python_version >= "3.9" and python_version < "3.14"
 trame-xterm==0.2.1; python_version < "3.14" and python_version < "3.14"
 Twisted==25.5.0
 tzdata==2025.2
@@ -253,7 +253,7 @@ apkutils==2.0.4; python_version >= "3.10"
 pypylon==4.2.0; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.13; sys_platform == "win32" and python_version >= "3.9"
-opentelemetry-sdk==1.38.0; python_version >= "3.9"
+opentelemetry-sdk==1.39.0; python_version >= "3.9"
 xarray==2025.12.0; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
 schwifty==2025.9.0; python_version >= "3.9"
@@ -261,13 +261,13 @@ patool==4.0.2; python_version >= "3.11"
 yapf==0.43.0
 xmlschema==4.2.0; python_version >= "3.9"
 pysaml2==7.5.4; python_version >= "3.9"
-toga==0.5.2; python_version >= "3.9"
+toga==0.5.3; python_version >= "3.10"
 numbers-parser==4.16.2; python_version >= "3.9"
 fsspec==2025.12.0; python_version >= "3.10"
 zarr==3.1.5; python_version >= "3.11"
 intake==2.0.8; python_version >= "3.9"
 h3==4.3.1
-selectolax==0.4.4; python_version >= "3.9"
+selectolax==0.4.6; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
 niquests==3.15.2
 emoji==2.15.0
