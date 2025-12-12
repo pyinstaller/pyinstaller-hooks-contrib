@@ -1,1 +1,1 @@
-Add a hook for ``tkinterweb-tkhtml-extras``, which has hidden files.
+Add a hook for ``tkinterweb-tkhtml-extras``.
