@@ -2934,7 +2934,7 @@ def test_tkinterweb_tkhtml(pyi_builder):
 
         root = tkinter.Tk()
 
-        tkhtml_file, tkhtml_version, experimental = tkinterweb_tkhtml.get_tkhtml_file(None, False)
+        tkhtml_file, tkhtml_version, experimental = tkinterweb_tkhtml.get_tkhtml_file(None, experimental=False)
         print(f"Loading tkhtml version {tkhtml_version!r}: {tkhtml_file!r}")
         tkinterweb_tkhtml.load_tkhtml_file(root, tkhtml_file)
 
