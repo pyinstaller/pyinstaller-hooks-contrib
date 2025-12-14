@@ -2945,6 +2945,40 @@ def test_tkinterweb_tkhtml(pyi_builder):
     """, run_from_path=True)
 
 
+@importorskip('tkinterweb_tkhtml')
+@importorskip('tkinterweb_tkhtml_extras')
+def test_tkinterweb_tkhtml_extras(pyi_builder):
+    # See comment in `test_tkinterweb` as to why `run_from_path=True` is required.
+    pyi_builder.test_source("""
+        import pathlib
+
+        import tkinterweb_tkhtml
+        import tkinterweb_tkhtml_extras
+
+        # Print all available tkhtml binaries
+        print("Available tkhtml binaries:", tkinterweb_tkhtml.ALL_TKHTML_BINARIES)
+
+        # Check that at least one binary is available in base and extras package, respectively.
+        base_path = pathlib.Path(tkinterweb_tkhtml.__file__).parent
+        extras_path = pathlib.Path(tkinterweb_tkhtml_extras.__file__).parent
+
+        found_base = False
+        found_extras = False
+
+        for path, name in tkinterweb_tkhtml.ALL_TKHTML_BINARIES:
+            path = pathlib.Path(path)
+            if base_path in path.parents or base_path == path:
+                print(f"Found binary in tkinterweb_tkhtml package: {name!r} in {str(path)!r}")
+                found_base = True
+            if extras_path in path.parents or base_path == path:
+                print(f"Found binary in tkinterweb_tkhtml_extras package: {name!r} in {str(path)!r}")
+                found_extras = True
+
+        assert found_base, "Did not find binary in tkinterweb_tkhtml package!"
+        assert extras_path, "Did not find binary in tkinterweb_tkhtml_extras package!"
+    """, run_from_path=True)
+
+
 @importorskip('narwhals')
 def test_narwhals(pyi_builder):
     pyi_builder.test_source("""
