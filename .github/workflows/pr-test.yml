@@ -62,16 +62,16 @@ jobs:
       # repository; the version shipped with ubuntu may be too old for
       # the "mariadb" python package.
       #
-      # NOTE: the default mariadb-server-version used to be 12.rolling,
-      # but that was unavailable on 2025-11-18, so we are now (temporarily?)
-      # using 11.roling.
+      # NOTE: the sha256sum for mariadb_repo_setup installation script is available at:
+      # https://mariadb.com/docs/server/server-management/install-and-upgrade-mariadb/installing-mariadb/binary-packages/mariadb-package-repository-setup-and-usage#versions
+      # (make sure to switch to "mariadb_repo_setup" tab!)
       - name: Install MariaDB Connector/C
         if: startsWith(matrix.os, 'ubuntu')
         run: |
           sudo apt-get update
           sudo apt-get install -y wget apt-transport-https
           wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-          echo "7a3e1610fee91347e198214e3672a6d3932ccbbf67905d9e892e9255baaec292  mariadb_repo_setup" | sha256sum -c -
+          echo "73f4ab14ccc3ceb8c03bb283dd131a3235cfc28086475f43e9291d2060d48c97  mariadb_repo_setup" | sha256sum -c -
           chmod +x mariadb_repo_setup
           sudo ./mariadb_repo_setup --skip-maxscale
           sudo apt-get install -y libmariadb3 libmariadb-dev
