@@ -126,7 +126,7 @@ spacy==3.8.11; python_version >= "3.10" and python_version < "3.14"
 srsly==2.5.2; python_version >= "3.9" and python_version < "3.14"
 sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
-tableauhyperapi==0.0.23576
+tableauhyperapi==0.0.24081
 # thinc depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
