@@ -164,7 +164,7 @@ trame-vtklocal==0.15.4; python_version >= "3.9" and python_version < "3.14"
 trame-vuetify==3.2.0; python_version >= "3.9" and python_version < "3.14"
 trame-xterm==0.2.1; python_version < "3.14" and python_version < "3.14"
 Twisted==25.5.0
-tzdata==2025.2
+tzdata==2025.3
 Unidecode==1.4.0
 urllib3-future==2.14.908
 uuid6==2025.0.1; python_version >= "3.9"
