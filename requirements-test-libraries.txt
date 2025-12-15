@@ -202,7 +202,7 @@ spiceypy==8.0.0; python_version >= "3.10"
 exchangelib==5.6.0; python_version >= "3.10"
 NBT==1.5.1
 minecraft-launcher-lib==8.0; python_version >= "3.10"
-scikit-learn==1.8.0; python_version >= "3.10"
+scikit-learn==1.8.0; python_version >= "3.11"
 scikit-image==0.25.2; python_version >= "3.10"
 customtkinter==5.2.2
 fastparquet==2024.11.0; python_version >= "3.9"
