@@ -3141,3 +3141,21 @@ def test_pyecharts(pyi_builder):
         html = bar.render_embed()
         assert "Merchant A" in html
     """)
+
+
+@importorskip("pymeshlab")
+def test_pymeshlab(pyi_builder, tmp_path):
+    pyi_builder.test_source(
+        """
+        import sys
+        import pymeshlab
+
+        ms = pymeshlab.MeshSet()
+        ms.create_noisy_isosurface(resolution=16)
+        ms.save_current_mesh(sys.argv[1])
+        """,
+        # macOS wheel for pymeshlab includes a .framework bundle, so build and test an .app bundle as well, to check for
+        # codesign compliance.
+        pyi_args=['--windowed'] if is_darwin else [],
+        app_args=[str(tmp_path / 'output.ply')],
+    )
