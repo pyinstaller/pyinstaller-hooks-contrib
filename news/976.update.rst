@@ -1,0 +1,1 @@
+Update ``skimage`` hooks for compatibility with ``scikit-image`` 0.26.0.
