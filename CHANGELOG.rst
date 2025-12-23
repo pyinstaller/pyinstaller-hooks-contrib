@@ -1,3 +1,40 @@
+2025.11 (2025-12-23)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``tkinterweb-tkhtml-extras``. (`#972
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/972>`_)
+* Add hook for ``pymeshlab``. (`#975
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/975>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``skimage`` hooks for compatibility with ``scikit-image`` 0.26.0.
+  (`#976
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/976>`_)
+
+
+Incompatible Changes
+~~~~~~~~~~~~~~~~~~~~
+
+* The hooks for following modules/packages have been ported to
+  ``PyInstaller.isolated``
+  framework and therefore require PyInstaller >= 5.0:
+  - ``win32com``
+  - ``wx.lib.activex``
+  - ``enchant``
+  - ``sentry_sdk``
+  - ``ffpyplayer``
+  If you are still using PyInstaller 4.x and any of these packages, make sure
+  to
+  pin an older version of ``pyinstaller-hooks-contrib``. (`#970
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/970>`_)
+
+
 2025.10 (2025-11-22)
 --------------------
 
