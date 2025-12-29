@@ -273,7 +273,7 @@ intake==2.0.8; python_version >= "3.9"
 h3==4.4.1
 selectolax==0.4.6; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
-niquests==3.15.2
+niquests==3.16.1
 emoji==2.15.0
 tkinterweb[recommended]==4.11.0; python_version >= "3.9" or sys_platform != "win32"
 tkinterweb-tkhtml==2.1.0; python_version >= "3.9" or sys_platform != "win32"
