@@ -133,7 +133,7 @@ tableauhyperapi==0.0.24081
 # thinc depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
-timezonefinder==8.1.0; python_version > "3.8"
+timezonefinder==8.2.0; python_version > "3.8"
 tkinterdnd2==0.4.3
 trame==3.12.0; python_version >= "3.9" and python_version < "3.14"
 trame-client==3.11.2; python_version >= "3.9" and python_version < "3.14"
