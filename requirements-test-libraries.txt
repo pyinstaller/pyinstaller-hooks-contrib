@@ -67,7 +67,7 @@ mnemonic==0.21
 msoffcrypto-tool==5.4.2
 narwhals==2.14.0; python_version >= "3.9"
 nest-asyncio==1.6.0
-netCDF4==1.7.3; python_version >= "3.10"
+netCDF4==1.7.4; python_version >= "3.10"
 nicegui==3.4.1; python_version >= "3.9"
 # numba depends on up-to-date llvmlite, which stopped providing x86_64 wheels for macOS.
 numba==0.63.1; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine == "arm64")
