@@ -41,6 +41,7 @@ eccodes==2.44.0; python_version >= "3.10"
 eth_typing==5.2.1
 eth_utils==5.3.1
 fabric==3.2.2
+fake_useragent==2.2.0; python_version >= "3.9"
 falcon==4.2.0; python_version >= "3.9"
 fiona==1.10.1; sys_platform != "win32"
 folium==0.20.0; python_version >= "3.9"

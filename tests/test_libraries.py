@@ -3159,3 +3159,13 @@ def test_pymeshlab(pyi_builder, tmp_path):
         pyi_args=['--windowed'] if is_darwin else [],
         app_args=[str(tmp_path / 'output.ply')],
     )
+
+
+@importorskip("fake_useragent")
+def test_fakeuseragent(pyi_builder):
+    pyi_builder.test_source("""
+        import fake_useragent
+
+        ua = fake_useragent.UserAgent()
+        print(ua.random)
+    """)
