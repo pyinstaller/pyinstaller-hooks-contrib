@@ -32,6 +32,7 @@ dash-uploader==0.6.1
 dask[array,diagnostics,distributed]==2025.12.0; python_version >= "3.10"
 python-dateutil==2.9.0.post0
 dateparser==1.2.2
+ddgs==9.10.0; python_version >= "3.10"
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.

@@ -3169,3 +3169,18 @@ def test_fakeuseragent(pyi_builder):
         ua = fake_useragent.UserAgent()
         print(ua.random)
     """)
+
+
+@importorskip("ddgs")
+def test_ddgs(pyi_builder):
+    pyi_builder.test_source("""
+        import ddgs
+
+        results = ddgs.DDGS().text("PyInstaller", max_results=5)
+
+        # NOTE: do not try to print the results, as they may contain
+        # characters that are incompatible with encoding used on Windows
+        # for redirected stdout/stderr!
+        #for result in results:
+        #    print(result)
+    """)
