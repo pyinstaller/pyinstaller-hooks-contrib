@@ -1,0 +1,3 @@
+Update ``langchain`` hook for compatibility with ``langchain`` >= 1.2.1;
+ensure that installed optional add-on packages continue being automatically
+collected.
