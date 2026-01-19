@@ -305,7 +305,7 @@ pymediainfo==7.0.1; (sys_platform == "darwin" or sys_platform == "win32") and py
 
 # The required library can be installed with "brew install labstreaminglayer/tap/lsl" on macOS, or with "conda install liblsl" on any platform.
 # On Windows, the library is bundled with PyPI wheels.
-pylsl==1.17.6; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
+pylsl==1.18.1; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
 
 # PyTaskbar only runs on Windows
 PyTaskbar==0.1.0; sys_platform == "win32" and python_version >= "3.10"
