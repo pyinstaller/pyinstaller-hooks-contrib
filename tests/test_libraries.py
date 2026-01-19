@@ -3184,3 +3184,10 @@ def test_ddgs(pyi_builder):
         #for result in results:
         #    print(result)
     """)
+
+
+@importorskip("pytokens")
+def test_pytokens(pyi_builder):
+    pyi_builder.test_source("""
+        import pytokens
+    """)
