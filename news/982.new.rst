@@ -1,2 +1,0 @@
-Add hook for ``pytokens`` to automatically discover and collect the
-``{id}__mypyc`` top-level module that was introduced in ``pytokens`` 0.4.0.

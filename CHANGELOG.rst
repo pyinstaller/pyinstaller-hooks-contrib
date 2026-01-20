@@ -1,3 +1,28 @@
+2026.0 (2026-01-20)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``ddgs``. (`#978
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/978>`_)
+* Add hook for ``fake_useragent``. (`#978
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/978>`_)
+* Add hook for ``pytokens`` to automatically discover and collect the
+  ``{id}__mypyc`` top-level module that was introduced in ``pytokens`` 0.4.0.
+  (`#982
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/982>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``langchain`` hook for compatibility with ``langchain`` >= 1.2.1;
+  ensure that installed optional add-on packages continue being automatically
+  collected. (`#980
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/980>`_)
+
+
 2025.11 (2025-12-23)
 --------------------
 
