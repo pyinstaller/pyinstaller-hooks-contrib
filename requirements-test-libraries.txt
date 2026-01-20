@@ -8,8 +8,8 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==25.12.0; python_version >= "3.10"
 bokeh==3.8.2; python_version >= "3.10"
 boto==2.49.0
-boto3==1.42.27; python_version >= "3.9"
-botocore==1.42.27; python_version >= "3.9"
+boto3==1.42.30; python_version >= "3.9"
+botocore==1.42.30; python_version >= "3.9"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -17,7 +17,7 @@ cairocffi==1.7.1
 CairoSVG==2.8.2; (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.9"
 cassandra-driver==3.29.3
 capstone==5.0.6
-cf-units==3.3.0; sys_platform != "win32" and python_version >= "3.10"
+cf-units==3.3.1; sys_platform != "win32" and python_version >= "3.11"
 cftime==1.6.5; python_version >= "3.10"
 charset_normalizer==3.4.4
 cloudpickle==3.1.2
@@ -29,7 +29,7 @@ cryptography==46.0.3
 dash==3.3.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
-dask[array,diagnostics,distributed]==2025.12.0; python_version >= "3.10"
+dask[array,diagnostics,distributed]==2026.1.1; python_version >= "3.10"
 python-dateutil==2.9.0.post0
 dateparser==1.2.2
 ddgs==9.10.0; python_version >= "3.10"
@@ -38,7 +38,8 @@ ddgs==9.10.0; python_version >= "3.10"
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 discid==1.3.0; sys_platform != "win32" and (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.9"
 duckdb==1.4.3; python_version >= "3.9"
-eccodes==2.44.0; python_version >= "3.10"
+# eccodes does not provide win64 wheels for python 3.14 yet
+eccodes==2.45.0; python_version >= "3.10" and (sys_platform != "win32" or python_version < "3.14")
 eth_typing==5.2.1
 eth_utils==5.3.1
 fabric==3.2.2
@@ -49,7 +50,7 @@ folium==0.20.0; python_version >= "3.9"
 frictionless==5.18.1
 ffpyplayer==4.5.3; python_version >= "3.9"
 geopandas==1.1.2; sys_platform != "win32" and python_version >= "3.10"
-google-api-python-client==2.187.0
+google-api-python-client==2.188.0
 grapheme==0.6.0
 graphql-query==1.4.0
 python-gitlab==7.1.0; python_version >= "3.10"
@@ -81,11 +82,11 @@ panel==1.8.5; python_version >= "3.10"
 pandera==0.28.1; python_version >= "3.10"
 passlib==1.7.4
 pendulum==3.1.0; python_version >= "3.9"
-phonenumbers==9.0.21
+phonenumbers==9.0.22
 pingouin==0.5.5
 pinyin==0.4.0
 platformdirs==4.5.1; python_version >= "3.10"
-plotly==6.5.1
+plotly==6.5.2
 publicsuffix2==2.20191221
 pycparser==2.23
 pycryptodome==3.23.0
@@ -114,7 +115,7 @@ pystray==0.19.5
 pythonnet==3.0.5; python_version < "3.14"
 pytz==2025.2
 # pyvista depends on vtk, which does not provide wheels for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-pyvista==0.46.4; python_version >= "3.9" and python_version < "3.14"
+pyvista==0.46.5; python_version >= "3.9" and python_version < "3.14"
 pyzmq==27.1.0
 PyQt5==5.15.11
 qtmodern==0.2.0
@@ -157,8 +158,8 @@ trame-pvui==0.1.1; python_version < "3.14"
 trame-quasar==0.2.1; python_version < "3.14"
 trame-rca==2.2.3; python_version >= "3.9" and python_version < "3.14"
 trame-router==2.3.0; python_version < "3.14"
-trame-server==3.9.0; python_version >= "3.9" and python_version < "3.14"
-trame-simput==2.6.2; python_version >= "3.9" and python_version < "3.14"
+trame-server==3.10.0; python_version >= "3.9" and python_version < "3.14"
+trame-simput==2.6.3; python_version >= "3.9" and python_version < "3.14"
 trame-tauri==1.0.2; python_version >= "3.9" and python_version < "3.14"
 trame-tweakpane==0.1.3; python_version < "3.14"
 trame-vega==2.1.1; python_version < "3.14"
@@ -177,7 +178,7 @@ uuid6==2025.0.1; python_version >= "3.9"
 vtk==9.5.2; python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64"
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
-weasyprint==67.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
+weasyprint==68.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
 # web3 indirectly depends on ckzg, which does not yet provide python 3.14 wheels, and fails to build from sdist on Windows.
 web3==7.14.0; python_version < "3.14" or sys_platform != "win32"
 websockets==16.0; python_version >= "3.10"
@@ -201,7 +202,7 @@ great-expectations==1.11.0; python_version >= "3.10" and python_version < "3.14"
 tensorflow==2.20.0; python_version >= "3.9" and python_version < "3.14" and (sys_platform != "darwin" or platform_machine == "arm64")
 # pyshark depends on lxml which doesn't support Python 3.8 on macOS arm64
 pyshark==0.6; python_version >= "3.9" or (sys_platform != "darwin" or platform_machine != "arm64")
-opencv-python==4.12.0.88
+opencv-python==4.13.0.90
 hydra-core==1.3.2
 spiceypy==8.0.1; python_version >= "3.10"
 exchangelib==5.6.0; python_version >= "3.10"
@@ -245,7 +246,7 @@ eth-rlp==2.2.0
 z3c.rml==5.0.1; python_version >= "3.9"
 freetype-py==2.5.1
 vaderSentiment==3.3.2
-langchain==1.2.3; python_version >= "3.10"
+langchain==1.2.6; python_version >= "3.10"
 langchain-classic==1.0.1; python_version >= "3.10"
 seedir==0.5.1
 # Starting with v0.4.0, cel-python depends on google-re2, which does not provide binary wheels for python 3.14.
@@ -262,9 +263,9 @@ opentelemetry-sdk==1.39.1; python_version >= "3.9"
 xarray==2025.12.0; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
 schwifty==2025.9.0; python_version >= "3.9"
-patool==4.0.3; python_version >= "3.11"
+patool==4.0.4; python_version >= "3.11"
 yapf==0.43.0
-xmlschema==4.3.0; python_version >= "3.10"
+xmlschema==4.3.1; python_version >= "3.10"
 pysaml2==7.5.4; python_version >= "3.9"
 # On Windows, toga requires toga-winforms, which depends on pythonnet; the latter does not provide wheels for python 3.14 yet.
 toga==0.5.3; python_version >= "3.10" and (python_version < "3.14" or sys_platform != "win32")
@@ -275,13 +276,13 @@ intake==2.0.8; python_version >= "3.9"
 h3==4.4.1
 selectolax==0.4.6; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
-niquests==3.16.1
+niquests==3.17.0
 emoji==2.15.0
-tkinterweb[recommended]==4.16.1; python_version >= "3.9" or sys_platform != "win32"
+tkinterweb[recommended]==4.16.5; python_version >= "3.9" or sys_platform != "win32"
 tkinterweb-tkhtml==2.1.0; python_version >= "3.9" or sys_platform != "win32"
-tkinterweb-tkhtml-extras==1.0.0; python_version >= "3.9" or sys_platform != "win32"
+tkinterweb-tkhtml-extras==1.1.1; python_version >= "3.9" or sys_platform != "win32"
 pandas_flavor==0.8.1; python_version >= "3.10"
-globus-sdk==4.3.0; python_version >= "3.9"
+globus-sdk==4.3.1; python_version >= "3.9"
 
 # ------------------- Platform (OS) specifics
 
@@ -305,7 +306,7 @@ pymediainfo==7.0.1; (sys_platform == "darwin" or sys_platform == "win32") and py
 
 # The required library can be installed with "brew install labstreaminglayer/tap/lsl" on macOS, or with "conda install liblsl" on any platform.
 # On Windows, the library is bundled with PyPI wheels.
-pylsl==1.17.6; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
+pylsl==1.18.1; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
 
 # PyTaskbar only runs on Windows
 PyTaskbar==0.1.0; sys_platform == "win32" and python_version >= "3.10"

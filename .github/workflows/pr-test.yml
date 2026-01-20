@@ -31,7 +31,7 @@ jobs:
       matrix:
         python-version: ['3.8', '3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
         pyinstaller: ["https://github.com/pyinstaller/pyinstaller/archive/develop.zip"]
-        os: ["macos-14", "macos-15-intel", "ubuntu-24.04", "windows-latest"]
+        os: ["macos-15", "macos-15-intel", "ubuntu-24.04", "windows-latest"]
       fail-fast: false
 
     env:
@@ -141,7 +141,7 @@ jobs:
           # Requires by pygraphviz
           brew install graphviz
 
-          # On macos-14 arm64 runners, Homebrew is installed in /opt/homebrew instead of /usr/local prefix, and
+          # On arm64 macOS runners, Homebrew is installed in /opt/homebrew instead of /usr/local prefix, and
           # its headers and shared libraries are not in the default search path. Add them by setting CPPFLAGS
           # and LDFLAGS. This is required by `pygraphviz`.
           if [ "$(brew --prefix)" = "/opt/homebrew" ]; then
@@ -153,7 +153,7 @@ jobs:
         shell: bash
         run: |
           # Upgrade to the latest pip.
-          python -m pip install -U pip "setuptools<71.0.0" wheel
+          python -m pip install -U pip setuptools wheel
 
           # Install hooks-contrib
           pip install -e .
