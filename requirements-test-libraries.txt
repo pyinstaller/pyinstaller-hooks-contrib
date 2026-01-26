@@ -9,7 +9,7 @@ black==26.1.0; python_version >= "3.10"
 bokeh==3.8.2; python_version >= "3.10"
 boto==2.49.0
 boto3==1.42.34; python_version >= "3.9"
-botocore==1.42.30; python_version >= "3.9"
+botocore==1.42.34; python_version >= "3.9"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
