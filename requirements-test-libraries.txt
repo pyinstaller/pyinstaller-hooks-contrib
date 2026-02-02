@@ -81,7 +81,7 @@ pandas==3.0.0; python_version >= "3.9"
 panel==1.8.7; python_version >= "3.10"
 pandera==0.29.0; python_version >= "3.10"
 passlib==1.7.4
-pendulum==3.1.0; python_version >= "3.9"
+pendulum==3.2.0; python_version >= "3.9"
 phonenumbers==9.0.22
 pingouin==0.5.5
 pinyin==0.4.0
