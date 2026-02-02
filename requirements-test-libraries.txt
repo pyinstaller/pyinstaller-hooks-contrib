@@ -77,7 +77,7 @@ numba==0.63.1; python_version >= "3.10" and (sys_platform != "darwin" or platfor
 numcodecs==0.16.5; python_version >= "3.11"
 Office365-REST-Python-Client==2.6.2
 openpyxl==3.1.5
-pandas==3.0.0; python_version >= "3.9"
+pandas==3.0.0; python_version >= "3.11"
 panel==1.8.7; python_version >= "3.10"
 pandera==0.29.0; python_version >= "3.10"
 passlib==1.7.4
@@ -88,7 +88,7 @@ pinyin==0.4.0
 platformdirs==4.5.1; python_version >= "3.10"
 plotly==6.5.2
 publicsuffix2==2.20191221
-pycparser==3.0
+pycparser==3.0; python_version >= "3.10"
 pycryptodome==3.23.0
 pycryptodomex==3.23.0
 pydicom==3.0.1; python_version >= "3.10"
@@ -263,7 +263,7 @@ comtypes==1.4.15; sys_platform == "win32" and python_version >= "3.9"
 opentelemetry-sdk==1.39.1; python_version >= "3.9"
 xarray==2026.1.0; python_version >= "3.11"
 tables==3.10.2; python_version >= "3.11"
-schwifty==2026.1.0; python_version >= "3.9"
+schwifty==2026.1.0; python_version >= "3.10"
 patool==4.0.4; python_version >= "3.11"
 yapf==0.43.0
 xmlschema==4.3.1; python_version >= "3.10"
