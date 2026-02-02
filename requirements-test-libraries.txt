@@ -8,8 +8,8 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==26.1.0; python_version >= "3.10"
 bokeh==3.8.2; python_version >= "3.10"
 boto==2.49.0
-boto3==1.42.39; python_version >= "3.9"
-botocore==1.42.39; python_version >= "3.9"
+boto3==1.42.40; python_version >= "3.9"
+botocore==1.42.40; python_version >= "3.9"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -29,7 +29,7 @@ cryptography==46.0.4
 dash==3.4.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
-dask[diagnostics,array,distributed]==2026.1.2; python_version >= "3.10"
+dask[array,diagnostics,distributed]==2026.1.2; python_version >= "3.10"
 python-dateutil==2.9.0.post0
 dateparser==1.2.2
 ddgs==9.10.0; python_version >= "3.10"
