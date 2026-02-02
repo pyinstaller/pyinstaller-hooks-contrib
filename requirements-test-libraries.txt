@@ -270,7 +270,7 @@ xmlschema==4.3.1; python_version >= "3.10"
 pysaml2==7.5.4; python_version >= "3.9"
 # On Windows, toga requires toga-winforms, which depends on pythonnet; the latter does not provide wheels for python 3.14 yet.
 toga==0.5.3; python_version >= "3.10" and (python_version < "3.14" or sys_platform != "win32")
-numbers-parser==4.16.3; python_version >= "3.9"
+numbers-parser==4.17.0.post1; python_version >= "3.9"
 fsspec==2026.1.0; python_version >= "3.10"
 zarr==3.1.5; python_version >= "3.11"
 intake==2.0.8; python_version >= "3.9"
