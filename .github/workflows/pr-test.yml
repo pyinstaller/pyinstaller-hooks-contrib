@@ -176,7 +176,7 @@ jobs:
           # tests for various trame-* packages require base trame package as well
           pip show -qq trame-client trame-code trame-components trame-datagrid trame-deckgl trame-formkit trame-grid-layout trame-iframe trame-keycloak trame-leaflet trame-markdown trame-matplotlib trame-mesh-streamer trame-plotly trame-pvui trame-quasar trame-rca trame-router trame-server trame-simput trame-tauri trame-tweakpane trame-vega trame-vtk trame-vtk3d trame-vtklocal trame-vuetify trame-xterm && pip install --prefer-binary trame
 
-          pip show -qq trame-vtk && pip install --prefer-binary vtk pyvista nest-asyncio trame-vuetify
+          pip show -qq trame-vtk && pip install --prefer-binary vtk pyvista nest-asyncio2 trame-vuetify
           pip show -qq trame-mesh-streamer && pip install --prefer-binary vtk
           pip show -qq trame-rca && pip install --prefer-binary vtk
 
