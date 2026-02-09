@@ -99,7 +99,7 @@ def test_trame_vtk(pyi_builder):
 
 @importorskip("pyvista")
 @importorskip("vtkmodules")
-@importorskip("nest_asyncio")
+@importorskip("nest_asyncio2")
 @importorskip("trame_vtk")
 def test_trame_vtk_tools(pyi_builder, tmp_path):
     pyi_builder.test_source("""
