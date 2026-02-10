@@ -246,6 +246,66 @@ jobs:
 
           urllib.request.urlretrieve(tlb_url, tlb_file)
 
+      # Some python versions come with initial `setuptools` installation that seems to contain `.opt-1.pyc`
+      # files in `__pycache__` directories. During the upgrade, `pip` fails to remove those directories
+      # (see: https://github.com/pypa/pip/issues/11835).
+      #
+      # `setuptools` 75.4 removed its vendored copy of `importlib_resources`, but due to
+      # the above issue, the effectively empty directory remains, turning `importlib_resources`
+      # into a defunct namespace package, which causes some of our tests to fail.
+      #
+      # Similar issue arises when upgrading to `setuptools` 82.0.0, which removed `pkg_resources` package;
+      # the defunct namespace package arising from the left-over directory causes error in our `pkg_resources`
+      # run-time hook (which would otherwise not be collected at all).
+      - name: Work around potentially broken setuptools upgrade
+        shell: python
+        run: |
+          import sys
+          import pathlib
+          import shutil
+          import importlib.util
+
+          PACKAGES = [
+            'setuptools._vendor.importlib_resources',
+            'pkg_resources',
+          ]
+
+          def fix_package(package_name):
+            try:
+              spec = importlib.util.find_spec(package_name)
+            except ImportError:
+              spec = None  # parent package (e.g., setuptools or setuptools._vendor) does not exist
+            if spec is None:
+              print(f"Did not find {package_name}.")
+              return
+            elif spec.loader is not None:
+              # Not a namespace package (i.e., directory with just __pycache__ sub-directory)
+              print(f"Found a valid copy of {package_name}.")
+              return
+
+            print(f"Found a defunct copy of {package_name}!")
+
+            # List the contents of package directory for debug purposes
+            def list_directory(path, pad=""):
+              for child in path.iterdir():
+                if child.is_dir():
+                  print(f"{pad} + {child.name}")
+                  list_directory(child, pad + " ")
+                else:
+                  print(f"{pad} - {child.name} ({child.stat().st_size} bytes)")
+
+            for path in spec.submodule_search_locations:
+              print(f"Listing contents of {path}")
+              list_directory(pathlib.Path(path))
+
+            # Remove
+            for path in spec.submodule_search_locations:
+              print(f"Removing {path}...")
+              shutil.rmtree(path)
+
+          for package in PACKAGES:
+            fix_package(package)
+
       - name: Run tests
         run: pytest -v -n logical
 
