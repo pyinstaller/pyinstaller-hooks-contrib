@@ -24,22 +24,30 @@ if is_module_satisfies('langchain >= 1.2.1'):
     from PyInstaller import isolated
 
     @isolated.decorate
-    def get_optional_packages():
+    def get_optional_packages(var_name):
         packages = set()
 
         try:
-            from langchain.chat_models.base import _SUPPORTED_PROVIDERS
-            packages.update(package_name for package_name, *_ in _SUPPORTED_PROVIDERS.values())
+            import langchain.chat_models.base
+            providers = getattr(langchain.chat_models.base, var_name)
+            packages.update(package_name for package_name, *_ in providers.values())
         except Exception:
             pass
 
         try:
-            from langchain.embeddings.base import _SUPPORTED_PROVIDERS
-            packages.update(package_name for package_name, *_ in _SUPPORTED_PROVIDERS.values())
+            import langchain.embeddings.base
+            providers = getattr(langchain.embeddings.base, var_name)
+            packages.update(package_name for package_name, *_ in providers.values())
         except Exception:
             pass
 
         return sorted(packages)
 
-    hiddenimports = get_optional_packages()
+    # langchain 1.2.10 renamed the `_SUPPORTED_PROVIDERS` into `_BUILTIN_PROVIDERS`.
+    if is_module_satisfies('langchain >= 1.2.10'):
+        var_name = '_BUILTIN_PROVIDERS'
+    else:
+        var_name = '_SUPPORTED_PROVIDERS'
+
+    hiddenimports = get_optional_packages(var_name)
     warn_on_missing_hiddenimports = False
