@@ -1,5 +1,14 @@
 import os
 
+from _pyinstaller_hooks_contrib.compat import importlib_metadata
+import packaging.version
+
+try:
+    vtk_version = packaging.version.Version(importlib_metadata.version('vtk')).release
+except Exception:
+    vtk_version = None
+
+
 # This list of dependencies was obtained via analysis based on code in `vtkmodules/generate_pyi.py` and augmented with
 # missing entries until all tests from `test_vtkmodules` pass. Instead of a pre-computed list, we could dynamically
 # analyze each module when the hook is executed; however, such approach would be slower, and would also not account
@@ -591,6 +600,15 @@ _module_dependencies = {
         'vtkmodules.vtkIOExport',
     ],
 }
+
+# Additional hidden imports for vtk 9.6.0
+if vtk_version is not None and vtk_version >= (9, 6, 0):
+    # Additional
+    _module_dependencies['vtkmodules.vtkIOImage'] += ['vtkmodules.vtkIOCore']
+    _module_dependencies['vtkmodules.vtkViewsInfovis'] += ['vtkmodules.vtkChartsCore']
+
+    # New
+    _module_dependencies['vtkmodules.vtkSerializationManager'] = ['vtkmodules.vtkCommonDataModel']
 
 
 def add_vtkmodules_dependencies(hook_file):
