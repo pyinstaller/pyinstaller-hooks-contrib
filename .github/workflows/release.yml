@@ -17,7 +17,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
-          python-version: 3.9
+          python-version: 3.x
 
       - name: Log into the gh CLI
         run: echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
