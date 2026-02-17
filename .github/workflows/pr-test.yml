@@ -39,10 +39,10 @@ jobs:
       PYINSTALLER_COMPILE_BOOTLOADER: 1
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -63,7 +63,7 @@ jobs:
           cat requirements-test-libraries.txt
 
       - name: Set up .NET Core for pythonnet tests
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '6.x'
 
