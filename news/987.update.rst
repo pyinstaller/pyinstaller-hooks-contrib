@@ -1,1 +1,0 @@
-Update ``vtkmodules`` hooks for compatibility with ``vtk`` 9.6.0.

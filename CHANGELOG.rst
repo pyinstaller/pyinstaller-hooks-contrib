@@ -1,3 +1,15 @@
+2026.1 (2026-02-18)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``langchain`` hook for compatibility with ``langchain`` 1.2.10. (`#987
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/987>`_)
+* Update ``vtkmodules`` hooks for compatibility with ``vtk`` 9.6.0. (`#987
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/987>`_)
+
+
 2026.0 (2026-01-20)
 -------------------
 
