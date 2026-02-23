@@ -139,7 +139,7 @@ thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
 timezonefinder==8.2.1; python_version > "3.11"
 tkinterdnd2==0.4.3
 trame==3.12.0; python_version >= "3.9" and python_version < "3.14"
-trame-client==3.11.2; python_version >= "3.9" and python_version < "3.14"
+trame-client==3.11.3; python_version >= "3.9" and python_version < "3.14"
 trame-code==1.0.2; python_version < "3.14"
 trame-components==2.5.0; python_version < "3.14"
 trame-datagrid==0.2.2; python_version < "3.14"
