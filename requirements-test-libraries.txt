@@ -122,7 +122,7 @@ qtmodern==0.2.0
 Rtree==1.4.1; python_version >= "3.9"
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
-scipy==1.17.0; python_version >= "3.11"
+scipy==1.17.1; python_version >= "3.11"
 sentry-sdk==2.53.0
 # shotgun-api3 is currently incompatible with python >= 3.13...
 shotgun_api3==3.10.0; python_version >= "3.9" and python_version < "3.13"
