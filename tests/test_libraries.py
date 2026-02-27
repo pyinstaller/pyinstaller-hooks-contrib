@@ -3231,3 +3231,9 @@ def test_pytokens(pyi_builder):
     pyi_builder.test_source("""
         import pytokens
     """)
+
+@importorskip("adbc_driver_manager")
+def test_globus_sdk(pyi_builder):
+    pyi_builder.test_source("""
+        import adbc_driver_manager
+    """)
