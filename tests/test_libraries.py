@@ -3232,6 +3232,7 @@ def test_pytokens(pyi_builder):
         import pytokens
     """)
 
+
 @importorskip("adbc_driver_manager")
 def test_adbc_driver_manager_sdk(pyi_builder):
     pyi_builder.test_source("""
