@@ -12,15 +12,9 @@
 
 from PyInstaller.utils.hooks import (
     collect_data_files,
-    collect_submodules,
-    copy_metadata,
 )
 
-datas = copy_metadata("adbc_driver_manager")
-# include_py_files=True is required: collect_data_files excludes .py files by default
-datas += collect_data_files(
-    "adbc_driver_manager",
-    include_py_files=True,
-    includes=["_static_version.py"],
-)
-hiddenimports = collect_submodules("adbc_driver_manager")
+hiddenimports = ['adbc_driver_manager._static_version']
+module_collection_mode = {
+    'adbc_driver_manager._static_version': 'py',
+}

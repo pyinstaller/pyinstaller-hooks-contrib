@@ -3233,7 +3233,7 @@ def test_pytokens(pyi_builder):
     """)
 
 @importorskip("adbc_driver_manager")
-def test_globus_sdk(pyi_builder):
+def test_adbc_driver_manager_sdk(pyi_builder):
     pyi_builder.test_source("""
         import adbc_driver_manager
     """)
