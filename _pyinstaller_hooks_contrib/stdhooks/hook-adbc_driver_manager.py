@@ -10,9 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import (
-    collect_data_files,
-)
 
 hiddenimports = ['adbc_driver_manager._static_version']
 module_collection_mode = {
