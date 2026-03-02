@@ -1,3 +1,16 @@
+2026.2 (2026-03-02)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``adbc_driver_manager`` package. (`#990
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/990>`_)
+* Add hook for ``rich`` to ensure that modules from ``rich._unicode_data``
+  are collected for ``rich`` v14.3.0 and later. (`#991
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/991>`_)
+
+
 2026.1 (2026-02-18)
 -------------------
 

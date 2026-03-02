@@ -1,2 +1,0 @@
-Add hook for ``rich`` to ensure that modules from ``rich._unicode_data``
-are collected for ``rich`` v14.3.0 and later.
