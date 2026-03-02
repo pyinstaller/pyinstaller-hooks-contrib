@@ -3238,3 +3238,22 @@ def test_adbc_driver_manager_sdk(pyi_builder):
     pyi_builder.test_source("""
         import adbc_driver_manager
     """)
+
+
+@importorskip("rich")
+def test_rich_print(pyi_builder, tmp_path):
+    pyi_builder.test_source(
+        """
+        import sys
+        import rich.console
+
+        # Instead of letting Console write to stdout/stderr, force redirection to a file. Otherwise, the test fails on
+        # Windows, where pytest's redirect of stdout/stderr for capture purposes causes the streams to use local
+        # encoding instead of UTF-8.
+        output_file = sys.argv[1]
+        with open(output_file, 'w', encoding='utf8') as fp:
+            console = rich.console.Console(file=fp)
+            console.print(":green_circle:")
+        """,
+        app_args=[str(tmp_path / 'output.txt')],
+    )
