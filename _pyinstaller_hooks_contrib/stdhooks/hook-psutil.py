@@ -14,7 +14,7 @@ import sys
 
 # see https://github.com/giampaolo/psutil/blob/release-5.9.5/psutil/_common.py#L82
 WINDOWS = os.name == "nt"
-LINUX = sys.platform.startswith("linux")
+LINUX = sys.platform.startswith(("linux", "android"))
 MACOS = sys.platform.startswith("darwin")
 FREEBSD = sys.platform.startswith(("freebsd", "midnightbsd"))
 OPENBSD = sys.platform.startswith("openbsd")
