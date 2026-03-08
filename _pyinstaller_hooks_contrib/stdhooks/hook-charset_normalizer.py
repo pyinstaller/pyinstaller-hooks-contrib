@@ -12,5 +12,7 @@
 
 from PyInstaller.utils.hooks import is_module_satisfies
 
-if is_module_satisfies("charset_normalizer >= 3.0.1"):
+if is_module_satisfies("charset_normalizer >= 3.4.5"):
+    hiddenimports = ["81d243bd2c585b0f4821__mypyc"]
+elif is_module_satisfies("charset_normalizer >= 3.0.1"):
     hiddenimports = ["charset_normalizer.md__mypyc"]
