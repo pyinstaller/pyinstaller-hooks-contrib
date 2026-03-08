@@ -1,0 +1,2 @@
+Update ``charset_normalizer`` hook for compatibility with
+``charset-normalizer`` v3.4.5.
