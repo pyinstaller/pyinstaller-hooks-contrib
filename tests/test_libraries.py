@@ -3257,3 +3257,18 @@ def test_rich_print(pyi_builder, tmp_path):
         """,
         app_args=[str(tmp_path / 'output.txt')],
     )
+
+
+@importorskip("chardet")
+def test_chardet(pyi_builder):
+    pyi_builder.test_source("""
+        import chardet
+
+        # https://chardet.readthedocs.io/en/7.0.1/usage.html#basic-detection
+        result = chardet.detect(
+            "München ist die Hauptstadt Bayerns und eine der schönsten Städte Deutschlands.".encode("windows-1252")
+        )
+        print(result)
+        assert result['encoding'].lower() == "windows-1252"
+        assert result['language'].lower() in {'de', 'german'}
+    """)
