@@ -1,2 +1,0 @@
-Add hook for ``chardet``, required for compatibility with ``chardet`` v7.0.0
-and later.

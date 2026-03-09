@@ -1,3 +1,25 @@
+2026.3 (2026-03-09)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``chardet``, required for compatibility with ``chardet`` v7.0.0
+  and later. (`#995
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/995>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``charset_normalizer`` hook for compatibility with
+  ``charset-normalizer`` v3.4.5. (`#995
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/995>`_)
+* Update ``psutil`` hook for compatibility with ``psutil`` installed in
+  a Termux environment with python 3.13 or later. (`#996
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/996>`_)
+
+
 2026.2 (2026-03-02)
 -------------------
 

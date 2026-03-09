@@ -1,2 +1,0 @@
-Update ``psutil`` hook for compatibility with ``psutil`` installed in
-a Termux environment with python 3.13 or later.
