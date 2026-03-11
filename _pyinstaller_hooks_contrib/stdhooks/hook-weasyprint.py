@@ -44,6 +44,8 @@ libs = [
     'gobject-2.0-0', 'gobject-2.0', 'libgobject-2.0-0', 'libgobject-2.0.so.0', 'libgobject-2.0.dylib',
     'pango-1.0-0', 'pango-1.0', 'libpango-1.0-0', 'libpango-1.0.so.0', 'libpango-1.0.dylib',
     'harfbuzz', 'harfbuzz-0.0', 'libharfbuzz-0', 'libharfbuzz.so.0', 'libharfbuzz.so.0', 'libharfbuzz.0.dylib',
+    'harfbuzz-subset', 'harfbuzz-subset-0.0', 'libharfbuzz-subset-0', 'libharfbuzz-subset.so.0',
+    'libharfbuzz-subset.0.dylib', 'libharfbuzz-subset-0.dll',
     'pangoft2-1.0-0', 'pangoft2-1.0', 'libpangoft2-1.0-0', 'libpangoft2-1.0.so.0', 'libpangoft2-1.0.dylib'
 ]
 
