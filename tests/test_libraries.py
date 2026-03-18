@@ -3272,3 +3272,12 @@ def test_chardet(pyi_builder):
         assert result['encoding'].lower() == "windows-1252"
         assert result['language'].lower() in {'de', 'german'}
     """)
+
+
+def test_imagingcontrol4(pyi_builder):
+    pyi_builder.test_source("""
+        from imagingcontrol4.library import Library
+
+        # Will cause the library to load the dynamic libraries (and fail if they are not present)
+        Library.init()
+""")
