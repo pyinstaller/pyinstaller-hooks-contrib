@@ -3274,6 +3274,7 @@ def test_chardet(pyi_builder):
     """)
 
 
+@importorskip("imagingcontrol4")
 def test_imagingcontrol4(pyi_builder):
     pyi_builder.test_source("""
         from imagingcontrol4.library import Library
