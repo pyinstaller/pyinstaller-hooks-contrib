@@ -212,7 +212,7 @@ minecraft-launcher-lib==8.0; python_version >= "3.10"
 scikit-learn==1.8.0; python_version >= "3.11"
 scikit-image==0.26.0; python_version >= "3.11"
 customtkinter==5.2.2
-fastparquet==2025.12.0; python_version >= "3.10"
+fastparquet==2026.3.0; python_version >= "3.10"
 librosa==0.11.0
 sympy==1.14.0; python_version >= "3.9"
 xyzservices==2025.11.0
