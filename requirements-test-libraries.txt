@@ -30,7 +30,7 @@ cryptography==46.0.5
 dash==4.0.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
-dask[array,diagnostics,distributed]==2026.1.2; python_version >= "3.10"
+dask[array,diagnostics,distributed]==2026.3.0; python_version >= "3.10"
 python-dateutil==2.9.0.post0
 dateparser==1.3.0; python_version >= "3.10"
 ddgs==9.11.4; python_version >= "3.10"
