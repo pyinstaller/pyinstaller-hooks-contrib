@@ -3260,18 +3260,51 @@ def test_rich_print(pyi_builder, tmp_path):
 
 
 @importorskip("chardet")
-def test_chardet(pyi_builder):
-    pyi_builder.test_source("""
+def test_chardet(pyi_builder, tmp_path):
+    # Test string from:  https://chardet.readthedocs.io/en/7.0.1/usage.html#basic-detection
+    # The output of earlier versions of chardet (i.e., 5.2.0 that Debian and Fedora are packaging at the time of
+    # writing) does not match that of later versions. Therefore, we compare output of frozen test application to output
+    # of unfrozen chardet, rather than against fixed expected output.
+    import json
+
+    test_string = "München ist die Hauptstadt Bayerns und eine der schönsten Städte Deutschlands."
+    test_encoding = "windows-1252"
+
+    output_file = tmp_path / "output.json"
+
+    pyi_builder.test_source(f"""
+        import sys
+        import json
+
         import chardet
 
         # https://chardet.readthedocs.io/en/7.0.1/usage.html#basic-detection
         result = chardet.detect(
-            "München ist die Hauptstadt Bayerns und eine der schönsten Städte Deutschlands.".encode("windows-1252")
+            {test_string!r}.encode({test_encoding!r})
         )
         print(result)
-        assert result['encoding'].lower() == "windows-1252"
-        assert result['language'].lower() in {'de', 'german'}
-    """)
+
+        with open(sys.argv[1], 'w', encoding='utf-8') as fp:
+            json.dump(result, fp)
+    """, app_args=[str(output_file)])
+
+    with open(output_file, "r", encoding="utf-8") as fp:
+        frozen_output = json.load(fp)
+
+    # Get unfrozen (reference) output
+    @isolated.decorate
+    def _get_unfrozen_output(test_string, test_encoding):
+        import json
+        import chardet
+        result = chardet.detect(test_string.encode(test_encoding))
+        return json.dumps(result)
+
+    unfrozen_output = json.loads(_get_unfrozen_output(test_string, test_encoding))
+
+    print(f"Frozen output: {frozen_output}")
+    print(f"Unfrozen output: {unfrozen_output}")
+
+    assert frozen_output == unfrozen_output
 
 
 @importorskip("imagingcontrol4")
