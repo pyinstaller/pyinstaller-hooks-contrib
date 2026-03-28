@@ -28,7 +28,7 @@ from pathlib import Path
 
 from PyInstaller.compat import is_win
 from PyInstaller.depend.utils import _resolveCtypesImports
-from PyInstaller.utils.hooks import collect_data_files, logger
+from PyInstaller.utils.hooks import collect_data_files, is_module_satisfies, logger
 
 datas = collect_data_files('weasyprint')
 binaries = []
@@ -44,10 +44,16 @@ libs = [
     'gobject-2.0-0', 'gobject-2.0', 'libgobject-2.0-0', 'libgobject-2.0.so.0', 'libgobject-2.0.dylib',
     'pango-1.0-0', 'pango-1.0', 'libpango-1.0-0', 'libpango-1.0.so.0', 'libpango-1.0.dylib',
     'harfbuzz', 'harfbuzz-0.0', 'libharfbuzz-0', 'libharfbuzz.so.0', 'libharfbuzz.so.0', 'libharfbuzz.0.dylib',
-    'harfbuzz-subset', 'harfbuzz-subset-0.0', 'libharfbuzz-subset-0', 'libharfbuzz-subset.so.0',
-    'libharfbuzz-subset.0.dylib', 'libharfbuzz-subset-0.dll',
     'pangoft2-1.0-0', 'pangoft2-1.0', 'libpangoft2-1.0-0', 'libpangoft2-1.0.so.0', 'libpangoft2-1.0.dylib'
 ]
+
+# Starting with weasyprint v63.0, libharfbuzz-subset is also opportunistically loaded. Make sure to collect a copy, if
+# available, to prevent a system copy from being loaded at run-time.
+if is_module_satisfies("weasyprint >= 63.0"):
+    libs += [
+        'harfbuzz-subset', 'harfbuzz-subset-0.0', 'libharfbuzz-subset-0', 'libharfbuzz-subset.so.0',
+        'libharfbuzz-subset.0.dylib', 'libharfbuzz-subset-0.dll',
+    ]
 
 try:
     lib_basenames = []
