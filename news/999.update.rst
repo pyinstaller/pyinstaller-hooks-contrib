@@ -1,1 +1,2 @@
-Update a hook for weasyprint, harfbuzz-subset was missing.
+Update hook for ``weasyprint`` to collect the ``harfbuzz-subset`` shared
+library when building with ``WeasyPrint`` v63.0 or later.
