@@ -8,8 +8,8 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==26.3.1; python_version >= "3.10"
 bokeh==3.9.0; python_version >= "3.10"
 boto==2.49.0
-boto3==1.42.73; python_version >= "3.9"
-botocore==1.42.73; python_version >= "3.9"
+boto3==1.42.78; python_version >= "3.9"
+botocore==1.42.78; python_version >= "3.9"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -19,30 +19,30 @@ cassandra-driver==3.29.3
 capstone==5.0.7
 cf-units==3.3.1; sys_platform != "win32" and python_version >= "3.11"
 cftime==1.6.5; python_version >= "3.10"
-chardet==7.2.0; python_version >= "3.10"
+chardet==7.4.0.post2; python_version >= "3.10"
 charset_normalizer==3.4.6
 cloudpickle==3.1.2
 cloudscraper==1.2.71
 cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==5.4.2; sys_platform != "win32" and python_version >= "3.10"
-cryptography==46.0.5
-dash==4.0.0
+cryptography==46.0.6
+dash==4.1.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
 dask[array,diagnostics,distributed]==2026.3.0; python_version >= "3.10"
 python-dateutil==2.9.0.post0
-dateparser==1.3.0; python_version >= "3.10"
-ddgs==9.11.4; python_version >= "3.10"
+dateparser==1.4.0; python_version >= "3.10"
+ddgs==9.12.0; python_version >= "3.10"
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
-discid==1.3.0; sys_platform != "win32" and (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.9"
+discid==1.4.0; sys_platform != "win32" and (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.10"
 duckdb==1.5.1; python_version >= "3.10"
 # eccodes does not provide win64 wheels for python 3.14 yet
 eccodes==2.46.0; python_version >= "3.10" and (sys_platform != "win32" or python_version < "3.14")
-eth_typing==5.2.1
-eth_utils==5.3.1
+eth_typing==6.0.0; python_version >= "3.10"
+eth_utils==6.0.0; python_version >= "3.10"
 fabric==3.2.2
 fake_useragent==2.2.0; python_version >= "3.9"
 falcon==4.2.0; python_version >= "3.9"
@@ -54,7 +54,7 @@ geopandas==1.1.3; sys_platform != "win32" and python_version >= "3.10"
 google-api-python-client==2.193.0
 grapheme==0.6.0
 graphql-query==1.4.0
-python-gitlab==8.1.0; python_version >= "3.10"
+python-gitlab==8.2.0; python_version >= "3.10"
 h5py==3.16.0; python_version >= "3.10"
 humanize==4.15.0; python_version >= "3.10"
 iminuit==2.32.0; python_version >= "3.9"
@@ -69,7 +69,7 @@ markdown==3.10.2; python_version >= "3.10"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==6.0.0; python_version >= "3.10"
-narwhals==2.18.0; python_version >= "3.9"
+narwhals==2.18.1; python_version >= "3.9"
 nest-asyncio==1.6.0
 netCDF4==1.7.4; python_version >= "3.10"
 nicegui==3.9.0; python_version >= "3.10"
@@ -84,7 +84,7 @@ pandera==0.30.1; python_version >= "3.10"
 passlib==1.7.4
 pendulum==3.2.0; python_version >= "3.9"
 phonenumbers==9.0.26
-pingouin==0.6.0; python_version >= "3.10"
+pingouin==0.6.1; python_version >= "3.10"
 pinyin==0.4.0
 platformdirs==4.9.4; python_version >= "3.10"
 plotly==6.6.0
@@ -125,12 +125,12 @@ Rtree==1.4.1; python_version >= "3.9"
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.17.1; python_version >= "3.11"
-sentry-sdk==2.55.0
+sentry-sdk==2.56.0
 # shotgun-api3 is currently incompatible with python >= 3.13...
 shotgun_api3==3.10.0; python_version >= "3.9" and python_version < "3.13"
 slixmpp==1.14.1; python_version >= "3.11"
 # spacy depends on thinc, which in turn depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
-spacy==3.8.11; python_version >= "3.10" and python_version < "3.14"
+spacy==3.8.14; python_version >= "3.10" and python_version < "3.14"
 srsly==3.0.0; python_version >= "3.9" and python_version < "3.14"
 sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
@@ -138,10 +138,10 @@ tableauhyperapi==0.0.24457
 # thinc depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
-timezonefinder==8.2.1; python_version > "3.11"
+timezonefinder==8.2.2; python_version > "3.11"
 tkinterdnd2==0.4.3
 trame==3.12.0; python_version >= "3.9" and python_version < "3.14"
-trame-client==3.11.3; python_version >= "3.9" and python_version < "3.14"
+trame-client==3.11.4; python_version >= "3.9" and python_version < "3.14"
 trame-code==1.0.2; python_version < "3.14"
 trame-components==2.5.0; python_version < "3.14"
 trame-datagrid==0.2.2; python_version < "3.14"
@@ -166,7 +166,7 @@ trame-tauri==1.0.2; python_version >= "3.9" and python_version < "3.14"
 trame-tweakpane==0.1.3; python_version < "3.14"
 trame-vega==2.1.1; python_version < "3.14"
 # Our trame-vtk test also depends on vtk, which is not available for python 3.14 yet.
-trame-vtk==2.11.3; python_version >= "3.10" and python_version < "3.14"
+trame-vtk==2.11.6; python_version >= "3.10" and python_version < "3.14"
 trame-vtk3d==0.1.0; python_version < "3.14"
 trame-vtklocal==0.16.5; python_version >= "3.9" and python_version < "3.14"
 trame-vuetify==3.2.1; python_version >= "3.9" and python_version < "3.14"
@@ -174,9 +174,9 @@ trame-xterm==1.1.0; python_version >= "3.9" and python_version < "3.14"
 Twisted==25.5.0
 tzdata==2025.3
 Unidecode==1.4.0
-urllib3-future==2.17.903
+urllib3-future==2.19.900
 uuid6==2025.0.1; python_version >= "3.9"
-vtk==9.6.0; python_version >= "3.9"
+vtk==9.6.1; python_version >= "3.9"
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==68.1; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
@@ -215,7 +215,7 @@ customtkinter==5.2.2
 fastparquet==2026.3.0; python_version >= "3.10"
 librosa==0.11.0
 sympy==1.14.0; python_version >= "3.9"
-xyzservices==2025.11.0
+xyzservices==2026.3.0
 mistune==3.2.0
 pydantic==2.12.5; python_version >= "3.9"
 jsonschema==4.26.0; python_version >= "3.10"
@@ -239,8 +239,8 @@ sudachidict-small==20260116; python_version >= "3.9" and python_version < "3.14"
 sudachidict-full==20260116; python_version >= "3.9" and python_version < "3.14"
 wxPython==4.2.5; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.10"  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.3.0; python_version >= "3.9"
-pythainlp==5.3.2; python_version >= "3.9"
-gmsh==4.15.1
+pythainlp==5.3.3; python_version >= "3.9"
+gmsh==4.15.2
 sspilib==0.5.0; python_version >= "3.9"
 rlp==4.1.0
 eth-rlp==2.2.0
@@ -254,7 +254,7 @@ cel-python==0.5.0; python_version >= "3.10"
 # pygwalker depends on quickjs, currently (quickjs v1.19.4) provides wheels only for python <= 3.12, and fails to build from sdist on Windows.
 # It also depends on pyarrow, which does not provide wheels for python 3.14 yet, and fails to build from sdist on all platforms.
 pygwalker==0.5.0.0; (python_version < "3.13" or sys_platform != "win32") and python_version < "3.14"
-eth-hash==0.7.1
+eth-hash==0.8.0; python_version >= "3.10"
 apkutils==2.0.5; python_version >= "3.10"
 pypylon==26.2.1; python_version >= "3.9"
 python-pptx==1.0.2
@@ -270,13 +270,13 @@ pysaml2==7.5.4; python_version >= "3.9"
 # On Windows, toga requires toga-winforms, which depends on pythonnet; the latter does not provide wheels for python 3.14 yet.
 toga==0.5.3; python_version >= "3.10" and (python_version < "3.14" or sys_platform != "win32")
 numbers-parser==4.18.2; python_version >= "3.10"
-fsspec==2026.2.0; python_version >= "3.10"
-zarr==3.1.5; python_version >= "3.11"
+fsspec==2026.3.0; python_version >= "3.10"
+zarr==3.1.6; python_version >= "3.11"
 intake==2.0.9; python_version >= "3.10"
 h3==4.4.2
 selectolax==0.4.7; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
-niquests==3.18.2
+niquests==3.18.3
 emoji==2.15.0
 tkinterweb[recommended]==4.25.0; python_version >= "3.9" or sys_platform != "win32"
 tkinterweb-tkhtml==2.1.1; python_version >= "3.9" or sys_platform != "win32"
