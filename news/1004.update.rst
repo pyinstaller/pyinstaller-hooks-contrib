@@ -1,0 +1,1 @@
+Update ``chardet`` hook for compatibility with ``chardet`` v7.4.0.
