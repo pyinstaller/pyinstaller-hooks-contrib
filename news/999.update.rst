@@ -1,2 +1,0 @@
-Update hook for ``weasyprint`` to collect the ``harfbuzz-subset`` shared
-library when building with ``WeasyPrint`` v63.0 or later.

@@ -1,3 +1,23 @@
+2026.4 (2026-03-31)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``imagingcontrol4``, which loads dynamic libraries. (`#1001
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1001>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``chardet`` hook for compatibility with ``chardet`` v7.4.0. (`#1004
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1004>`_)
+* Update hook for ``weasyprint`` to collect the ``harfbuzz-subset`` shared
+  library when building with ``WeasyPrint`` v63.0 or later. (`#999
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/999>`_)
+
+
 2026.3 (2026-03-09)
 -------------------
 
