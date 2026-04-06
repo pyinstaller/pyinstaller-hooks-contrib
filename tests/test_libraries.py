@@ -3315,3 +3315,14 @@ def test_imagingcontrol4(pyi_builder):
         # Will cause the library to load the dynamic libraries (and fail if they are not present)
         Library.init()
 """)
+
+
+@importorskip("tensorrt")
+def test_tensorrt(pyi_builder):
+    pyi_builder.test_source("""
+        import tensorrt as trt
+
+        # Force TensorRT to load its shared libraries (and fail if they are not present).
+        logger = trt.Logger(trt.Logger.WARNING)
+        trt.init_libnvinfer_plugins(logger, "")
+""")
