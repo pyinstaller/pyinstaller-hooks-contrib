@@ -181,7 +181,7 @@ vtk==9.6.1; python_version >= "3.9"
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==68.1; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
 # web3 indirectly depends on ckzg, which does not yet provide python 3.14 wheels, and fails to build from sdist on Windows.
-web3==7.14.1; python_version < "3.14" or sys_platform != "win32"
+web3==7.15.0; python_version < "3.14" or sys_platform != "win32"
 websockets==16.0; python_version >= "3.10"
 # zeep depends on lxml which doesn't support Python 3.8 on macOS arm64
 zeep==4.3.2; python_version >= "3.9" or (sys_platform != "darwin" or platform_machine != "arm64")
