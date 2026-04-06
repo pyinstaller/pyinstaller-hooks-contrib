@@ -10,12 +10,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-import sys
-
 from PyInstaller.utils.hooks import PY_DYLIB_PATTERNS, collect_dynamic_libs
+from  PyInstaller.compat import is_linux
 
 _search_patterns = list(PY_DYLIB_PATTERNS)
-if sys.platform.startswith("linux"):
+if is_linux:
     _search_patterns.append("*.so.*")
 
 binaries = collect_dynamic_libs ("tensorrt_libs", search_patterns=_search_patterns)
