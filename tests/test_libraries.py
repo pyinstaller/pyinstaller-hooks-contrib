@@ -2947,6 +2947,9 @@ def test_pandera(pyi_builder):
 
 @importorskip('tkinterweb')
 def test_tkinterweb(pyi_builder):
+    if not _tkinter_fully_usable():
+        pytest.skip("tkinter is not fully usable.")
+
     # NOTE: run_from_path=True prevents `pyi_builder` from completely clearing the `PATH` environment variable. At the
     # time of writing, `tkinterweb_tkhtml` v1.1.2 raises error if `PATH` is missing from `os.environ`.
     pyi_builder.test_source("""
@@ -2967,6 +2970,9 @@ def test_tkinterweb(pyi_builder):
 
 @importorskip('tkinterweb_tkhtml')
 def test_tkinterweb_tkhtml(pyi_builder):
+    if not _tkinter_fully_usable():
+        pytest.skip("tkinter is not fully usable.")
+
     # See comment in `test_tkinterweb` as to why `run_from_path=True` is required.
     pyi_builder.test_source("""
         import tkinter
