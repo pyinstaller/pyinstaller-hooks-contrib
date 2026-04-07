@@ -89,8 +89,17 @@ def _norm_comma_space(x):
     return re.sub(", *", ", ", x)
 
 
-PYTHONS = ["3.8", "3.9", "3.10", "3.11"]
-OSs = ["ubuntu", "windows", "macos"]
+PYTHONS = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+OSs = [
+    "ubuntu-latest", "windows-latest", "macos-latest",
+    # NOTE: the list below should be kept in sync with available runners
+    "ubuntu-22.04", "ubuntu-24.04",
+    "ubuntu-22.04-arm", "ubuntu-24.04-arm",
+    "windows-2022", "windows-2025",
+    "windows-11-arm",
+    "macos-14", "macos-15", "macos-26",
+    "macos-15-intel", "macos-26-intel",
+]
 
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
@@ -100,8 +109,9 @@ OSs = ["ubuntu", "windows", "macos"]
                    "multiple times to test multiple versions. You may specify micro versions such as 3.10.9 although "
                    "this is discouraged as they are not guaranteed to be available. Use 'all' to select {}. "
                    "Defaults to '3.11'.".format(PYTHONS))
-@click.option("--os", multiple=True, default=["ubuntu"], type=click.Choice(OSs + ["all"], case_sensitive=False),
-              help="Which OSs to test on. Use 'all' to specify all three. Defaults to 'ubuntu'.")
+@click.option("--os", multiple=True, default=["ubuntu-latest"], type=click.Choice(OSs + ["all"], case_sensitive=False),
+              help="Which OSs to test on. Use 'all' to specify 'ubuntu-latest', 'windows-latest', and 'macos-latest'. "
+                   "Defaults to 'ubuntu-latest'.")
 @click.option("--fail-fast", default=False, is_flag=True, help="Cancel all other builds if any one of them fails.")
 @click.option("--pytest-args", default="", help="Additional arguments to be passed to pytest.")
 @click.option("--fork", default=None,
@@ -123,7 +133,7 @@ def main(package, py, os, fork, branch, pytest_args, fail_fast, commands, browse
     Basic usage: Launch two jobs to test the ``pycparser`` hooks on linux, Pythons 3.10 and 3.11, using the latest
     version of ``pycparser``. And open the build in a browser window.
 
-        python cloud-test.py --py=3.10,3.11 --os=ubuntu --browser pycparser
+        python cloud-test.py --py=3.10,3.11 --os=ubuntu-latest --browser pycparser
 
     The **package** can be anything you'd put on the right hand side of `pip install`. Multiple packages to install can
     be separated by a space: Launch one job which installs and tests two libraries.
@@ -133,7 +143,7 @@ def main(package, py, os, fork, branch, pytest_args, fail_fast, commands, browse
     Multiple versions to be run in separate jobs should be deliminated by a comma: Launch 4 x 2 = 8 jobs to test the
     ``pycparser`` hooks on windows, with all supported Pythons, against two versions of ``pycparser``.
 
-        python cloud-test.py --py=all --os=windows pycparser==2.20, pycparser==2.16
+        python cloud-test.py --py=all --os=windows-latest pycparser==2.20, pycparser==2.16
 
     When you're absolutely certain your hook is ready for it, you may test everything (please use sparingly - this costs
     Github a lot of $$$). This would create 4 x 3 x 3 = 36 jobs.
@@ -153,7 +163,7 @@ def main(package, py, os, fork, branch, pytest_args, fail_fast, commands, browse
         py = PYTHONS
 
     if "all" in os:
-        os = OSs
+        os = ["ubuntu-latest", "windows-latest", "macos-latest"]
 
     package = " ".join(package)
 

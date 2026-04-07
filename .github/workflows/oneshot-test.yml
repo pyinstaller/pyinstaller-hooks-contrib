@@ -22,10 +22,11 @@ on:
         default: 'numpy==1.19, numpy<1.18'
       os:
         description: |
-          OS(s) to run on. Can be any combinations of ubuntu, windows, macos.
-          (Please use macos sparingly.)'
+          OS(s) to run on. Can be any combination of ubuntu-latest, windows-latest,
+          macos-latest (as well as specific versions, for example macos-15-intel).
+          (Please use macOS runners sparingly.)'
         required: true
-        default: 'ubuntu'
+        default: 'ubuntu-latest'
       python-version:
         description: 'Version(s) of Python'
         required: true
@@ -94,7 +95,7 @@ jobs:
           quote = lambda x: '"{}"'.format(x.replace('"', r'\"'))
 
           matrix = {
-              "os": [i + "-latest" for i in parse_list(inputs["os"])],
+              "os": parse_list(inputs["os"]),
               "python-version": parse_list(inputs["python-version"]),
               "requirements": parse_list(inputs["package"]),
           }
