@@ -121,10 +121,12 @@ OSs = [
 @click.option("--commands", multiple=True,
               help="Additional bash installation commands to run. Ran after setting up Python but before pip-installing"
                    "dependencies.")
+@click.option("--pyinstaller", default="https://github.com/pyinstaller/pyinstaller/archive/develop.zip",
+              help="Where to install pyinstaller from. Defaults to the archive generated from upstream develop branch.")
 @click.option("--browser", default=False, is_flag=True,
               help="Open the live build on Github in a browser window.")
 @click.option("--dry-run", is_flag=True, help="Don't launch a build. Just parse and print the parameters.")
-def main(package, py, os, fork, branch, pytest_args, fail_fast, commands, browser, dry_run):
+def main(package, py, os, fork, branch, pytest_args, fail_fast, commands, pyinstaller, browser, dry_run):
     """Launch CI testing of a given package against multiple package or Python versions and OSs.
 
     The **package** specifies only those to install. Which tests should be ran is inferred implicitly by
@@ -174,6 +176,7 @@ def main(package, py, os, fork, branch, pytest_args, fail_fast, commands, browse
         "pytest_args": pytest_args,
         "fail-fast": str(fail_fast).lower(),
         "commands": "; ".join(commands),
+        "pyinstaller": pyinstaller,
     }
 
     print("Configuration options to be passed to CI:")
