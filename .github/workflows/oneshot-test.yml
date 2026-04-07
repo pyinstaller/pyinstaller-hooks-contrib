@@ -35,6 +35,10 @@ on:
         description: 'Terminate all tests if one fails (true/false).'
         required: true
         default: 'false'
+      pyinstaller:
+        description: 'Source URI from which PyInstaller should be installed.'
+        required: true
+        default: 'https://github.com/pyinstaller/pyinstaller/archive/develop.zip'
       commands:
         description: |
           Additional installation commands to run from terminal.
@@ -160,7 +164,7 @@ jobs:
           pip install ${{ matrix.requirements }}
 
           # Install PyInstaller
-          pip install https://github.com/pyinstaller/pyinstaller/archive/develop.zip
+          pip install ${{ github.event.inputs.pyinstaller }}
 
       - name: Run tests
         run: pytest -v -n logical ${{ inputs.pytest_args }}
