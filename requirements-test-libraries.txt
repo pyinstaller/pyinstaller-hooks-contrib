@@ -131,7 +131,7 @@ shotgun_api3==3.10.0; python_version >= "3.9" and python_version < "3.13"
 slixmpp==1.14.1; python_version >= "3.11"
 # spacy depends on thinc, which in turn depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 spacy==3.8.14; python_version >= "3.10" and python_version < "3.14"
-srsly==3.0.0; python_version >= "3.9" and python_version < "3.14"
+srsly==2.5.3; python_version >= "3.9"  # pyup: != 3.0.0  # yanked
 sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
 tableauhyperapi==0.0.24457
