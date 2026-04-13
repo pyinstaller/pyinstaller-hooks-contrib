@@ -8,8 +8,8 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==26.3.1; python_version >= "3.10"
 bokeh==3.9.0; python_version >= "3.10"
 boto==2.49.0
-boto3==1.42.88; python_version >= "3.9"
-botocore==1.42.88; python_version >= "3.9"
+boto3==1.42.89; python_version >= "3.9"
+botocore==1.42.89; python_version >= "3.9"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -262,7 +262,7 @@ pypylon==26.3.1; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.16; sys_platform == "win32" and python_version >= "3.9"
 opentelemetry-sdk==1.41.0; python_version >= "3.9"
-xarray==2026.2.0; python_version >= "3.11"
+xarray==2026.4.0; python_version >= "3.11"
 tables==3.11.1; python_version >= "3.11"
 schwifty==2026.3.0; python_version >= "3.10"
 patool==4.0.4; python_version >= "3.11"
