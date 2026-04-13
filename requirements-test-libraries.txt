@@ -38,7 +38,7 @@ ddgs==9.13.0; python_version >= "3.10"
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 discid==1.4.0; sys_platform != "win32" and (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.10"
-duckdb==1.5.1; python_version >= "3.10"
+duckdb==1.5.2; python_version >= "3.10"
 # eccodes does not provide win64 wheels for python 3.14 yet
 eccodes==2.46.0; python_version >= "3.10" and (sys_platform != "win32" or python_version < "3.14")
 eth_typing==6.0.0; python_version >= "3.10"
