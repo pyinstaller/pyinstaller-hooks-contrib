@@ -285,7 +285,7 @@ tkinterweb-tkhtml==2.1.1; python_version >= "3.9" or sys_platform != "win32"
 tkinterweb-tkhtml-extras==1.3.1; python_version >= "3.9" or sys_platform != "win32"
 pandas_flavor==0.8.1; python_version >= "3.10"
 globus-sdk==4.5.0; python_version >= "3.9"
-adbc-driver-manager==1.10.0; python_version >= "3.10"
+adbc-driver-manager==1.11.0; python_version >= "3.10"
 
 # ------------------- Platform (OS) specifics
 
