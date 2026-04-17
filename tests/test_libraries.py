@@ -3332,3 +3332,21 @@ def test_tensorrt(pyi_builder):
         logger = trt.Logger(trt.Logger.WARNING)
         trt.init_libnvinfer_plugins(logger, "")
 """)
+
+
+@importorskip("plum")
+def test_plum_dispatch(pyi_builder):
+    pyi_builder.test_source("""
+        from plum import dispatch
+
+        @dispatch
+        def f(x: int):
+            return "int"
+
+        @dispatch
+        def f(x: str):
+            return "str"
+
+        assert f(1) == "int"
+        assert f("hello") == "str"
+""")
