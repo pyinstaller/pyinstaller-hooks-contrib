@@ -1,2 +1,2 @@
-Add a hook for ``plum-dispatch``, to automatically discover and collect the hidden imports and
+Add a hook for ``plum``, to automatically discover and collect the hidden imports and
 ``{id}__mypyc`` top-level module.

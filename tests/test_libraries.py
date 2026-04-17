@@ -3335,7 +3335,7 @@ def test_tensorrt(pyi_builder):
 
 
 @importorskip("plum")
-def test_plum_dispatch(pyi_builder):
+def test_plum(pyi_builder):
     pyi_builder.test_source("""
         from plum import dispatch
 
