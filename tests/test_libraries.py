@@ -3332,3 +3332,19 @@ def test_tensorrt(pyi_builder):
         logger = trt.Logger(trt.Logger.WARNING)
         trt.init_libnvinfer_plugins(logger, "")
 """)
+
+
+@importorskip("plum")
+def test_plum(pyi_builder):
+    pyi_builder.test_source("""
+        from datetime import timedelta
+        from plum import dispatch
+
+        class Serializer:
+            @dispatch
+            def serialize(self, value: timedelta) -> str:
+                return str(value)
+
+        s = Serializer()
+        assert s.serialize(timedelta(seconds=90)) == "0:01:30"
+""")
