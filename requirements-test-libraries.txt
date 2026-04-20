@@ -156,7 +156,7 @@ trame-markdown==3.1.0; python_version < "3.14"
 trame-matplotlib==2.0.3; python_version < "3.14"
 # Our trame-mesh-streamer test also depends on vtk, which is not available for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
 trame-mesh-streamer==0.1.0; python_version < "3.14" and (python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64")
-trame-plotly==3.1.2; python_version < "3.14"
+trame-plotly==3.1.2; python_version >= "3.9" and python_version < "3.14"
 trame-pvui==0.1.1; python_version < "3.14"
 trame-quasar==0.2.1; python_version < "3.14"
 trame-rca==2.4.2; python_version >= "3.9" and python_version < "3.14"
