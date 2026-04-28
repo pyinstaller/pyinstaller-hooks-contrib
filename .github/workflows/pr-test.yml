@@ -112,6 +112,9 @@ jobs:
             libgirepository-2.0-dev gir1.2-girepository-3.0
           # Required by pygraphviz
           sudo apt-get install -y graphviz graphviz-dev
+          # Contemporary versions of eccodes PyPI wheels provide bundled copies of eccodes library; install a system
+          # copy to ensure that the bundled copy is properly collected and used at run-time.
+          sudo apt-get install -y libeccodes0
 
       - name: Install brew dependencies
         if: startsWith(matrix.os, 'macos')
@@ -135,8 +138,8 @@ jobs:
           brew install libdiscid
           # Install lsl library for pylsl
           brew install labstreaminglayer/tap/lsl
-          # This one is required by eccodes (binary wheels with bundled eccodes
-          # library are provided only for macOS 13+).
+          # This one is required by eccodes. Binary wheels with bundled eccodes library are provided for macOS 13+,
+          # but we install system package to ensure that the bundled copy is properly collected and used at run-time.
           brew install eccodes
           # Requires by pygraphviz
           brew install graphviz
