@@ -113,9 +113,12 @@ jobs:
 
           pprint.pprint(matrix)
 
-          # Outputs are set by printing special ::
-          print("::set-output name=matrix::", json.dumps(matrix), sep="")
-
+          # Outputs are set by appending a {name}={value} line to the
+          # environment file pointed to by GITHUB_OUTPUT environment variable.
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as fp:
+            fp.write("matrix=")
+            json.dump(matrix, fp)
+            fp.write("\n")
 
   test:
     permissions:
