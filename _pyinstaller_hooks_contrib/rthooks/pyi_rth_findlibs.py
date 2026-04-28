@@ -9,16 +9,15 @@
 # SPDX-License-Identifier: Apache-2.0
 #-----------------------------------------------------------------------------
 
-# Override the findlibs.find() function to give precedence to sys._MEIPASS, followed by `ctypes.util.find_library`,
-# and only then the hard-coded paths from the original implementation. The main aim here is to avoid loading libraries
-# from Homebrew environment on macOS when it happens to be present at run-time and we have a bundled copy collected from
-# the build system. This happens because we (try not to) modify `DYLD_LIBRARY_PATH`, and the original `findlibs.find()`
-# implementation gives precedence to environment variables and several fixed/hard-coded locations, and uses
-# `ctypes.util.find_library` as the final fallback...
+# Override the `findlibs.find()` function with custom implementation that checks whether the original implementation
+# resolves the copy of a library that is bundled with the frozen application. If the original implementation fails to
+# resolve the shared library or resolves a system copy, explicitly check if a copy exists in the top-level application
+# directory and if it does, return it instead. This aims to mitigate issues with older versions of `findlibs` (< 0.1.0)
+# that failed to pick up bundled copy from top-level application directory due to hard-coded search paths.
 def _pyi_rthook():
     import sys
     import os
-    import ctypes.util
+    import pathlib
 
     # findlibs v0.1.0 broke compatibility with python < 3.10; due to incompatible typing annotation, attempting to
     # import the package raises `TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'`. Gracefully
@@ -30,26 +29,26 @@ def _pyi_rthook():
         return
 
     _orig_find = getattr(findlibs, 'find', None)
+    if _orig_find is None:
+        return
 
     def _pyi_find(lib_name, *args, **kwargs):
-        extension = findlibs.EXTENSIONS.get(sys.platform, ".so")
+        # Try resolving with the original implementation. If resolved, check that a bundled copy was resolved.
+        orig_lib = _orig_find(lib_name, *args, **kwargs)
+        if orig_lib is not None:
+            application_dir = pathlib.Path(sys._MEIPASS).resolve()
+            lib_path = pathlib.Path(orig_lib).resolve()
+            if application_dir in lib_path.parents:
+                return orig_lib
 
-        # First check sys._MEIPASS
-        fullname = os.path.join(sys._MEIPASS, "lib{}{}".format(lib_name, extension))
+        # Look for a copy in top-level application directory.
+        extension = findlibs.EXTENSIONS.get(sys.platform, ".so")
+        fullname = os.path.join(sys._MEIPASS, f"lib{lib_name}{extension}")
         if os.path.isfile(fullname):
             return fullname
 
-        # Fall back to `ctypes.util.find_library` (to give it precedence over hard-coded paths from original
-        # implementation).
-        lib = ctypes.util.find_library(lib_name)
-        if lib is not None:
-            return lib
-
-        # Finally, fall back to original implementation
-        if _orig_find is not None:
-            return _orig_find(lib_name, *args, **kwargs)
-
-        return None
+        # As a last resort, return the result of original resolution attempt.
+        return orig_lib
 
     findlibs.find = _pyi_find
 
