@@ -1,0 +1,3 @@
+Rework the ``findlibs`` run-time hook to improve compatibility with
+``findlibs`` >= 0.1.0 and avoid problems with contemporary versions
+of ``eccodes`` / ``eccodeslib``.
