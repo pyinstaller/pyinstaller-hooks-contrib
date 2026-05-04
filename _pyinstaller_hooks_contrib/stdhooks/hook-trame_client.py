@@ -10,6 +10,10 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, copy_metadata, is_module_satisfies
 
 datas = collect_data_files("trame_client", subdir="module")
+
+# Starting with trame-client v3.12.0, version information (obtained from metadata) is required.
+if is_module_satisfies("trame-client >= 3.12.0"):
+    datas += copy_metadata("trame-client")
