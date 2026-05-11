@@ -1,0 +1,1 @@
+Update ``toga`` hooks for compatibility with ``toga`` 0.5.4.
