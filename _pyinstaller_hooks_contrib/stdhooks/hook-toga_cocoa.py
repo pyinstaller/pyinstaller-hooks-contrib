@@ -17,3 +17,9 @@ datas = collect_data_files('toga_cocoa')
 
 # Collect metadata so that the backend can be discovered via `toga.backends` entry-point.
 datas += copy_metadata("toga-cocoa")
+
+# Starting with version 0.5.4, toga tries to determine the path to "resources" directory directly from the `__file__`
+# attribute of the `resources` submodule of a given factory module, whereas previous versions used the `__file__`
+# attribute of the factory module itself. Therefore, we now need a hidden import for the `resources` submodule, to
+# ensure that it is collected and treated as a regular package (rather than a namespace one) at run-time.
+hiddenimports = ['toga_cocoa.resources']
