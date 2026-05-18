@@ -277,7 +277,7 @@ fsspec==2026.4.0; python_version >= "3.10"
 zarr==3.2.1; python_version >= "3.12"
 intake==2.0.9; python_version >= "3.10"
 h3==4.4.2
-selectolax==0.4.8; python_version >= "3.9"
+selectolax==0.4.9; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
 niquests==3.18.8
 emoji==2.15.0
