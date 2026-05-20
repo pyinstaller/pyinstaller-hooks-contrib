@@ -1,2 +1,3 @@
 graft _pyinstaller_hooks_contrib
+global-exclude *.py[cod]
 include LICENSE
