@@ -1,3 +1,15 @@
+Unreleased Changes
+------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix bug in ``pyi_rth_osgeo.py`` where the "GDAL_DATA" environment variable
+  would not get set on Windows when building from a conda environment.
+  (`#1020
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1020>`_)
+
+
 2026.5 (2026-05-04)
 -------------------
 
