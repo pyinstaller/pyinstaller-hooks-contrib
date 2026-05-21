@@ -27,7 +27,7 @@ if is_win:
             generic_folder = os.path.join(sys._MEIPASS, 'Library', 'data')
             # 'gcs.csv' is included by gdal <= 2.4.4
             # 'gdalicon.png' is included by gdal >= 2.4.4 (and presumeably earlier)
-            if os.path.exists(os.path.join(generic_folder, 'gcs.csv')) | \
+            if os.path.exists(os.path.join(generic_folder, 'gcs.csv')) or \
                     os.path.exists(os.path.join(generic_folder, 'gdalicon.png')):
                 gdal_data = generic_folder
 
