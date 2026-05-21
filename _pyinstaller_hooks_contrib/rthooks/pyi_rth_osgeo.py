@@ -21,9 +21,13 @@ if is_win:
     if not os.path.exists(gdal_data):
 
         gdal_data = os.path.join(sys._MEIPASS, 'Library', 'share', 'gdal')
-        # last attempt, check if one of the required file is in the generic folder Library/data
-        if not os.path.exists(os.path.join(gdal_data, 'gcs.csv')):
-            gdal_data = os.path.join(sys._MEIPASS, 'Library', 'data')
+        if not os.path.exists(gdal_data):
+            # last attempt, check if one of the required files is in the
+            # generic folder Library/data
+            generic_folder = os.path.join(sys._MEIPASS, 'Library', 'data')
+            if os.path.exists(os.path.join(
+                    generic_folder, 'gdalinfo_output.schema.json')):
+                gdal_data = generic_folder
 
 else:
     gdal_data = os.path.join(sys._MEIPASS, 'share', 'gdal')
