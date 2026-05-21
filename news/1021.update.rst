@@ -1,0 +1,2 @@
+Fix bug in ``pyi_rth_osgeo.py`` where the "GDAL_DATA" environment variable
+would not get set on Windows when building from a conda environment.
