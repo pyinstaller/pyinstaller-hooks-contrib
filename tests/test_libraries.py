@@ -2092,11 +2092,13 @@ def test_pypylon(pyi_builder):
 
 @importorskip('osgeo')
 def test_osgeo(pyi_builder):
+    # Setting GDAL_DATA is the job of the rthook
     pyi_builder.test_source("""
-        from osgeo import osr
+        from osgeo import osr, gdal
         sr = osr.SpatialReference()
         sr.ImportFromEPSG(4326)
         assert(sr.EPSGTreatsAsLatLong())
+        assert(gdal.GetConfigOption('GDAL_DATA'))
     """)
 
 
