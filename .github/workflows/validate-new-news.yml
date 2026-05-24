@@ -22,7 +22,7 @@ jobs:
         run: python scripts/verify-news-fragments.py
 
       - name: Install towncrier
-        run: pip install -qU setuptools towncrier
+        run: pip install -qU towncrier
 
       - name: Run towncrier
         run: towncrier --draft
