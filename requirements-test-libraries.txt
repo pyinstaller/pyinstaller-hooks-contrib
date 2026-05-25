@@ -113,7 +113,7 @@ pynput==1.8.2
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
 pymssql==2.3.13; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 pystray==0.19.5
-pythonnet==3.1.0; python_version < "3.14"
+pythonnet==3.1.0; python_version >= "3.10"
 pytokens==0.4.1
 pytz==2026.2
 # pyvista depends on vtk, which does not provide wheels for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
