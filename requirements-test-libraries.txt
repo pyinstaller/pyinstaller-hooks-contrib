@@ -177,7 +177,7 @@ tzdata==2026.2
 Unidecode==1.4.0
 urllib3-future==2.20.907
 uuid6==2025.0.1; python_version >= "3.9"
-vtk==9.6.1; python_version >= "3.9"
+vtk==9.6.2; python_version >= "3.9"
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==68.1; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
