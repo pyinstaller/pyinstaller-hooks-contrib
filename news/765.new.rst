@@ -1,0 +1,1 @@
+Add analysis hook and runtime hook for python ibm_db module (versions 3.2.3 and higher) with support for linux x64 and microsoft-windows x64 with pyinstaller 6.8.0 and higher, for python 3.8 and higher
