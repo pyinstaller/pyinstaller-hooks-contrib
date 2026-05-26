@@ -8,15 +8,15 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==26.5.1; python_version >= "3.10"
 bokeh==3.9.0; python_version >= "3.10"
 boto==2.49.0
-boto3==1.43.9; python_version >= "3.10"
-botocore==1.43.9; python_version >= "3.10"
+boto3==1.43.14; python_version >= "3.10"
+botocore==1.43.14; python_version >= "3.10"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 CairoSVG==2.9.0; (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.10"
 cassandra-driver==3.30.0; python_version >= "3.10"
-capstone==5.0.7
+capstone==5.0.8
 cf-units==3.3.1; sys_platform != "win32" and python_version >= "3.11"
 cftime==1.6.5; python_version >= "3.10"
 chardet==7.4.3; python_version >= "3.10"
@@ -38,7 +38,7 @@ ddgs==9.14.4; python_version >= "3.10"
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 discid==1.4.0; sys_platform != "win32" and (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.10"
-duckdb==1.5.2; python_version >= "3.10"
+duckdb==1.5.3; python_version >= "3.10"
 # eccodes does not provide win64 wheels for python 3.14 yet; on other platforms, python >= 3.10 is required due to use of findlibs.
 eccodes==2.47.0; (sys_platform == "win32" and python_version >= "3.9" and python_version < "3.14") or (sys_platform != "win32" and python_version >= "3.10")
 eth_typing==6.0.0; python_version >= "3.10"
@@ -72,18 +72,18 @@ msoffcrypto-tool==6.0.0; python_version >= "3.10"
 narwhals==2.21.2; python_version >= "3.10"
 nest-asyncio==1.6.0
 netCDF4==1.7.4; python_version >= "3.10"
-nicegui==3.12.0; python_version >= "3.10"
+nicegui==3.12.1; python_version >= "3.10"
 # numba depends on up-to-date llvmlite, which stopped providing x86_64 wheels for macOS.
 numba==0.65.1; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine == "arm64")
 numcodecs==0.16.5; python_version >= "3.11"
 Office365-REST-Python-Client==2.6.2
 openpyxl==3.1.5
 pandas==3.0.3; python_version >= "3.11"
-panel==1.8.10; python_version >= "3.10"
+panel==1.9.1; python_version >= "3.10"
 pandera==0.31.1; python_version >= "3.10"
 passlib==1.7.4
 pendulum==3.2.0; python_version >= "3.9"
-phonenumbers==9.0.30
+phonenumbers==9.0.31
 pingouin==0.6.1; python_version >= "3.10"
 pinyin==0.4.0
 platformdirs==4.9.6; python_version >= "3.10"
@@ -113,11 +113,10 @@ pynput==1.8.2
 # pymssql provides only x86_64 macOS wheels for python 3.9 and 3.10. But at the time of writing (v2.3.2), the universal2 wheels are broken on arm64 macOS as well.
 pymssql==2.3.13; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 pystray==0.19.5
-pythonnet==3.0.5; python_version < "3.14"
+pythonnet==3.1.0; python_version >= "3.10"
 pytokens==0.4.1
 pytz==2026.2
-# pyvista depends on vtk, which does not provide wheels for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-pyvista==0.48.4; python_version >= "3.10" and python_version < "3.14"
+pyvista==0.48.4; python_version >= "3.10"
 pyzmq==27.1.0
 PyQt5==5.15.11
 qtmodern==0.2.0
@@ -141,48 +140,45 @@ tableauhyperapi==0.0.25080
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
 timezonefinder==8.2.4; python_version > "3.11"
 tkinterdnd2==0.4.3
-trame==3.13.2; python_version >= "3.10" and python_version < "3.14"
-trame-client==3.12.2; python_version >= "3.9" and python_version < "3.14"
-trame-code==1.0.2; python_version < "3.14"
-trame-components==2.5.0; python_version < "3.14"
-trame-datagrid==0.2.2; python_version < "3.14"
-trame-deckgl==2.0.4; python_version >= "3.9" and python_version < "3.14"
-trame-formkit==0.1.2; python_version < "3.14"
-trame-grid-layout==1.0.3; python_version < "3.14"
-trame-iframe==1.1.1; python_version < "3.14"
-trame-keycloak==0.1.1; python_version < "3.14"
-trame-leaflet==1.2.4; python_version >= "3.9" and python_version < "3.14"
-trame-markdown==3.1.0; python_version < "3.14"
-trame-matplotlib==2.0.3; python_version < "3.14"
-# Our trame-mesh-streamer test also depends on vtk, which is not available for python 3.14 yet. For arm64 macOS, wheels are available only for python >= 3.9.
-trame-mesh-streamer==0.1.0; python_version < "3.14" and (python_version >= "3.9" or sys_platform != "darwin" or platform_machine != "arm64")
-trame-plotly==3.1.2; python_version >= "3.9" and python_version < "3.14"
-trame-pvui==0.1.1; python_version < "3.14"
-trame-quasar==0.2.1; python_version < "3.14"
-trame-rca==2.4.3; python_version >= "3.9" and python_version < "3.14"
-trame-router==2.3.0; python_version < "3.14"
-trame-server==3.12.3; python_version >= "3.10" and python_version < "3.14"
-trame-simput==2.6.3; python_version >= "3.9" and python_version < "3.14"
-trame-tauri==1.0.2; python_version >= "3.9" and python_version < "3.14"
-trame-tweakpane==0.1.3; python_version < "3.14"
-trame-vega==2.1.1; python_version < "3.14"
-# Our trame-vtk test also depends on vtk, which is not available for python 3.14 yet.
-trame-vtk==2.11.8; python_version >= "3.10" and python_version < "3.14"
-trame-vtk3d==0.1.0; python_version < "3.14"
-trame-vtklocal==0.17.1; python_version >= "3.9" and python_version < "3.14"
-trame-vuetify==3.2.2; python_version >= "3.9" and python_version < "3.14"
-trame-xterm==1.1.0; python_version >= "3.9" and python_version < "3.14"
+trame==3.13.2; python_version >= "3.10"
+trame-client==3.12.2; python_version >= "3.9"
+trame-code==1.0.2; python_version >= "3.9"
+trame-components==2.5.0; python_version >= "3.9"
+trame-datagrid==0.2.2; python_version >= "3.9"
+trame-deckgl==2.0.4; python_version >= "3.9"
+trame-formkit==0.1.2; python_version >= "3.9"
+trame-grid-layout==1.0.3; python_version >= "3.9"
+trame-iframe==1.1.1; python_version >= "3.9"
+trame-keycloak==0.1.1; python_version >= "3.9"
+trame-leaflet==1.2.4; python_version >= "3.9"
+trame-markdown==3.1.0; python_version >= "3.9"
+trame-matplotlib==2.0.3; python_version >= "3.9"
+trame-mesh-streamer==0.1.0; python_version >= "3.9"
+trame-plotly==3.1.2; python_version >= "3.9"
+trame-pvui==0.1.1; python_version >= "3.9"
+trame-quasar==0.2.1; python_version >= "3.9"
+trame-rca==2.4.3; python_version >= "3.9"
+trame-router==2.3.0; python_version >= "3.9"
+trame-server==3.12.4; python_version >= "3.10"
+trame-simput==2.6.3; python_version >= "3.9"
+trame-tauri==1.0.2; python_version >= "3.9"
+trame-tweakpane==0.1.3; python_version >= "3.9"
+trame-vega==2.1.1; python_version >= "3.9"
+trame-vtk==2.11.8; python_version >= "3.10"
+trame-vtk3d==0.1.0; python_version >= "3.9"
+trame-vtklocal==0.17.1; python_version >= "3.9"
+trame-vuetify==3.2.2; python_version >= "3.9"
+trame-xterm==1.1.0; python_version >= "3.9"
 Twisted==26.4.0; python_version >= "3.9"
 tzdata==2026.2
 Unidecode==1.4.0
-urllib3-future==2.20.905
+urllib3-future==2.20.907
 uuid6==2025.0.1; python_version >= "3.9"
-vtk==9.6.1; python_version >= "3.9"
+vtk==9.6.2; python_version >= "3.9"
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==68.1; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
-# web3 indirectly depends on ckzg, which does not yet provide python 3.14 wheels, and fails to build from sdist on Windows.
-web3==7.16.0; python_version < "3.14" or sys_platform != "win32"
+web3==7.16.0
 websockets==16.0; python_version >= "3.10"
 # zeep depends on lxml which doesn't support Python 3.8 on macOS arm64
 zeep==4.3.2; python_version >= "3.9" or (sys_platform != "darwin" or platform_machine != "arm64")
@@ -223,6 +219,7 @@ mistune==3.2.1
 pydantic==2.13.4; python_version >= "3.9"
 jsonschema==4.26.0; python_version >= "3.10"
 psutil==7.2.2
+# TODO: remove the python_version < "3.14" constraint next time litestar is updated!
 litestar==2.21.1; python_version < "3.14"
 lingua-language-detector==2.2.0; python_version >= "3.12"
 opencc-python-reimplemented==0.1.7
@@ -235,11 +232,10 @@ khmer-nltk==1.6
 python-crfsuite==0.9.12; python_version >= "3.10"
 pymorphy3==2.0.6
 pymorphy3-dicts-uk==2.4.1.1.1663094765
-# SudachiPy 0.6.10 does not provide wheels for python 3.14 yet.
-sudachipy==0.6.11; python_version >= "3.9" and python_version < "3.14"
-sudachidict-core==20260428; python_version >= "3.9" and python_version < "3.14"
-sudachidict-small==20260428; python_version >= "3.9" and python_version < "3.14"
-sudachidict-full==20260428; python_version >= "3.9" and python_version < "3.14"
+sudachipy==0.6.11; python_version >= "3.9"
+sudachidict-core==20260428; python_version >= "3.9"
+sudachidict-small==20260428; python_version >= "3.9"
+sudachidict-full==20260428; python_version >= "3.9"
 wxPython==4.2.5; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.10"  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.3.0; python_version >= "3.9"
 pythainlp==5.3.4; python_version >= "3.9"
@@ -247,22 +243,20 @@ gmsh==4.15.2
 sspilib==0.5.0; python_version >= "3.9"
 rlp==4.1.0
 eth-rlp==2.2.0
-z3c.rml==5.0.1; python_version >= "3.9"
+z3c.rml==5.1.1; python_version >= "3.10"
 freetype-py==2.5.1
 vaderSentiment==3.3.2
 langchain==1.3.1; python_version >= "3.10"
 langchain-classic==1.0.7; python_version >= "3.10"
 seedir==0.5.1
 cel-python==0.5.0; python_version >= "3.10"
-# pygwalker depends on quickjs, currently (quickjs v1.19.4) provides wheels only for python <= 3.12, and fails to build from sdist on Windows.
-# It also depends on pyarrow, which does not provide wheels for python 3.14 yet, and fails to build from sdist on all platforms.
-pygwalker==0.5.0.1; (python_version < "3.13" or sys_platform != "win32") and python_version < "3.14"
+pygwalker==0.5.0.1
 eth-hash==0.8.0; python_version >= "3.10"
 apkutils==2.0.5; python_version >= "3.10"
 pypylon==26.4.1; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.16; sys_platform == "win32" and python_version >= "3.9"
-opentelemetry-sdk==1.41.1; python_version >= "3.9"
+opentelemetry-sdk==1.42.1; python_version >= "3.10"
 xarray==2026.4.0; python_version >= "3.11"
 tables==3.11.1; python_version >= "3.11"
 schwifty==2026.3.0; python_version >= "3.10"
@@ -271,6 +265,7 @@ yapf==0.43.0
 xmlschema==4.3.1; python_version >= "3.10"
 pysaml2==7.5.4; python_version >= "3.9"
 # On Windows, toga requires toga-winforms, which depends on pythonnet; the latter does not provide wheels for python 3.14 yet.
+# TODO: remove the python < 3.14 constraint next time toga is updated!
 toga==0.5.4; python_version >= "3.10" and (python_version < "3.14" or sys_platform != "win32")
 numbers-parser==4.18.5; python_version >= "3.10"
 fsspec==2026.4.0; python_version >= "3.10"
@@ -285,13 +280,13 @@ tkinterweb[recommended]==4.25.2; python_version >= "3.9" or sys_platform != "win
 tkinterweb-tkhtml==2.1.1; python_version >= "3.9" or sys_platform != "win32"
 tkinterweb-tkhtml-extras==1.3.1; python_version >= "3.9" or sys_platform != "win32"
 pandas_flavor==0.8.1; python_version >= "3.10"
-globus-sdk==4.6.0; python_version >= "3.9"
+globus-sdk==4.7.0; python_version >= "3.9"
 adbc-driver-manager==1.11.0; python_version >= "3.10"
 
 # ------------------- Platform (OS) specifics
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==4.3.0; sys_platform == "linux" and python_version >= "3.10"
+dbus-fast==5.0.10; sys_platform == "linux" and python_version >= "3.10"
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.3.0; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
