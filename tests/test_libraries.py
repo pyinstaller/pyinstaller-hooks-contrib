@@ -3325,7 +3325,12 @@ def test_imagingcontrol4(pyi_builder):
 """)
 
 
+# Run this test only in onedir mode; both to avoid running out of space on the CI runner (tesnorrt 11.0.0.114
+# installation in a clean virtual environment takes 4.3 GB; a onedir build is 4.3 GB as well; onefile build
+# has 3.5 GB PKG in build directory , and 3.5 GB executable in dist directory) and also because onefile build
+# is pushing close to the 4 GB limit size on PyInstaller executables...
 @importorskip("tensorrt")
+@pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
 def test_tensorrt(pyi_builder):
     pyi_builder.test_source("""
         import tensorrt as trt
