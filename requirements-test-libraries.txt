@@ -1,15 +1,15 @@
 # ------------------ LIBRARIES ------------------ #
 # TODO: Add most of the libraries we have hooks for, and write tests
-av==17.0.1; python_version >= "3.10"
+av==17.1.0; python_version >= "3.10"
 # adbutils does not provide arm64 macOS wheels.
 adbutils==2.12.0; sys_platform != "darwin" or platform_machine != "arm64"
 APScheduler==3.11.2
 backports.zoneinfo==0.2.1; python_version < "3.9"
 black==26.5.1; python_version >= "3.10"
-bokeh==3.9.0; python_version >= "3.10"
+bokeh==3.9.1; python_version >= "3.10"
 boto==2.49.0
-boto3==1.43.18; python_version >= "3.10"
-botocore==1.43.18; python_version >= "3.10"
+boto3==1.43.24; python_version >= "3.10"
+botocore==1.43.24; python_version >= "3.10"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -27,7 +27,7 @@ cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==6.1.0; sys_platform != "win32" and python_version >= "3.10"
 cryptography==48.0.0; python_version >= "3.9"
-dash==4.1.0
+dash==4.2.0
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
 dask[array,diagnostics,distributed]==2026.3.0; python_version >= "3.10"
@@ -69,7 +69,7 @@ markdown==3.10.2; python_version >= "3.10"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==6.0.0; python_version >= "3.10"
-narwhals==2.22.0; python_version >= "3.10"
+narwhals==2.22.1; python_version >= "3.10"
 nest-asyncio==1.6.0
 netCDF4==1.7.4; python_version >= "3.10"
 nicegui==3.12.1; python_version >= "3.10"
@@ -83,11 +83,11 @@ panel==1.9.3; python_version >= "3.10"
 pandera==0.31.1; python_version >= "3.10"
 passlib==1.7.4
 pendulum==3.2.0; python_version >= "3.9"
-phonenumbers==9.0.31
+phonenumbers==9.0.32
 pingouin==0.6.1; python_version >= "3.10"
 pinyin==0.4.0
 platformdirs==4.10.0; python_version >= "3.10"
-plotly==6.7.0
+plotly==6.8.0
 plum-dispatch==2.9.0; python_version >= "3.10"
 publicsuffix2==2.20191221
 pycparser==3.0; python_version >= "3.10"
@@ -125,7 +125,7 @@ Rtree==1.4.1; python_version >= "3.9"
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.17.1; python_version >= "3.11"
-sentry-sdk==2.61.1
+sentry-sdk==2.62.0
 # shotgun-api3 is currently incompatible with python >= 3.13...
 shotgun_api3==3.10.0; python_version >= "3.9" and python_version < "3.13"
 slixmpp==1.15.0; python_version >= "3.11"
@@ -139,7 +139,7 @@ tableauhyperapi==0.0.25080
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
 timezonefinder==8.2.4; python_version > "3.11"
-tkinterdnd2==0.4.4.1
+tkinterdnd2==0.5.0
 trame==3.13.2; python_version >= "3.10"
 trame-client==3.12.3; python_version >= "3.9"
 trame-code==1.0.2; python_version >= "3.9"
@@ -160,7 +160,7 @@ trame-quasar==0.2.1; python_version >= "3.9"
 trame-rca==2.4.3; python_version >= "3.9"
 trame-router==2.3.0; python_version >= "3.9"
 trame-server==3.12.4; python_version >= "3.10"
-trame-simput==2.6.3; python_version >= "3.9"
+trame-simput==2.6.4; python_version >= "3.9"
 trame-tauri==1.0.2; python_version >= "3.9"
 trame-tweakpane==0.1.3; python_version >= "3.9"
 trame-vega==2.1.1; python_version >= "3.9"
@@ -177,7 +177,7 @@ uuid6==2025.0.1; python_version >= "3.9"
 vtk==9.6.2; python_version >= "3.9"
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
-weasyprint==68.1; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
+weasyprint==69.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
 web3==7.16.0
 websockets==16.0; python_version >= "3.10"
 # zeep depends on lxml which doesn't support Python 3.8 on macOS arm64
@@ -186,16 +186,16 @@ pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==19.1.0; python_version >= "3.10"
 orjson==3.11.9; python_version >= "3.10"
-altair==6.1.0; python_version >= "3.10"
+altair==6.2.1; python_version >= "3.10"
 shapely==2.1.2; python_version >= "3.10"
 lark==1.3.1
 python-stdnum==2.2
 # On linux, sounddevice and soundfile use system-provided libportaudio
 # and libsndfile, respectively.
 sounddevice==0.5.5; sys_platform != "linux"
-soundfile==0.13.1; sys_platform != "linux"
+soundfile==0.14.0; python_version >= "3.10" and sys_platform != "linux"
 limits==5.8.0; python_version >= "3.10"
-great-expectations==1.17.2; python_version >= "3.10" and python_version < "3.14"
+great-expectations==1.18.0; python_version >= "3.10" and python_version < "3.14"
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.21.0; python_version >= "3.10" and python_version < "3.14" and (sys_platform != "darwin" or platform_machine == "arm64")
 # TensorRT wheels are platform-specific and typically require NVIDIA drivers/CUDA at runtime.
@@ -208,7 +208,7 @@ spiceypy==8.1.0; python_version >= "3.10"
 exchangelib==5.6.0; python_version >= "3.10"
 NBT==1.5.1
 minecraft-launcher-lib==8.0; python_version >= "3.10"
-scikit-learn==1.8.0; python_version >= "3.11"
+scikit-learn==1.9.0; python_version >= "3.11"
 scikit-image==0.26.0; python_version >= "3.11"
 customtkinter==5.2.2
 fastparquet==2026.5.0; python_version >= "3.10"
@@ -224,7 +224,7 @@ litestar==2.23.0; python_version < "3.14"
 lingua-language-detector==2.2.0; python_version >= "3.12"
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
-simplemma==1.1.2; python_version >= "3.10"
+simplemma==1.2.0; python_version >= "3.10"
 wordcloud==1.9.6; python_version >= "3.9"
 eng-to-ipa==0.0.2
 python-mecab-ko==1.3.7
@@ -246,7 +246,7 @@ eth-rlp==2.2.0
 z3c.rml==5.1.1; python_version >= "3.10"
 freetype-py==2.5.1
 vaderSentiment==3.3.2
-langchain==1.3.2; python_version >= "3.10"
+langchain==1.3.4; python_version >= "3.10"
 langchain-classic==1.0.7; python_version >= "3.10"
 seedir==0.5.1
 cel-python==0.5.0; python_version >= "3.10"
@@ -274,7 +274,7 @@ intake==2.0.9; python_version >= "3.10"
 h3==4.5.0; python_version >= "3.10"
 selectolax==0.4.10; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
-niquests==3.19.0
+niquests==3.19.1
 emoji==2.15.0
 tkinterweb[recommended]==4.25.3; python_version >= "3.9" or sys_platform != "win32"
 tkinterweb-tkhtml==2.1.1; python_version >= "3.9" or sys_platform != "win32"
@@ -286,7 +286,7 @@ adbc-driver-manager==1.11.0; python_version >= "3.10"
 # ------------------- Platform (OS) specifics
 
 # dbus-fast has pre-built wheels only for Linux; and D-Bus is available only there, anyway.
-dbus-fast==5.0.16; sys_platform == "linux" and python_version >= "3.10"
+dbus-fast==5.0.22; sys_platform == "linux" and python_version >= "3.10"
 
 # PyEnchant only pre-builds macOS and Windows
 pyenchant==3.3.0; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.9"
