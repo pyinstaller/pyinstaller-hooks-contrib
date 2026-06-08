@@ -1,3 +1,26 @@
+2026.6 (2026-06-08)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix bug in ``pyi_rth_osgeo.py`` where the "GDAL_DATA" environment variable
+  would not get set on Windows when building from a conda environment. (`#1021
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1021>`_)
+* Update ``dash`` hook for compatibility with ``dash`` 4.2.0. (`#1026
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1026>`_)
+* Update ``toga`` hooks for compatibility with ``toga`` 0.5.4. (`#1016
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1016>`_)
+
+
+Project & Process
+~~~~~~~~~~~~~~~~~
+
+* Exclude generated Python bytecode files from source and wheel distributions.
+  (`#1019
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1019>`_)
+
+
 2026.5 (2026-05-04)
 -------------------
 

@@ -1,1 +1,0 @@
-Exclude generated Python bytecode files from source and wheel distributions.
