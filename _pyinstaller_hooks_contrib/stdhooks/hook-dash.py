@@ -10,6 +10,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, collect_submodules, is_module_satisfies
 
 datas = collect_data_files('dash')
+
+# dash 4.2.0 introduced `dash.backends` with programmatically imported backend modules.
+hiddenimports = []
+if is_module_satisfies('dash>=4.2.0'):
+    hiddenimports += collect_submodules('dash.backends')
