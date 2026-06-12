@@ -51,7 +51,7 @@ If you've been here before then you may want to skip to the [summary checklist](
 Clone and `cd` inside your fork by running the following (replacing `bob-the-barnacle` with your github username):
 
 ```
-git clone https://github.com/bob-the-barnacle/pyinstaller-hoooks-contrib.git
+git clone https://github.com/bob-the-barnacle/pyinstaller-hooks-contrib.git
 cd pyinstaller-hooks-contrib
 ```
 
