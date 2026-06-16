@@ -1429,7 +1429,7 @@ def test_hydra(pyi_builder):
 
         config_path = os.path.join(os.path.dirname(__file__), 'conf')
 
-        @hydra.main(config_path=config_path, config_name="config")
+        @hydra.main(version_base=None, config_path=config_path, config_name="config")
         def my_app(cfg):
             assert cfg.test_group.secret_string == 'secret'
             assert cfg.test_group.secret_number == 123
