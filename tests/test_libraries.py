@@ -2678,6 +2678,15 @@ def test_xarray_to_zarr(pyi_builder):
     """)
 
 
+@importorskip('zeroconf')
+def test_zeroconf(pyi_builder):
+    pyi_builder.test_source("""
+        import zeroconf
+
+        print(zeroconf.__name__)
+    """)
+
+
 @importorskip('intake')
 def test_intake(pyi_builder):
     pyi_builder.test_source("""

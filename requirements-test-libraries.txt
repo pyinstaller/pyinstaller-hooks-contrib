@@ -272,6 +272,7 @@ toga==0.5.4; python_version >= "3.10" and (python_version < "3.14" or sys_platfo
 numbers-parser==4.18.5; python_version >= "3.10"
 fsspec==2026.4.0; python_version >= "3.10"
 zarr==3.2.1; python_version >= "3.12"
+zeroconf==0.149.16; python_version >= "3.10"
 intake==2.0.9; python_version >= "3.10"
 h3==4.5.0; python_version >= "3.10"
 selectolax==0.4.10; python_version >= "3.9"
