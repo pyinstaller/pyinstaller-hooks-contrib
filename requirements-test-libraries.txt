@@ -221,7 +221,7 @@ pydantic==2.13.4; python_version >= "3.9"
 jsonschema==4.26.0; python_version >= "3.10"
 psutil==7.2.2
 # TODO: remove the python_version < "3.14" constraint next time litestar is updated!
-litestar==2.24.0; python_version < "3.14"
+litestar==2.23.0; python_version < "3.14"
 lingua-language-detector==2.2.0; python_version >= "3.12"
 opencc-python-reimplemented==0.1.7
 jieba==0.42.1
