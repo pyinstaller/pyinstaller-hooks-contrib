@@ -181,8 +181,7 @@ vtk==9.6.2; python_version >= "3.9"
 weasyprint==69.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
 web3==7.16.0
 websockets==16.0; python_version >= "3.10"
-# zeep depends on lxml which doesn't support Python 3.8 on macOS arm64
-zeep==4.3.3; python_version >= "3.9" or (sys_platform != "darwin" or platform_machine != "arm64")
+zeep==4.3.3; python_version >= "3.10"
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
 mimesis==19.1.0; python_version >= "3.10"
