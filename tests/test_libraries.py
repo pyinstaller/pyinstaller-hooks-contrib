@@ -534,6 +534,7 @@ def test_pydantic(pyi_builder):
 @requires('google-api-python-client >= 2.0.0')
 def test_googleapiclient(pyi_builder):
     pyi_builder.test_source("""
+        import os
         from googleapiclient import discovery, discovery_cache
 
         API_NAME = "youtube"
@@ -1466,6 +1467,9 @@ def test_spiceypy(pyi_builder):
 def test_discid(pyi_builder):
     pyi_builder.test_source(
         """
+        import os
+        import sys
+
         # Basic import check
         import discid
 
@@ -1528,6 +1532,7 @@ def test_compliance_checker(pyi_builder):
 
     pyi_builder.test_source("""
         import os
+        import sys
         import json
 
         import compliance_checker
