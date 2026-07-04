@@ -1,0 +1,3 @@
+Update ``pygraphviz`` hook for improved compatibility with ``pygraphviz``
+2.0 and its new binary wheels that are available for macOS, Windows, and
+Linux.
