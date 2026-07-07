@@ -1,0 +1,3 @@
+Update ``tkinterdnd2`` hook to detect Tcl/Tk 9 and collect the
+``{platform}-{arch}-tcl9`` sub-directory, which became available in
+``tkinterdnd2`` v0.6.0 wheels.

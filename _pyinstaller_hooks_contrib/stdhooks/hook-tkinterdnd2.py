@@ -14,24 +14,31 @@ import os
 import pathlib
 import platform
 
+from PyInstaller import isolated
 from PyInstaller.utils.hooks import get_package_paths, logger
 
 
 # tkinterdnd2 contains a tkdnd sub-directory which contains platform-specific directories with shared library and .tcl
 # files. Collect only the relevant directory, by matching the decision logic from:
-# https://github.com/Eliav2/tkinterdnd2/blob/9a55907e430234bf8ab72ea614f84af9cc89598c/tkinterdnd2/TkinterDnD.py#L33-L51
+# https://github.com/Eliav2/tkinterdnd2/blob/0.6.2/tkinterdnd2/TkinterDnD.py#L29-L77
 def _collect_platform_subdir(system, machine):
     datas = []
     binaries = []
+
+    # Determine major version of Tcl/Tk, in order to collect version-specific sub-directory, if available.
+    @isolated.decorate
+    def get_tcl_version():
+        import tkinter
+        tcl = tkinter.Tcl()
+        return tcl.eval("info tclversion")
+
+    tcl_version = get_tcl_version()
+    tcl_major = int(tcl_version.split(".")[0])
 
     # Under Windows, `platform.machine()` returns the identifier of the *host* architecture, which does not necessarily
     # match the architecture of the running process (for example, when running x86 process under x64 Windows, or when
     # running either x86 or x64 process under arm64 Windows). The architecture of the running process can be obtained
     # from the `PROCESSOR_ARCHITECTURE` environment variable, which is automatically set by Windows / WOW64 subsystem.
-    #
-    # NOTE: at the time of writing (tkinterdnd2 v0.4.2), tkinterdnd2 does not account for this, and attempts to load
-    # the shared library from incorrect directory; as this fails due to architecture mismatch, there is no point in
-    # us trying to collect that (incorrect) directory.
     if system == "Windows":
         machine = os.environ.get("PROCESSOR_ARCHITECTURE", machine)
 
@@ -69,12 +76,19 @@ def _collect_platform_subdir(system, machine):
 
     pkg_base, pkg_dir = get_package_paths("tkinterdnd2")
 
-    dest_dir = os.path.join("tkinterdnd2", "tkdnd", dir_name)
+    if tcl_major >= 9:
+        # If directory with -tcl9 suffix exists, use it; otherwise, fall back to generic one.
+        tcl9_path = pathlib.Path(pkg_dir) / "tkdnd" / (dir_name + "-tcl9")
+        if tcl9_path.is_dir():
+            dir_name = dir_name + "-tcl9"
+
     src_path = pathlib.Path(pkg_dir) / "tkdnd" / dir_name
 
     if not src_path.is_dir():
         logger.warning("hook-tkinterdnd2: platform-specific sub-directory %r does not exist!", str(src_path))
         return datas, binaries
+
+    dest_dir = os.path.join("tkinterdnd2", "tkdnd", dir_name)
 
     # Collect the shared library.
     for entry in src_path.glob(lib_suffix):

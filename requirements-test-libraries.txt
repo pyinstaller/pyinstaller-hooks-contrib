@@ -141,7 +141,8 @@ tableauhyperapi==0.0.25080
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
 timezonefinder==8.2.4; python_version > "3.11"
-tkinterdnd2==0.5.0
+# tkinterdnd2 at the time of writing (0.6.2) does not provide x86_64 macOS library with support for Tcl 9, which is used by python.org and GHA python 3.14 for macOS.
+tkinterdnd2==0.6.2; python_version < "3.14" or sys_platform != "darwin" or platform_machine == "arm64"
 trame==3.13.2; python_version >= "3.10"
 trame-client==3.13.2; python_version >= "3.9"
 trame-code==1.1.1; python_version >= "3.9"
