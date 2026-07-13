@@ -8,19 +8,19 @@ backports.zoneinfo==0.2.1; python_version < "3.9"
 black==26.5.1; python_version >= "3.10"
 bokeh==3.9.1; python_version >= "3.10"
 boto==2.49.0
-boto3==1.43.40; python_version >= "3.10"
-botocore==1.43.40; python_version >= "3.10"
+boto3==1.43.46; python_version >= "3.10"
+botocore==1.43.46; python_version >= "3.10"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 CairoSVG==2.9.0; (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.10"
-cassandra-driver==3.30.0; python_version >= "3.10"
+cassandra-driver==3.30.1; python_version >= "3.10"
 capstone==5.0.9
 cf-units==3.3.1; sys_platform != "win32" and python_version >= "3.11"
 cftime==1.6.5; python_version >= "3.10"
 chardet==7.4.3; python_version >= "3.10"
-charset_normalizer==3.4.8
+charset_normalizer==3.4.9
 cloudpickle==3.1.2
 cloudscraper==1.2.71
 cmocean==4.0.3
@@ -38,7 +38,7 @@ ddgs==9.14.4; python_version >= "3.10"
 # discid requires libdiscid to be provided by the system.
 # We install it via apt-get and brew on ubuntu and macOS CI runners, respectively; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
-discid==1.4.1; sys_platform != "win32" and (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.10"
+discid==1.4.2; sys_platform != "win32" and (sys_platform != "darwin" or platform_machine != "arm64") and python_version >= "3.10"
 duckdb==1.5.4; python_version >= "3.10"
 # eccodes does not provide win64 wheels for python 3.14 yet; on other platforms, python >= 3.10 is required due to use of findlibs.
 eccodes==2.47.0; (sys_platform == "win32" and python_version >= "3.9" and python_version < "3.14") or (sys_platform != "win32" and python_version >= "3.10")
@@ -70,7 +70,7 @@ markdown==3.10.2; python_version >= "3.10"
 moviepy==2.2.1; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine != "arm64")
 mnemonic==0.21
 msoffcrypto-tool==6.0.0; python_version >= "3.10"
-narwhals==2.23.0; python_version >= "3.10"
+narwhals==2.24.0; python_version >= "3.10"
 nest-asyncio==1.6.0
 netCDF4==1.7.4; python_version >= "3.10"
 nicegui==3.14.0; python_version >= "3.10"
@@ -88,7 +88,7 @@ phonenumbers==9.0.34
 pingouin==0.6.1; python_version >= "3.10"
 pinyin==0.4.0
 platformdirs==4.10.0; python_version >= "3.10"
-plotly==6.8.0
+plotly==6.9.0
 plum-dispatch==2.9.0; python_version >= "3.10"
 publicsuffix2==2.20191221
 pycparser==3.0; python_version >= "3.10"
@@ -127,10 +127,10 @@ Rtree==1.4.1; python_version >= "3.9"
 sacremoses==0.1.1
 # Remove after merging https://github.com/pyinstaller/pyinstaller/pull/6587
 scipy==1.18.0; python_version >= "3.12"
-sentry-sdk==2.64.0
+sentry-sdk==2.65.0
 # shotgun-api3 is currently incompatible with python >= 3.13...
 shotgun_api3==3.10.2; python_version >= "3.9" and python_version < "3.13"
-slixmpp==1.16.0; python_version >= "3.11"
+slixmpp==1.17.0; python_version >= "3.11"
 # spacy depends on thinc, which in turn depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 spacy==3.8.14; python_version >= "3.10" and python_version < "3.14"
 srsly==2.5.3; python_version >= "3.9"  # pyup: != 3.0.0  # yanked
@@ -140,7 +140,7 @@ tableauhyperapi==0.0.25080
 # thinc depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
-timezonefinder==8.2.4; python_version > "3.11"
+timezonefinder==8.2.5; python_version > "3.11"
 # tkinterdnd2 at the time of writing (0.6.2) does not provide x86_64 macOS library with support for Tcl 9, which is used by python.org and GHA python 3.14 for macOS.
 tkinterdnd2==0.6.2; python_version < "3.14" or sys_platform != "darwin" or platform_machine == "arm64"
 trame==3.13.2; python_version >= "3.10"
@@ -160,7 +160,7 @@ trame-mesh-streamer==0.1.0; python_version >= "3.9"
 trame-plotly==3.1.2; python_version >= "3.9"
 trame-pvui==0.1.1; python_version >= "3.9"
 trame-quasar==0.2.1; python_version >= "3.9"
-trame-rca==2.6.3; python_version >= "3.9"
+trame-rca==2.7.0; python_version >= "3.9"
 trame-router==2.3.0; python_version >= "3.9"
 trame-server==3.12.5; python_version >= "3.10"
 trame-simput==2.6.5; python_version >= "3.9"
@@ -173,16 +173,16 @@ trame-vtklocal==1.0.1; python_version >= "3.10"
 trame-vuetify==3.2.2; python_version >= "3.9"
 trame-xterm==1.1.0; python_version >= "3.9"
 Twisted==26.4.0; python_version >= "3.9"
-tzdata==2026.2
+tzdata==2026.3
 Unidecode==1.4.0
-urllib3-future==2.22.900
+urllib3-future==2.22.901
 uuid6==2025.0.1; python_version >= "3.9"
 vtk==9.6.2; python_version >= "3.9"
 # On macOS, weasyprint requires pango and glib installed via Homebrew; on arm64, the Homebrew is
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==69.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
 web3==7.16.0
-websockets==16.0; python_version >= "3.10"
+websockets==16.1; python_version >= "3.10"
 zeep==4.3.3; python_version >= "3.10"
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
@@ -197,7 +197,7 @@ python-stdnum==2.2
 sounddevice==0.5.5; sys_platform != "linux"
 soundfile==0.14.0; python_version >= "3.10" and sys_platform != "linux"
 limits==5.8.0; python_version >= "3.10"
-great-expectations==1.18.2; python_version >= "3.10" and python_version < "3.14"
+great-expectations==1.19.0; python_version >= "3.10" and python_version < "3.14"
 # Starting with tensorflow 2.17.0, macOS wheels are provided only for arm64 (x86_64 is deprecated).
 tensorflow==2.21.0; python_version >= "3.10" and python_version < "3.14" and (sys_platform != "darwin" or platform_machine == "arm64")
 # TensorRT wheels are platform-specific and typically require NVIDIA drivers/CUDA at runtime.
@@ -218,7 +218,7 @@ fastparquet==2026.5.0; python_version >= "3.10"
 librosa==0.11.0
 sympy==1.14.0; python_version >= "3.9"
 xyzservices==2026.3.0
-mistune==3.3.2; python_version >= "3.9"
+mistune==3.3.3; python_version >= "3.9"
 pydantic==2.13.4; python_version >= "3.9"
 jsonschema==4.26.0; python_version >= "3.10"
 psutil==7.2.2
@@ -260,14 +260,14 @@ pypylon==26.6; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.16; sys_platform == "win32" and python_version >= "3.9"
 opentelemetry-sdk==1.43.0; python_version >= "3.10"
-xarray==2026.4.0; python_version >= "3.11"
+xarray==2026.7.0; python_version >= "3.11"
 tables==3.11.1; python_version >= "3.11"
 schwifty==2026.7.1; python_version >= "3.10"
 patool==4.0.5; python_version >= "3.11"
 yapf==0.43.0
 xmlschema==4.3.2; python_version >= "3.10"
 pysaml2==7.5.4; python_version >= "3.9"
-toga==0.5.5; python_version >= "3.10"
+toga==0.5.6; python_version >= "3.10"
 numbers-parser==4.18.5; python_version >= "3.10"
 fsspec==2026.6.0; python_version >= "3.10"
 zarr==3.2.1; python_version >= "3.12"
@@ -275,7 +275,7 @@ intake==2.0.9; python_version >= "3.10"
 h3==4.5.0; python_version >= "3.10"
 selectolax==0.4.10; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
-niquests==3.20.0
+niquests==3.20.1
 emoji==2.15.0
 tkinterweb[recommended]==4.25.3; python_version >= "3.9" or sys_platform != "win32"
 tkinterweb-tkhtml==2.1.1; python_version >= "3.9" or sys_platform != "win32"
