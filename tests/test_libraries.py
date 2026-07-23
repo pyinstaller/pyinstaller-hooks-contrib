@@ -3472,7 +3472,6 @@ def test_plum(pyi_builder):
 """)
 
 
-@xfail(reason='Requires hook for procrastinate.')
 @importorskip("procrastinate")
 def test_procrastinate(pyi_builder):
     pyi_builder.test_source("""

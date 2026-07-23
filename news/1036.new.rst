@@ -1,0 +1,3 @@
+Add hook for ``procrastinate``, which loads its SQL data files via
+``importlib.resources`` and its own distribution metadata via
+``importlib.metadata``.
