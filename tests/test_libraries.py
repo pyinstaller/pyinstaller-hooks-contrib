@@ -3470,3 +3470,20 @@ def test_plum(pyi_builder):
         s = Serializer()
         assert s.serialize(timedelta(seconds=90)) == "0:01:30"
 """)
+
+
+@importorskip("procrastinate")
+def test_procrastinate(pyi_builder):
+    pyi_builder.test_source("""
+        import procrastinate
+        from procrastinate.schema import SchemaManager
+
+        # procrastinate.metadata reads the distribution metadata when the top-level package is imported.
+        assert procrastinate.__version__
+
+        # procrastinate.sql parses sql/queries.sql when it is imported.
+        assert 'defer_jobs' in procrastinate.sql.queries
+
+        # sql/schema.sql is read on demand.
+        assert 'CREATE TABLE' in SchemaManager.get_schema()
+""")

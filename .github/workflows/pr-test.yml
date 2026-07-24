@@ -192,6 +192,10 @@ jobs:
           # test_langchain_with_ollama requires langchain-ollama to be installed together with langchain
           pip show -qq langchain && pip install --prefer-binary langchain-ollama
 
+          # procrastinate depends on psycopg[pool]; the binary extra is required so that psycopg can be
+          # imported without a system-provided libpq.
+          pip show -qq procrastinate && pip install --prefer-binary psycopg[binary]
+
           # Install PyInstaller
           pip install ${{ matrix.pyinstaller }}
 
