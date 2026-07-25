@@ -3661,3 +3661,53 @@ def test_pymupdf(pyi_builder, tmp_path):
 
     text = txt_filename.read_text(encoding='utf-8').strip()
     assert text == 'The quick brown fox jumped over the lazy dog'
+
+
+@importorskip("openstack")
+def test_openstacksdk(pyi_builder):
+    pyi_builder.test_source("""
+        # openstack/version.py reads the openstacksdk distribution metadata via pbr
+        # when it is imported.
+        from openstack import version
+        assert version.__version__
+
+        # openstack/config reads its defaults.json from the package directory.
+        from openstack.config import defaults
+        assert 'auth_type' in defaults.get_defaults()
+
+        # Vendor profiles are JSON and YAML files in config/vendors/, globbed
+        # at run-time; a missing profile is silently ignored.
+        from openstack.config import vendors
+        assert vendors.get_profile('ovh')
+        assert vendors.get_profile('limestonenetworks')
+
+        # Service proxies live in per-service sub-packages that are resolved by
+        # service type and microversion at run-time.
+        from openstack.block_storage.v3 import _proxy
+        assert _proxy.Proxy
+""")
+
+
+@importorskip("keystoneauth1")
+def test_keystoneauth1(pyi_builder):
+    pyi_builder.test_source("""
+        # Auth plugins are loaded through stevedore, from the keystoneauth1.plugin
+        # entry-point namespace, so the distribution metadata is required.
+        from keystoneauth1 import loading
+        assert loading.get_plugin_loader('password')
+        assert loading.get_plugin_loader('v3token')
+""")
+
+
+@importorskip("os_service_types")
+def test_os_service_types(pyi_builder):
+    pyi_builder.test_source("""
+        import os_service_types
+
+        # os_service_types/__init__.py reads the distribution metadata via pbr.
+        assert os_service_types.__version__
+
+        # The service-type authority is shipped as a JSON data file.
+        service_types = os_service_types.ServiceTypes()
+        assert service_types.get_service_type('compute') == 'compute'
+""")
