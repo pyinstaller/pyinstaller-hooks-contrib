@@ -1,0 +1,6 @@
+Add hooks for ``openstacksdk`` (imported as ``openstack``), ``keystoneauth1`` and
+``os_service_types``. These collect the distribution metadata that ``pbr`` reads
+at import time, the data files that ``openstack.config`` (including its vendor
+profiles) and ``os_service_types`` load at run-time, and the service proxies and
+stevedore auth plugins that are resolved by name and are therefore invisible to
+static analysis.
