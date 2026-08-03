@@ -27,7 +27,7 @@ cmocean==4.0.3
 # compliance-checker requires cf-units, so same constraints apply.
 compliance-checker==6.1.0; sys_platform != "win32" and python_version >= "3.10"
 # cryptography >= 49.0.0 does not provide x86_64 macOS wheels anymore
-cryptography==49.0.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine == "arm64")
+cryptography==50.0.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine == "arm64")
 dash==4.4.1; python_version >= "3.9"
 dash-bootstrap-components==2.0.4; python_version >= "3.9"
 dash-uploader==0.6.1
