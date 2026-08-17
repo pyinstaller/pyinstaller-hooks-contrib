@@ -216,7 +216,7 @@ scikit-learn==1.9.0; python_version >= "3.11"
 scikit-image==0.26.0; python_version >= "3.11"
 customtkinter==6.0.0
 fastparquet==2026.5.0; python_version >= "3.10"
-librosa==1.0.0
+librosa==1.0.0; python_version >= "3.12"
 sympy==1.14.0; python_version >= "3.9"
 xyzservices==2026.3.0
 mistune==3.3.4; python_version >= "3.9"
