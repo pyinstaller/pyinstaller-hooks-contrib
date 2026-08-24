@@ -1,3 +1,32 @@
+2026.7 (2026-08-24)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``procrastinate``, which loads its SQL data files via
+  ``importlib.resources`` and its own distribution metadata via
+  ``importlib.metadata``. (`#1036
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1036>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Add hook for ``timezonefinder_data`` to collect data files that were
+  previously part of ``timezonefinder`` and were moved into dedicated
+  package/dist with v8.3.0. (`#1041
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1041>`_)
+* Update ``pygraphviz`` hook for improved compatibility with ``pygraphviz``
+  2.0 and its new binary wheels that are available for macOS, Windows, and
+  Linux. (`#1031
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1031>`_)
+* Update ``tkinterdnd2`` hook to detect Tcl/Tk 9 and collect the
+  ``{platform}-{arch}-tcl9`` sub-directory, which became available in
+  ``tkinterdnd2`` v0.6.0 wheels. (`#1033
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1033>`_)
+
+
 2026.6 (2026-06-08)
 -------------------
 
