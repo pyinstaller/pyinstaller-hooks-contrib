@@ -1,0 +1,2 @@
+Add hook for ``py_ecc`` to collect metadata (required starting with
+``py-ecc`` v7.0.0).

@@ -286,6 +286,7 @@ pandas_flavor==0.8.1; python_version >= "3.10"
 # globus-sdk depends on cryptography, which does not provide x86_64 macOS wheels anymore.
 globus-sdk==4.9.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine == "arm64")
 adbc-driver-manager==1.12.0; python_version >= "3.10"
+py-ecc==8.0.0
 
 # ------------------- Platform (OS) specifics
 
