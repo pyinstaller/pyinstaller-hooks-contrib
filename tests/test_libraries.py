@@ -1734,6 +1734,13 @@ def test_pylibmagic(pyi_builder):
     """)
 
 
+@importorskip('fastmcp')
+def test_fastmcp(pyi_builder):
+    pyi_builder.test_source("""
+        import fastmcp
+    """)
+
+
 @importorskip('fastparquet')
 def test_fastparquet(pyi_builder):
     pyi_builder.test_source("""

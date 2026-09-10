@@ -1,0 +1,1 @@
+Add a hook for ``fastmcp``, which has a metadata.
