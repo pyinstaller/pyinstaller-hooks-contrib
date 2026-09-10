@@ -1,0 +1,2 @@
+Add a hook for ``fastmcp``, which requires metadata for ``fastmcp-slim``
+or ``fastmcp`` dist to be collected.
