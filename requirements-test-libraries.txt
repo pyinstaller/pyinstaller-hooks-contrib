@@ -215,6 +215,7 @@ minecraft-launcher-lib==8.0; python_version >= "3.10"
 scikit-learn==1.9.0; python_version >= "3.11"
 scikit-image==0.26.0; python_version >= "3.11"
 customtkinter==6.0.0
+fastmcp==4.0.3; python_version >= "3.10"
 fastparquet==2026.5.0; python_version >= "3.10"
 # librosa depends on numba, which in turn depends on up-to-date llvmlite, which stopped providing x86_64 wheels for macOS.
 librosa==1.0.0; python_version >= "3.12" and (sys_platform != "darwin" or platform_machine == "arm64")
