@@ -280,9 +280,10 @@ selectolax==0.4.11; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
 niquests==3.21.1; python_version >= "3.9"
 emoji==2.15.0
-tkinterweb[recommended]==4.25.4; python_version >= "3.9" or sys_platform != "win32"
-tkinterweb-tkhtml==2.1.1; python_version >= "3.9" or sys_platform != "win32"
-tkinterweb-tkhtml-extras==1.3.1; python_version >= "3.9" or sys_platform != "win32"
+# At the time of writing, tkinterweb-tkhtml does not provide Tcl9 builds, which is used by GHA python 3.14 on Windows and macOS
+tkinterweb[recommended]==4.25.4; python_version < "3.14" or sys_platform == "linux"
+tkinterweb-tkhtml==2.1.1; python_version < "3.14" or sys_platform == "linux"
+tkinterweb-tkhtml-extras==1.3.1; python_version < "3.14" or sys_platform == "linux"
 pandas_flavor==0.8.1; python_version >= "3.10"
 # globus-sdk depends on cryptography, which does not provide x86_64 macOS wheels anymore.
 globus-sdk==4.9.0; python_version >= "3.9" and (sys_platform != "darwin" or platform_machine == "arm64")
