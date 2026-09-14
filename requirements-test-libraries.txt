@@ -174,7 +174,7 @@ trame-vtklocal==1.5.0; python_version >= "3.10"
 trame-vuetify==3.2.6; python_version >= "3.9"
 trame-xterm==1.1.0; python_version >= "3.9"
 Twisted==26.4.0; python_version >= "3.9"
-tzdata==2026.3
+tzdata==2026.4
 Unidecode==1.4.0
 urllib3-future==2.24.907
 uuid6==2025.0.1; python_version >= "3.9"
