@@ -1,0 +1,2 @@
+Update ``numcodecs`` hook for compatibility with ``numcodecs`` v0.17.0,
+which tries to obtain its version from dist metadata.
