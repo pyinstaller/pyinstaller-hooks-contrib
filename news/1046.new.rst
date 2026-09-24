@@ -1,0 +1,4 @@
+Add hook for ``sentry_sdk.integrations.mcp`` to collect metadata of
+``mcp`` dist, if available; the version information is required by the
+integration module's initialization code. Fixes run-time error when
+building with both ``sentry_sdk`` and ``mcp`` installed.
