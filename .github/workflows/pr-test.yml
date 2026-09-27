@@ -196,6 +196,9 @@ jobs:
           # imported without a system-provided libpq.
           pip show -qq procrastinate && pip install --prefer-binary psycopg[binary]
 
+          # test_duckdb_read_json requires both duckdb and fsspec
+          pip show -qq duckdb && pip install --prefer-binary fsspec
+
           # Install PyInstaller
           pip install ${{ matrix.pyinstaller }}
 
