@@ -20,6 +20,8 @@ env:
   PYINSTALLER_STRICT_BUNDLE_CODESIGN_ERROR: 1
   # Enable strict verification of macOS bundles w.r.t. the code-signing requirements.
   PYINSTALLER_VERIFY_BUNDLE_SIGNATURE: 1
+  # Use minimal compression for speed
+  PYINSTALLER_ZLIB_COMPRESSION_LEVEL: 1
 
 permissions:
   contents: read # to fetch code (actions/checkout)
