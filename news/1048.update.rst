@@ -1,0 +1,2 @@
+Update hooks for `trame` and `pyvista` in order to restore out-of-the-box
+functionality of `pyvista.Plotter`.
