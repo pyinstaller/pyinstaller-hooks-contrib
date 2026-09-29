@@ -10,9 +10,12 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import collect_data_files
+from PyInstaller.utils.hooks import collect_data_files, copy_metadata
 
 datas = [
     *collect_data_files("trame_vtk", subdir="modules"),
     *collect_data_files("trame_vtk", subdir="tools"),
 ]
+
+# Valid version information might be required by other modules (for example, `trame_pyvista.widgets`).
+datas += copy_metadata("trame-vtk")
