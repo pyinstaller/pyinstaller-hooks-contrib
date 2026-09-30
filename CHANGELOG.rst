@@ -1,3 +1,40 @@
+2026.8 (2026-09-30)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``fastmcp``, which requires metadata for ``fastmcp-slim``
+  or ``fastmcp`` dist to be collected. (`#1044
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1044>`_)
+* Add hook for ``py_ecc`` to collect metadata (required starting with
+  ``py-ecc`` v7.0.0). (`#1043
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1043>`_)
+* Add hook for ``sentry_sdk.integrations.mcp`` to collect metadata of
+  ``mcp`` dist, if available; the version information is required by the
+  integration module's initialization code. Fixes run-time error when
+  building with both ``sentry_sdk`` and ``mcp`` installed. (`#1046
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1046>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``numcodecs`` hook for compatibility with ``numcodecs`` v0.17.0,
+  which tries to obtain its version from dist metadata. (`#1046
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1046>`_)
+* Update hooks for `trame` and `pyvista` in order to restore out-of-the-box
+  functionality of `pyvista.Plotter`. (`#1048
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1048>`_)
+* Update the ``duckdb`` hook to collect all submodules from the package, as
+  some of them (for example, ``duckdb.filesystem``) are referenced only from
+  binary extensions. Fixes ``_duckdb.InvalidInputException: Invalid Input
+  Error: This operation could not be completed because required module
+  'fsspec' is not installed`` error when trying to load data from a file
+  (e.g., a JSON file). (`#1047
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1047>`_)
+
+
 2026.7 (2026-08-24)
 -------------------
 

@@ -1,6 +1,0 @@
-Update the ``duckdb`` hook to collect all submodules from the package, as
-some of them (for example, ``duckdb.filesystem``) are referenced only from
-binary extensions. Fixes ``_duckdb.InvalidInputException: Invalid Input
-Error: This operation could not be completed because required module
-'fsspec' is not installed`` error when trying to load data from a file
-(e.g., a JSON file).
