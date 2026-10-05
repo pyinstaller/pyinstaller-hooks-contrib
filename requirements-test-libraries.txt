@@ -75,7 +75,7 @@ nest-asyncio==1.6.0
 netCDF4==1.7.4; python_version >= "3.10"
 nicegui==3.17.1; python_version >= "3.10"
 # numba depends on up-to-date llvmlite, which stopped providing x86_64 wheels for macOS.
-numba==0.67.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine == "arm64")
+numba==0.68.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine == "arm64")
 numcodecs==0.17.0; python_version >= "3.12"
 Office365-REST-Python-Client==3.2.0; python_version >= "3.9"
 openpyxl==3.1.5
