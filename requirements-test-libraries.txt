@@ -58,6 +58,8 @@ graphql-query==1.4.0
 python-gitlab==8.6.0; python_version >= "3.10"
 h5py==3.16.0; python_version >= "3.10"
 humanize==4.16.0; python_version >= "3.10"
+imageio==2.37.2; python_version >= "3.9" and python_version < "3.11"
+imageio==2.38.1; python_version >= "3.11"
 iminuit==2.33.0; python_version >= "3.9"
 iso639-lang==2.6.3; python_version >= "3.9"
 kaleido==1.4.0; python_version >= "3.9"

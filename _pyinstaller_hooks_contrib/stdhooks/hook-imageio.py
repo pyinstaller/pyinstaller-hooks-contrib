@@ -12,9 +12,12 @@
 
 # Hook for imageio: http://imageio.github.io/
 
-from PyInstaller.utils.hooks import collect_data_files, collect_submodules
+from PyInstaller.utils.hooks import collect_data_files, collect_submodules, copy_metadata
 
 datas = collect_data_files('imageio', subdir="resources")
+
+# ImageIO reads its version from the distribution metadata at import time.
+datas += copy_metadata('imageio')
 
 # imageio plugins are imported lazily since ImageIO version 2.11.0.
 # They are very light-weight, so we can safely include all of them.
