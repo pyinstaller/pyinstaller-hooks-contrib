@@ -1,0 +1,2 @@
+Update the ``imageio`` hook to collect distribution metadata, fixing import
+failures in frozen applications with ImageIO 2.37.2 and newer.

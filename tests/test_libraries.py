@@ -1686,6 +1686,18 @@ def test_minecraft_launcher_lib(pyi_builder):
     )
 
 
+@importorskip('imageio')
+def test_imageio(pyi_builder):
+    pyi_builder.test_source("""
+        import imageio.v3 as iio
+        import numpy as np
+
+        image = np.arange(60, dtype=np.uint8).reshape(4, 5, 3)
+        encoded = iio.imwrite("<bytes>", image, extension=".png")
+        np.testing.assert_array_equal(iio.imread(encoded, extension=".png"), image)
+        """)
+
+
 @importorskip('moviepy')
 def test_moviepy(pyi_builder):
     # `moviepy.editor` tries to access the `moviepy.video.fx` and `moviepy.audio.fx` plugins/modules via the
