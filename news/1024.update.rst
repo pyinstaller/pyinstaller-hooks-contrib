@@ -1,1 +1,0 @@
-Update ``zeroconf`` hook to collect cythonized package submodules.
