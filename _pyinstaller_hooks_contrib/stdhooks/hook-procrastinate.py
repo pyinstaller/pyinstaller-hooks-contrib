@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------
-# Copyright (c) 2024 PyInstaller Development Team.
+# Copyright (c) 2026 PyInstaller Development Team.
 #
 # This file is distributed under the terms of the GNU General Public
 # License (version 2.0 or later).
@@ -12,10 +12,10 @@
 
 from PyInstaller.utils.hooks import collect_data_files, copy_metadata
 
-datas = [
-    *collect_data_files("trame_vtk", subdir="modules"),
-    *collect_data_files("trame_vtk", subdir="tools"),
-]
+# `procrastinate` reads its SQL files (`sql/queries.sql`, `sql/schema.sql`, and the migrations in
+# `sql/migrations`) via `importlib.resources`.
+datas = collect_data_files('procrastinate')
 
-# Valid version information might be required by other modules (for example, `trame_pyvista.widgets`).
-datas += copy_metadata("trame-vtk")
+# `procrastinate.metadata` reads the distribution metadata via `importlib.metadata` when the top-level
+# `procrastinate` package is imported.
+datas += copy_metadata('procrastinate')

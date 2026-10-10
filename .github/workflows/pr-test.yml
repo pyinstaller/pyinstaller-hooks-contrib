@@ -20,6 +20,8 @@ env:
   PYINSTALLER_STRICT_BUNDLE_CODESIGN_ERROR: 1
   # Enable strict verification of macOS bundles w.r.t. the code-signing requirements.
   PYINSTALLER_VERIFY_BUNDLE_SIGNATURE: 1
+  # Use minimal compression for speed
+  PYINSTALLER_ZLIB_COMPRESSION_LEVEL: 1
 
 permissions:
   contents: read # to fetch code (actions/checkout)
@@ -80,7 +82,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y wget apt-transport-https
           wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-          echo "96d4ce68b93dc10afc6189bb01a90043bebbd2b8bdc1b62065e12c87a0757b25  mariadb_repo_setup" | sha256sum -c -
+          echo "b54c87edfe81b9837ef44a4a4f39383dd8df32776e6a18c0743a5d3ece044ac3  mariadb_repo_setup" | sha256sum -c -
           chmod +x mariadb_repo_setup
           sudo ./mariadb_repo_setup --skip-maxscale
           sudo apt-get install -y libmariadb3 libmariadb-dev
@@ -179,7 +181,7 @@ jobs:
           # tests for various trame-* packages require base trame package as well
           pip show -qq trame-client trame-code trame-components trame-datagrid trame-deckgl trame-formkit trame-grid-layout trame-iframe trame-keycloak trame-leaflet trame-markdown trame-matplotlib trame-mesh-streamer trame-plotly trame-pvui trame-quasar trame-rca trame-router trame-server trame-simput trame-tauri trame-tweakpane trame-vega trame-vtk trame-vtk3d trame-vtklocal trame-vuetify trame-xterm && pip install --prefer-binary trame
 
-          pip show -qq trame-vtk && pip install --prefer-binary vtk pyvista nest-asyncio2 trame-vuetify
+          pip show -qq trame-vtk && pip install --prefer-binary vtk pyvista nest-asyncio2 trame-vuetify trame-pyvista
           pip show -qq trame-mesh-streamer && pip install --prefer-binary vtk
           pip show -qq trame-rca && pip install --prefer-binary vtk
 
@@ -191,6 +193,13 @@ jobs:
 
           # test_langchain_with_ollama requires langchain-ollama to be installed together with langchain
           pip show -qq langchain && pip install --prefer-binary langchain-ollama
+
+          # procrastinate depends on psycopg[pool]; the binary extra is required so that psycopg can be
+          # imported without a system-provided libpq.
+          pip show -qq procrastinate && pip install --prefer-binary psycopg[binary]
+
+          # test_duckdb_read_json requires both duckdb and fsspec
+          pip show -qq duckdb && pip install --prefer-binary fsspec
 
           # Install PyInstaller
           pip install ${{ matrix.pyinstaller }}

@@ -11,6 +11,7 @@
 # ------------------------------------------------------------------
 
 import pathlib
+import sys
 
 import pytest
 from PyInstaller import isolated
@@ -534,6 +535,7 @@ def test_pydantic(pyi_builder):
 @requires('google-api-python-client >= 2.0.0')
 def test_googleapiclient(pyi_builder):
     pyi_builder.test_source("""
+        import os
         from googleapiclient import discovery, discovery_cache
 
         API_NAME = "youtube"
@@ -1140,18 +1142,127 @@ def test_twisted_custom_reactor(pyi_builder):
 
 @importorskip("pygraphviz")
 def test_pygraphviz_bundled_programs(pyi_builder):
+    @isolated.decorate
+    def _get_programs_info():
+        import pathlib
+
+        import pygraphviz
+
+        # Check if this is pygraphviz >= 2.0
+        try:
+            pygraphviz_v2 = int(pygraphviz.__version__.split('.')[0]) >= 2
+        except Exception:
+            pygraphviz_v2 = False
+
+        # Check if pygraphviz/bin directory exists
+        try:
+            import pygraphviz.bin
+            bin_dir = pygraphviz.bin.__path__[0]
+            bin_dir = pathlib.Path(bin_dir).resolve()
+        except ImportError:
+            bin_dir = None
+
+        if pygraphviz_v2:
+            # https://github.com/pygraphviz/pygraphviz/blob/pygraphviz-2.0/pygraphviz/agraph.py#L1334-L1343
+            program_names = (
+                "gc",
+                "acyclic",
+                "gvpr",
+                "gvcolor",
+                "ccomps",
+                "sccmap",
+                "tred",
+                "unflatten",
+            )
+        else:
+            # https://github.com/pygraphviz/pygraphviz/blob/pygraphviz-1.14/pygraphviz/agraph.py#L1330-L1348
+            program_names = (
+                "neato",
+                "dot",
+                "twopi",
+                "circo",
+                "fdp",
+                "nop",
+                "osage",
+                "patchwork",
+                "gc",
+                "acyclic",
+                "gvpr",
+                "gvcolor",
+                "ccomps",
+                "sccmap",
+                "tred",
+                "sfdp",
+                "unflatten",
+            )
+
+        # Resolve every program using pygraphviz's own resolver, and determine if executable is bundled with package
+        # (PyPI wheel) or taken from system.
+        program_info = {}
+        g = pygraphviz.agraph.AGraph()
+        for program_name in program_names:
+            try:
+                program_executable = g._get_prog(program_name)
+            except Exception:
+                continue
+
+            program_path = pathlib.Path(program_executable).resolve()
+            is_bundled = bool(bin_dir and bin_dir in program_path.parents)
+
+            program_info[program_name] = is_bundled
+
+        return program_info
+
+    # Look up graphviz executable information, and require at least one executable to be successfully resolved.
+    programs_info = _get_programs_info()
+    assert programs_info
+
+    app_args = []
+    print("graphviz programs:", file=sys.stderr)
+    for name, bundled in programs_info.items():
+        print(f" - {name}, {'bundled' if bundled else 'system'}", file=sys.stderr)
+        app_args.append(f"{name}:{int(bundled)}")
+
     # Test that the frozen application is using collected graphviz executables instead of system-installed ones.
     pyi_builder.test_source("""
         import sys
-        import os
+        import pathlib
+
         import pygraphviz
 
-        bundle_dir = os.path.normpath(sys._MEIPASS)
-        dot_path = os.path.normpath(pygraphviz.AGraph()._get_prog('dot'))
+        if len(sys.argv) < 2:
+            raise SystemExit("At least one program name needs to be provided!")
 
-        assert os.path.commonprefix([dot_path, bundle_dir]) == bundle_dir, \
-            f"Invalid program path: {dot_path}!"
-        """)
+        top_level_app_dir = pathlib.Path(sys._MEIPASS).resolve()
+        package_dir = pathlib.Path(pygraphviz.__path__[0]).resolve()
+
+        print(f"Top-level application directory: {str(top_level_app_dir)!r}", file=sys.stderr)
+        print(f"Package directory: {str(package_dir)!r}", file=sys.stderr)
+
+        g = pygraphviz.agraph.AGraph()
+        for arg in sys.argv[1:]:
+            # Parse argument: "name:bundled", where bundled=<0|1>
+            tokens = arg.split(':')
+            assert len(tokens) == 2, "Invalid argument: should be in name:bundled format!"
+            name = tokens[0]
+            package_bundled = bool(int(tokens[1]))
+
+            print(f"Checking: {name!r}, package-bundled: {package_bundled}", file=sys.stderr)
+
+            program_path = pygraphviz.AGraph()._get_prog(name)
+            program_path = pathlib.Path(program_path).resolve()
+
+            print(f"Path: {str(program_path)!r}", file=sys.stderr)
+
+            # Ensure the program is part of frozen application bundle
+            assert top_level_app_dir in program_path.parents, \
+                f"Path for program {name!r}, {str(program_path)!r} is not rooted in top-level application directory!"
+
+            # If program was originally bundled with the package, ensure that this is still the case.
+            if package_bundled:
+                assert package_dir in program_path.parents, \
+                    f"Path for program {name!r}, {str(program_path)!r} is not rooted in package directory!"
+        """, app_args=app_args)
 
 
 @importorskip("pygraphviz")
@@ -1429,7 +1540,7 @@ def test_hydra(pyi_builder):
 
         config_path = os.path.join(os.path.dirname(__file__), 'conf')
 
-        @hydra.main(config_path=config_path, config_name="config")
+        @hydra.main(version_base=None, config_path=config_path, config_name="config")
         def my_app(cfg):
             assert cfg.test_group.secret_string == 'secret'
             assert cfg.test_group.secret_number == 123
@@ -1466,6 +1577,9 @@ def test_spiceypy(pyi_builder):
 def test_discid(pyi_builder):
     pyi_builder.test_source(
         """
+        import os
+        import sys
+
         # Basic import check
         import discid
 
@@ -1528,6 +1642,7 @@ def test_compliance_checker(pyi_builder):
 
     pyi_builder.test_source("""
         import os
+        import sys
         import json
 
         import compliance_checker
@@ -1569,6 +1684,18 @@ def test_minecraft_launcher_lib(pyi_builder):
         assert isinstance(minecraft_launcher_lib.utils.get_library_version(), str)
         '''
     )
+
+
+@importorskip('imageio')
+def test_imageio(pyi_builder):
+    pyi_builder.test_source("""
+        import imageio.v3 as iio
+        import numpy as np
+
+        image = np.arange(60, dtype=np.uint8).reshape(4, 5, 3)
+        encoded = iio.imwrite("<bytes>", image, extension=".png")
+        np.testing.assert_array_equal(iio.imread(encoded, extension=".png"), image)
+        """)
 
 
 @importorskip('moviepy')
@@ -1616,6 +1743,13 @@ def test_pylibmagic(pyi_builder):
         for file in files_to_assert:
             assert os.path.isfile(f"{pylibmagic_data_path}/{file}"), \
                 f"The {file} was not collected to _MEIPASS!"
+    """)
+
+
+@importorskip('fastmcp')
+def test_fastmcp(pyi_builder):
+    pyi_builder.test_source("""
+        import fastmcp
     """)
 
 
@@ -3091,6 +3225,36 @@ def test_duckdb(pyi_builder):
     """)
 
 
+@importorskip('duckdb')
+@importorskip('fsspec')
+def test_duckdb_read_json(pyi_builder):
+    pyi_builder.test_source("""
+        import io
+
+        import duckdb
+
+        json_data = '''
+            [
+              {
+                "id": 1,
+                "title": "Entry #1",
+              },
+              {
+                "id": 2,
+                "title": "Entry #2",
+              },
+              {
+                "id": 3,
+                "title": "Entry #3",
+              }
+            ]
+        '''
+
+        data = duckdb.read_json(io.StringIO(json_data))
+        print(f"Records: {data.fetchall()}")
+    """)
+
+
 @importorskip('dateparser')
 def test_dateparser(pyi_builder):
     pyi_builder.test_source("""
@@ -3334,7 +3498,12 @@ def test_imagingcontrol4(pyi_builder):
 """)
 
 
+# Run this test only in onedir mode; both to avoid running out of space on the CI runner (tesnorrt 11.0.0.114
+# installation in a clean virtual environment takes 4.3 GB; a onedir build is 4.3 GB as well; onefile build
+# has 3.5 GB PKG in build directory , and 3.5 GB executable in dist directory) and also because onefile build
+# is pushing close to the 4 GB limit size on PyInstaller executables...
 @importorskip("tensorrt")
+@pytest.mark.parametrize('pyi_builder', ['onedir'], indirect=True)
 def test_tensorrt(pyi_builder):
     pyi_builder.test_source("""
         import tensorrt as trt
@@ -3358,4 +3527,39 @@ def test_plum(pyi_builder):
 
         s = Serializer()
         assert s.serialize(timedelta(seconds=90)) == "0:01:30"
+""")
+
+
+@importorskip("procrastinate")
+def test_procrastinate(pyi_builder):
+    pyi_builder.test_source("""
+        import procrastinate
+        from procrastinate.schema import SchemaManager
+
+        # procrastinate.metadata reads the distribution metadata when the top-level package is imported.
+        assert procrastinate.__version__
+
+        # procrastinate.sql parses sql/queries.sql when it is imported.
+        assert 'defer_jobs' in procrastinate.sql.queries
+
+        # sql/schema.sql is read on demand.
+        assert 'CREATE TABLE' in SchemaManager.get_schema()
+""")
+
+
+@importorskip("py_ecc")
+def test_py_ecc(pyi_builder):
+    pyi_builder.test_source("""
+        from py_ecc.bls import G2ProofOfPossession as bls_pop
+
+        private_key = 5566
+        public_key = bls_pop.SkToPk(private_key)
+
+        message = b'Message to be signed'
+
+        # Signing
+        signature = bls_pop.Sign(private_key, message)
+
+        # Verifying
+        assert bls_pop.Verify(public_key, message, signature)
 """)

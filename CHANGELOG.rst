@@ -1,3 +1,92 @@
+2026.8 (2026-09-30)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``fastmcp``, which requires metadata for ``fastmcp-slim``
+  or ``fastmcp`` dist to be collected. (`#1044
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1044>`_)
+* Add hook for ``py_ecc`` to collect metadata (required starting with
+  ``py-ecc`` v7.0.0). (`#1043
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1043>`_)
+* Add hook for ``sentry_sdk.integrations.mcp`` to collect metadata of
+  ``mcp`` dist, if available; the version information is required by the
+  integration module's initialization code. Fixes run-time error when
+  building with both ``sentry_sdk`` and ``mcp`` installed. (`#1046
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1046>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``numcodecs`` hook for compatibility with ``numcodecs`` v0.17.0,
+  which tries to obtain its version from dist metadata. (`#1046
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1046>`_)
+* Update hooks for `trame` and `pyvista` in order to restore out-of-the-box
+  functionality of `pyvista.Plotter`. (`#1048
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1048>`_)
+* Update the ``duckdb`` hook to collect all submodules from the package, as
+  some of them (for example, ``duckdb.filesystem``) are referenced only from
+  binary extensions. Fixes ``_duckdb.InvalidInputException: Invalid Input
+  Error: This operation could not be completed because required module
+  'fsspec' is not installed`` error when trying to load data from a file
+  (e.g., a JSON file). (`#1047
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1047>`_)
+
+
+2026.7 (2026-08-24)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``procrastinate``, which loads its SQL data files via
+  ``importlib.resources`` and its own distribution metadata via
+  ``importlib.metadata``. (`#1036
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1036>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Add hook for ``timezonefinder_data`` to collect data files that were
+  previously part of ``timezonefinder`` and were moved into dedicated
+  package/dist with v8.3.0. (`#1041
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1041>`_)
+* Update ``pygraphviz`` hook for improved compatibility with ``pygraphviz``
+  2.0 and its new binary wheels that are available for macOS, Windows, and
+  Linux. (`#1031
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1031>`_)
+* Update ``tkinterdnd2`` hook to detect Tcl/Tk 9 and collect the
+  ``{platform}-{arch}-tcl9`` sub-directory, which became available in
+  ``tkinterdnd2`` v0.6.0 wheels. (`#1033
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1033>`_)
+
+
+2026.6 (2026-06-08)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix bug in ``pyi_rth_osgeo.py`` where the "GDAL_DATA" environment variable
+  would not get set on Windows when building from a conda environment. (`#1021
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1021>`_)
+* Update ``dash`` hook for compatibility with ``dash`` 4.2.0. (`#1026
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1026>`_)
+* Update ``toga`` hooks for compatibility with ``toga`` 0.5.4. (`#1016
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1016>`_)
+
+
+Project & Process
+~~~~~~~~~~~~~~~~~
+
+* Exclude generated Python bytecode files from source and wheel distributions.
+  (`#1019
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1019>`_)
+
+
 2026.5 (2026-05-04)
 -------------------
 
