@@ -61,7 +61,7 @@ humanize==4.16.0; python_version >= "3.10"
 imageio==2.38.1; python_version >= "3.11"
 iminuit==2.33.0; python_version >= "3.9"
 iso639-lang==2.6.3; python_version >= "3.9"
-kaleido==1.4.0; python_version >= "3.9"
+kaleido==1.5.0; python_version >= "3.9"
 langdetect==1.0.9
 mariadb==1.1.14; sys_platform != "darwin" and python_version >= "3.9"
 markdown==3.11; python_version >= "3.11"
