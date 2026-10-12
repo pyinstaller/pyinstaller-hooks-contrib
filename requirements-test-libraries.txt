@@ -120,7 +120,7 @@ pystray==0.19.5
 pythonnet==3.2.1; python_version >= "3.11"
 pytokens==0.4.1
 pytz==2026.5
-pyvista==0.49.0; python_version >= "3.10"
+pyvista==0.49.1; python_version >= "3.10"
 pyzmq==27.2.0; python_version >= "3.9"
 PyQt5==5.15.11
 qtmodern==0.2.0
