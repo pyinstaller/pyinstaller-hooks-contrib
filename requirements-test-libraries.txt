@@ -139,7 +139,7 @@ srsly==2.5.4; python_version >= "3.9"  # pyup: != 3.0.0  # yanked
 sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
 # tableauhyperapi 0.0.26516 and 0.0.26558 do not provide macOS wheels anymore...
-tableauhyperapi==0.0.26700; sys_platform != "darwin"
+tableauhyperapi==0.0.26784; sys_platform != "darwin"
 # thinc depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
