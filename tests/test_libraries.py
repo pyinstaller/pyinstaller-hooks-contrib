@@ -1368,6 +1368,17 @@ def test_graphql_query(pyi_builder):
         """)
 
 
+@importorskip('pygeoops')
+def test_pygeoops(pyi_builder):
+    pyi_builder.test_source("""
+        import pygeoops
+        from shapely.geometry import LineString, box
+
+        centerline = pygeoops.centerline(box(0, 0, 10, 2))
+        assert centerline.equals(LineString([(1, 1), (9, 1)]))
+        """)
+
+
 @importorskip('shapely')
 def test_shapely(pyi_builder):
     pyi_builder.test_source("""
