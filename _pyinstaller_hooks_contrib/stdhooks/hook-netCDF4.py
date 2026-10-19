@@ -22,10 +22,13 @@ if is_module_satisfies("netCDF4 < 1.4.0"):
 else:
     hiddenimports += ['cftime']
 
-# Starting with netCDF 1.6.4, certifi is a hidden import made in
-# netCDF4/_netCDF4.pyx.
+# Starting with netCDF 1.6.4, certifi is a hidden import made in netCDF4/_netCDF4.pyx.
 if is_module_satisfies("netCDF4 >= 1.6.4"):
     hiddenimports += ['certifi']
+
+# Starting with netCDF 1.7.5, packaging.version is a hidden import made in netCDF4/_netCDF4.pyx.
+if is_module_satisfies("netCDF4 >= 1.7.5"):
+    hiddenimports += ['packaging.version']
 
 # netCDF 1.6.2 is the first version that uses `delvewheel` for bundling DLLs in Windows PyPI wheels. While contemporary
 # PyInstaller versions automatically pick up DLLs from external `netCDF4.libs` directory, this does not work on Anaconda
