@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import is_module_satisfies
+from PyInstaller.utils.hooks import collect_submodules, is_module_satisfies
 
 hiddenimports = []
 datas = []
@@ -27,5 +27,8 @@ if is_module_satisfies("chardet >= 7.0.0"):
 # `__mypyc` counterparts (for example the `chardet.pipeline.orchestrator` extension references a corresponding
 # `chardet.pipeline.orchestrator__mypyc` extension). Ensure all these are collected by collecting submodules.
 if is_module_satisfies("chardet >= 7.4.0"):
-    from PyInstaller.utils.hooks import collect_submodules
     hiddenimports += collect_submodules('chardet.pipeline')
+
+# Starting with v7.7.0, the same applies to chardet.models...
+if is_module_satisfies("chardet >= 7.7.0"):
+    hiddenimports += collect_submodules('chardet.models')
