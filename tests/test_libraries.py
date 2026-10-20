@@ -3554,3 +3554,21 @@ def test_py_ecc(pyi_builder):
         # Verifying
         assert bls_pop.Verify(public_key, message, signature)
 """)
+
+
+@importorskip("dogpile.cache")
+def test_dogpile_cache(pyi_builder):
+    pyi_builder.test_source("""
+        from dogpile.cache import make_region
+        from dogpile.cache.api import NO_VALUE
+
+        # Resolve backends by their registered names, as applications do.
+        region = make_region().configure('dogpile.cache.null')
+        region.set('key', 'value')
+        assert region.get('key') is NO_VALUE
+
+        for backend in ('dogpile.cache.memory', 'dogpile.cache.memory_pickle'):
+            region = make_region().configure(backend)
+            region.set('key', {'value': 42})
+            assert region.get('key') == {'value': 42}
+""")
