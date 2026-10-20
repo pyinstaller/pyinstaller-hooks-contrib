@@ -1,3 +1,26 @@
+2026.9 (2026-10-20)
+-------------------
+
+New hooks
+~~~~~~~~~
+
+* Add a hook for ``dogpile.cache`` to collect its dynamically loaded cache
+  backends. (`#1053
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1053>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``chardet`` hook for compatibility with ``chardet`` v7.7.0. (`#1054
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1054>`_)
+* Update ``netCDF4`` hook for compatibility with ``netCDF4`` v1.7.5. (`#1054
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1054>`_)
+* Update the ``imageio`` hook to collect distribution metadata, fixing import
+  failures in frozen applications with ImageIO 2.37.2 and newer. (`#1050
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1050>`_)
+
+
 2026.8 (2026-09-30)
 -------------------
 
