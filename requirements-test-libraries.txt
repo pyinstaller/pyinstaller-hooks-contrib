@@ -6,10 +6,10 @@ adbutils==2.12.0; sys_platform != "darwin" or platform_machine != "arm64"
 APScheduler==3.11.3
 backports.zoneinfo==0.2.1; python_version < "3.9"
 black==26.10.1; python_version >= "3.10"
-bokeh==3.10.0; python_version >= "3.12"
+bokeh==3.10.1; python_version >= "3.12"
 boto==2.49.0
-boto3==1.43.111; python_version >= "3.10"
-botocore==1.43.111; python_version >= "3.10"
+boto3==1.43.114; python_version >= "3.10"
+botocore==1.43.114; python_version >= "3.10"
 branca==0.8.2
 cairocffi==1.7.1
 # On macOS, CairoSVG requires cairo installed via Homebrew; on arm64, the Homebrew is
@@ -18,8 +18,8 @@ CairoSVG==2.9.1; (sys_platform != "darwin" or platform_machine != "arm64") and p
 cassandra-driver==3.30.1; python_version >= "3.10"
 capstone==5.0.9
 cf-units==3.3.1; sys_platform != "win32" and python_version >= "3.11"
-cftime==1.6.6; python_version >= "3.11"
-chardet==7.6.0; python_version >= "3.10"
+cftime==1.6.6.1; python_version >= "3.11"
+chardet==7.7.0; python_version >= "3.10"
 charset_normalizer==3.5.2; python_version >= "3.9"
 cloudpickle==3.1.2
 cloudscraper==1.2.71
@@ -42,7 +42,7 @@ discid==1.4.2; sys_platform != "win32" and (sys_platform != "darwin" or platform
 dogpile.cache==1.5.0; python_version >= "3.10"
 duckdb==1.5.6; python_version >= "3.10"
 # eccodes does not provide win64 wheels for python 3.14 yet; on other platforms, python >= 3.10 is required due to use of findlibs.
-eccodes==2.49.0; (sys_platform == "win32" and python_version >= "3.9" and python_version < "3.14") or (sys_platform != "win32" and python_version >= "3.10")
+eccodes==2.50.0; (sys_platform == "win32" and python_version >= "3.9" and python_version < "3.14") or (sys_platform != "win32" and python_version >= "3.10")
 eth_typing==6.0.0; python_version >= "3.10"
 eth_utils==6.0.0; python_version >= "3.10"
 fabric==3.2.3
@@ -50,7 +50,7 @@ fake_useragent==2.2.0; python_version >= "3.9"
 falcon==4.4.0; python_version >= "3.9"
 fiona==1.10.1; sys_platform != "win32"
 folium==0.20.0; python_version >= "3.9"
-frictionless==5.20.0; python_version >= "3.9"
+frictionless==5.21.0; python_version >= "3.9"
 ffpyplayer==4.5.3; python_version >= "3.9"
 geopandas==1.2.0; sys_platform != "win32" and python_version >= "3.11"
 google-api-python-client==2.201.0; python_version >= "3.10"
@@ -65,7 +65,7 @@ iso639-lang==2.6.3; python_version >= "3.9"
 kaleido==1.5.0; python_version >= "3.9"
 langdetect==1.0.9
 mariadb==1.1.14; sys_platform != "darwin" and python_version >= "3.9"
-markdown==3.11; python_version >= "3.11"
+markdown==3.11.1; python_version >= "3.11"
 # MetPy is no longer runable with PyInstaller since matplotlib made pillow a dependency. See #395.
 # MetPy==1.2.0
 # moviepy depends on imageio-ffmpeg, which does not provide binary wheels for arm64 macOS
@@ -74,34 +74,34 @@ mnemonic==0.21
 msoffcrypto-tool==6.0.0; python_version >= "3.10"
 narwhals==2.27.1; python_version >= "3.10"
 nest-asyncio==1.6.0
-netCDF4==1.7.4; python_version >= "3.10"
+netCDF4==1.7.5; python_version >= "3.11"
 nicegui==3.18.0; python_version >= "3.10"
 # numba depends on up-to-date llvmlite, which stopped providing x86_64 wheels for macOS.
 numba==0.68.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine == "arm64")
 numcodecs==0.17.0; python_version >= "3.12"
-Office365-REST-Python-Client==3.2.0; python_version >= "3.9"
+Office365-REST-Python-Client==3.3.0; python_version >= "3.9"
 openpyxl==3.1.5
 pandas==3.0.6; python_version >= "3.11"  # pyup: != 3.0.4  # yanked
 panel==1.9.4; python_version >= "3.10"
 pandera==0.34.1; python_version >= "3.10"
 passlib==1.7.4
-pendulum==3.2.0; python_version >= "3.9"
+pendulum==3.3.0; python_version >= "3.10"
 phonenumbers==9.0.41
 pingouin==0.7.0; python_version >= "3.11"
 pinyin==0.4.0
-platformdirs==4.13.0; python_version >= "3.11"
+platformdirs==4.13.5; python_version >= "3.11"
 plotly==7.1.0
 plum-dispatch==2.10.1; python_version >= "3.10"
 procrastinate==3.10.0; python_version >= "3.10"
 publicsuffix2==2.20191221
 pycparser==3.11; python_version >= "3.10"
-pycryptodome==3.24.1
+pycryptodome==4.1.0; python_version >= "3.9"
 pycryptodomex==3.24.1
 pydicom==3.0.2; python_version >= "3.10"
 pyecharts==2.1.0
 pyexcelerate==0.13.0
 pyexcel_ods==0.6.0
-pygraphviz==2.0.3; python_version >= "3.10"
+pygraphviz==2.0.4; python_version >= "3.10"
 pylibmagic==0.5.0; sys_platform != "win32"
 pylint==4.1.3; python_version >= "3.10"
 pymeshlab==2025.7.post1; python_version >= "3.10"
@@ -140,7 +140,7 @@ srsly==2.5.4; python_version >= "3.9"  # pyup: != 3.0.0  # yanked
 sv-ttk==2.6.1; python_version >= "3.9"
 swagger-spec-validator==3.0.4
 # tableauhyperapi 0.0.26516 and 0.0.26558 do not provide macOS wheels anymore...
-tableauhyperapi==0.0.26784; sys_platform != "darwin"
+tableauhyperapi==0.0.26963; sys_platform != "darwin"
 # thinc depends on blis; contemporary versions of blis do not provide wheels for python 3.9 anymore, and fail to build from sdist.
 # The latest version of thinc itself (9.1.1) provides wheels only for python <= 3.12
 thinc==9.1.1; python_version >= "3.10" and python_version < "3.13"
@@ -173,7 +173,7 @@ trame-tweakpane==0.1.3; python_version >= "3.9"
 trame-vega==2.1.1; python_version >= "3.9"
 trame-vtk==2.11.17; python_version >= "3.10"
 trame-vtk3d==0.1.0; python_version >= "3.9"
-trame-vtklocal==1.7.1; python_version >= "3.10"
+trame-vtklocal==1.7.2; python_version >= "3.10"
 trame-vuetify==3.3.0; python_version >= "3.10"
 trame-xterm==1.1.0; python_version >= "3.9"
 Twisted==26.4.0; python_version >= "3.9"
@@ -186,7 +186,7 @@ vtk==9.7.0; python_version >= "3.10"
 # installed in /opt/homebrew/lib and does not seem to be visible to non-Homebrew python.
 weasyprint==70.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine != "arm64")
 web3==8.0.0; python_version >= "3.10"
-websockets==17.2; python_version >= "3.11"
+websockets==17.3; python_version >= "3.11"
 zeep==4.3.3; python_version >= "3.10"
 pypsexec==0.3.0
 # mimesis 12.x dropped support for python < 3.10
@@ -219,13 +219,13 @@ minecraft-launcher-lib==8.0; python_version >= "3.10"
 scikit-learn==1.9.1; python_version >= "3.11"
 scikit-image==0.26.0; python_version >= "3.11"
 customtkinter==6.0.0
-fastmcp==4.1.0; python_version >= "3.10"
+fastmcp==4.1.1; python_version >= "3.10"
 fastparquet==2026.9.0; python_version >= "3.10"
 # librosa depends on numba, which in turn depends on up-to-date llvmlite, which stopped providing x86_64 wheels for macOS.
 librosa==1.0.0; python_version >= "3.12" and (sys_platform != "darwin" or platform_machine == "arm64")
 sympy==1.14.0; python_version >= "3.9"
 xyzservices==2026.9.1
-mistune==3.3.4; python_version >= "3.9"
+mistune==3.4.0; python_version >= "3.10"
 pydantic==2.14.1; python_version >= "3.10"
 jsonschema==4.26.0; python_version >= "3.10"
 psutil==7.2.2
@@ -243,10 +243,10 @@ python-crfsuite==0.9.12; python_version >= "3.10"
 pymorphy3==2.0.6
 pymorphy3-dicts-uk==2.4.1.1.1663094765
 sudachipy==0.7.0; python_version >= "3.10"
-sudachidict-core==20260723.1; python_version >= "3.10"
-sudachidict-small==20260723.1; python_version >= "3.10"
-sudachidict-full==20260723.1; python_version >= "3.10"
-wxPython==4.3.1; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.10"  # PyPI provides binary wheels for Windows and macOS
+sudachidict-core==20261015; python_version >= "3.10"
+sudachidict-small==20261015; python_version >= "3.10"
+sudachidict-full==20261015; python_version >= "3.10"
+wxPython==4.3.2; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.10"  # PyPI provides binary wheels for Windows and macOS
 laonlp==1.3.0; python_version >= "3.9"
 pythainlp==5.4.0; python_version >= "3.9"
 gmsh==4.15.2
@@ -270,19 +270,19 @@ comtypes==1.4.17; sys_platform == "win32" and python_version >= "3.9"
 opentelemetry-sdk==1.45.1; python_version >= "3.10"
 xarray==2026.9.0; python_version >= "3.11"
 tables==3.11.1; python_version >= "3.11"
-schwifty==2026.7.3; python_version >= "3.10"
+schwifty==2026.10.0; python_version >= "3.11"
 patool==4.1.0; python_version >= "3.12"
 yapf==0.43.0
 xmlschema==4.3.2; python_version >= "3.10"
 pysaml2==7.5.5; python_version >= "3.9"
 toga==0.5.7; python_version >= "3.11"
 # numbers-parser depends on cryptography, which does not provide x86_64 macOS wheels anymore.
-numbers-parser==4.20.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine == "arm64")
+numbers-parser==4.22.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine == "arm64")
 fsspec==2026.9.0; python_version >= "3.10"
 zarr==3.4.1; python_version >= "3.12"
 intake==2.0.9; python_version >= "3.10"
 h3==4.5.0; python_version >= "3.10"
-selectolax==1.0.0; python_version >= "3.9"
+selectolax==1.0.1; python_version >= "3.9"
 ruamel.yaml.string==0.1.1
 niquests==3.21.2; python_version >= "3.9"
 emoji==2.16.0
@@ -318,7 +318,7 @@ pymediainfo==7.0.1; (sys_platform == "darwin" or sys_platform == "win32") and py
 
 # The required library can be installed with "brew install labstreaminglayer/tap/lsl" on macOS, or with "conda install liblsl" on any platform.
 # On Windows, the library is bundled with PyPI wheels.
-pylsl==1.18.5; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.10"
+pylsl==1.18.6; (sys_platform == "darwin" or sys_platform == "win32") and python_version >= "3.10"
 
 # PyTaskbar only runs on Windows
 PyTaskbar==0.1.1; sys_platform == "win32" and python_version >= "3.10"
