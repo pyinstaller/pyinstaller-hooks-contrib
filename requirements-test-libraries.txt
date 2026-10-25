@@ -105,6 +105,7 @@ pygraphviz==2.0.4; python_version >= "3.10"
 pylibmagic==0.5.0; sys_platform != "win32"
 pylint==4.1.3; python_version >= "3.10"
 pymeshlab==2025.7.post1; python_version >= "3.10"
+pymupdf==2.0; python_version >= "3.11" and (sys_platform != "darwin" or platform_machine == "arm64")
 pypdfium2==5.14.0
 pypemicro==0.1.11
 pyphen==0.18.1; python_version >= "3.10"
