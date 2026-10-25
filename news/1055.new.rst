@@ -1,0 +1,2 @@
+Add hook for ``pymupdf`` to collect data files that were added
+in ``pymupdf`` v2.0.

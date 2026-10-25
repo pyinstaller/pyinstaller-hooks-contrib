@@ -3572,3 +3572,44 @@ def test_dogpile_cache(pyi_builder):
             region.set('key', {'value': 42})
             assert region.get('key') == {'value': 42}
 """)
+
+
+@importorskip("pymupdf")
+def test_pymupdf(pyi_builder, tmp_path):
+    pdf_filename = tmp_path / 'output.pdf'
+    txt_filename = tmp_path / 'output.txt'
+
+    pyi_builder.test_source("""
+        # Based on examples at https://pymupdf.readthedocs.io/en/latest/the-basics.html
+        import sys
+
+        import pymupdf
+
+        pdf_filename = sys.argv[1]
+        txt_filename = sys.argv[2]
+
+        # Create new document and add a page with text
+        doc = pymupdf.open()
+        n = doc.insert_page(
+            -1,  # default insertion point
+            text="The quick brown fox jumped over the lazy dog",
+            fontsize=11,
+            width=595,
+            height=842,
+            fontname="Helvetica",  # default font
+            fontfile=None,  # any font file name
+            color=(0, 0, 0),  # text color (RGB)
+        )
+        doc.save(pdf_filename)
+
+        # Re-open the generated document and extract the text
+        doc = pymupdf.open(pdf_filename)
+        with open(txt_filename, "w") as fp:
+            for page in doc:
+                text = page.get_text()
+                fp.write(text)
+        doc.close()
+    """, app_args=[str(pdf_filename), str(txt_filename)])
+
+    text = txt_filename.read_text(encoding='utf-8').strip()
+    assert text == 'The quick brown fox jumped over the lazy dog'
