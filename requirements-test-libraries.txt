@@ -265,7 +265,7 @@ pygwalker==0.5.0.1
 eth-hash==0.8.0; python_version >= "3.10"
 # apkutils depends on cryptography, which does not provide x86_64 macOS wheels anymore.
 apkutils==4.0.0; python_version >= "3.10" and (sys_platform != "darwin" or platform_machine == "arm64")
-pypylon==26.8; python_version >= "3.9"
+pypylon==26.9; python_version >= "3.9"
 python-pptx==1.0.2
 comtypes==1.4.17; sys_platform == "win32" and python_version >= "3.9"
 opentelemetry-sdk==1.45.1; python_version >= "3.10"
