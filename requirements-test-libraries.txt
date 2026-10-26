@@ -94,7 +94,7 @@ plotly==7.1.0
 plum-dispatch==2.10.1; python_version >= "3.10"
 procrastinate==3.10.0; python_version >= "3.10"
 publicsuffix2==2.20191221
-pycparser==3.11; python_version >= "3.10"
+pycparser==3.12; python_version >= "3.10"
 pycryptodome==4.1.0; python_version >= "3.9"
 pycryptodomex==3.24.1
 pydicom==3.0.2; python_version >= "3.10"
