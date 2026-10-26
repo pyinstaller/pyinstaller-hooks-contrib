@@ -288,7 +288,7 @@ ruamel.yaml.string==0.1.1
 niquests==3.21.2; python_version >= "3.9"
 emoji==2.16.0
 # At the time of writing, tkinterweb-tkhtml does not provide Tcl9 builds, which is used by GHA python 3.14 on Windows and macOS
-tkinterweb[recommended]==4.25.4; python_version < "3.14" or sys_platform == "linux"
+tkinterweb[recommended]==4.25.5; python_version < "3.14" or sys_platform == "linux"
 tkinterweb-tkhtml==2.2.2; python_version < "3.14" or sys_platform == "linux"
 tkinterweb-tkhtml-extras==1.4.0; python_version < "3.14" or sys_platform == "linux"
 pandas_flavor==0.8.1; python_version >= "3.10"
