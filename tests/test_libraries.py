@@ -15,6 +15,7 @@ import sys
 
 import pytest
 from PyInstaller import isolated
+from PyInstaller.utils.conftest import AppBuilder
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
 from PyInstaller.utils.hooks import (
     can_import_module,
@@ -22,6 +23,17 @@ from PyInstaller.utils.hooks import (
     is_module_satisfies,
 )
 from PyInstaller.utils.tests import importorskip, importable, requires, xfail
+
+
+@importorskip('webrtcvad')
+def test_webrtcvad(pyi_builder: AppBuilder) -> None:
+    pyi_builder.test_source(
+        '''
+        import webrtcvad
+        assert webrtcvad.__version__ != "unknown"
+        assert not webrtcvad.Vad(1).is_speech(bytes(640), 16000)
+        '''
+    )
 
 
 @importorskip('fiona')
