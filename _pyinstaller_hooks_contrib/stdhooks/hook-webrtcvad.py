@@ -10,6 +10,11 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
+from _pyinstaller_hooks_contrib.compat import importlib_metadata
 from PyInstaller.utils.hooks import copy_metadata
 
-datas = copy_metadata('webrtcvad')
+# Both webrtcvad and webrtcvad-wheels install the webrtcvad module, but its
+# version lookup uses the metadata of the distribution that provided it.
+datas = []
+for distribution in importlib_metadata.packages_distributions().get('webrtcvad', []):
+    datas += copy_metadata(distribution)

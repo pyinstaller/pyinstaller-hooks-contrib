@@ -24,6 +24,17 @@ from PyInstaller.utils.hooks import (
 from PyInstaller.utils.tests import importorskip, importable, requires, xfail
 
 
+@importorskip('webrtcvad')
+def test_webrtcvad(pyi_builder):
+    pyi_builder.test_source(
+        '''
+        import webrtcvad
+        assert webrtcvad.__version__ != "unknown"
+        assert not webrtcvad.Vad(1).is_speech(bytes(640), 16000)
+        '''
+    )
+
+
 @importorskip('fiona')
 def test_fiona(pyi_builder):
     pyi_builder.test_source(
