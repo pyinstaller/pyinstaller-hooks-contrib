@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.compat import importlib_metadata
+from _pyinstaller_hooks_contrib.compat import importlib_metadata
 from PyInstaller.utils.hooks import copy_metadata
 
 # Both webrtcvad and webrtcvad-wheels install the webrtcvad module, but its

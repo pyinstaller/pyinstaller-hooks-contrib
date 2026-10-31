@@ -15,7 +15,6 @@ import sys
 
 import pytest
 from PyInstaller import isolated
-from PyInstaller.utils.conftest import AppBuilder
 from PyInstaller.compat import is_darwin, is_linux, is_py39, is_win
 from PyInstaller.utils.hooks import (
     can_import_module,
@@ -26,7 +25,7 @@ from PyInstaller.utils.tests import importorskip, importable, requires, xfail
 
 
 @importorskip('webrtcvad')
-def test_webrtcvad(pyi_builder: AppBuilder) -> None:
+def test_webrtcvad(pyi_builder):
     pyi_builder.test_source(
         '''
         import webrtcvad
