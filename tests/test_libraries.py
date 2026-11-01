@@ -2899,12 +2899,49 @@ def test_pypdfium2(pyi_builder):
     """)
 
 
+# python-dateutil 3.0.0 deprecated dateutil.zoneinfo and removed the package-provided timezone info file.
 @importorskip('dateutil')
-def test_dateutil(pyi_builder):
+@pytest.mark.skipif(is_module_satisfies('python-dateutil >= 3.0.0'),
+                    reason='This test is not applicable to python-dateutil >= 3.0.0')
+def test_dateutil_zoneinfo(pyi_builder):
     pyi_builder.test_source("""
         from dateutil.zoneinfo import getzoneinfofile_stream
 
         assert getzoneinfofile_stream()
+    """)
+
+
+@importorskip('dateutil')
+def test_dateutil(pyi_builder):
+    pyi_builder.test_source("""
+        import sys
+
+        import dateutil.parser
+        import dateutil.rrule
+        import dateutil.relativedelta
+
+        reference_datetime = dateutil.parser.parse("Sat Oct 11 17:13:46 UTC 2003")
+        reference_date = reference_datetime.date()
+
+        print(f"Reference date: {reference_date}", file=sys.stderr)
+
+        year = dateutil.rrule.rrule(
+            dateutil.rrule.YEARLY,
+            dtstart=reference_datetime,
+            bymonth=8,
+            bymonthday=13,
+            byweekday=dateutil.rrule.FR,
+        )[0].year
+
+        print(f"Year with next Aug 13th on a Friday is: {year}", file=sys.stderr)
+
+        rdelta = dateutil.relativedelta.relativedelta(
+            dateutil.easter.easter(year),
+            reference_date,
+        )
+
+        print(f"How far is the Easter of that year: {rdelta}", file=sys.stderr)
+        print(f"And the Easter of that year is: {reference_date + rdelta}", file=sys.stderr)
     """)
 
 
