@@ -51,7 +51,7 @@ falcon==4.4.0; python_version >= "3.9"
 fiona==1.10.1; sys_platform != "win32"
 folium==0.20.0; python_version >= "3.9"
 frictionless==5.21.0; python_version >= "3.9"
-ffpyplayer==4.5.3; python_version >= "3.9"
+ffpyplayer==4.5.4; python_version >= "3.9"
 geopandas==1.2.0; sys_platform != "win32" and python_version >= "3.11"
 google-api-python-client==2.201.0; python_version >= "3.10"
 grapheme==0.6.0
