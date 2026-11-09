@@ -610,6 +610,10 @@ if vtk_version is not None and vtk_version >= (9, 6, 0):
     # New
     _module_dependencies['vtkmodules.vtkSerializationManager'] = ['vtkmodules.vtkCommonDataModel']
 
+# Additional hidden imports for vtk 9.7.1
+if vtk_version is not None and vtk_version >= (9, 7, 1):
+    _module_dependencies['vtkmodules.vtkFiltersTemporal'] += ['vtkmodules.vtkCommonCache']
+
 
 def add_vtkmodules_dependencies(hook_file):
     # Find the module underlying this vtkmodules hook: change `/path/to/hook-vtkmodules.blah.py` to `vtkmodules.blah`.
