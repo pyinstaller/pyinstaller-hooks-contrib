@@ -1,3 +1,25 @@
+2026.10 (2026-11-10)
+--------------------
+
+New hooks
+~~~~~~~~~
+
+* Add hook for ``pymupdf`` to collect data files that were added
+  in ``pymupdf`` v2.0. (`#1055
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1055>`_)
+
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Fix ``webrtcvad`` metadata collection when the module is provided by the
+  ``webrtcvad-wheels`` distribution. (`#1057
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1057>`_)
+* Update ``vtkmodules`` hooks for compatibility with ``vtk`` 9.7.1 and later.
+  (`#1060
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/1060>`_)
+
+
 2026.9 (2026-10-20)
 -------------------
 

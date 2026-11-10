@@ -1,2 +1,0 @@
-Fix ``webrtcvad`` metadata collection when the module is provided by the
-``webrtcvad-wheels`` distribution.
