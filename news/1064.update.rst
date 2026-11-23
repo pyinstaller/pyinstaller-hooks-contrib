@@ -1,0 +1,1 @@
+Update ``sentry`` hook for compatibility with ``sentry-sdk`` 3.0.0.
