@@ -30,9 +30,13 @@ def _get_integration_modules():
 
     # _AUTO_ENABLING_INTEGRATIONS is a list of strings with default enabled integrations
     # https://github.com/getsentry/sentry-python/blob/c6b6f2086b58ffc674df5c25a600b8a615079fb5/sentry_sdk/integrations/__init__.py#L54-L66
-    integrations = getattr(si, '_AUTO_ENABLING_INTEGRATIONS', [])
+    auto_integrations = getattr(si, '_AUTO_ENABLING_INTEGRATIONS', [])
+
+    # Starting with sentry-sdk 1.3.0, default integrations are available in _DEFAULT_INTEGRATIONS.
+    default_integrations = getattr(si, '_DEFAULT_INTEGRATIONS', [])
 
     # The list contains fully-qualified class names; turn them into module names by removing the last component.
+    integrations = default_integrations + auto_integrations
     return [integration_name.rsplit('.', maxsplit=1)[0] for integration_name in integrations]
 
 
