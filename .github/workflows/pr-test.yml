@@ -201,6 +201,9 @@ jobs:
           # test_duckdb_read_json requires both duckdb and fsspec
           pip show -qq duckdb && pip install --prefer-binary fsspec
 
+          # test_kaleido requires pandas and plotly in addition to kaleido
+          pip show -qq kaleido && pip install --prefer-binary pandas plotly
+
           # Install PyInstaller
           pip install ${{ matrix.pyinstaller }}
 

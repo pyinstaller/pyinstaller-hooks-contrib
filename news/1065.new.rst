@@ -1,0 +1,5 @@
+Add run-time hook for ``choreographer`` to intercept and divert the attempt
+to execute ``choreographer/browsers/_unix_pipe_chromium_wrapper.py`` via
+``sys.executable`` on non-Windows systems. Fixes endless process spawn
+loop when using ``kaleido`` (which in turn uses ``choreographer``) on
+non-Windows systems.
