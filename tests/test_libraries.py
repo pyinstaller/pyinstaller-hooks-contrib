@@ -1046,12 +1046,20 @@ def test_pyphen(pyi_builder):
 @importorskip("pandas")
 @importorskip("plotly")
 @importorskip("kaleido")
-def test_kaleido(pyi_builder):
+def test_kaleido(pyi_builder, tmp_path):
+    output_file = tmp_path / "figure.png"
     pyi_builder.test_source("""
+        import sys
         import plotly.express as px
+
+        print("Creating figure...", file=sys.stderr)
         fig = px.scatter(px.data.iris(), x="sepal_length", y="sepal_width", color="species")
-        fig.write_image("figure.png", engine="kaleido")
-        """)
+
+        output_filename = sys.argv[1]
+        print(f"Saving figure to {output_filename!r}", file=sys.stderr)
+        fig.write_image(output_filename)
+    """, app_args=[str(output_file)])
+    assert output_file.is_file()
 
 
 @pytest.mark.skipif(is_win,
